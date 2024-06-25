@@ -1,0 +1,61 @@
+"@REF: https://github.com/chenxuan520/vim-fast/blob/master/vimrc-no-plug
+"@REF: https://github.com/nobodyzxc/ConfigFiles/blob/master/vimrc.vim
+"@REF: https://github.com/skywind3000/vim/tree/master
+
+let g:loaded_gzip=1
+let g:loaded_tar=1
+let g:loaded_tarPlugin=1
+let g:loaded_zip=1
+let g:loaded_zipPlugin=1
+let g:loaded_getscript=1
+let g:loaded_getscriptPlugin=1
+let g:loaded_vimball=1
+let g:loaded_vimballPlugin=1
+let g:loaded_2html_plugin=1
+let g:loaded_logiPat=1
+let g:loaded_rrhelper=1
+let g:loaded_netrw=1
+let g:loaded_netrwPlugin=1
+let g:loaded_netrwSettings=1
+let g:loaded_netrwFileHandlers=1
+let g:loaded_matchit=1
+let g:loaded_matchparen=1
+let g:did_install_default_menus=1
+set nocompatible
+set clipboard^=unnamed,unnamedplus
+set ruler
+set number
+set relativenumber
+set laststatus=2
+set showtabline=2
+set timeout
+set timeoutlen=500
+set ttimeout
+set ttimeoutlen=0
+set autoindent
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set backspace=eol,start,indent
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set autoread
+set autowrite
+set nobackup
+set noswapfile
+set noundofile
+set wildmenu
+set background=dark
+syntax on
+filetype on
+filetype indent plugin on
+if has("autocmd")
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+  autocmd BufReadPost,InsertEnter * setlocal formatoptions-=r formatoptions-=c formatoptions-=o " This auto-command may be reset by some plugins
+endif
+let mapleader="\\"
+let maplocalleader=" "
+nnoremap <leader>re :edit $MYVIMRC<CR>
+imap jk <Esc>

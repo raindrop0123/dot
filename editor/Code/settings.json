@@ -1,0 +1,188 @@
+{
+    // Builtin
+    "editor.cursorStyle": "block",
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', Consolas, Monaco, Menlo, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 13,
+    "editor.guides.bracketPairs": true,
+    "editor.guides.bracketPairsHorizontal": true,
+    "editor.guides.highlightActiveIndentation": true,
+    "editor.lineHeight": 1.2,
+    "editor.lineNumbers": "relative",
+    "editor.minimap.enabled": true,
+    "editor.quickSuggestions": {
+        "other": "on",
+        "comments": "off",
+        "strings": "off"
+    },
+    "editor.renderWhitespace": "all",
+    "editor.rulers": [
+        80
+    ],
+    "editor.tabSize": 2,
+    "editor.tokenColorCustomizations": {
+        "textMateRules": []
+    },
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 80,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "files.autoSave": "afterDelay",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.{jpg, jpeg, png, gif, webp}": true,
+        "**/Thumbs.db": true
+    },
+    "search.showLineNumbers": true,
+    "search.smartCase": true,
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true
+    },
+    "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', Consolas, Monaco, Menlo, 'Courier New', monospace",
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.gpuAcceleration": "on",
+    "terminal.integrated.rightClickBehavior": "copyPaste",
+    "window.titleBarStyle": "custom",
+    "window.zoomLevel": -0.5,
+    "workbench.colorCustomizations": {
+        "statusBar.debuggingBackground": "#008989",
+        "statusBar.foreground": "#ffffff",
+        "statusBar.debuggingForeground": "#ffffff",
+        "statusBar.background": "#008989",
+        "statusBar.noFolderBackground": "#008989"
+    },
+    "workbench.iconTheme": "vs-seti",
+    "workbench.statusBar.visible": true,
+    "workbench.startupEditor": "none",
+    // PLUGIN: vim
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
+    "vim.cursorStylePerMode.insert": "line",
+    "vim.cursorStylePerMode.normal": "block",
+    "vim.cursorStylePerMode.replace": "block-outline",
+    "vim.cursorStylePerMode.visual": "block-outline",
+    "vim.cursorStylePerMode.visualblock": "block-outline",
+    "vim.cursorStylePerMode.visualline": "block-outline",
+    "vim.easymotion": true,
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.color": "#ff0000",
+    "vim.highlightedyank.textColor": "#ffffff",
+    "vim.highlightedyank.duration": 1000,
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.leader": "\\", // localleader not support yet
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "<leader>",
+                "<leader>"
+            ],
+            "commands": [
+                "workbench.action.showCommands"
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "editor.action.showHover"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "d"
+            ],
+            "commands": [
+                "editor.action.revealDefinition"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "t",
+                "a"
+            ],
+            "commands": [
+                "workbench.action.toggleActivityBarVisibility"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "t",
+                "n"
+            ],
+            "commands": [
+                "workbench.action.toggleSidebarVisibility"
+            ]
+        },
+    ],
+    "vim.showMarksInGutter": true,
+    "vim.smartRelativeLine": true,
+    "vim.sneak": true,
+    "vim.sneakReplacesF": true,
+    "vim.sneakUseIgnorecaseAndSmartcase": true,
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors.commandlineinprogress": [
+        "#444488",
+        "#ffffff"
+    ],
+    "vim.statusBarColors.insert": [
+        "#772255",
+        "#ffffff"
+    ],
+    "vim.statusBarColors.normal": [
+        "#225577",
+        "#ffffff"
+    ],
+    "vim.statusBarColors.replace": [
+        "#557722",
+        "#ffffff"
+    ],
+    "vim.statusBarColors.searchinprogressmode": [
+        "#e80074",
+        "#ffffff"
+    ],
+    "vim.statusBarColors.visual": [
+        "#008989",
+        "#ffffff"
+    ],
+    "vim.statusBarColors.visualblock": [
+        "#008989",
+        "#fdf6e3"
+    ],
+    "vim.statusBarColors.visualline": [
+        "#008989",
+        "#ffffff"
+    ],
+    "vim.useCtrlKeys": true,
+    "vim.useSystemClipboard": true,
+    "vim.visualstar": true,
+    "vim.whichwrap": "h,l,<,>,[,],~",
+    "interactiveWindow.executeWithShiftEnter": true,
+}
