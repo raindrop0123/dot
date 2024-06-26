@@ -48,6 +48,9 @@ set noswapfile
 set noundofile
 set wildmenu
 set background=dark
+if v:version >= 900
+  colorscheme retrobox
+endif
 syntax on
 filetype on
 filetype indent plugin on
