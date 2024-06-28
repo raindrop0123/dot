@@ -41,7 +41,7 @@ normal = { family = "JetBrainsMono Nerd Font", style = "Regular" } # Default for
 bold = { style = "Bold" }                                          # Default: Bold
 italic = { style = "Italic" }                                      # Default: Italic
 bold_italic = { style = "Bold Italic" }                            # Default: Bold Italic
-size = 7.50                                                        # Default: 11.25
+size = 12.00                                                       # Default: 11.25
 offset = { x = 0, y = 5 }                                          # Default: x = 0, y = 0
 glyph_offset = { x = 0, y = 0 }                                    # Default: x = 0, y = 0
 builtin_box_drawing = true                                         # Default: true
