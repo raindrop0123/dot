@@ -1,0 +1,80 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": [
+        {
+            "command": {
+                "action": "copy",
+                "singleLine": false
+            },
+            "keys": "ctrl+shift+c"
+        },
+        {
+            "command": "paste",
+            "keys": "ctrl+shift+v"
+        }
+    ],
+    "copyFormatting": "none",
+    "copyOnSelect": true,
+    "defaultProfile": "{67f3810e-485e-4542-a974-5990562ac00e}",
+    "experimental.rendering.forceFullRepaint": true,
+    "experimental.rendering.software": true,
+    "initialCols": 180,
+    "initialRows": 56,
+    "language": "en-US",
+    "launchMode": "maximized",
+    "newTabMenu": [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles": {
+        "defaults": {
+            "colorScheme": "SelfDefinedTheme",
+            "useAcrylic": true
+        },
+        "list": [
+            {
+                "colorScheme": "SelfDefinedTheme",
+                "cursorShape": "filledBox",
+                "experimental.retroTerminalEffect": false,
+                "font": {
+                    "face": "JetBrainsMono Nerd Font",
+                    "size": 10.0
+                },
+                "guid": "{67f3810e-485e-4542-a974-5990562ac00e}",
+                "hidden": false,
+                "intenseTextStyle": "all",
+                "name": "WindowTerminal.conf",
+                "startingDirectory": "%homepath%",
+                "useAcrylic": false
+            }
+        ]
+    },
+    "schemes": [
+        {
+            "background": "#000000",
+            "black": "#000000",
+            "blue": "#2472C8",
+            "brightBlack": "#666666",
+            "brightBlue": "#3B8EEA",
+            "brightCyan": "#29B8DB",
+            "brightGreen": "#23D18B",
+            "brightPurple": "#D670D6",
+            "brightRed": "#F14C4C",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#F5F543",
+            "cursorColor": "#FF0000",
+            "cyan": "#11A8CD",
+            "foreground": "#FFFFFF",
+            "green": "#0DBC79",
+            "name": "SelfDefinedTheme",
+            "purple": "#BC3FBC",
+            "red": "#CD3131",
+            "selectionBackground": "#FFFFFF",
+            "white": "#FFFFFF",
+            "yellow": "#E5E510"
+        },
+    ],
+    "themes": []
+}
