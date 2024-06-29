@@ -62,3 +62,56 @@ let mapleader="\\"
 let maplocalleader=" "
 nnoremap <leader>re :edit $MYVIMRC<CR>
 imap jk <Esc>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+cnoremap ( ()<left>
+cnoremap [ []<left>
+cnoremap { {}<left>
+let g:pair_map={'(':')','[':']','{':'}','"':'"',"'":"'",'<':'>','`':'`',}
+func! s:Judge(ch,mode)
+  if a:mode!='c'
+    let ch=getline('.')[col('.')-1]
+  else
+    let ch=getcmdline()[getcmdpos()-1]
+  endif
+  if a:ch=='"'||a:ch=="'"||a:ch=='`'
+    if ch!=a:ch
+      return a:ch.a:ch."\<left>"
+    endif
+  endif
+  if ch==a:ch
+    return "\<right>"
+  endif
+  return a:ch
+endfunc
+inoremap <expr><silent>" <sid>Judge('"', 'i')
+inoremap <expr><silent>` <sid>Judge('`', 'i')
+inoremap <expr><silent>' <sid>Judge("'", 'i')
+inoremap <expr><silent>> <sid>Judge('>', 'i')
+inoremap <expr><silent>) <sid>Judge(')', 'i')
+inoremap <expr><silent>} <sid>Judge('}', 'i')
+inoremap <expr><silent>] <sid>Judge(']', 'i')
+cnoremap <expr>" <sid>Judge('"', 'c')
+cnoremap <expr>` <sid>Judge('`', 'c')
+cnoremap <expr>' <sid>Judge("'", 'c')
+cnoremap <expr>> <sid>Judge('>', 'c')
+cnoremap <expr>) <sid>Judge(')', 'c')
+cnoremap <expr>} <sid>Judge('}', 'c')
+cnoremap <expr>] <sid>Judge(']', 'c')
+func! s:Backspace(mode)
+  if a:mode!='c'
+    let s:pair=getline('.')[col('.')-1]
+    let s:pair_l=getline('.')[col('.')-2]
+  else
+    let s:pair=getcmdline()[getcmdpos()-1]
+    let s:pair_l=getcmdline()[getcmdpos()-2]
+  endif
+  if has_key(g:pair_map, s:pair_l)&&(g:pair_map[s:pair_l]==s:pair)
+    return "\<right>\<bs>\<bs>"
+  else
+    return "\<bs>"
+  endif
+endfunc
+inoremap <expr><bs> <sid>Backspace('i')
+cnoremap <expr><bs> <sid>Backspace('c')
