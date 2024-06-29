@@ -201,7 +201,6 @@
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
     "vim.visualstar": true,
-    "vim.whichwrap": "h,l,<,>,[,],~",
     "interactiveWindow.executeWithShiftEnter": true,
     "editor.minimap.enabled": false,
 }
