@@ -1,16 +1,10 @@
-# GENERAL
-
 import = []
 shell = { program = "/bin/zsh", args = ["-l"] }
 working_directory = "None"                                         # Default: "None"
 live_config_reload = true                                          # Default: true
 ipc_socket = true                                                  # Default: true
 
-# ENV
-
 [env]
-
-# WINDOW
 
 [window]
 dimensions = { columns = 0, lines = 0 }                            # Default: columns = 0, lines = 0
@@ -28,13 +22,9 @@ decorations_theme_variant = "None"                                 # Default: "N
 resize_increments = false                                          # Default: false
 option_as_alt = "None"                                             # Default: "None"
 
-# SCROLLING
-
 [scrolling]
 history = 10000                                                    # Default: 10000
 multiplier = 3                                                     # Default: 3
-
-# FONT
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" } # Default for Linux/BSD: "monospace", Regular
@@ -45,8 +35,6 @@ size = 12.00                                                       # Default: 11
 offset = { x = 0, y = 5 }                                          # Default: x = 0, y = 0
 glyph_offset = { x = 0, y = 0 }                                    # Default: x = 0, y = 0
 builtin_box_drawing = true                                         # Default: true
-
-# COLORS
 
 [colors]
 transparent_background_colors = false                              # Default:
@@ -124,22 +112,15 @@ magenta = "#704d68"                                                # Default:
 cyan = "#4d7770"                                                   # Default:
 white = "#8e8e8e"                                                  # Default:
 
-# BELL
-
 [bell]
-
 animation = "EaseOutCubic"                                         # Default: "Linear"
 duration = 1                                                       # Default: 0
 color = "#d8d8d8"                                                  # Default: "#ffffff"
 command = "None"                                                   # Default: "None"
 
-# SELECTION
-
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\\t"                     # Default: ",│`|:\"' ()[]{}<>\\t"
 save_to_clipboard = false                                          # Default: false
-
-# CURSOR
 
 [cursor]
 style = { shape = "Block", blinking = "Always" }                   # Default: shape = "Block", blinking = "Off"
@@ -149,23 +130,15 @@ blink_timeout = 5                                                  # Default: 5
 unfocused_hollow = true                                            # Default: true
 thickness = 0.20                                                   # Default: 0.15
 
-# TERMINAL
-
 [terminal]
 osc52 = "CopyPaste"                                                # Default: "OnlyCopy"
-
-# MOUSE
 
 [mouse]
 hide_when_typing = true                                            # Default: false
 bindings = []
 
-# HINTS
-
 [hints]
 alphabet = "jfkdls;ahgurieowpq"                                    # Default: "jfkdls;ahgurieowpq"
-
-# KEYBOARD
 
 [keyboard]
 bindings = [
