@@ -50,6 +50,8 @@ set wildmenu
 set background=dark
 if v:version >= 900
   colorscheme retrobox
+else
+  colorscheme desert
 endif
 syntax on
 filetype on
@@ -62,6 +64,8 @@ let mapleader="\\"
 let maplocalleader=" "
 nnoremap <leader>re :edit $MYVIMRC<CR>
 imap jk <Esc>
+
+" PLUGIN: auto-pairs
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
@@ -115,3 +119,41 @@ func! s:Backspace(mode)
 endfunc
 inoremap <expr><bs> <sid>Backspace('i')
 cnoremap <expr><bs> <sid>Backspace('c')
+
+" PLUGIN: vim-commentary
+func! s:Commentary(line) abort
+	let s:num=a:line
+	let line=getline(s:num)
+	let uncomment=2
+	let [l, r] = split(substitute(substitute(substitute(&commentstring, '^$', '%s', ''), '\S\zs%s', ' %s', ''), '%s\ze\S', '%s ', ''), '%s', 1)
+	let line = matchstr(getline(s:num), '\S.*\s\@<!')
+	if l[-1:] ==# ' ' && stridx(line, l) == -1 && stridx(line, l[0:-2]) == 0
+    let l = l[:-2]
+  endif
+	if r[0] ==# ' ' && line[-strlen(r):] != r && line[1-strlen(r):] == r[1:]
+    let r = r[1:]
+  endif
+	if len(line) && (stridx(line, l) || line[strlen(line)-strlen(r):-1] != r)
+    let uncomment = 0
+  endif
+	let line=getline(s:num)
+	let [l, r] = split(substitute(substitute(substitute(&commentstring, '^$', '%s', ''), '\S\zs%s', ' %s', ''), '%s\ze\S', '%s ', ''), '%s', 1)
+	if strlen(r) > 2 && l.r !~# '\\'
+		let line = substitute(line,
+					\'\M' . substitute(l, '\ze\S\s*$', '\\zs\\d\\*\\ze', '') . '\|' . substitute(r, '\S\zs', '\\zs\\d\\*\\ze', ''),
+					\'\=substitute(submatch(0)+1-uncomment,"^0$\\|^-\\d*$","","")','g')
+	endif
+	if uncomment
+		let line = substitute(line, '\S.*\s\@<!','\=submatch(0)[strlen(l):-strlen(r)-1]', '')
+	else
+		let line = substitute(line, '^\%('.matchstr(getline(s:num),'^\s*').'\|\s*\)\zs.*\S\@<=', '\=l.submatch(0).r', '')
+	endif
+	call setline(s:num, line)
+endfunc
+func! s:VisualComment() abort
+	for temp in range(min([line('.'), line('v')]),max([line('.'), line('v')]))
+		call s:Commentary(temp)
+	endfor
+endfunc
+nnoremap <silent><nowait>gcc :call <sid>Commentary(line('.'))<cr>
+xnoremap <silent><nowait>gc :call <sid>VisualComment()<cr>
