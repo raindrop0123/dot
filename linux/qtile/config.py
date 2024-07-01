@@ -155,7 +155,7 @@ wl_input_rules = None
 wl_xcursor_theme = None
 wl_xcursor_size = 24
 
-# autostart
+# AUTOSTART #
 @hook.subscribe.startup_once
 def start_once():
     qtile.cmd_spawn('xclip')
