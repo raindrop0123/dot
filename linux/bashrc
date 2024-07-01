@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# [[HiDPI]]
+# HiDPI
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_SCALE_FACTOR=1.25
 export QT_ENABLE_HIGHDPI_SCALING=1
