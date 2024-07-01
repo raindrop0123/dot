@@ -2,7 +2,7 @@
 --@REF: https://astronvim.com/
 --@REF: https://github.com/nvim-lua/kickstart.nvim/tree/master
 
--- Options --
+-- OPTIONS --
 vim.opt.autoindent = true
 vim.opt.autoread = true
 vim.opt.autowrite = true
@@ -39,7 +39,7 @@ vim.opt.writebackup = false
 vim.opt.background = "dark"
 vim.cmd.colorscheme "habamax"
 
--- autocmd --
+-- AUTOCMD --
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
   callback = function()
@@ -87,14 +87,14 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
--- mapping --
+-- MAPPING --
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = ","
 vim.api.nvim_set_keymap("n", "<leader>rc", "<Cmd>source $MYVIMRC<CR>", { desc = "Reload Config" })
 vim.api.nvim_set_keymap("n", "<leader>rC", "<Cmd>e $MYVIMRC<CR>", { desc = "Edit Config" })
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", {})
 
--- lazy.nvim --
+-- LAZY.NVIM --
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
