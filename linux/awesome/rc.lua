@@ -1,7 +1,7 @@
 --@REF: https://awesomewm.org/apidoc/documentation/05-awesomerc.md.html
 --@REF: https://wiki.archlinux.org/title/awesome
 
--- [[Load Packages]]
+-- LOAD PACKAGES --
 pcall(require, 'luarocks.loader')
 local gears = require('gears')
 local awful = require('awful')
@@ -13,7 +13,7 @@ local menubar = require('menubar')
 local hotkeys_popup = require('awful.hotkeys_popup')
 require('awful.hotkeys_popup.keys')
 
--- [[Error Handling]]
+-- ERROR HANDLING --
 
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -41,7 +41,7 @@ do
   end)
 end
 
--- [[Theme]]
+-- THEME --
 beautiful.init({
   font = 'monospace bold 10',
   bg_normal = '#222222',
@@ -104,7 +104,7 @@ beautiful.init({
   icon_theme = nil,
 })
 
--- [[Variable Definitions]]
+-- VARIABLE DEFINITION --
 
 terminal = 'alacritty'
 editor = os.getenv('EDITOR') or 'nano'
@@ -134,7 +134,7 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.se,
 }
 
--- [[Menu]]
+-- MENU --
 -- Create a launcher widget and a main menu
 myawesomemenu = {
    { 'hotkeys', function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
@@ -157,7 +157,7 @@ mylauncher = awful.widget.launcher({
 -- Menubar configuration
 menubar.utils.terminal = terminal
 
--- [[Wibar]]
+-- WIBAR --
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -279,14 +279,14 @@ awful.screen.connect_for_each_screen(function(s)
     })
 end)
 
--- [[Mouse bindings]]
+-- MOUSE BINDINGS --
 root.buttons(gears.table.join(
 awful.button({}, 3, function () mymainmenu:toggle() end),
 awful.button({}, 4, awful.tag.viewnext),
 awful.button({}, 5, awful.tag.viewprev)
 ))
 
--- [[Key Bindings]]
+-- KEY BINDINGS --
 globalkeys = gears.table.join(
 awful.key({ modkey }, 's', hotkeys_popup.show_help,
 { description = 'show help', group = 'awesome'}),
@@ -385,7 +385,7 @@ end))
 -- Set keys
 root.keys(globalkeys)
 
--- [[Rules]]
+-- RULES --
 -- Rules to apply to new clients (through the 'manage' signal).
 awful.rules.rules = {
   -- All clients will match this rule.
@@ -464,7 +464,7 @@ awful.rules.rules = {
     },
   }
 
--- [[Signal]]
+-- SIGNAL --
 -- Signal function to execute when a new client appears.
 client.connect_signal('manage', function(c)
   if awesome.startup
@@ -525,14 +525,14 @@ end)
 client.connect_signal('focus', function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal('unfocus', function(c) c.border_color = beautiful.border_normal end)
 
--- [[auto-start]]
+-- AUTO-START --
 awful.spawn.with_shell('xclip')
 awful.spawn.with_shell('nm-applet')
 awful.spawn.with_shell('flameshot')
 awful.spawn.with_shell('ibus-daemon -drxR')
 awful.spawn.with_shell('[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources')
 
--- [[Garbage Collection]]
+-- GARBAGE COLLECTION --
 gears.timer({
   timeout = 30,
   autostart = true,
