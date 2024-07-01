@@ -2,6 +2,7 @@
 "@REF: https://github.com/nobodyzxc/ConfigFiles/blob/master/vimrc.vim
 "@REF: https://github.com/skywind3000/vim/tree/master
 
+"OPTIONS"
 let g:loaded_gzip=1
 let g:loaded_tar=1
 let g:loaded_tarPlugin=1
@@ -65,7 +66,7 @@ let maplocalleader=" "
 nnoremap <leader>re :edit $MYVIMRC<CR>
 imap jk <Esc>
 
-" PLUGIN: auto-pairs "
+"PLUGIN: auto-pairs"
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
@@ -120,7 +121,7 @@ endfunc
 inoremap <expr><bs> <sid>Backspace('i')
 cnoremap <expr><bs> <sid>Backspace('c')
 
-" PLUGIN: vim-commentary "
+"PLUGIN: vim-commentary"
 func! s:Commentary(line) abort
 	let s:num=a:line
 	let line=getline(s:num)
