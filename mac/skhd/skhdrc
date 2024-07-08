@@ -15,6 +15,8 @@ alt - h : yabai -m window --resize right:-100:0 || yabai -m window --resize left
 alt - j : yabai -m window --focus east || yabai -m display --focus east
 alt - k : yabai -m window --focus west || yabai -m display --focus west
 alt - l : yabai -m window --resize right:100:0 || yabai -m window --resize left:100:0
+alt - f : yabai -m window --toggle native-fullscreen
+alt - tab : yabai -m window --toggle float
 shift + alt - j : yabai -m window --warp east || $(yabai -m window --display east && yabai -m display --focus east) || yabai -m window --move rel:0:10
 shift + alt - k : yabai -m window --warp west || $(yabai -m window --display west && yabai -m display --focus west) || yabai -m window --move rel:0:-10
 shift + alt - 1 : yabai -m window --space 1 && yabai -m space --focus 1
