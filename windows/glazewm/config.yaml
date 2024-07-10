@@ -14,10 +14,10 @@ gaps:
 focus_borders:
   active:
     enabled: true
-    color: "#0000ff"
+    color: "#007aff"
   inactive:
     enabled: false
-    color: "#ff0000"
+    color: "#808080"
 
 bar:
   height: "24px"
@@ -30,38 +30,32 @@ bar:
   padding: "0px 0px"
   offset_x: "0"
   offset_y: "0"
-  border_radius: "2"
+  border_radius: "0"
   components_left:
     - type: "workspaces"
-      focused_workspace_background: "#ffffff33"
-      displayed_workspace_background: "#00000033"
+      focused_workspace_background: "#007aff"
+      displayed_workspace_background: "#808080"
       default_workspace_background: "transparent"
+  components_center:
     - type: "window title"
-  # components_center:
   components_right:
     - type: "cpu"
-      label: " CPU {percent_usage}% "
+      label: "[CPU {percent_usage}%]"
       refresh_interval_ms: 1000
     - type: "memory"
-      label: " RAM {percent_usage}% "
+      label: "[RAM {percent_usage}%]"
       refresh_interval_ms: 1000
     - type: "battery"
-      label_draining: " BAT {battery_level}% "
-      label_power_saver: " BAT {battery_level}% "
-      label_charging: " BAT {battery_level}% "
-    - type: "system tray"
-    - type: "tiling direction"
-      label_horizontal: "⮂"
-      label_vertical: "⮁"
-      background: "#ffffff33"
-      margin: "0 4px"
-      padding: "0 8px"
+      label_draining: "[BAT {battery_level}%]"
+      label_power_saver: "[BAT {battery_level}%]"
+      label_charging: "[BAT {battery_level}%]"
     - type: "binding mode"
       background: "#ffffff33"
       margin: "0 4px 0 0"
       padding: "0 8px"
     - type: "clock"
-      time_formatting: "hh:mm tt  ddd MMM d"
+      time_formatting: "[yyyy-MM-dd HH:mm]"
+    - type: "system tray"
 
 workspaces:
   - name: "1"
@@ -73,6 +67,7 @@ workspaces:
   - name: "7"
   - name: "8"
   - name: "9"
+  - name: "10"
 
 window_rules:
   - command: "ignore"
@@ -87,29 +82,17 @@ window_rules:
 
 keybindings:
   - command: "focus left"
-    bindings: ["Alt+H", "Alt+Left"]
+    bindings: ["Alt+K", "Alt+Left"]
   - command: "focus right"
-    bindings: ["Alt+L", "Alt+Right"]
-  - command: "focus up"
-    bindings: ["Alt+K", "Alt+Up"]
-  - command: "focus down"
-    bindings: ["Alt+J", "Alt+Down"]
+    bindings: ["Alt+J", "Alt+Right"]
   - command: "move left"
-    bindings: ["Alt+Shift+H", "Alt+Shift+Left"]
+    bindings: ["Alt+Shift+K", "Alt+Shift+Left"]
   - command: "move right"
-    bindings: ["Alt+Shift+L", "Alt+Shift+Right"]
-  - command: "move up"
-    bindings: ["Alt+Shift+K", "Alt+Shift+Up"]
-  - command: "move down"
-    bindings: ["Alt+Shift+J", "Alt+Shift+Down"]
+    bindings: ["Alt+Shift+J", "Alt+Shift+Right"]
   - command: "resize width -2%"
-    binding: "Alt+U"
+    binding: "Alt+H"
   - command: "resize width +2%"
-    binding: "Alt+P"
-  - command: "resize height +2%"
-    binding: "Alt+O"
-  - command: "resize height -2%"
-    binding: "Alt+I"
+    binding: "Alt+L"
   - command: "focus mode toggle"
     binding: "Alt+Space"
   - command: "toggle floating"
@@ -142,6 +125,8 @@ keybindings:
     binding: "Alt+8"
   - command: "focus workspace 9"
     binding: "Alt+9"
+  - command: "focus workspace 10"
+    binding: "Alt+0"
   - commands: ["move to workspace 1", "focus workspace 1"]
     binding: "Alt+Shift+1"
   - commands: ["move to workspace 2", "focus workspace 2"]
@@ -160,3 +145,5 @@ keybindings:
     binding: "Alt+Shift+8"
   - commands: ["move to workspace 9", "focus workspace 9"]
     bindings: ["Alt+Shift+9"]
+  - commands: ["move to workspace 10", "focus workspace 10"]
+    bindings: ["Alt+Shift+0"]
