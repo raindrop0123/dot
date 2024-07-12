@@ -7,14 +7,14 @@
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": true,
     "editor.guides.highlightActiveIndentation": true,
-    "editor.lineHeight": 1.5,
+    "editor.lineHeight": 1.6,
     "editor.lineNumbers": "relative",
     "editor.quickSuggestions": {
         "other": "on",
         "comments": "off",
         "strings": "off"
     },
-    "editor.renderWhitespace": "all",
+    "editor.renderWhitespace": "trailing",
     "editor.rulers": [
         80,
     ],
@@ -52,12 +52,12 @@
         "**/*.code-search": true
     },
     "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', 'Hack Nerd Font', Consolas, Monaco, Menlo, 'Courier New', monospace",
-    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.fontSize": 12,
     "terminal.integrated.gpuAcceleration": "on",
     "terminal.integrated.rightClickBehavior": "copyPaste",
     "window.titleBarStyle": "custom",
     "window.zoomLevel": -1.0,
-    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.colorTheme": "Solarized Dark",
     "workbench.colorCustomizations": {
         "statusBar.background": "#225577",
         "statusBar.noFolderBackground": "#225577",
