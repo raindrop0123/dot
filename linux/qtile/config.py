@@ -1,19 +1,22 @@
+# LOAD MODULE
 import os
 import subprocess
 from libqtile import bar, layout, qtile, widget, extension, hook
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
 
-mod = "mod4"
+# MOD KEY
+mod = "mod1"
 
+# KEY BINDING
 keys = [
-    Key([mod], "j", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "k", lazy.layout.right(), desc="Move focus to right"),
+    Key([mod], "j", lazy.layout.next(), desc="Move focus to left"),
+    Key([mod], "k", lazy.layout.previous(), desc="Move focus to right"),
     Key(
         [mod],
         "h",
         lazy.layout.grow_left().when(layout=["bsp", "columns"]),
-        lazy.layout.grow().when(layout=["monadtall", "monadwide", "monadthreecol"]),
+        lazy.layout.shrink().when(layout=["monadtall", "monadwide", "monadthreecol"]),
         desc="Grow window to the left",
     ),
     Key(
@@ -55,7 +58,7 @@ for vt in range(1, 10):
         )
     )
 
-
+# WORKSPACE
 groups = [Group(i) for i in "1234567890"]
 
 for i in groups:
@@ -76,6 +79,7 @@ for i in groups:
         ]
     )
 
+# LAYOUT
 layouts = [
     # layout.Columns(),
     # layout.Max(),
@@ -91,6 +95,7 @@ layouts = [
     # layout.Zoomy(),
 ]
 
+# STATUSBAR & WIDGET
 widget_defaults = dict(
     font="monospace bold",
     fontsize=16,
@@ -123,12 +128,14 @@ screens = [
     ),
 ]
 
+# MOUSE BINDING
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
+# MISCELLANEOUS
 dgroups_key_binder = None
 dgroups_app_rules = []
 follow_mouse_focus = True
@@ -155,7 +162,7 @@ wl_input_rules = None
 wl_xcursor_theme = None
 wl_xcursor_size = 24
 
-# AUTOSTART #
+# AUTOSTART
 @hook.subscribe.startup_once
 def start_once():
     qtile.cmd_spawn('xclip')
