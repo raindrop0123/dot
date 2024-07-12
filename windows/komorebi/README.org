@@ -1,3 +1,5 @@
 * komorebi
+
 A tiling window manager for windows.
+
 Load Path: =C:\Users\{users}\komorebi.json=
