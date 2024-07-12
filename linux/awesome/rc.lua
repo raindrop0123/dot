@@ -111,8 +111,7 @@ editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal.." -e "..editor
 
 -- Mod Key: Mod1=alt, Mod4=windows_key
-modkey = "Mod4"
-altkey = "Mod1"
+modkey = "Mod1"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
