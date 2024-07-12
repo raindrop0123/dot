@@ -2,4 +2,4 @@
 
 A tiling window manager for windows.
 
-Load Path: =C:\Users\{users}\komorebi.json=
+Load Path: =C:\Users\{USER_NAME}\komorebi.json=
