@@ -1,0 +1,54 @@
+.shell powershell
+
+# Reload whkd configuration
+alt + shift + o : taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden # if shell is pwsh / powershell
+alt + shift + r : komorebic reload-configuration
+
+# close window
+alt + shift + q : komorebic close
+
+# Open Terminal
+alt + return : wt
+
+# Focus windows
+alt + j : komorebic focus right
+alt + k : komorebic focus left
+
+# Move windows
+alt + shift + j : komorebic move right
+alt + shift + k : komorebic move left
+
+# Resize
+alt + l : komorebic resize-axis horizontal increase
+alt + h : komorebic resize-axis horizontal decrease
+
+# Manipulate windows
+alt + shift + space : komorebic toggle-float
+
+# Workspaces
+alt + 1 : komorebic focus-workspace 0
+alt + 2 : komorebic focus-workspace 1
+alt + 3 : komorebic focus-workspace 2
+alt + 4 : komorebic focus-workspace 3
+alt + 5 : komorebic focus-workspace 4
+alt + 6 : komorebic focus-workspace 5
+alt + 7 : komorebic focus-workspace 6
+alt + 8 : komorebic focus-workspace 7
+alt + 9 : komorebic focus-workspace 8
+alt + 0 : komorebic focus-workspace 9
+alt + left : komorebic cycle-workspace previous
+alt + right : komorebic cycle-workspace next
+
+# Move windows across workspaces
+alt + shift + 1 : komorebic move-to-workspace 0
+alt + shift + 2 : komorebic move-to-workspace 1
+alt + shift + 3 : komorebic move-to-workspace 2
+alt + shift + 4 : komorebic move-to-workspace 3
+alt + shift + 5 : komorebic move-to-workspace 4
+alt + shift + 6 : komorebic move-to-workspace 5
+alt + shift + 7 : komorebic move-to-workspace 6
+alt + shift + 8 : komorebic move-to-workspace 7
+alt + shift + 9 : komorebic move-to-workspace 8
+alt + shift + 0 : komorebic move-to-workspace 9
+alt + shift + left : komorebic cycle-move-to-workspace previous
+alt + shift + right : komorebic cycle-move-to-workspace next
