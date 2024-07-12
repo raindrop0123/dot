@@ -1,0 +1,5 @@
+* wkhd
+
+A dependencies of komorebi, which is a hotkey daemon for windows.
+
+Load Path: =C:\Users\{USER_NAME}\.config\whkdrc=
