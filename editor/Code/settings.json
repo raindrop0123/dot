@@ -59,11 +59,11 @@
     "window.zoomLevel": -1.0,
     "workbench.colorTheme": "Solarized Dark",
     "workbench.colorCustomizations": {
-        "statusBar.background": "#225577",
-        "statusBar.noFolderBackground": "#225577",
-        "statusBar.debuggingBackground": "#225577",
-        "statusBar.foreground": "#ffffff",
-        "statusBar.debuggingForeground": "#ffffff"
+        "statusBar.background": "#859900",
+        "statusBar.noFolderBackground": "#859900",
+        "statusBar.debuggingBackground": "#859900",
+        "statusBar.foreground": "#fdf6e3",
+        "statusBar.debuggingForeground": "#fdf6e3"
     },
     "workbench.iconTheme": "vs-seti",
     "workbench.statusBar.visible": true,
@@ -84,9 +84,9 @@
         "<C-f>": false
     },
     "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.color": "#ff0000",
-    "vim.highlightedyank.textColor": "#ffffff",
-    "vim.highlightedyank.duration": 1500,
+    "vim.highlightedyank.color": "#dc322f",
+    "vim.highlightedyank.textColor": "#fdf6e3",
+    "vim.highlightedyank.duration": 1000,
     "vim.hlsearch": true,
     "vim.incsearch": true,
     "vim.insertModeKeyBindings": [
@@ -167,36 +167,36 @@
     "vim.sneakUseIgnorecaseAndSmartcase": true,
     "vim.statusBarColorControl": true,
     "vim.statusBarColors.commandlineinprogress": [
-        "#557722",
-        "#ffffff"
+        "#268bd2",
+        "#fdf6e3"
     ],
     "vim.statusBarColors.insert": [
-        "#ff0000",
-        "#ffffff"
+        "#dc322f",
+        "#fdf6e3"
     ],
     "vim.statusBarColors.normal": [
-        "#000000",
-        "#ffffff"
+        "#2aa198",
+        "#fdf6e3"
     ],
     "vim.statusBarColors.replace": [
-        "#227755",
-        "#ffffff"
+        "#d33682",
+        "#fdf6e3"
     ],
     "vim.statusBarColors.searchinprogressmode": [
-        "#b16286",
+        "#6c71c4",
         "#ebdbb2"
     ],
     "vim.statusBarColors.visual": [
-        "#225577",
-        "#ffffff"
+        "#859900",
+        "#fdf6e3"
     ],
     "vim.statusBarColors.visualblock": [
-        "#225577",
-        "#ffffff"
+        "#859900",
+        "#fdf6e3"
     ],
     "vim.statusBarColors.visualline": [
-        "#225577",
-        "#ffffff"
+        "#859900",
+        "#fdf6e3"
     ],
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
