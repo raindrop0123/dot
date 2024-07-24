@@ -43,7 +43,7 @@ end
 
 -- THEME --
 beautiful.init({
-  font = "monospace bold 10",
+  font = "monospace bold 12",
   bg_normal = "#222222",
   bg_focus = "#535d6c",
   bg_urgent = "#ff0000",
