@@ -12,14 +12,27 @@
         {
             "command": "paste",
             "keys": "ctrl+shift+v"
+        },
+        {
+            "command": {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "keys": "alt+shift+d"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
         }
     ],
+    "centerOnLaunch": true,
     "copyFormatting": "none",
     "copyOnSelect": true,
-    "defaultProfile": "{67f3810e-485e-4542-a974-5990562ac00e}",
-    "experimental.rendering.forceFullRepaint": true,
-    "experimental.rendering.software": true,
+    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "disableAnimations": true,
     "initialCols": 180,
+    "initialPosition": ",",
     "initialRows": 56,
     "language": "en-US",
     "launchMode": "maximized",
@@ -30,51 +43,88 @@
     ],
     "profiles": {
         "defaults": {
-            "colorScheme": "SelfDefinedTheme",
-            "useAcrylic": true
+            "colorScheme": "Solarized Dark"
         },
         "list": [
             {
-                "colorScheme": "SelfDefinedTheme",
                 "cursorShape": "filledBox",
                 "experimental.retroTerminalEffect": false,
                 "font": {
                     "face": "JetBrainsMono Nerd Font",
-                    "size": 10.0
+                    "size": 9.0
                 },
-                "guid": "{67f3810e-485e-4542-a974-5990562ac00e}",
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
+                "name": "Windows PowerShell",
                 "intenseTextStyle": "all",
-                "name": "WindowTerminal.conf",
                 "startingDirectory": "%homepath%",
                 "useAcrylic": false
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt"
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
             }
         ]
     },
     "schemes": [
         {
-            "background": "#000000",
-            "black": "#000000",
-            "blue": "#2472C8",
-            "brightBlack": "#666666",
-            "brightBlue": "#3B8EEA",
-            "brightCyan": "#29B8DB",
-            "brightGreen": "#23D18B",
-            "brightPurple": "#D670D6",
-            "brightRed": "#F14C4C",
-            "brightWhite": "#FFFFFF",
-            "brightYellow": "#F5F543",
-            "cursorColor": "#FF0000",
-            "cyan": "#11A8CD",
-            "foreground": "#FFFFFF",
-            "green": "#0DBC79",
-            "name": "SelfDefinedTheme",
-            "purple": "#BC3FBC",
-            "red": "#CD3131",
+            "background": "#282C34",
+            "black": "#282C34",
+            "blue": "#61AFEF",
+            "brightBlack": "#5A6374",
+            "brightBlue": "#61AFEF",
+            "brightCyan": "#56B6C2",
+            "brightGreen": "#98C379",
+            "brightPurple": "#C678DD",
+            "brightRed": "#E06C75",
+            "brightWhite": "#DCDFE4",
+            "brightYellow": "#E5C07B",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#56B6C2",
+            "foreground": "#DCDFE4",
+            "green": "#98C379",
+            "name": "One Half Dark",
+            "purple": "#C678DD",
+            "red": "#E06C75",
             "selectionBackground": "#FFFFFF",
-            "white": "#FFFFFF",
-            "yellow": "#E5E510"
+            "white": "#DCDFE4",
+            "yellow": "#E5C07B"
         },
+        {
+            "background": "#002B36",
+            "black": "#002B36",
+            "blue": "#268BD2",
+            "brightBlack": "#073642",
+            "brightBlue": "#839496",
+            "brightCyan": "#93A1A1",
+            "brightGreen": "#586E75",
+            "brightPurple": "#6C71C4",
+            "brightRed": "#CB4B16",
+            "brightWhite": "#FDF6E3",
+            "brightYellow": "#657B83",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#2AA198",
+            "foreground": "#839496",
+            "green": "#859900",
+            "name": "Solarized Dark",
+            "purple": "#D33682",
+            "red": "#DC322F",
+            "selectionBackground": "#FFFFFF",
+            "white": "#EEE8D5",
+            "yellow": "#B58900"
+        }
     ],
-    "themes": []
+    "tabWidthMode": "titleLength",
+    "theme": "dark",
+    "themes": [],
+    "useAcrylicInTabRow": false
 }
