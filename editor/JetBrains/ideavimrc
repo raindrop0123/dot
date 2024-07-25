@@ -1,7 +1,7 @@
-"IDEA"
+""" IDEA
 set ideajoin
 
-"VIM"
+""" VIM
 set showmode
 set hlsearch
 set incsearch
@@ -17,7 +17,7 @@ set clipboard^=unnamed,unnamedplus
 set timeout
 set timeoutlen=5000
 
-"MAPPING"
+""" MAPPING
 let mapleader="\\"
 let maplocalleader=","
 inoremap jk <Esc>
@@ -39,58 +39,58 @@ nnoremap <leader>rx :action ChooseRunConfiguration<CR>
 nnoremap <leader>rr :action Run<CR>
 nnoremap <leader>rc :action IdeaVim.ReloadVimRc.reload<CR>
 
-"PLUGIN: easymotion"
+""" PLUGIN: easymotion
 set easymotion
 let g:EasyMotion_do_mapping=0
 nmap <leader><leader>w <Plug>(easymotion-w)
 nmap <leader><leader>l <Plug>(easymotion-lineanywhere)
 
-"PLUGIN: sneak"
+""" PLUGIN: sneak
 set sneak
 
-"PLUGIN: NERDTree"
+""" PLUGIN: NERDTree
 set NERDTree
 nnoremap <leader>tn :NERDTreeToggle<CR>
 
-"PLUGIN: surround"
+""" PLUGIN: surround
 set surround
 
-"PLUGIN: multiple-cursors"
+""" PLUGIN: multiple-cursors
 set multiple-cursors
 
-"PLUGIN: commentary"
+""" PLUGIN: commentary
 set commentary
 
-"PLUGIN: ReplaceWithRegister"
+""" PLUGIN: ReplaceWithRegister
 set ReplaceWithRegister
 
-"PLUGIN: argtextobj"
+""" PLUGIN: argtextobj
 set argtextobj
 
-"PLUGIN: exchange"
+""" PLUGIN: exchange
 set exchange
 
-"PLUGIN: textobj-entire"
+""" PLUGIN: textobj-entire
 set textobj-entire
 
-"PLUGIN: highlightedyank"
+""" PLUGIN: highlightedyank
 set highlightedyank
 let g:highlightedyank_highlight_duration="1000"
 let g:highlightedyank_highlight_color="rgba(160, 160, 160, 155)"
 
-"PLUGIN: vim-paragraph-motion"
+""" PLUGIN: vim-paragraph-motion
 set vim-paragraph-motion
 
-"PLUGIN: textobj-indent"
+""" PLUGIN: textobj-indent
 set textobj-indent
 
-"PLUGIN: matchit"
+""" PLUGIN: matchit
 set matchit
 
-"PLUGIN: quickscope"
+""" PLUGIN: quickscope
 set quickscope
 
-"PLUGIN: which-key"
+""" PLUGIN: which-key
 set which-key
 let g:WhichKey_DefaultDelay=0
 let g:WhichKey_ShowVimActions="true"
