@@ -84,7 +84,7 @@
         "<C-f>": false
     },
     "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.color": "#dc322f",
+    "vim.highlightedyank.color": "#ff0000",
     "vim.highlightedyank.textColor": "#ffffff",
     "vim.highlightedyank.duration": 1000,
     "vim.hlsearch": true,
