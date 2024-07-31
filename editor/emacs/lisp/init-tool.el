@@ -15,11 +15,6 @@
 (global-set-key (kbd "M-g w") 'avy-goto-word-0)
 (global-set-key (kbd "M-g l") 'avy-goto-line)
 
-(require-package 'which-key) ;; it may be a builtin tool in version 30
-(add-hook 'after-init-hook #'which-key-mode)
-(with-eval-after-load 'which-key
-  (setq which-key-idle-delay 0.01))
-
 (require-package 'diredfl)
 (add-hook 'dired-mode-hook #'diredfl-mode)
 
