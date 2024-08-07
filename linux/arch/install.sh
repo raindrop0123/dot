@@ -136,26 +136,9 @@ PKG="$PKG ripgrep lsd gvim emacs neovim bottom"
 PKG="$PKG alsa-utils brightnessctl pcmanfm flameshot"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $PKG
 
-FONT="noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-noto-nerd, noto-fonts-extra"
-FONT="$FONT ttf-hack ttf-hack-nerd"
-FONT="$FONT ttf-ibm-plex ttf-ibmplex-mono-nerd"
-FONT="$FONT ttf-dejavu ttf-dejavu-nerd"
-FONT="$FONT adobe-source-code-pro-fonts ttf-sourcecodepro-nerd"
-FONT="$FONT ttf-inconsolata ttf-inconsolata-nerd ttf-inconsolata-go-nerd ttf-inconsolata-lgc-nerd"
-FONT="$FONT ttf-ubuntu-font-family ttf-ubuntu-nerd ttf-ubuntu-mono-nerd"
+FONT="ttf-hack ttf-hack-nerd"
 FONT="$FONT ttf-roboto ttf-roboto-mono ttf-roboto-mono-nerd"
 FONT="$FONT ttf-jetbrains-mono ttf-jetbrains-mono-nerd"
-FONT="$FONT ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono"
-FONT="$FONT otf-fira-mono otf-fira-sans otf-firamono-nerd ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-firacode-nerd"
-FONT="$FONT otf-cascadia-code ttf-cascadia-code ttf-cascadia-code-nerd ttf-cascadia-mono-nerd"
-FONT="$FONT ttc-iosevka ttf-iosevka-nerd ttf-iosevkaterm-nerd"
-FONT="$FONT terminus-font ttf-terminus-nerd"
-FONT="$FONT otf-fantasque-sans-mono ttf-fantasque-nerd ttf-fantasque-sans-mono"
-FONT="$FONT otf-droid-nerd ttf-droid"
-FONT="$FONT otf-monaspace otf-monaspace-nerd ttf-monaspace-variable"
-FONT="$FONT awesome-terminal-fonts ttf-font-awesome otf-font-awesome"
-FONT="$FONT wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei"
-FONT="$FONT inter-font cantarell-fonts ttf-victor-mono-nerd"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $FONT
 
 # YAY
