@@ -131,12 +131,12 @@ arch-chroot /mnt systemctl enable NetworkManager.service
 
 # OFFICIAL PACKAGES
 HYPRLAND="hyprland hyprpaper"
-SYSTOOL="pulseaudio brightnessctl copyq"
+SYSTOOL="pulseaudio brightnessctl copyq fastfetch"
 INPUT="ibus ibus-chewing"
 RUSTTOOL="lsd ripgrep bottom"
 TERM="kitty"
 EDITOR="gvim emacs neovim"
-GUITOOL="pcmanfm"
+GUITOOL="pcmanfm waybar wofi"
 FONT="ttf-hack-nerd ttf-roboto-mono-nerd ttf-jetbrains-mono-nerd noto-fonts-cjk"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $HYPRLAND $SYSTOOL $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL $FONT
 
