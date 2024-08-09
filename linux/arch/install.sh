@@ -130,11 +130,14 @@ arch-chroot /mnt systemctl enable NetworkManager.service
 # arch-chroot /mnt systemctl enable dhcpcd.service
 
 # OFFICIAL PACKAGES
-PKG="xorg-xinit xorg-server xclip ibus ibus-chewing ripgrep lsd bottom fzf alsa-utils brightnessctl"
-PKG="$PKG awesome wezterm kitty alacritty"
-PKG="$PKG gvim emacs neovim"
-PKG="$PKG pcmanfm flameshot"
-arch-chroot /mnt sudo pacman -S --noconfirm --needed $PKG
+HYPRLAND="hyprland hyprpaper"
+SYSTOOL="pulseaudio brightnessctl copyq"
+INPUT="ibus ibus-chewing"
+RUSTTOOL="lsd ripgrep bottom"
+TERM="kitty"
+EDITOR="gvim emacs neovim"
+GUITOOL="pcmanfm flameshot"
+arch-chroot /mnt sudo pacman -S --noconfirm --needed $HYPRLAND $SYSTOOL $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL
 
 FONT="ttf-hack ttf-hack-nerd"
 FONT="$FONT ttf-roboto ttf-roboto-mono ttf-roboto-mono-nerd"
@@ -147,8 +150,8 @@ arch-chroot /mnt pacman -S --noconfirm --needed git base-devel
 arch-chroot /mnt sudo -u $USERNAME bash -c "cd && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si"
 
 # AUR PACKAGES
-AURPKG="google-chrome visual-studio-code-bin"
-arch-chroot /mnt sudo -u $USERNAME bash -c "yay -S --sudoloop $AURPKG"
-
-AURFONT="ttf-tw ttf-ms-fonts ttf-google-fonts terminus-font-ttf ttf-monaco otf-monego-git"
-arch-chroot /mnt sudo -u $USERNAME bash -c "yay -S --sudoloop $AURFONT"
+AURBROWSER="google-chrome"
+AUREDITOR="visual-studio-code-bin"
+AURHYPRLAND="hyprlock hyprshot hypridle"
+AURFONT="ttf-tw ttf-ms-fonts ttf-google-fonts ttf-monaco otf-monego-git"
+arch-chroot /mnt sudo -u $USERNAME bash -c "yay -S --sudoloop $AURBROWSER $AUREDITOR $AURHYPRLAND $AURFONT"
