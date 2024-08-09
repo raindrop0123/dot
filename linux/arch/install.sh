@@ -136,13 +136,9 @@ INPUT="ibus ibus-chewing"
 RUSTTOOL="lsd ripgrep bottom"
 TERM="kitty"
 EDITOR="gvim emacs neovim"
-GUITOOL="pcmanfm flameshot"
-arch-chroot /mnt sudo pacman -S --noconfirm --needed $HYPRLAND $SYSTOOL $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL
-
-FONT="ttf-hack ttf-hack-nerd"
-FONT="$FONT ttf-roboto ttf-roboto-mono ttf-roboto-mono-nerd"
-FONT="$FONT ttf-jetbrains-mono ttf-jetbrains-mono-nerd"
-arch-chroot /mnt sudo pacman -S --noconfirm --needed $FONT
+GUITOOL="pcmanfm"
+FONT="ttf-hack-nerd ttf-roboto-mono-nerd ttf-jetbrains-mono-nerd noto-fonts-cjk"
+arch-chroot /mnt sudo pacman -S --noconfirm --needed $HYPRLAND $SYSTOOL $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL $FONT
 
 # YAY
 # @REF: https://github.com/Jguer/yay
