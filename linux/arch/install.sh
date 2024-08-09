@@ -150,7 +150,7 @@ arch-chroot /mnt pacman -S --noconfirm --needed git base-devel
 arch-chroot /mnt sudo -u $USERNAME bash -c "cd && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si"
 
 # AUR PACKAGES
-AURBROWSER="google-chrome"
+AURBROWSER="google-chrome microsoft-edge-stable-bin"
 AUREDITOR="visual-studio-code-bin"
 AURHYPRLAND="hyprlock hyprshot hypridle"
 AURFONT="ttf-tw ttf-ms-fonts ttf-google-fonts ttf-monaco otf-monego-git"
