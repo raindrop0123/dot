@@ -3,4 +3,4 @@
 
 A tiling window manager for Windows.
 
-Configuration Load Path: =C:\Users\<USER_NAME>\.glaze-wm\config.yaml=
+Configuration Load Path: =%userprofile%\.glzr\glazewm\config.yaml=
