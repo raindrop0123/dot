@@ -131,12 +131,12 @@ arch-chroot /mnt systemctl enable NetworkManager.service
 
 # OFFICIAL PACKAGES
 HYPRLAND="hyprland hyprpaper"
-SYSTOOL="pulseaudio brightnessctl copyq fastfetch"
+SYSTOOL="pulseaudio brightnessctl copyq fastfetch dunst"
 INPUT="ibus ibus-chewing"
 RUSTTOOL="lsd ripgrep bottom"
 TERM="kitty"
 EDITOR="gvim emacs neovim"
-GUITOOL="pcmanfm waybar wofi"
+GUITOOL="pcmanfm waybar"
 FONT="ttf-hack-nerd ttf-roboto-mono-nerd ttf-jetbrains-mono-nerd noto-fonts-cjk"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $HYPRLAND $SYSTOOL $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL $FONT
 
@@ -149,5 +149,6 @@ arch-chroot /mnt sudo -u $USERNAME bash -c "cd && git clone https://aur.archlinu
 AURBROWSER="google-chrome microsoft-edge-stable-bin"
 AUREDITOR="visual-studio-code-bin"
 AURHYPRLAND="hyprlock hyprshot hypridle"
+AURGUITOOL="rofi-wayland"
 AURFONT="ttf-tw ttf-ms-fonts ttf-google-fonts ttf-monaco otf-monego-git"
-arch-chroot /mnt sudo -u $USERNAME bash -c "yay -S --sudoloop $AURBROWSER $AUREDITOR $AURHYPRLAND $AURFONT"
+arch-chroot /mnt sudo -u $USERNAME bash -c "yay -S --sudoloop $AURBROWSER $AUREDITOR $AURHYPRLAND $AURGUITOOL $AURFONT"
