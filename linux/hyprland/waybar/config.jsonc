@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 30,
+  "height": 24,
   "spacing": 12,
   "margin-left": 0,
   "margin-bottom": 0,
@@ -22,7 +22,7 @@
     "tray"
   ],
   "hyprland/workspaces": {
-    "format": "{icon}",
+    "format": "{name}",
     "on-click": "activate",
     "format-icons": {
       "1": "",
@@ -110,6 +110,6 @@
     "format": " {:%Y-%m-%d %H:%M}"
   },
   "tray": {
-    "icon-size": 24,
+    "icon-size": 20
   }
 }
