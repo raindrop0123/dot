@@ -132,7 +132,7 @@ arch-chroot /mnt systemctl enable NetworkManager.service
 # OFFICIAL PACKAGES
 HYPRLAND="hyprland hyprpaper"
 SYSTOOL="pulseaudio brightnessctl copyq fastfetch dunst udiskie wl-clipboard polkit-kde-agent"
-INPUT="ibus ibus-chewing fcitx5-im fcitx5-chewing"
+INPUT="fcitx5-im fcitx5-chewing"
 RUSTTOOL="lsd ripgrep bottom"
 TERM="kitty"
 EDITOR="gvim emacs neovim"
