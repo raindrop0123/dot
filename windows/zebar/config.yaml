@@ -1,7 +1,7 @@
 window/bar:
   providers: ['self']
   width: '{{ self.args.MONITOR_WIDTH }}'
-  height: '40'
+  height: '36'
   position_x: '{{ self.args.MONITOR_X }}'
   position_y: '{{ self.args.MONITOR_Y }}'
   z_order: 'normal'
@@ -14,16 +14,11 @@ window/bar:
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     height: 100%;
-    color: rgb(255 255 255 / 90%);
-    font-family: JetBrainsMono Nerd Font Bold, Consolas, ui-monospace, monospace;
+    color: #ffffff;
+    font-family: Segoe UI, Consolas, ui-monospace, monospace;
     font-size: 12px;
-    padding: 4px 4px;
-    border-bottom: 0px solid rgb(255 255 255 / 5%);;
-    background: linear-gradient(rgb(0 0 0 / 90%), rgb(5 2 20 / 85%));
-    i {
-      color: rgb(115 130 175 / 95%);
-      margin-right: 4px;
-    }
+    padding: 0px 0px;
+    background: #000000;
   group/left:
     styles: |
       display: flex;
@@ -39,20 +34,18 @@ window/bar:
         display: flex;
         align-items: center;
         .workspace {
-          background: rgb(255 255 255 / 5%);
-          margin-right: 0px;
-          margin-left: 0px;
+          background: #000000;
           padding: 4px 4px;
-          color: rgb(255 255 255 / 90%);
+          color: #ffffff;
           border: none;
           border-radius: 4px;
           cursor: pointer;
           &.displayed {
-            background: rgb(255 255 255 / 15%);
+            background: #000000;
           }
           &.focused,
           &:hover {
-            background: rgb(75 115 255 / 50%);
+            background: #007aff;
           }
         }
       providers: ['glazewm']
@@ -76,29 +69,19 @@ window/bar:
     styles: |
       justify-self: end;
       display: flex;
-      .template {
-        margin-left: 4px;
-      }
     template/cpu:
       providers: ['cpu']
       styles: |
         margin-right: 8px;
-        margin-left: 0px;
-        .high-usage {
-          color: #ff0000;
-        }
+        margin-left: 8px;
       template: |
         <i class="nf nf-oct-cpu"></i>
-        @if (cpu.usage > 85) {
-          <span class="high-usage">{{ Math.round(cpu.usage) }}%</span>
-        } @else {
-          <span>{{ Math.round(cpu.usage) }}%</span>
-        }
+        <span>{{ Math.round(cpu.usage) }}%</span>
     template/memory:
       providers: ['memory']
       styles: |
         margin-right: 8px;
-        margin-left: 0px;
+        margin-left: 8px;
       template: |
         <i class="nf nf-oct-stack"></i>
         {{ Math.round(memory.usage) }}%
@@ -106,25 +89,18 @@ window/bar:
       providers: ['battery']
       styles: |
         margin-right: 8px;
-        margin-left: 0px;
-        position: relative;
-        .charging-icon {
-          position: absolute;
-          left: 4px;
-          right: 4px;
-        }
+        margin-left: 8px;
       template: |
-        @if (battery.chargePercent > 90) {<i class="nf nf-md-battery_90"></i>}
-        @else if (battery.chargePercent > 70) {<i class="nf nf-md-battery_70"></i>}
-        @else if (battery.chargePercent > 40) {<i class="nf nf-md-battery_40"></i>}
-        @else if (battery.chargePercent > 20) {<i class="nf nf-md-battery_20"></i>}
-        @else {<i class="nf nf-md-battery_10"></i>}
+        @if (battery.chargePercent > 90) {<i class="nf nf-fa-battery_full"></i>}
+        @else if (battery.chargePercent > 50) {<i class="nf nf-fa-battery_half"></i>}
+        @else if (battery.chargePercent > 25) {<i class="nf nf-fa-battery_quarter"></i>}
+        @else {<i class="nf nf-fa-battery_empty"></i>}
         {{ Math.round(battery.chargePercent) }}%
     template/clock:
       providers: ['date']
       styles: |
         margin-right: 8px;
-        margin-left: 0px;
+        margin-left: 8px;
       template: |
         <i class="nf nf-fa-calendar"></i>
         {{ date.toFormat(date.now, 'yyyy-MM-dd HH:mm') }}
