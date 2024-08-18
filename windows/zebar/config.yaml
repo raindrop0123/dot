@@ -30,7 +30,7 @@ window/bar:
       align-items: center;
     template/logo:
       styles: |
-        margin-right: 0px;
+        margin-right: 8px;
         margin-left: 8px;
       template: |
         <i class="nf nf-fa-windows"></i>
