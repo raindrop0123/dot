@@ -1,0 +1,5 @@
+* yabai
+
+A tiling window manager for macOS based on binary space partitioning
+
+=chmod +x ~/.config/yabai/yabairc=
