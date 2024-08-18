@@ -1,0 +1,5 @@
+* skhd
+
+Simple hotkey daemon for macOS
+
+=chmod +x ~/.config/skhd/skhdrc=
