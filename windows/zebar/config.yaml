@@ -1,7 +1,7 @@
 window/bar:
   providers: ['self']
   width: '{{ self.args.MONITOR_WIDTH }}'
-  height: '30'
+  height: '40'
   position_x: '{{ self.args.MONITOR_X }}'
   position_y: '{{ self.args.MONITOR_Y }}'
   z_order: 'normal'
@@ -15,8 +15,8 @@ window/bar:
     align-items: center;
     height: 100%;
     color: rgb(255 255 255 / 90%);
-    font-family: JetBrainsMono Nerd Font Bold, ui-monospace, monospace;
-    font-size: 10px;
+    font-family: JetBrainsMono Nerd Font Bold, Consolas, ui-monospace, monospace;
+    font-size: 12px;
     padding: 4px 4px;
     border-bottom: 0px solid rgb(255 255 255 / 5%);;
     background: linear-gradient(rgb(0 0 0 / 90%), rgb(5 2 20 / 85%));
