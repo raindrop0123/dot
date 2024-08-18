@@ -95,7 +95,7 @@ keybindings:
     bindings: ['alt+f']
   - commands: ['close']
     bindings: ['alt+shift+q']
-  - commands: ['wm-exit']
+  - commands: ['shell-exec powershell if (Get-Process -Name "zebar") { Stop-Process -Name "zebar" -Force }', 'wm-exit']
     bindings: ['alt+shift+e']
   - commands: ['wm-reload-config']
     bindings: ['alt+shift+r']
