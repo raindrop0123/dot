@@ -10,20 +10,27 @@ alt + shift + q : komorebic close
 # Open Terminal
 alt + return : wt
 
-# Focus windows
-alt + j : komorebic focus right
-alt + k : komorebic focus left
+# Focus Windows
+alt + h : komorebic focus left
+alt + j : komorebic focus down
+alt + k : komorebic focus up
+alt + l : komorebic focus right
 
-# Move windows
-alt + shift + j : komorebic move right
-alt + shift + k : komorebic move left
+# Move Windows
+alt + shift + h : komorebic move left
+alt + shift + j : komorebic move down
+alt + shift + k : komorebic move up
+alt + shift + l : komorebic move right
 
-# Resize
-alt + l : komorebic resize-axis horizontal increase
-alt + h : komorebic resize-axis horizontal decrease
+# Resize Windows
+alt + ctrl + h : komorebic resize-axis horizontal decrease
+alt + ctrl + j : komorebic resize-axis vertical decrease
+alt + ctrl + k : komorebic resize-axis vertical increase
+alt + ctrl + l : komorebic resize-axis horizontal increase
 
 # Manipulate windows
 alt + shift + space : komorebic toggle-float
+alt + shift + m : komorebic toggle-monocle
 
 # Workspaces
 alt + 1 : komorebic focus-workspace 0
