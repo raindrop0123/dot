@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 # LOAD MODULE
 import os
 import subprocess
@@ -6,57 +8,39 @@ from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
 
 # MOD KEY
-mod = "mod1"
+mod = "mod1" # or mod4
 
 # KEY BINDING
 keys = [
-    Key([mod], "j", lazy.layout.next(), desc="Move focus to left"),
-    Key([mod], "k", lazy.layout.previous(), desc="Move focus to right"),
-    Key(
-        [mod],
-        "h",
-        lazy.layout.grow_left().when(layout=["bsp", "columns"]),
-        lazy.layout.shrink().when(layout=["monadtall", "monadwide", "monadthreecol"]),
-        desc="Grow window to the left",
-    ),
-    Key(
-        [mod],
-        "l",
-        lazy.layout.grow_right().when(layout=["bsp", "columns"]),
-        lazy.layout.grow().when(layout=["monadtall", "monadwide", "monadthreecol"]),
-        desc="Grow window to the right"
-    ),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_right(), desc="Move window to the right"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-    Key([mod], "Return", lazy.spawn("alacritty"), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn("kitty"), desc="Launch terminal"),
+    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
+    Key([mod], "j", lazy.layout.down(), desc="Move focus to down"),
+    Key([mod], "k", lazy.layout.up(), desc="Move focus to up"),
+    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
+    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
+    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window to the down"),
+    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window to the up"),
+    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
+    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window to the down"),
+    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window to the up"),
+    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window"),
     Key([mod, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
-    Key(
-        [mod],
-        "f",
-        lazy.window.toggle_fullscreen(),
-        desc="Toggle fullscreen on the focused window",
-    ),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "shift"], "e", lazy.shutdown(), desc="Exit Qtile"),
     Key([mod], "Space", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl s +5%"), desc="Raise Monitor Backlight Up"),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl s 5%-"), desc="Raise Monitor Backlight Down"),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer sset Master 3%+"), desc="Raise Volume Up"),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer sset Master 3%-"), desc="Raise Volume Down"),
-    Key([], "XF86AudioMute", lazy.spawn("amixer sset Master 1+ toggle"), desc="Toggle Volume"),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%"), desc="Raise Volume Up"),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%"), desc="Raise Volume Down"),
+    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"), desc="Toggle Volume"),
 ]
 
 for vt in range(1, 10):
-    keys.append(
-        Key(
-            ["control", "mod1"],
-            f"f{vt}",
-            lazy.core.change_vt(vt).when(func=lambda: qtile.core.name == "wayland"),
-            desc=f"Switch to VT{vt}",
-        )
-    )
+    keys.append(Key(["control", "mod1"], f"f{vt}", lazy.core.change_vt(vt).when(func=lambda: qtile.core.name == "wayland"), desc=f"Switch to VT{vt}"))
 
 # WORKSPACE
 groups = [Group(i) for i in "1234567890"]
@@ -64,42 +48,32 @@ groups = [Group(i) for i in "1234567890"]
 for i in groups:
     keys.extend(
         [
-            Key(
-                [mod],
-                i.name,
-                lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
-            ),
-            Key(
-                [mod, "shift"],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
-            ),
+            Key([mod], i.name, lazy.group[i.name].toscreen(), desc="Switch to group {}".format(i.name)),
+            Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True), desc="Switch to & move focused window to group {}".format(i.name)),
         ]
     )
 
 # LAYOUT
 layouts = [
-    # layout.Columns(),
-    # layout.Max(),
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
+    layout.Columns(),
+    layout.Max(),
+    layout.Stack(),
+    layout.Bsp(),
+    layout.Matrix(),
     layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+    layout.MonadWide(),
+    layout.RatioTile(),
+    layout.Tile(),
+    layout.TreeTab(),
+    layout.VerticalTile(),
+    layout.Zoomy(),
 ]
 
 # STATUSBAR & WIDGET
 widget_defaults = dict(
-    font="monospace bold",
-    fontsize=16,
-    padding=4,
+    font="monospace",
+    fontsize=12,
+    padding=2,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -112,15 +86,15 @@ screens = [
                 widget.GroupBox(hide_unused=True),
                 widget.Prompt(),
                 widget.WindowName(),
-                widget.CPU(format="[CPU {load_percent}%]"),
-                widget.Memory(format="[MEM {MemUsed:.0f}{mm}]"),
-                widget.Battery(format="[BAT {percent:2.0%}]"),
-                widget.Volume(fmt="[VOL {}]"),
-                widget.Clock(format="[%Y-%m-%d %H:%M]"),
+                widget.CPU(format=" {load_percent}%"),
+                widget.Memory(format=" {MemUsed:.0f}{mm}"),
+                widget.Battery(format="󰁹 {percent:2.0%}"),
+                widget.PulseVolume(fmt=" {}"),
+                widget.Clock(format=" %Y-%m-%d %H:%M"),
                 widget.Systray(),
-                widget.CurrentLayoutIcon(scale=0.8),
+                widget.CurrentLayoutIcon(),
             ],
-            30,
+            24,
             border_width=[0, 0, 0, 0],
             border_color=["000000", "000000", "000000", "000000"]
         ),
@@ -169,6 +143,9 @@ def start_once():
     qtile.cmd_spawn('nm-applet')
     qtile.cmd_spawn('flameshot')
     qtile.cmd_spawn('ibus-daemon -rxdR')
+    qtile.cmd_spawn('udiskie')
+    qtile.cmd_spawn('fcitx5 --replace -d')
+    qtile.cmd_spawn('/usr/lib/polkit-kde-authentication-agent-1')
     qtile.cmd_spawn('[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources')
 
 wmname = "LG3D"
