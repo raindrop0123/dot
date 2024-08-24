@@ -28,7 +28,7 @@ alt + ctrl + k : komorebic resize-axis vertical increase
 alt + ctrl + l : komorebic resize-axis horizontal increase
 
 # Manipulate windows
-alt + shift + space : komorebic toggle-float
+alt + shift + f : komorebic toggle-float
 
 # Workspaces
 alt + 1 : komorebic focus-workspace 0
