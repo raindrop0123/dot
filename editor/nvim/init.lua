@@ -35,6 +35,7 @@ vim.opt.ttimeout = true
 vim.opt.ttimeoutlen = 0
 vim.opt.undofile = false
 vim.opt.wildmenu = true
+vim.opt.wrap = false
 vim.opt.writebackup = false
 vim.opt.background = "dark"
 vim.cmd.colorscheme "habamax"
