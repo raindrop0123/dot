@@ -1,16 +1,16 @@
 #!/usr/bin/python
 
-# LOAD MODULE
+# MODULE
 import os
 import subprocess
 from libqtile import bar, layout, qtile, widget, extension, hook
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
 
-# MOD KEY
+# MODKEY
 mod = "mod1" # or mod4
 
-# KEY BINDING
+# KEYBINDING
 keys = [
     Key([mod], "Return", lazy.spawn("kitty"), desc="Launch terminal"),
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -103,7 +103,7 @@ screens = [
     ),
 ]
 
-# MOUSE BINDING
+# MOUSEBINDING
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
