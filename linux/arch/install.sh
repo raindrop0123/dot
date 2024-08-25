@@ -137,7 +137,10 @@ RUSTTOOL="lsd ripgrep bottom"
 TERM="kitty"
 EDITOR="gvim emacs neovim"
 GUITOOL="pcmanfm waybar"
-FONT="ttf-hack-nerd ttf-roboto-mono-nerd ttf-jetbrains-mono-nerd noto-fonts-cjk"
+FONT="ttf-3270-nerd ttf-cascadia-code-nerd ttf-cascadia-mono-nerd ttf-dejavu-nerd  ttf-fantasque-nerd"
+FONT="$FONT ttf-firacode-nerd ttf-hack-nerd ttf-ibmplex-nerd ttf-inconsolata-nerd ttf-iosevka-nerd"
+FONT="$FONT ttf-jetbrains-mono-nerd ttf-meslo-nerd ttf-mononoki-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono"
+FONT="$FONT ttf-noto-nerd ttf-roboto-mono-nerd ttf-terminus-nerd ttf-ubuntu-nerd ttf-ubuntu-mono-nerd noto-fonts-cjk"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $HYPRLAND $SYSTOOL $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL $FONT
 
 # YAY
