@@ -1,0 +1,47 @@
+* {
+  background-color: transparent;
+}
+window {
+	width: env(WIDTH, 80%);
+	height: env(HEIGHT, 60%);
+  border: 2px;
+	border-color: #007aff;
+	border-radius: 4px;
+}
+element-icon {
+  border-radius: 4px;
+}
+textbox {
+	padding: 2em;
+}
+inputbar {
+	padding: 0.2em;
+}
+mainbox {
+  	background-position: center;
+  	border-radius: 4px;	
+}
+entry {
+  placeholder: "Search ...";
+  cursor: pointer;
+ }
+listview {
+  border: 0px;
+}
+element {
+  orientation: horizontal;
+  spacing: 10px;
+  border-radius: 4px;
+  padding: 0.4em;
+}
+element-icon {
+  size: 2em               ;
+}
+configuration {
+  modi: "window,drun,ssh,combi,filebrowser,recursivebrowser";
+  font: "JetBrainsMono Nerd Font 12";
+  combi-modi: "window,drun,ssh";
+  terminal: "kitty";
+  run-shell-command: "{terminal} -e {cmd}";
+  sidebar-mode: true;
+}
