@@ -1,10 +1,10 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
-options=(
-  style=round
-  width=8.0
-  hidpi=off
-  active_color=0xff007aff
-  inactive_color=0xff414550
+border=(
+	style=round
+	width=8.0
+	hidpi=off
+	active_color=0xff007aff
+	inactive_color=0xff313550
 )
-borders "${options[@]}"
+borders "${border[@]}"
