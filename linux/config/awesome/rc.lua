@@ -241,7 +241,7 @@ awful.screen.connect_for_each_screen(function(s)
       awful.widget.watch([[bash -c "echo \  $(top -bn1 | grep Cpu | awk '{print $2}')%\ "]], 2),
       awful.widget.watch([[bash -c "echo \  $(echo $(free -h | grep Mem) | awk '{print $3}')\ "]], 2),
       awful.widget.watch([[bash -c "echo \ 󰁹 $(cat /sys/class/power_supply/BAT1/capacity)%\ "]], 120),
-      awful.widget.watch([[bash -c "echo \  $(echo $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'))\ "]], 2),
+      awful.widget.watch([[bash -c "echo \  $(echo $(amixer sget Master | grep -o -E '[0-9]+%' | head -1))%\ "]], 2),
       awful.widget.watch([[bash -c "echo \  $(($(brightnessctl get)*100/$(brightnessctl max)))%\ "]], 2),
       awful.widget.watch([[bash -c "echo \  $(date +%Y-%m-%d\ %H:%M)\ "]], 60),
       wibox.widget.systray(),
@@ -288,9 +288,9 @@ globalkeys = gears.table.join(
   awful.key({ modkey, "Shift" }, "#19", function() if client.focus then local tag = client.focus.screen.tags[10]; if tag then client.focus:move_to_tag(tag) end end end, { description = "move focused client to tag #10", group = "tag" }),
   awful.key({}, "XF86MonBrightnessUp", function() awful.util.spawn("brightnessctl s +5%") end, { description = "Raise Monitor Backlight", group = "XF86" }),
   awful.key({}, "XF86MonBrightnessDown", function() awful.util.spawn("brightnessctl s 5%-") end, { description = "Lower Monitor Backlight", group = "XF86" }),
-  awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%") end, { description = "Raise Volume", group = "XF86" }),
-  awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%") end, { description = "Lower Volume", group = "XF86" }),
-  awful.key({}, "XF86AudioMute", function() awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") end, { description = "Toggle Volume", group = "XF86" })
+  awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer sset Master 5%+") end, { description = "Raise Volume", group = "XF86" }),
+  awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("amixer sset Master 5%-") end, { description = "Lower Volume", group = "XF86" }),
+  awful.key({}, "XF86AudioMute", function() awful.util.spawn("amixer sset Master 1+ toggle") end, { description = "Toggle Volume", group = "XF86" })
 )
 root.keys(globalkeys)
 root.buttons(gears.table.join(awful.button({}, 3, function() mainmenu:toggle() end)))
