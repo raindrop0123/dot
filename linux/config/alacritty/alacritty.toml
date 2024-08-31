@@ -1,0 +1,148 @@
+import = []
+shell = { program = "/bin/zsh", args = ["-l"] }
+working_directory = "None"                                         # Default: "None"
+live_config_reload = true                                          # Default: true
+ipc_socket = true                                                  # Default: true
+
+[env]
+
+[window]
+dimensions = { columns = 0, lines = 0 }                            # Default: columns = 0, lines = 0
+position = "None"                                                  # Default: "None"
+padding = { x = 0, y = 0 }                                         # Default: x = 0, y = 0
+dynamic_padding = false                                            # Default: false
+decorations = "Full"                                               # Default: "Full"
+opacity = 0.9                                                      # Default: 1.0
+blur = false                                                       # Default: false
+startup_mode = "Windowed"                                          # Default: "Windowed"
+title = "Alacritty"                                                # Default: "Alacritty"
+dynamic_title = true                                               # Default: true
+class = { instance = "Alacritty", general = "Alacritty" }          # Default: instance = "Alacritty", general = "Alacritty"
+decorations_theme_variant = "None"                                 # Default: "None"
+resize_increments = false                                          # Default: false
+option_as_alt = "None"                                             # Default: "None"
+
+[scrolling]
+history = 10000                                                    # Default: 10000
+multiplier = 3                                                     # Default: 3
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" } # Default for Linux/BSD: "monospace", Regular
+bold = { style = "Bold" }                                          # Default: Bold
+italic = { style = "Italic" }                                      # Default: Italic
+bold_italic = { style = "Bold Italic" }                            # Default: Bold Italic
+size = 12.00                                                       # Default: 11.25
+offset = { x = 0, y = 5 }                                          # Default: x = 0, y = 0
+glyph_offset = { x = 0, y = 0 }                                    # Default: x = 0, y = 0
+builtin_box_drawing = true                                         # Default: true
+
+[colors]
+transparent_background_colors = false                              # Default:
+draw_bold_text_with_bright_colors = true                           # Default:
+
+[colors.primary]
+foreground = "#d8d8d8"                                             # Default:
+background = "#181818"                                             # Default:
+dim_foreground = "#828482"                                         # Default:
+bright_foreground = "None"                                         # Default:
+
+[colors.cursor]
+text = "#181818"                                                   # Default:
+cursor = "#f4bf75"                                                 # Default:
+
+[colors.vi_mode_cursor]
+text = "CellBackground"                                            # Default:
+cursor = "CellForeground"                                          # Default:
+
+[colors.search.matches]
+foreground = "#181818"                                             # Default:
+background = "#ac4242"                                             # Default:
+
+[colors.search.focused_match]
+foreground = "#181818"                                             # Default:
+background = "#f4bf75"                                             # Default:
+
+[colors.hints.start]
+foreground = "#181818"                                             # Default:
+background = "#f4bf75"                                             # Default:
+
+[colors.hints.end]
+foreground = "#181818"                                             # Default:
+background = "#ac4242"                                             # Default:
+
+[colors.line_indicator]
+foreground = "None"                                                # Default:
+background = "None"                                                # Default:
+
+[colors.footer_bar]
+foreground = "#181818"                                             # Default:
+background = "#d8d8d8"                                             # Default:
+
+[colors.selection]
+text = "CellBackground"                                            # Default:
+background = "CellForeground"                                      # Default:
+
+[colors.normal]
+black = "#181818"                                                  # Default:
+red = "#ac4242"                                                    # Default:
+green = "#90a959"                                                  # Default:
+yellow = "#f4bf75"                                                 # Default:
+blue = "#6a9fb5"                                                   # Default:
+magenta = "#aa759f"                                                # Default:
+cyan = "#75b5aa"                                                   # Default:
+white = "#d8d8d8"                                                  # Default:
+
+[colors.bright]
+black = "#6b6b6b"                                                  # Default:
+red = "#c55555"                                                    # Default:
+green = "#aac474"                                                  # Default:
+yellow = "#feca88"                                                 # Default:
+blue = "#82b8c8"                                                   # Default:
+magenta = "#c28cb8"                                                # Default:
+cyan = "#93d3c3"                                                   # Default:
+white = "#f8f8f8"                                                  # Default:
+
+[colors.dim]
+black = "#0f0f0f"                                                  # Default:
+red = "#712b2b"                                                    # Default:
+green = "#5f6f3a"                                                  # Default:
+yellow = "#a17e4d"                                                 # Default:
+blue = "#456877"                                                   # Default:
+magenta = "#704d68"                                                # Default:
+cyan = "#4d7770"                                                   # Default:
+white = "#8e8e8e"                                                  # Default:
+
+[bell]
+animation = "EaseOutCubic"                                         # Default: "Linear"
+duration = 1                                                       # Default: 0
+color = "#d8d8d8"                                                  # Default: "#ffffff"
+command = "None"                                                   # Default: "None"
+
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\\t"                     # Default: ",│`|:\"' ()[]{}<>\\t"
+save_to_clipboard = false                                          # Default: false
+
+[cursor]
+style = { shape = "Block", blinking = "Always" }                   # Default: shape = "Block", blinking = "Off"
+vi_mode_style = "None"                                             # Default: "None"
+blink_interval = 500                                               # Default: 750
+blink_timeout = 5                                                  # Default: 5
+unfocused_hollow = true                                            # Default: true
+thickness = 0.20                                                   # Default: 0.15
+
+[terminal]
+osc52 = "CopyPaste"                                                # Default: "OnlyCopy"
+
+[mouse]
+hide_when_typing = true                                            # Default: false
+bindings = []
+
+[hints]
+alphabet = "jfkdls;ahgurieowpq"                                    # Default: "jfkdls;ahgurieowpq"
+
+[keyboard]
+bindings = [
+      # { key = "Key", mods = "Modifiers", action = "Action"  },
+      # { key = "Key", mods = "Modifiers", chars = "Characters to send"  },
+      # ...
+]
