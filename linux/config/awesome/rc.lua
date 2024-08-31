@@ -241,7 +241,7 @@ awful.screen.connect_for_each_screen(function(s)
       awful.widget.watch([[bash -c "echo \  $(top -bn1 | grep Cpu | awk '{print $2}')%\ "]], 2),
       awful.widget.watch([[bash -c "echo \  $(echo $(free -h | grep Mem) | awk '{print $3}')\ "]], 2),
       awful.widget.watch([[bash -c "echo \ 󰁹 $(cat /sys/class/power_supply/BAT1/capacity)%\ "]], 120),
-      awful.widget.watch([[bash -c "echo \  $(echo $(amixer sget Master | grep -o -E '[0-9]+%' | head -1))%\ "]], 2),
+      awful.widget.watch([[bash -c "echo \  $(echo $(amixer sget Master | grep -o -E '[0-9]+%' | head -1))\ "]], 2),
       awful.widget.watch([[bash -c "echo \  $(($(brightnessctl get)*100/$(brightnessctl max)))%\ "]], 2),
       awful.widget.watch([[bash -c "echo \  $(date +%Y-%m-%d\ %H:%M)\ "]], 60),
       wibox.widget.systray(),
