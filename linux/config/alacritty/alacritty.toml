@@ -1,5 +1,5 @@
 import = []
-shell = { program = "/bin/zsh", args = ["-l"] }
+shell = { program = "/bin/sh", args = ["-l"] }
 working_directory = "None"                                         # Default: "None"
 live_config_reload = true                                          # Default: true
 ipc_socket = true                                                  # Default: true
