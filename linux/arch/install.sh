@@ -130,18 +130,18 @@ arch-chroot /mnt systemctl enable NetworkManager.service
 # arch-chroot /mnt systemctl enable dhcpcd.service
 
 # OFFICIAL PACKAGES
-HYPRLAND="hyprland hyprpaper"
-SYSTOOL="pulseaudio brightnessctl copyq fastfetch dunst udiskie wl-clipboard polkit-kde-agent"
+WM="awesome xorg-xinit xorg-server"
+SYSTOOL="alsa-utils brightnessctl xclip fastfetch udiskie polkit-kde-agent"
 INPUT="fcitx5-im fcitx5-chewing"
 RUSTTOOL="lsd ripgrep bottom"
-TERM="kitty"
+TERM="alacritty"
 EDITOR="gvim emacs neovim"
-GUITOOL="pcmanfm waybar"
+GUITOOL="pcmanfm"
 FONT="ttf-3270-nerd ttf-cascadia-code-nerd ttf-cascadia-mono-nerd ttf-dejavu-nerd  ttf-fantasque-nerd"
 FONT="$FONT ttf-firacode-nerd ttf-hack-nerd ttf-ibmplex-mono-nerd ttf-inconsolata-nerd ttf-iosevka-nerd"
 FONT="$FONT ttf-jetbrains-mono-nerd ttf-meslo-nerd ttf-mononoki-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono"
 FONT="$FONT ttf-noto-nerd ttf-roboto-mono-nerd ttf-terminus-nerd ttf-ubuntu-nerd ttf-ubuntu-mono-nerd noto-fonts-cjk"
-arch-chroot /mnt sudo pacman -S --noconfirm --needed $HYPRLAND $SYSTOOL $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL $FONT
+arch-chroot /mnt sudo pacman -S --noconfirm --needed $WM $SYSTOOL $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL $FONT
 
 # YAY
 # @REF: https://github.com/Jguer/yay
@@ -151,7 +151,5 @@ arch-chroot /mnt sudo -u $USERNAME bash -c "cd && git clone https://aur.archlinu
 # AUR PACKAGES
 AURBROWSER="google-chrome microsoft-edge-stable-bin"
 AUREDITOR="visual-studio-code-bin"
-AURHYPRLAND="hyprlock hyprshot hypridle hyprpicker"
-AURGUITOOL="rofi-wayland"
 AURFONT="ttf-tw ttf-ms-fonts ttf-google-fonts ttf-monaco otf-monego-git"
-arch-chroot /mnt sudo -u $USERNAME bash -c "yay -S --sudoloop $AURBROWSER $AUREDITOR $AURHYPRLAND $AURGUITOOL $AURFONT"
+arch-chroot /mnt sudo -u $USERNAME bash -c "yay -S --sudoloop $AURBROWSER $AUREDITOR $AURFONT"
