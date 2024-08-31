@@ -1,17 +1,57 @@
-#!/usr/bin/env bash
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcdfilter
 
-# HiDPI
-export QT_AUTO_SCREEN_SCALE_FACTOR=0
-export QT_SCALE_FACTOR=1.25
-export QT_ENABLE_HIGHDPI_SCALING=1
-export QT_FONT_DPI=108
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.5
+! xterm
+XTerm*renderFont: true
+XTerm*faceName: xft:JetBrainsMono Nerd Font:style=Regular:size=12
+XTerm*faceSize: 12
+XTerm*utf8: 2
+XTerm*locale: true
+XTerm*loginshell: true
+XTerm*savelines: 5000
+XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 
-# ALIAS
-alias ls='ls --color=auto'
-alias tree='lsd -al --tree'
-alias em='emacs -nw'
-alias nv='nvim'
-alias ff='fastfetch'
-alias gd='git clone https://github.com/raindrop0123/dot.git --depth=1'
+! urxvt
+URxvt*imLocale: en_US.UTF-8
+URxvt*termName: rxvt-unicode-256color
+URxvt*buffered: false
+URxvt.intensityStyles: false
+URxvt.font: xft:JetBrainsMono Nerd Font Mono:style=Regular:size=12
+URxvt.saveLines: 5000
+URxvt.scrollBar: false
+URxvt.cursorColor: white
+URxvt*depth: 32
+
+! colorscheme
+*.foreground: #ffffff
+*.background: #000000
+*.cursorColor: #ff0000
+! black
+*.color0: #000000
+*.color8: #000000
+! red
+*.color1: #ff0000
+*.color9: #ff0000
+! green
+*.color2: #00ff00
+*.color10: #00ff00
+! yellow
+*.color3: #ffff00
+*.color11: #ffff00
+! blue
+*.color4: #0000ff
+*.color12: #0000ff
+! magenta
+*.color5: #ff00ff
+*.color13: #ff00ff
+! cyan
+*.color6: #0000ff
+*.color14: #0000ff
+! white
+*.color7: #ffffff
+*.color15: #ffffff
