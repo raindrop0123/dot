@@ -142,22 +142,22 @@ awful.layout.layouts = {
 -- SUBMENU: awesome
 awesomemenu = {
   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-  { "manual", "kitty -e man awesome" },
-  { "edit config", "kitty -e vim " .. awesome.conffile },
+  { "manual", "urxvt -e man awesome" },
+  { "edit config", "urxvt -e vim " .. awesome.conffile },
   { "restart", awesome.restart },
   { "quit", function() awesome.quit() end },
 }
 -- SUBMENU: editor
 editormenu = {
   { "Emacs", "emacs" },
-  { "vim", "kitty -e vim" },
-  { "neovim", "kitty -e nvim" },
+  { "vim", "urxvt -e vim" },
+  { "neovim", "urxvt -e nvim" },
 }
 -- MAIN MENU
 mainmenu = awful.menu({
   items = {
     { " AwesomeWM ", awesomemenu, beautiful.awesome_icon },
-    { " Terminal ", "kitty" },
+    { " Terminal ", "urxvt" },
     { " Editor ", editormenu },
   }
 })
@@ -167,7 +167,7 @@ launcher = awful.widget.launcher({
   menu = mainmenu
 })
 -- Menubar configuration
-menubar.utils.terminal = "kitty"
+menubar.utils.terminal = "urxvt"
 -- }}}
 
 -- {{{ WIBAR
@@ -253,7 +253,7 @@ end)
 
 -- {{{ KEY BINDING & MOUSE BINDING
 globalkeys = gears.table.join(
-  awful.key({ modkey }, "Return", function() awful.spawn("kitty") end, { description = "open a terminal", group = "launcher" }),
+  awful.key({ modkey }, "Return", function() awful.spawn("urxvt") end, { description = "open a terminal", group = "launcher" }),
   awful.key({ modkey }, "j", function() awful.client.focus.byidx(1) end, { description = "focus next by index", group = "client" }),
   awful.key({ modkey }, "k", function() awful.client.focus.byidx(-1) end, { description = "focus previous by index", group = "client" }),
   awful.key({ modkey, "Shift" }, "j", function() awful.client.swap.byidx(1) end, { description = "swap with next client by index", group = "client" }),
@@ -293,7 +293,7 @@ globalkeys = gears.table.join(
   awful.key({}, "XF86AudioMute", function() awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") end, { description = "Toggle Volume", group = "XF86" })
 )
 root.keys(globalkeys)
-root.buttons(gears.table.join(awful.button({}, 3, function() mymainmenu:toggle() end)))
+root.buttons(gears.table.join(awful.button({}, 3, function() mainmenu:toggle() end)))
 -- }}}
 
 -- {{{ RULE
