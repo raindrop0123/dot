@@ -8,7 +8,7 @@ Xft.lcdfilter: lcdfilter
 
 ! xterm
 XTerm*renderFont: true
-XTerm*faceName: xft:Hack Nerd Font:style=Regular:size=14
+XTerm*faceName: xft:JetBrainsMono Nerd Font:style=Regular:size=14
 XTerm*faceSize: 12
 XTerm*utf8: 2
 XTerm*locale: true
@@ -21,7 +21,7 @@ URxvt*imLocale: en_US.UTF-8
 URxvt*termName: rxvt-unicode-256color
 URxvt*buffered: false
 URxvt.intensityStyles: false
-URxvt.font: xft:Hack Nerd Font Mono:style=Regular:size=14
+URxvt.font: xft:JetBrainsMono Nerd Font Mono:style=Regular:size=14
 URxvt.saveLines: 5000
 URxvt.scrollBar: false
 URxvt.cursorColor: white
