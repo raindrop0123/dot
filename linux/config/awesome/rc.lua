@@ -61,7 +61,7 @@ beautiful.init({
   fg_focus = "#ffffff",
   fg_urgent = "#ffffff",
   fg_minimize = "#ffffff",
-  useless_gap = require("beautiful.xresources").apply_dpi(0),
+  useless_gap = require("beautiful.xresources").apply_dpi(4),
   border_width = require("beautiful.xresources").apply_dpi(2),
   border_normal = "#000000",
   border_focus = "#535d6c",
@@ -114,8 +114,6 @@ beautiful.init({
 -- }}}
 
 -- {{{ MODKEY
--- Mod1 = alt
--- Mod4 = windows
 modkey = "Mod1"
 -- }}}
 
@@ -242,8 +240,8 @@ awful.screen.connect_for_each_screen(function(s)
       layout = wibox.layout.fixed.horizontal,
       awful.widget.watch([[bash -c "echo \  $(top -bn1 | grep Cpu | awk '{print $2}')%\ "]], 2),
       awful.widget.watch([[bash -c "echo \  $(echo $(free -h | grep Mem) | awk '{print $3}')\ "]], 2),
-      awful.widget.watch([[bash -c "echo \  $(cat /sys/class/power_supply/BAT1/capacity)%\ "]], 120),
-      awful.widget.watch([[bash -c "echo \  $(echo $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'))\ "]], 2),
+      awful.widget.watch([[bash -c "echo \ 󰁹 $(cat /sys/class/power_supply/BAT1/capacity)%\ "]], 120),
+      awful.widget.watch([[bash -c "echo \  $(echo $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'))\ "]], 2),
       awful.widget.watch([[bash -c "echo \  $(($(brightnessctl get)*100/$(brightnessctl max)))%\ "]], 2),
       awful.widget.watch([[bash -c "echo \  $(date +%Y-%m-%d\ %H:%M)\ "]], 60),
       wibox.widget.systray(),
