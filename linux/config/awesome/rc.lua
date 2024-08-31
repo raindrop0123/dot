@@ -226,7 +226,6 @@ awful.screen.connect_for_each_screen(function(s)
     -- Left Widgets
     {
       layout = wibox.layout.fixed.horizontal,
-      s.promptbox,
       launcher,
       s.taglist,
     },
@@ -234,6 +233,7 @@ awful.screen.connect_for_each_screen(function(s)
     {
       layout = wibox.layout.fixed.horizontal,
       s.tasklist,
+      s.promptbox,
     },
     -- Right Widgets
     {
@@ -432,6 +432,7 @@ awful.spawn.with_shell("xclip")
 awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("flameshot")
 awful.spawn.with_shell("udiskie")
+awful.spawn.with_shell("xfce4-power-manager")
 awful.spawn.with_shell("/usr/lib/polkit-kde-authentication-agent-1")
 awful.spawn.with_shell("[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources")
 awful.spawn.with_shell("fcitx5 --replace -d")
