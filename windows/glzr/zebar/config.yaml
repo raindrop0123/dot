@@ -38,7 +38,7 @@ window/bar:
           padding: 4px 4px;
           color: #ffffff;
           border: none;
-          border-radius: 4px;
+          border-radius: 0px;
           cursor: pointer;
           &.displayed {
             background: #000000;
@@ -91,10 +91,10 @@ window/bar:
         margin-right: 8px;
         margin-left: 8px;
       template: |
-        @if (battery.chargePercent > 90) {<i class="nf nf-fa-battery_full"></i>}
-        @else if (battery.chargePercent > 50) {<i class="nf nf-fa-battery_half"></i>}
-        @else if (battery.chargePercent > 25) {<i class="nf nf-fa-battery_quarter"></i>}
-        @else {<i class="nf nf-fa-battery_empty"></i>}
+        @if (battery.chargePercent > 90) {<i class="nf nf-md-battery"></i>}
+        @else if (battery.chargePercent > 50) {<i class="nf nf-md-battery_50"></i>}
+        @else if (battery.chargePercent > 25) {<i class="nf nf-md-battery_30"></i>}
+        @else {<i class="nf nf-md-battery_10"></i>}
         {{ Math.round(battery.chargePercent) }}%
     template/clock:
       providers: ['date']
