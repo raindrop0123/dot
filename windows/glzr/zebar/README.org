@@ -4,4 +4,4 @@ A status bar for glazewm.
 
 It can start automatically when glazewm starting.
 
-Congifuration Load Path: =%userprofile\.glzr\zebar\config.yaml%=
+Congifuration Load Path: =%userprofile%\.glzr\zebar\config.yaml=
