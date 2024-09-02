@@ -5,4 +5,4 @@
 * How to setup the iterm2 settings on other mac?
 
 1. Go to =Preference= -> =General= -> =Preferences= -> =Load preferences from a custom folder or URL=
-2. Paste =https://raw.githubusercontent.com/raindrop0123/dot/main/mac/iterm2/com.googlecode.iterm2.plist=
+2. Paste =https://raw.githubusercontent.com/raindrop0123/dot/main/mac/config/iterm2/com.googlecode.iterm2.plist=
