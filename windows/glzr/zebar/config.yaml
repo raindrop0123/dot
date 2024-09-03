@@ -1,7 +1,7 @@
 window/bar:
   providers: ['self']
   width: '{{ self.args.MONITOR_WIDTH }}'
-  height: '36'
+  height: '40'
   position_x: '{{ self.args.MONITOR_X }}'
   position_y: '{{ self.args.MONITOR_Y }}'
   z_order: 'normal'
@@ -15,7 +15,8 @@ window/bar:
     align-items: center;
     height: 100%;
     color: #ffffff;
-    font-family: Segoe UI, Consolas, ui-monospace, monospace;
+    font-family: JetBrainsMono Nerd Font, Segoe UI, Consolas, ui-monospace, monospace;
+    font-weight: Semibold;
     font-size: 12px;
     padding: 0px 0px;
     background: #000000;
@@ -25,6 +26,7 @@ window/bar:
       align-items: center;
     template/logo:
       styles: |
+        color: #0078d7;
         margin-right: 8px;
         margin-left: 8px;
       template: |
@@ -35,7 +37,7 @@ window/bar:
         align-items: center;
         .workspace {
           background: #000000;
-          padding: 4px 4px;
+          padding: 8px 8px;
           color: #ffffff;
           border: none;
           border-radius: 0px;
@@ -43,9 +45,12 @@ window/bar:
           &.displayed {
             background: #000000;
           }
-          &.focused,
+          &.focused {
+            background: #0078d7;
+          }
           &:hover {
-            background: #007aff;
+            background: #ffffff;
+            color: #000000;
           }
         }
       providers: ['glazewm']
