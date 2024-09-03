@@ -15,7 +15,7 @@ window/bar:
     align-items: center;
     height: 100%;
     color: #ffffff;
-    font-family: JetBrainsMono Nerd Font, Segoe UI, Consolas, ui-monospace, monospace;
+    font-family: Segoe UI, Consolas, ui-monospace, monospace;
     font-weight: Semibold;
     font-size: 12px;
     padding: 0px 0px;
