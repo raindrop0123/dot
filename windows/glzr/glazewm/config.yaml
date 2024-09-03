@@ -9,7 +9,7 @@ general:
 gaps:
   inner_gap: '4px'
   outer_gap:
-    top: '40px'
+    top: '44px'
     right: '4px'
     bottom: '4px'
     left: '4px'
@@ -36,28 +36,28 @@ window_behavior:
 
 workspaces:
   - name: '1'
-    display_name: ' 1 '
+    display_name: '1'
     bind_to_monitor: 0
   - name: '2'
-    display_name: ' 2 '
+    display_name: '2'
     bind_to_monitor: 0
   - name: '3'
-    display_name: ' 3 '
+    display_name: '3'
     bind_to_monitor: 0
   - name: '4'
-    display_name: ' 4 '
+    display_name: '4'
   - name: '5'
-    display_name: ' 5 '
+    display_name: '5'
   - name: '6'
-    display_name: ' 6 '
+    display_name: '6'
   - name: '7'
-    display_name: ' 7 '
+    display_name: '7'
   - name: '8'
-    display_name: ' 8 '
+    display_name: '8'
   - name: '9'
-    display_name: ' 9 '
+    display_name: '9'
   - name: '10'
-    display_name: ' 10 '
+    display_name: '10'
     bind_to_monitor: 1
 
 window_rules:
