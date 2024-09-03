@@ -1,3 +1,4 @@
+#!/bin/sh
 # @REF: https://nobodyzxc.github.io/2019/06/06/arch-install/#more
 # @REF: https://wiki.archlinux.org/title/Installation_guide
 # @REF: https://zhuanlan.zhihu.com/p/107135290
