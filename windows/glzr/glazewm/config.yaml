@@ -1,3 +1,4 @@
+# GENERAL
 general:
   startup_commands: ['shell-exec %userprofile%/.glzr/zebar/start.bat']
   focus_follows_cursor: true
@@ -5,25 +6,25 @@ general:
   cursor_jump:
     enabled: true
     trigger: 'monitor_focus'
-
+# GAPS
 gaps:
-  inner_gap: '4px'
+  inner_gap: '0px'
   outer_gap:
-    top: '44px'
-    right: '4px'
-    bottom: '4px'
-    left: '4px'
-
+    top: '40px'
+    right: '0px'
+    bottom: '0px'
+    left: '0px'
+# WINDOW EFFECT
 window_effects:
   focused_window:
     border:
       enabled: true
-      color: '#007aff'
+      color: '#0078d7'
   other_windows:
     border:
       enabled: false
       color: '#000000'
-
+# WINDOW BEHAVIOR
 window_behavior:
   initial_state: 'tiling'
   state_defaults:
@@ -33,7 +34,7 @@ window_behavior:
     fullscreen:
       maximized: false
       shown_on_top: false
-
+# WORKSPACE NAME
 workspaces:
   - name: '1'
     display_name: '1'
@@ -59,7 +60,7 @@ workspaces:
   - name: '10'
     display_name: '10'
     bind_to_monitor: 1
-
+# WINDOW RULE
 window_rules:
   - commands: ['ignore']
     match:
@@ -69,22 +70,12 @@ window_rules:
       - window_process: { equals: 'PowerToys.PowerAccent' }
       - window_process: { equals: 'Lively' }
         window_class: { regex: 'HwndWrapper*' }
-
-binding_modes:
-  - name: "resize"
-    keybindings:
-      - commands: ["resize --width -2%"]
-        bindings: ["h", "left"]
-      - commands: ["resize --width +2%"]
-        bindings: ["l", "right"]
-      - commands: ["resize --height +2%"]
-        bindings: ["k", "up"]
-      - commands: ["resize --height -2%"]
-        bindings: ["j", "down"]
-      - commands: ["wm-disable-binding-mode --name resize"]
-        bindings: ["escape", "enter"]
-
+# KEYBINDING
 keybindings:
+  # Resize Mode
+  - commands: ['wm-enable-binding-mode --name resize']
+    bindings: ['alt+r']
+  # Focus window
   - commands: ['focus --direction left']
     bindings: ['alt+h']
   - commands: ['focus --direction down']
@@ -93,6 +84,7 @@ keybindings:
     bindings: ['alt+k']
   - commands: ['focus --direction right']
     bindings: ['alt+l']
+  # SWAP window
   - commands: ['move --direction left']
     bindings: ['alt+shift+h']
   - commands: ['move --direction down']
@@ -101,22 +93,25 @@ keybindings:
     bindings: ['alt+shift+k']
   - commands: ['move --direction right']
     bindings: ['alt+shift+l']
-  - commands: ['wm-enable-binding-mode --name resize']
-    bindings: ['alt+r']
-  - commands: ['wm-cycle-focus']
-    bindings: ['alt+space']
+  # FullScreen
   - commands: ['toggle-fullscreen']
     bindings: ['alt+f']
+  # Kill Current Window
   - commands: ['close']
     bindings: ['alt+shift+q']
+  # Exit GlazeWM and kill Zebar
   - commands: ['shell-exec powershell if (Get-Process -Name "zebar") { Stop-Process -Name "zebar" -Force }', 'wm-exit']
     bindings: ['alt+shift+e']
+  # Reload GlazeWM and Zebar
   - commands: ['wm-reload-config', 'shell-exec taskkill -IM zebar.exe -F', 'shell-exec %userprofile%/.glzr/zebar/start.bat']
     bindings: ['alt+shift+r']
+  # Redraw window manager
   - commands: ['wm-redraw']
     bindings: ['alt+shift+w']
+  # Open Terminal
   - commands: ['shell-exec cmd']
     bindings: ['alt+enter']
+  # Move focus to specific workspace
   - commands: ['focus --workspace 1']
     bindings: ['alt+1']
   - commands: ['focus --workspace 2']
@@ -137,6 +132,7 @@ keybindings:
     bindings: ['alt+9']
   - commands: ['focus --workspace 10']
     bindings: ['alt+0']
+  # Move window to specific workspace
   - commands: ['move --workspace 1']
     bindings: ['alt+shift+1']
   - commands: ['move --workspace 2']
@@ -157,3 +153,17 @@ keybindings:
     bindings: ['alt+shift+9']
   - commands: ['move --workspace 10']
     bindings: ['alt+shift+0']
+# RESIZE MODE
+binding_modes:
+  - name: "resize"
+    keybindings:
+      - commands: ["resize --width -2%"]
+        bindings: ["h", "left"]
+      - commands: ["resize --width +2%"]
+        bindings: ["l", "right"]
+      - commands: ["resize --height +2%"]
+        bindings: ["k", "up"]
+      - commands: ["resize --height -2%"]
+        bindings: ["j", "down"]
+      - commands: ["wm-disable-binding-mode --name resize"]
+        bindings: ["escape", "enter"]
