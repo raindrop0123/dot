@@ -89,11 +89,14 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 call plug#begin()
 
+" INSTALL UNINSTALLED AUTOMATICALLY
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) > 0 | PlugInstall --sync | source $MYVIMRC | endif
+
 " AUTOLOAD
 Plug 'tpope/vim-commentary'
-Plug 'mhinz/vim-startify', { 'on': [] }
 
 " LAZYLOAD
+Plug 'mhinz/vim-startify', { 'on': [] }
 Plug 'morhetz/gruvbox', { 'on': [] }
 Plug 'catppuccin/vim', { 'as': 'catppuccin', 'on': [] }
 Plug 'jnurmine/Zenburn', { 'on': [] }
