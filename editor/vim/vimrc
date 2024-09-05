@@ -1,8 +1,9 @@
-"@REF: https://github.com/chenxuan520/vim-fast/blob/master/vimrc-no-plug
-"@REF: https://github.com/nobodyzxc/ConfigFiles/blob/master/vimrc.vim
-"@REF: https://github.com/skywind3000/vim/tree/master
+"REF: https://github.com/chenxuan520/vim-fast/blob/master/vimrc-no-plug
+"REF: https://github.com/skywind3000/vim/tree/master
 
-""" OPTIONS
+""""""""""""""""""""""""
+" DISTRIBUTION PLUGINS "
+""""""""""""""""""""""""
 let g:loaded_gzip=1
 let g:loaded_tar=1
 let g:loaded_tarPlugin=1
@@ -22,11 +23,18 @@ let g:loaded_netrwFileHandlers=1
 let g:loaded_matchit=1
 let g:loaded_matchparen=1
 let g:did_install_default_menus=1
+
+""""""""""
+" OPTION "
+""""""""""
 set nocompatible
 set clipboard^=unnamed,unnamedplus
 set ruler
 set number
 set relativenumber
+set cursorline
+set cursorcolumn
+set colorcolumn=80
 set laststatus=2
 set showtabline=2
 set timeout
@@ -47,137 +55,239 @@ set autowrite
 set nobackup
 set noswapfile
 set noundofile
+set nowrap
 set wildmenu
 set background=dark
-if v:version >= 900
-  colorscheme retrobox
-else
-  colorscheme desert
-endif
+" set termguicolors
 syntax on
 filetype on
 filetype indent plugin on
-if has("autocmd")
-  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-  autocmd BufReadPost,InsertEnter * setlocal formatoptions-=r formatoptions-=c formatoptions-=o " This auto-command may be reset by some plugins
-endif
+
+"""""""""""
+" MAPPING "
+"""""""""""
 let mapleader="\\"
 let maplocalleader=" "
 nnoremap <leader>re :edit $MYVIMRC<CR>
 imap jk <Esc>
 
-""" PLUGIN: auto-pairs
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-cnoremap ( ()<left>
-cnoremap [ []<left>
-cnoremap { {}<left>
-let g:pair_map={'(':')','[':']','{':'}','"':'"',"'":"'",'<':'>','`':'`',}
-func! s:Judge(ch,mode)
-  if a:mode!='c'
-    let ch=getline('.')[col('.')-1]
-  else
-    let ch=getcmdline()[getcmdpos()-1]
-  endif
-  if a:ch=='"'||a:ch=="'"||a:ch=='`'
-    if ch!=a:ch
-      return a:ch.a:ch."\<left>"
-    endif
-  endif
-  if ch==a:ch
-    return "\<right>"
-  endif
-  return a:ch
-endfunc
-inoremap <expr><silent>" <sid>Judge('"', 'i')
-inoremap <expr><silent>` <sid>Judge('`', 'i')
-inoremap <expr><silent>' <sid>Judge("'", 'i')
-inoremap <expr><silent>> <sid>Judge('>', 'i')
-inoremap <expr><silent>) <sid>Judge(')', 'i')
-inoremap <expr><silent>} <sid>Judge('}', 'i')
-inoremap <expr><silent>] <sid>Judge(']', 'i')
-cnoremap <expr>" <sid>Judge('"', 'c')
-cnoremap <expr>` <sid>Judge('`', 'c')
-cnoremap <expr>' <sid>Judge("'", 'c')
-cnoremap <expr>> <sid>Judge('>', 'c')
-cnoremap <expr>) <sid>Judge(')', 'c')
-cnoremap <expr>} <sid>Judge('}', 'c')
-cnoremap <expr>] <sid>Judge(']', 'c')
-func! s:Backspace(mode)
-  if a:mode!='c'
-    let s:pair=getline('.')[col('.')-1]
-    let s:pair_l=getline('.')[col('.')-2]
-  else
-    let s:pair=getcmdline()[getcmdpos()-1]
-    let s:pair_l=getcmdline()[getcmdpos()-2]
-  endif
-  if has_key(g:pair_map, s:pair_l)&&(g:pair_map[s:pair_l]==s:pair)
-    return "\<right>\<bs>\<bs>"
-  else
-    return "\<bs>"
-  endif
-endfunc
-inoremap <expr><bs> <sid>Backspace('i')
-cnoremap <expr><bs> <sid>Backspace('c')
+"""""""""""
+" AUTOCMD "
+"""""""""""
+if has("autocmd")
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+  autocmd BufReadPost,InsertEnter * setlocal formatoptions-=r formatoptions-=c formatoptions-=o " This auto-command may be reset by some plugins
+endif
 
-""" PLUGIN: vim-commentary
-func! s:Commentary(line) abort
-  let s:num=a:line
-  let line=getline(s:num)
-  let uncomment=2
-  let [l, r] = split(substitute(substitute(substitute(&commentstring, '^$', '%s', ''), '\S\zs%s', ' %s', ''), '%s\ze\S', '%s ', ''), '%s', 1)
-  let line = matchstr(getline(s:num), '\S.*\s\@<!')
-  if l[-1:] ==# ' ' && stridx(line, l) == -1 && stridx(line, l[0:-2]) == 0
-    let l = l[:-2]
-  endif
-  if r[0] ==# ' ' && line[-strlen(r):] != r && line[1-strlen(r):] == r[1:]
-    let r = r[1:]
-  endif
-  if len(line) && (stridx(line, l) || line[strlen(line)-strlen(r):-1] != r)
-    let uncomment = 0
-  endif
-  let line=getline(s:num)
-  let [l, r] = split(substitute(substitute(substitute(&commentstring, '^$', '%s', ''), '\S\zs%s', ' %s', ''), '%s\ze\S', '%s ', ''), '%s', 1)
-  if strlen(r) > 2 && l.r !~# '\\'
-    let line = substitute(line,
-          \'\M' . substitute(l, '\ze\S\s*$', '\\zs\\d\\*\\ze', '') . '\|' . substitute(r, '\S\zs', '\\zs\\d\\*\\ze', ''),
-          \'\=substitute(submatch(0)+1-uncomment,"^0$\\|^-\\d*$","","")','g')
-  endif
-  if uncomment
-    let line = substitute(line, '\S.*\s\@<!','\=submatch(0)[strlen(l):-strlen(r)-1]', '')
-  else
-    let line = substitute(line, '^\%('.matchstr(getline(s:num),'^\s*').'\|\s*\)\zs.*\S\@<=', '\=l.submatch(0).r', '')
-  endif
-  call setline(s:num, line)
-endfunc
-func! s:VisualComment() abort
-  for temp in range(min([line('.'), line('v')]),max([line('.'), line('v')]))
-    call s:Commentary(temp)
-  endfor
-endfunc
-nnoremap <silent><nowait>gcc :call <sid>Commentary(line('.'))<cr>
-xnoremap <silent><nowait>gc :call <sid>VisualComment()<cr>
-
-""" vim-plug
+""""""""""""
+" VIM-PLUG "
+""""""""""""
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-
 call plug#begin()
-Plug 'ryanoasis/vim-devicons', {'on': []}
-Plug 'preservim/nerdtree', {'on': 'NERDTreeToggle'}
+
+" AUTOLOAD
+Plug 'tpope/vim-commentary'
+Plug 'mhinz/vim-startify', { 'on': [] }
+
+" LAZYLOAD
+Plug 'morhetz/gruvbox', { 'on': [] }
+Plug 'catppuccin/vim', { 'as': 'catppuccin', 'on': [] }
+Plug 'jnurmine/Zenburn', { 'on': [] }
+Plug 'sainnhe/everforest', { 'on': [] }
+Plug 'sainnhe/edge', { 'on': [] }
+Plug 'sainnhe/sonokai', { 'on': [] }
+Plug 'sainnhe/gruvbox-material', { 'on': [] }
+Plug 'joshdick/onedark.vim', { 'on': [] }
+Plug 'lifepillar/vim-solarized8', { 'on': [] }
+Plug 'NLKNguyen/papercolor-theme', { 'on': [] }
+Plug 'junegunn/seoul256.vim', { 'on': [] }
+Plug 'tomasiser/vim-code-dark', { 'on': [] }
+Plug 'nanotech/jellybeans.vim', { 'on': [] }
+Plug 'drewtempelmeyer/palenight.vim', { 'on': [] }
+Plug 'vim-airline/vim-airline', { 'on': [] }
+Plug 'vim-airline/vim-airline-themes', { 'on': [] }
+Plug 'Yggdroot/indentLine', { 'on': [] }
+Plug 'ntpeters/vim-better-whitespace', { 'on': [] }
+Plug 'ryanoasis/vim-devicons', { 'on': [] }
+Plug 'machakann/vim-highlightedyank', { 'on': [] }
+Plug 'dominikduda/vim_current_word', { 'on': [] }
+Plug 'LunarWatcher/auto-pairs', { 'on': [] }
+Plug 'luochen1990/rainbow', { 'on': [] }
+Plug 'dense-analysis/ale', { 'on': [] }
+Plug 'airblade/vim-gitgutter', { 'on': [] }
+Plug 'wincent/terminus', { 'on': [] }
+Plug 'wellle/context.vim', { 'on': [] }
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'preservim/nerdtree', { 'on': ['NERDTreeToggle'] }
+Plug 'thinca/vim-quickrun', { 'on': ['QuickRun'] }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Colors', 'Files', 'Rg', 'Lines', 'BLines', 'History'] }
+Plug 'dyng/ctrlsf.vim', { 'on': ['CtrlSF'] }
+Plug 'easymotion/vim-easymotion', { 'on': ['<Plug>(easymotion-bd-jk)', '<Plug>(easymotion-bd-w)'] }
+
 call plug#end()
 
-""" PLUGIN: vim-devicons
+"PLUGIN: VIM-STARTIFY
+augroup load_vim_startify
+  autocmd!
+  autocmd BufEnter * call plug#load('vim-startify')
+        \| autocmd! load_theme
+        \| let g:startify_custom_header = [
+        \'        ⢀⣴⡾⠃⠄⠄⠄⠄⠄⠈⠺⠟⠛⠛⠛⠛⠻⢿⣿⣿⣿⣿⣶⣤⡀  ',
+        \'      ⢀⣴⣿⡿⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣸⣿⣿⣿⣿⣿⣿⣿⣷ ',
+        \'     ⣴⣿⡿⡟⡼⢹⣷⢲⡶⣖⣾⣶⢄⠄⠄⠄⠄⠄⢀⣼⣿⢿⣿⣿⣿⣿⣿⣿⣿ ',
+        \'    ⣾⣿⡟⣾⡸⢠⡿⢳⡿⠍⣼⣿⢏⣿⣷⢄⡀⠄⢠⣾⢻⣿⣸⣿⣿⣿⣿⣿⣿⣿ ',
+        \'  ⣡⣿⣿⡟⡼⡁⠁⣰⠂⡾⠉⢨⣿⠃⣿⡿⠍⣾⣟⢤⣿⢇⣿⢇⣿⣿⢿⣿⣿⣿⣿⣿ ',
+        \' ⣱⣿⣿⡟⡐⣰⣧⡷⣿⣴⣧⣤⣼⣯⢸⡿⠁⣰⠟⢀⣼⠏⣲⠏⢸⣿⡟⣿⣿⣿⣿⣿⣿ ',
+        \' ⣿⣿⡟⠁⠄⠟⣁⠄⢡⣿⣿⣿⣿⣿⣿⣦⣼⢟⢀⡼⠃⡹⠃⡀⢸⡿⢸⣿⣿⣿⣿⣿⡟ ',
+        \' ⣿⣿⠃⠄⢀⣾⠋⠓⢰⣿⣿⣿⣿⣿⣿⠿⣿⣿⣾⣅⢔⣕⡇⡇⡼⢁⣿⣿⣿⣿⣿⣿⢣ ',
+        \' ⣿⡟⠄⠄⣾⣇⠷⣢⣿⣿⣿⣿⣿⣿⣿⣭⣀⡈⠙⢿⣿⣿⡇⡧⢁⣾⣿⣿⣿⣿⣿⢏⣾ ',
+        \' ⣿⡇⠄⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢻⠇⠄⠄⢿⣿⡇⢡⣾⣿⣿⣿⣿⣿⣏⣼⣿ ',
+        \' ⣿⣷⢰⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⢰⣧⣀⡄⢀⠘⡿⣰⣿⣿⣿⣿⣿⣿⠟⣼⣿⣿ ',
+        \' ⢹⣿⢸⣿⣿⠟⠻⢿⣿⣿⣿⣿⣿⣿⣿⣶⣭⣉⣤⣿⢈⣼⣿⣿⣿⣿⣿⣿⠏⣾⣹⣿⣿ ',
+        \' ⢸⠇⡜⣿⡟⠄⠄⠄⠈⠙⣿⣿⣿⣿⣿⣿⣿⣿⠟⣱⣻⣿⣿⣿⣿⣿⠟⠁⢳⠃⣿⣿⣿ ',
+        \'  ⣰⡗⠹⣿⣄⠄⠄⠄⢀⣿⣿⣿⣿⣿⣿⠟⣅⣥⣿⣿⣿⣿⠿⠋  ⣾⡌⢠⣿⡿⠃ ',
+        \' ⠜⠋⢠⣷⢻⣿⣿⣶⣾⣿⣿⣿⣿⠿⣛⣥⣾⣿⠿⠟⠛⠉            ',
+        \ ]
+augroup END
+
+"PLUGIN: GRUVBOX
+"PLUGIN: CATPPUCCIN
+"PLUGIN: ZENBURN
+"PLUGIN: EDGE
+"PLUGIN: EVERFOREST
+"PLUGIN: SONOKAI
+"PLUGIN: GRUVBOX-MATERIAL
+"PLUGIN: ONEDARK.VIM
+"PLUGIN: VIM-COLORS-SOLARIZED
+"PLUGIN: PAPERCOLOR-THEME
+"PLUGIN: SEOUL256.VIM
+"PLUGIN: VIM-CODE-DARK
+"PLUGIN: VIM-SOLARIZED8
+"PLUGIN: JELLYBEANS.VIM
+"PLUGIN: PALENIGHT.VIM
+augroup load_theme
+  autocmd!
+  autocmd BufReadPost * call plug#load('gruvbox', 'catppuccin', 'Zenburn', 'edge', 'everforest', 'sonokai', 'gruvbox-material', 'onedark.vim', 'papercolor-theme', 'seoul256.vim', 'vim-code-dark', 'jellybeans.vim', 'vim-solarized8', 'palenight.vim')
+        \| autocmd! load_theme
+        \| colorscheme gruvbox
+augroup END
+
+"PLUGIN: VIM-DEVICONS
 augroup load_vim_devicons
   autocmd!
   autocmd BufReadPost * call plug#load('vim-devicons')
         \| autocmd! load_vim_devicons
 augroup END
 
-""" PLUGIN: nerdtree
+"PLUGIN: VIM-AIRLINE
+"PLUGIN: VIM_AIRLINE_THEMES
+augroup load_vim_airline
+  autocmd!
+  autocmd BufReadPost * call plug#load('vim-airline', 'vim-airline-themes')
+        \| autocmd! load_vim_airline
+        \| let g:airline_theme = 'gruvbox'
+        \| let g:airline#extensions#tabline#enabled=1
+augroup END
+
+"PLUGIN: INDENTLINE
+augroup load_indentline
+  autocmd!
+  autocmd BufReadPost * call plug#load('indentLine')
+        \| autocmd! load_indentline
+        \| let g:indentLine_char_list = ['│']
+        \| IndentLinesToggle
+augroup END
+
+"PLUGIN: VIM-BETTER-WHITESPACE
+augroup load_vim_better_whitespace
+  autocmd!
+  autocmd BufReadPost * call plug#load('vim-better-whitespace')
+        \| autocmd! load_vim_better_whitespace
+        \| EnableWhitespace
+augroup END
+
+"PLUGIN: VIM-HIGHLIGHTEDYANK
+augroup load_vim_highlightedyank
+  autocmd!
+  autocmd BufReadPost * call plug#load('vim-highlightedyank')
+        \| autocmd! load_vim_highlightedyank
+augroup END
+
+"PLUGIN: VIM_CURRENT_WORD
+augroup load_vim_current_word
+  autocmd!
+  autocmd BufReadPost * call plug#load('vim_current_word')
+        \| autocmd! load_vim_current_word
+augroup END
+
+"PLUGIN: AUTO-PAIRS
+"PLUGIN: RAINBOW
+augroup load_auto_pairs
+  autocmd!
+  autocmd InsertEnter * call plug#load('auto-pairs', 'rainbow')
+        \| autocmd! load_auto_pairs
+        \| call autopairs#AutoPairsTryInit()
+        \| call rainbow_main#toggle()
+augroup END
+
+"PLUGIN: ALE
+augroup load_ale
+  autocmd!
+  autocmd InsertEnter * call plug#load('ale')
+        \| autocmd! load_ale
+augroup END
+
+"PLUGIN: VIM-GITGUTTER
+augroup load_vim_gitgutter
+  autocmd!
+  autocmd BufReadPost * call plug#load('vim-gitgutter')
+        \| autocmd! load_vim_gitgutter
+        \| call gitgutter#buffer_enable()
+augroup END
+
+"PLUGIN: TERMINUS
+augroup load_terminus
+  autocmd!
+  autocmd InsertEnter * call plug#load('terminus')
+        \| autocmd! load_terminus
+augroup END
+
+"PLUGIN: CONTEXT.VIM
+augroup load_context_vim
+  autocmd!
+  autocmd BufReadPost * call plug#load('context.vim')
+        \| autocmd! load_context_vim
+        \| ContextEnable
+augroup END
+
+"PLUGIN: VIM-WHICH-KEY
+nnoremap <silent> <leader> :<c-u>WhichKey '\'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  '<Space>'<CR>
+
+"PLUGIN: NERDTREE
 let g:NERDTreeShowHidden=1
 nnoremap <C-n> <Cmd>NERDTreeToggle<CR>
+
+"PLUGIN: QUICKRUN
+nnoremap <leader>rr <Cmd>QuickRun<CR>
+
+"PLUGIN: FZF
+"PLUGIN: FZF.VIM
+nnoremap <leader>fb <Cmd>Buffers<CR>
+nnoremap <leader>fc <Cmd>Colors<CR>
+nnoremap <leader>fr <Cmd>History<CR>
+nnoremap <leader>fw <Cmd>Rg<CR>
+nnoremap <leader>fs <Cmd>BLines<CR>
+nnoremap <leader>fS <Cmd>Lines<CR>
+nnoremap <leader>ff <Cmd>Files<CR>
+nnoremap <leader>fF <Cmd>Files ~/<CR>
+
+"PLUGIN: VIM-EASYMOTION
+let g:EasyMotion_do_mapping=0
+nnoremap <leader>gl <Plug>(easymotion-bd-jk)
+nnoremap <leader>gw <Plug>(easymotion-bd-w)
