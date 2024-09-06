@@ -1,10 +1,10 @@
 {
     // Builtin
     "editor.cursorStyle": "block",
-    "editor.fontFamily": "'JetBrainsMono Nerd Font', 'Hack Nerd Font', Consolas, Monaco, Menlo, 'Courier New', monospace",
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', Consolas, Monaco, Menlo, 'Courier New', monospace",
     "editor.fontLigatures": true,
     "editor.fontSize": 14,
-    "editor.fontWeight": "bold",
+    "editor.fontWeight": "normal",
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": true,
     "editor.guides.highlightActiveIndentation": true,
@@ -60,6 +60,8 @@
     "window.zoomLevel": -1.0,
     "workbench.colorTheme": "Default Dark Modern",
     "workbench.colorCustomizations": {
+        "editor.background": "#000000",
+        "editor.lineHighlightBackground": "#313131",
         "statusBar.background": "#772255",
         "statusBar.noFolderBackground": "#772255",
         "statusBar.debuggingBackground": "#772255",
