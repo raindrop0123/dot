@@ -2,6 +2,7 @@
 vim.opt.autoindent = true
 vim.opt.autoread = true
 vim.opt.autowrite = true
+vim.opt.background = "dark"
 vim.opt.backspace = "indent,eol,start"
 vim.opt.backup = false
 vim.opt.clipboard = "unnamedplus,unnamed"
@@ -33,7 +34,8 @@ vim.opt.undofile = false
 vim.opt.wildmenu = true
 vim.opt.wrap = false
 vim.opt.writebackup = false
-vim.opt.background = "dark"
+
+-- Theme
 vim.cmd.colorscheme("habamax")
 
 -- Autocmd
