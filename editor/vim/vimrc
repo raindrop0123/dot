@@ -50,7 +50,7 @@ imap jk <Esc>
 " Autocmd
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 autocmd BufReadPost,InsertEnter * setlocal formatoptions-=r formatoptions-=c formatoptions-=o
-autocmd BufWinEnter * if line2byte(line("$") + 1) > 1000000 | syntax clear | endif
+autocmd BufWinEnter * if getfsize(expand('%')) > 1048576 | syntax clear | endif
 
 " Disable distribution plugins
 let g:loaded_getscriptPlugin=1
