@@ -8,7 +8,7 @@ export QT_FONT_DPI=108
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
 
-# ALIAS
+# Alias
 alias ls='ls --color=auto'
 alias tree='lsd -al --tree'
 alias em='emacs -nw'
