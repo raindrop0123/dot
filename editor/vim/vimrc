@@ -1,5 +1,5 @@
-"REF: https://github.com/chenxuan520/vim-fast/blob/master/vimrc-no-plug
-"REF: https://github.com/skywind3000/vim/tree/master
+" REF: https://github.com/chenxuan520/vim-fast/blob/master/vimrc-no-plug
+" REF: https://github.com/skywind3000/vim/tree/master
 
 " Options
 set autoindent
