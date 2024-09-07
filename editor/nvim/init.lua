@@ -69,6 +69,16 @@ vim.api.nvim_create_autocmd("BufEnter", {
     vim.api.nvim_buf_set_option(current_buf, "formatoptions", formatoptions)
   end,
 })
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  group = vim.api.nvim_create_augroup("disable_syntax_when_large_file", { clear = true }),
+  callback = function()
+    local buf = vim.api.nvim_get_current_buf()
+    local file_size = vim.fn.getfsize(vim.api.nvim_buf_get_name(buf))
+    if file_size > 1048576 then
+      vim.cmd("syntax clear")
+    end
+  end
+})
 
 -- Mapping
 vim.g.mapleader = "\\"
