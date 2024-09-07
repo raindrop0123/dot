@@ -57,8 +57,8 @@ filetype indent plugin on
 """ Mapping
 let mapleader="\\"
 let maplocalleader=" "
-nnoremap <leader>re :edit $MYVIMRC<CR>
-nnoremap <leader>rs :source $MYVIMRC<CR>
+nnoremap <leader>rc :edit $MYVIMRC<CR>
+nnoremap <leader>rC :source $MYVIMRC<CR>
 imap jk <Esc>
 
 """ Autocmd
