@@ -1,29 +1,32 @@
--- CHECK WHETHER LUAROCKS IS INSTALLED
+--@Check weather luarocks is installed?
 pcall(require, "luarocks.loader")
 
--- STANDARD AWESOME WM LIBRARY
+--@Standard awesomeWM library
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
 
--- WIDGET & LAYOUT LIBRARY
+--@Widget and Layout library
 local wibox = require("wibox")
 
--- THEME LIBRARY
+--@Theme library
 local beautiful = require("beautiful")
 
--- NOTIFICATION LIBRARY
+--@Notification library
 local naughty = require("naughty")
 
--- MENU LIBRARY
+--@Menu library
 local menubar = require("menubar")
 
--- HOTKEY LIBRARY
+--@Hotkey library
 local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
--- {{{ ERROR HANDLING
--- Check if awesome encountered an error during startup and fell back to another config. (This code will only ever execute for the fallback config)
+--@Error Handling
+
+-- Check if awesome encountered an error during startup and
+-- fell back to another config.
+-- (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
   naughty.notify({
     preset = naughty.config.presets.critical,
@@ -47,9 +50,8 @@ do
     in_error = false
   end)
 end
--- }}}
 
--- {{{ THEME
+--@Theme
 beautiful.init({
   font = "monospace 12",
   bg_normal = "#222222",
@@ -111,13 +113,11 @@ beautiful.init({
   awesome_icon = require("beautiful.theme_assets").awesome_icon(require("beautiful.xresources").apply_dpi(30), "#535d6c", "#ffffff"),
   icon_theme = nil,
 })
--- }}}
 
--- {{{ MODKEY
+--@Modkey
 modkey = "Mod1"
--- }}}
 
--- {{{ LAYOUT
+--@Layout
 awful.layout.layouts = {
   awful.layout.suit.tile,
   awful.layout.suit.tile.left,
@@ -136,10 +136,10 @@ awful.layout.layouts = {
   awful.layout.suit.corner.se,
   awful.layout.suit.floating,
 }
--- }}}
 
--- {{{ MENU
--- SUBMENU: awesome
+--@Menu
+
+-- Submenu: awesome
 awesomemenu = {
   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
   { "manual", "alacritty -e man awesome" },
@@ -147,13 +147,15 @@ awesomemenu = {
   { "restart", awesome.restart },
   { "quit", function() awesome.quit() end },
 }
--- SUBMENU: editor
+
+-- Submenu: editor
 editormenu = {
   { "Emacs", "emacs" },
   { "vim", "alacritty -e vim" },
   { "neovim", "alacritty -e nvim" },
 }
--- MAIN MENU
+
+-- Main Menu
 mainmenu = awful.menu({
   items = {
     { " AwesomeWM ", awesomemenu, beautiful.awesome_icon },
@@ -161,18 +163,19 @@ mainmenu = awful.menu({
     { " Editor ", editormenu },
   }
 })
--- LAUNCHER
+
+-- Launcher
 launcher = awful.widget.launcher({
   image = beautiful.awesome_icon,
   menu = mainmenu
 })
+
 -- Menubar configuration
 menubar.utils.terminal = "alacritty"
--- }}}
 
--- {{{ WIBAR
+--@wibar
 
--- SET WALLPAPER
+-- Wallpaper setup
 local function set_wallpaper(s)
   if beautiful.wallpaper then
     local wallpaper = beautiful.wallpaper
@@ -186,34 +189,34 @@ local function set_wallpaper(s)
 end
 screen.connect_signal("property::geometry", set_wallpaper)
 
--- SET WIBAR ON EACH SCREEN
+-- Set wibar on each screen
 awful.screen.connect_for_each_screen(function(s)
 
-  -- SET Wallpaper
+  -- Set wallpaper
   set_wallpaper(s)
 
-  -- TAG NAME
+  -- Tag
   awful.tag({ " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 ", " 0 " }, s, awful.layout.layouts[1])
 
-  -- PROMPT = APP LAUNCHER
+  -- Prompt or Application Launcher
   s.promptbox = awful.widget.prompt()
 
-  -- LAYOUT BOX
+  -- Layoutbox
   s.layoutbox = awful.widget.layoutbox(s)
 
-  -- TAGLIST
+  -- Taglist
   s.taglist = awful.widget.taglist({
     screen = s,
     filter = awful.widget.taglist.filter.noempty,
   })
 
-  -- TASKLIST
+  -- Tasklist
   s.tasklist = awful.widget.tasklist({
     screen = s,
     filter = awful.widget.tasklist.filter.currenttags,
   })
 
-  -- CREATE WIBOX
+  -- Create wibox
   s.wibox = awful.wibar({
     height = 24,
     position = "top",
@@ -249,9 +252,8 @@ awful.screen.connect_for_each_screen(function(s)
     },
   })
 end)
--- }}}
 
--- {{{ KEY BINDING & MOUSE BINDING
+--@Keybinding and Mousebinding
 globalkeys = gears.table.join(
   awful.key({ modkey }, "Return", function() awful.spawn("alacritty") end, { description = "open a terminal", group = "launcher" }),
   awful.key({ modkey, "Shift" }, "Return", function() awful.spawn("emacs") end, { description = "open Emacs", group = "launcher" }),
@@ -295,10 +297,11 @@ globalkeys = gears.table.join(
 )
 root.keys(globalkeys)
 root.buttons(gears.table.join(awful.button({}, 3, function() mainmenu:toggle() end)))
--- }}}
 
--- {{{ RULE
--- Rules to apply to new clients (through the "manage" signal).
+--@RULE
+
+-- Rules to apply to new clients
+-- (through the "manage" signal).
 awful.rules.rules = {
   -- All clients will match this rule.
   { 
@@ -324,8 +327,8 @@ awful.rules.rules = {
   { 
     rule_any = {
       instance = {
-        "DTA",  -- Firefox addon DownThemAll.
-        "copyq",  -- Includes session name in class.
+        "DTA",
+        "copyq",
         "pinentry",
       },
       class = {
@@ -333,22 +336,20 @@ awful.rules.rules = {
         "Blueman-manager",
         "Gpick",
         "Kruler",
-        "MessageWin",  -- kalarm.
+        "MessageWin",
         "Sxiv",
-        "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
+        "Tor Browser",
         "Wpa_gui",
         "veromix",
         "xtightvncviewer"
       },
-      -- Note that the name property shown in xprop might be set slightly after creation of the client
-      -- and the name shown there might not match defined rules here.
       name = {
-        "Event Tester",  -- xev.
+        "Event Tester",
       },
       role = {
-        "AlarmWindow",  -- Thunderbird"s calendar.
-        "ConfigManager",  -- Thunderbird"s about:config.
-        "pop-up",       -- e.g. Google Chrome"s (detached) Developer Tools.
+        "AlarmWindow",
+        "ConfigManager",
+        "pop-up",
       }
     },
     properties = {
@@ -378,9 +379,9 @@ awful.rules.rules = {
     }
   },
 }
--- }}}
 
--- {{{ SIGNAL
+--@Signal
+
 -- Signal function to execute when a new client appears.
 -- Prevent clients from being unreachable after screen count changes.
 client.connect_signal("manage", function(c) if awesome.startup and not c.size_hints.user_position and not c.size_hints.program_position then awful.placement.no_offscreen(c) end end)
@@ -426,9 +427,8 @@ end)
 client.connect_signal("mouse::enter", function(c) c:emit_signal("request::activate", "mouse_enter", { raise = false }) end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
--- }}}
 
--- {{{ AUTOSTART
+--@Autostart
 awful.spawn.with_shell("xclip")
 awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("flameshot")
@@ -437,9 +437,8 @@ awful.spawn.with_shell("/usr/lib/polkit-kde-authentication-agent-1")
 awful.spawn.with_shell("[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources")
 awful.spawn.with_shell("fcitx5 --replace -d")
 -- awful.spawn.with_shell("ibus-daemon -drxR")
--- }}}
 
--- {{{ GARBAGE COLLECTION
+--@Garbage Collection
 gears.timer({
   timeout = 30,
   autostart = true,
@@ -447,4 +446,3 @@ gears.timer({
     collectgarbage()
   end,
 })
--- }}}
