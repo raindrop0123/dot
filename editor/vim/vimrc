@@ -1,7 +1,58 @@
 "REF: https://github.com/chenxuan520/vim-fast/blob/master/vimrc-no-plug
 "REF: https://github.com/skywind3000/vim/tree/master
 
-""" Disable distribution plugins
+" Options
+set autoindent
+set autoread
+set autowrite
+set background=dark
+set backspace=eol,start,indent
+set clipboard^=unnamed,unnamedplus
+set colorcolumn=80
+set cursorcolumn
+set cursorline
+set expandtab
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set nocompatible
+set nobackup
+set noswapfile
+set noundofile
+set number
+set nowrap
+set relativenumber
+set ruler
+set shiftwidth=2
+set showtabline=2
+set smartcase
+set softtabstop=2
+set splitbelow
+set splitright
+set tabstop=2
+set timeout
+set timeoutlen=500
+set ttimeout
+set ttimeoutlen=0
+set wildmenu
+
+" Theme
+colorscheme desert
+
+" Mapping
+let mapleader="\\"
+let maplocalleader=" "
+nnoremap <leader>rc :edit $MYVIMRC<CR>
+nnoremap <leader>rC :source $MYVIMRC<CR>
+imap jk <Esc>
+
+" Autocmd
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+autocmd BufReadPost,InsertEnter * setlocal formatoptions-=r formatoptions-=c formatoptions-=o
+autocmd BufWinEnter * if line2byte(line("$") + 1) > 2000000 | syntax clear | endif
+
+" Disable distribution plugins
 let g:loaded_getscriptPlugin=1
 let g:loaded_gzip=1
 let g:loaded_logiPat=1
@@ -15,68 +66,13 @@ let g:loaded_tohtml=1
 let g:loaded_vimballPlugin=1
 let g:loaded_zipPlugin=1
 
-""" Options
-set nocompatible
-set clipboard^=unnamed,unnamedplus
-set ruler
-set number
-set relativenumber
-set cursorline
-set cursorcolumn
-set colorcolumn=80
-set laststatus=2
-set showtabline=2
-set timeout
-set timeoutlen=500
-set ttimeout
-set ttimeoutlen=0
-set autoindent
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set backspace=eol,start,indent
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-set autoread
-set autowrite
-set nobackup
-set noswapfile
-set noundofile
-set nowrap
-set wildmenu
-set background=dark
-set t_Co=256
-set t_ut=
-colorscheme desert
-syntax on
-filetype on
-filetype indent plugin on
-
-""" Mapping
-let mapleader="\\"
-let maplocalleader=" "
-nnoremap <leader>rc :edit $MYVIMRC<CR>
-nnoremap <leader>rC :source $MYVIMRC<CR>
-imap jk <Esc>
-
-""" Autocmd
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-autocmd BufReadPost,InsertEnter * setlocal formatoptions-=r formatoptions-=c formatoptions-=o
-
-""" vim-plug
-
-" Install vim-plug automatically
+" vim-plug
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-
-" Install uninstalled plugins automatically
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) > 0 | PlugInstall --sync | source $MYVIMRC | endif
-
 call plug#begin()
 Plug 'tpope/vim-commentary', { 'on': [] }
 Plug 'machakann/vim-highlightedyank', { 'on': [] }
