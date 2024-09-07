@@ -73,4 +73,11 @@ return {
     event = "LspAttach",
     opts = {},
   },
+  {
+    "folke/lazydev.nvim",
+    lazy = true,
+    event = "LspAttach",
+    ft = "lua",
+    opts = {},
+  },
 }
