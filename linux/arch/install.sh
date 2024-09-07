@@ -1,14 +1,14 @@
 #!/bin/sh
-# @REF: https://nobodyzxc.github.io/2019/06/06/arch-install/#more
-# @REF: https://wiki.archlinux.org/title/Installation_guide
-# @REF: https://zhuanlan.zhihu.com/p/107135290
+# REF: https://nobodyzxc.github.io/2019/06/06/arch-install/#more
+# REF: https://wiki.archlinux.org/title/Installation_guide
+# REF: https://zhuanlan.zhihu.com/p/107135290
 
 set -ex
 
-# UPDATE SYSTEM CLOCK
+# Update System Clock
 timedatectl set-ntp true
 
-# VARIABLE DEFINITION
+# Variable Definition
 HDLOC=/dev/nvme0n1
 ROOTSIZE=32G
 SWAPSIZE=16G
@@ -18,11 +18,11 @@ USERNAME=cya
 ROOTPASS=root
 USERPASS=user
 
-# CHANGE TTY FONT
+# Change TTY Font
 # list all console fonts: ls /usr/share/kbd/consolefonts/
 setfont ter-218b.psf.gz
 
-# HARD DISK PARTITION
+# Hard Disk Partition
 # Use 'cgdisk /dev/sda' to clean your HDD.
 read -p "${USERNAME}@${NEWHOSTNAME} on $HDLOC
 `lsblk`
@@ -65,36 +65,36 @@ trap 'echo "\"${last_command}\" command end with exit code $?."' EXIT
   echo "20"; sleep 5; \
   echo "w";  sleep 1;) | fdisk $HDLOC
 
-# FORMAT
+# Formatting
 mkfs.vfat ${HDLOC}p1
 mkfs.ext4 ${HDLOC}p2
 mkfs.ext4 ${HDLOC}p4
 mkswap ${HDLOC}p3
 swapon ${HDLOC}p3
 
-# MOUNT
+# Mounting
 mount ${HDLOC}p2 /mnt
 mkdir /mnt/boot
 mount ${HDLOC}p1 /mnt/boot
 mkdir /mnt/home
 mount ${HDLOC}p4 /mnt/home
 
-# MIRROR SELECTION
-# @REF: https://wiki.archlinux.org/title/Reflector
+# Mirror Selection
+# REF: https://wiki.archlinux.org/title/Reflector
 # Use 'reflector' to find the fastest 15 sources to override /etc/pacman.d/mirrorlist
-reflector --verbose --latest 15 --sort rate --save /etc/pacman.d/mirrorlist
+# reflector --verbose --latest 15 --sort rate --save /etc/pacman.d/mirrorlist
 
-# INSTALL BASE & KERNEL
+# Install base and kernel
 pacstrap /mnt base linux linux-firmware
 
 # FSTAB
 genfstab -U /mnt >> /mnt/etc/fstab
 
-# TIME ZONE
+# Timezone
 arch-chroot /mnt ln -s -f /usr/share/zoneinfo/Asia/Taipei /etc/localtime
 arch-chroot /mnt hwclock --systohc
 
-# LOCALIZATION
+# Localization
 sed -i "s/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/" /mnt/etc/locale.gen
 sed -i "s/#zh_TW.UTF-8 UTF-8/zh_TW.UTF-8 UTF-8/" /mnt/etc/locale.gen
 arch-chroot /mnt locale-gen
@@ -107,7 +107,7 @@ cat << EOF > /mnt/etc/hosts
 EOF
 echo "nameserver 8.8.8.8" >> /mnt/etc/resolv.conf
 
-# ADD USER
+# Create User
 arch-chroot /mnt pacman -Syy --noconfirm --needed sudo
 sed -i 's/^#\s*\(%wheel\s\+ALL=(ALL\:ALL)\s\+ALL\)/\1/' /mnt/etc/sudoers
 arch-chroot /mnt useradd -m -u 1001 $USERNAME
@@ -116,13 +116,13 @@ arch-chroot /mnt bash -c "echo root:$ROOTPASS | chpasswd"
 arch-chroot /mnt bash -c "echo ${USERNAME}:${USERPASS} | chpasswd"
 
 # GRUB
-# @REF: https://wiki.archlinux.org/title/GRUB
+# REF: https://wiki.archlinux.org/title/GRUB
 arch-chroot /mnt mkinitcpio -p linux
 arch-chroot /mnt pacman -S --noconfirm --needed grub os-prober efibootmgr
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg # warnning here
 
-# NETWORK
+# Network
 arch-chroot /mnt pacman -S --noconfirm --needed net-tools wireless_tools
 arch-chroot /mnt pacman -S --noconfirm --needed wpa_supplicant openssh
 arch-chroot /mnt pacman -S --noconfirm --needed networkmanager network-manager-applet
@@ -130,7 +130,7 @@ arch-chroot /mnt systemctl enable NetworkManager.service
 # arch-chroot /mnt pacman -S --noconfirm --needed dhclient dhcpcd
 # arch-chroot /mnt systemctl enable dhcpcd.service
 
-# OFFICIAL PACKAGES
+# Official Packages
 WM="awesome xorg-xinit xorg-server"
 SYSTOOL="alsa-utils brightnessctl xclip fastfetch udiskie polkit-kde-agent"
 INPUT="fcitx5-im fcitx5-chewing"
@@ -144,12 +144,12 @@ FONT="$FONT ttf-jetbrains-mono-nerd ttf-meslo-nerd ttf-mononoki-nerd ttf-nerd-fo
 FONT="$FONT ttf-noto-nerd ttf-roboto-mono-nerd ttf-terminus-nerd ttf-ubuntu-nerd ttf-ubuntu-mono-nerd noto-fonts-cjk"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $WM $SYSTOOL $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL $FONT
 
-# YAY
-# @REF: https://github.com/Jguer/yay
+# yay
+# REF: https://github.com/Jguer/yay
 arch-chroot /mnt pacman -S --noconfirm --needed git base-devel
 arch-chroot /mnt sudo -u $USERNAME bash -c "cd && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si"
 
-# AUR PACKAGES
+# AUR Packages
 AURBROWSER="google-chrome"
 AUREDITOR="visual-studio-code-bin"
 AURFONT="ttf-tw ttf-ms-fonts"
