@@ -2,6 +2,7 @@
     // Builtin
     "editor.cursorStyle": "block",
     "editor.fontFamily": "'JetBrainsMono Nerd Font', Consolas, Monaco, Menlo, 'Courier New', monospace",
+    "editor.folding": false,
     "editor.fontLigatures": true,
     "editor.fontSize": 14,
     "editor.fontWeight": "normal",
