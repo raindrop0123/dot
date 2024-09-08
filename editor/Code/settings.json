@@ -207,5 +207,4 @@
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
     "vim.visualstar": true,
-    "editor.minimap.enabled": false,
 }
