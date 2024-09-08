@@ -62,6 +62,7 @@
     "window.zoomLevel": -1.0,
     "workbench.colorTheme": "Default Dark Modern",
     "workbench.colorCustomizations": {
+        "editorCursor.foreground": "#ff0000",
         "editor.background": "#000000",
         "editor.lineHighlightBackground": "#313131",
         "statusBar.background": "#772255",
@@ -206,4 +207,5 @@
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
     "vim.visualstar": true,
+    "editor.minimap.enabled": false,
 }
