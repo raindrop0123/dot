@@ -5,6 +5,7 @@
     "editor.fontLigatures": true,
     "editor.fontSize": 14,
     "editor.fontWeight": "normal",
+    "editor.glyphMargin": false,
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": true,
     "editor.guides.highlightActiveIndentation": true,
