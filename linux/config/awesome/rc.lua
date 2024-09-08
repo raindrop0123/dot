@@ -1,37 +1,36 @@
---@Check weather luarocks is installed?
+-- Check weather luarocks is installed?
 pcall(require, "luarocks.loader")
 
---@Standard awesomeWM library
+-- Standard awesomeWM library
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
 
---@Widget and Layout library
+-- Widget and Layout library
 local wibox = require("wibox")
 
---@Theme library
+-- Theme library
 local beautiful = require("beautiful")
 
---@Notification library
+-- Notification library
 local naughty = require("naughty")
 
---@Menu library
+-- Menu library
 local menubar = require("menubar")
 
---@Hotkey library
+-- Hotkey library
 local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
---@Error Handling
+-- Error Handling
 
--- Check if awesome encountered an error during startup and
--- fell back to another config.
--- (This code will only ever execute for the fallback config)
+-- Check if awesome encountered an error during startup and fell back to another config.
+-- This code will only ever execute for the fallback config.
 if awesome.startup_errors then
   naughty.notify({
     preset = naughty.config.presets.critical,
     title = "Oops, there were errors during startup!",
-    text = awesome.startup_errors 
+    text = awesome.startup_errors
   })
 end
 
@@ -42,16 +41,16 @@ do
     -- Make sure we don"t go into an endless error loop
     if in_error then return end
     in_error = true
-    naughty.notify({ 
+    naughty.notify({
       preset = naughty.config.presets.critical,
       title = "Oops, an error happened!",
-      text = tostring(err) 
+      text = tostring(err)
     })
     in_error = false
   end)
 end
 
---@Theme
+-- Theme
 beautiful.init({
   font = "monospace 12",
   bg_normal = "#222222",
@@ -114,10 +113,10 @@ beautiful.init({
   icon_theme = nil,
 })
 
---@Modkey
+-- Modkey
 modkey = "Mod1"
 
---@Layout
+-- Layout
 awful.layout.layouts = {
   awful.layout.suit.tile,
   awful.layout.suit.tile.left,
@@ -137,7 +136,7 @@ awful.layout.layouts = {
   awful.layout.suit.floating,
 }
 
---@Menu
+-- Menu
 
 -- Submenu: awesome
 awesomemenu = {
@@ -173,7 +172,7 @@ launcher = awful.widget.launcher({
 -- Menubar configuration
 menubar.utils.terminal = "alacritty"
 
---@wibar
+-- wibar
 
 -- Wallpaper setup
 local function set_wallpaper(s)
@@ -253,7 +252,7 @@ awful.screen.connect_for_each_screen(function(s)
   })
 end)
 
---@Keybinding and Mousebinding
+-- Keybinding and Mousebinding
 globalkeys = gears.table.join(
   awful.key({ modkey }, "Return", function() awful.spawn("alacritty") end, { description = "open a terminal", group = "launcher" }),
   awful.key({ modkey, "Shift" }, "Return", function() awful.spawn("emacs") end, { description = "open Emacs", group = "launcher" }),
@@ -298,15 +297,15 @@ globalkeys = gears.table.join(
 root.keys(globalkeys)
 root.buttons(gears.table.join(awful.button({}, 3, function() mainmenu:toggle() end)))
 
---@RULE
+-- RULE
 
 -- Rules to apply to new clients
 -- (through the "manage" signal).
 awful.rules.rules = {
   -- All clients will match this rule.
-  { 
+  {
     rule = {},
-    properties = { 
+    properties = {
       border_width = beautiful.border_width,
       border_color = beautiful.border_normal,
       focus = awful.client.focus.filter,
@@ -324,7 +323,7 @@ awful.rules.rules = {
     }
   },
   -- Floating clients.
-  { 
+  {
     rule_any = {
       instance = {
         "DTA",
@@ -357,7 +356,7 @@ awful.rules.rules = {
     }
   },
   -- Add titlebars to normal clients and dialogs
-  { 
+  {
     rule_any = {
       type = {
         "normal",
@@ -380,7 +379,7 @@ awful.rules.rules = {
   },
 }
 
---@Signal
+-- Signal
 
 -- Signal function to execute when a new client appears.
 -- Prevent clients from being unreachable after screen count changes.
@@ -428,7 +427,7 @@ client.connect_signal("mouse::enter", function(c) c:emit_signal("request::activa
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
---@Autostart
+-- Autostart
 awful.spawn.with_shell("xclip")
 awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("flameshot")
@@ -438,7 +437,7 @@ awful.spawn.with_shell("[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources")
 awful.spawn.with_shell("fcitx5 --replace -d")
 -- awful.spawn.with_shell("ibus-daemon -drxR")
 
---@Garbage Collection
+-- Garbage Collection
 gears.timer({
   timeout = 30,
   autostart = true,
