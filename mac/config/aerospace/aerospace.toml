@@ -17,7 +17,7 @@ outer.top = 0
 
 [mode.main.binding]
 alt-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
-alt-shift-enter = 'exec-and-forget open -n /Applications/Emacs.app'
+alt-shift-enter = 'exec-and-forget open -n /opt/homebrew/Cellar/emacs-plus@31/31.0.50/Emacs.app'
 alt-h = 'focus left'
 alt-j = 'focus down'
 alt-k = 'focus up'
