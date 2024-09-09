@@ -24,11 +24,6 @@
           ("melpa" . "https://melpa.org/packages/")
           ("nongnu" . "https://elpa.nongnu.org/nongnu/"))))
 
-(use-package modus-themes
-  :ensure nil
-  :hook
-  (after-init . (lambda () (load-theme 'modus-vivendi t))))
-
 (use-package simple
   :ensure nil
   :hook
