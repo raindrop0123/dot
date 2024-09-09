@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar file-name-handler-alist-original file-name-handler-alist)
 (defun update-load-path (&rest _)
   "Update `load-path'."
   (dolist (dir '("site-lisp" "lisp"))
