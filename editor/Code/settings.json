@@ -4,7 +4,7 @@
     "editor.fontFamily": "'JetBrainsMono Nerd Font', Consolas, Monaco, Menlo, 'Courier New', monospace",
     "editor.folding": false,
     "editor.fontLigatures": true,
-    "editor.fontSize": 13,
+    "editor.fontSize": 14,
     "editor.fontWeight": "normal",
     "editor.glyphMargin": false,
     "editor.guides.bracketPairs": true,
@@ -17,7 +17,7 @@
         "comments": "off",
         "strings": "off"
     },
-    "editor.renderWhitespace": "all",
+    "editor.renderWhitespace": "trailing",
     "editor.rulers": [
         80,
     ],
@@ -62,17 +62,18 @@
     "window.zoomLevel": -1.0,
     "workbench.colorTheme": "Default Dark Modern",
     "workbench.colorCustomizations": {
+        "editorCursor.foreground": "#ff0000",
+        "editor.background": "#000000",
         "editor.lineHighlightBackground": "#313131",
-        "statusBar.background": "#6a9955",
-        "statusBar.noFolderBackground": "#6a9955",
-        "statusBar.debuggingBackground": "#6a9955",
+        "statusBar.background": "#772255",
+        "statusBar.noFolderBackground": "#772255",
+        "statusBar.debuggingBackground": "#772255",
         "statusBar.foreground": "#ffffff",
         "statusBar.debuggingForeground": "#ffffff"
     },
     "workbench.iconTheme": "vs-seti",
     "workbench.statusBar.visible": true,
     "workbench.startupEditor": "none",
-    "workbench.editor.tabSizing": "shrink",
     // PLUGIN: vim
     "extensions.experimental.affinity": {
         "vscodevim.vim": 1
@@ -89,7 +90,7 @@
         "<C-f>": false
     },
     "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.color": "#f44747",
+    "vim.highlightedyank.color": "#ff0000",
     "vim.highlightedyank.textColor": "#ffffff",
     "vim.highlightedyank.duration": 1000,
     "vim.hlsearch": true,
@@ -172,35 +173,35 @@
     "vim.sneakUseIgnorecaseAndSmartcase": true,
     "vim.statusBarColorControl": true,
     "vim.statusBarColors.commandlineinprogress": [
-        "#0078d4",
+        "#557722",
         "#ffffff"
     ],
     "vim.statusBarColors.insert": [
-        "#f44747",
+        "#ff0000",
         "#ffffff"
     ],
     "vim.statusBarColors.normal": [
-        "#1f1f1f",
+        "#225577",
         "#ffffff"
     ],
     "vim.statusBarColors.replace": [
-        "#ce9178",
+        "#775522",
         "#ffffff"
     ],
     "vim.statusBarColors.searchinprogressmode": [
-        "#b26716",
-        "#ffffff"
+        "#552277",
+        "#ebdbb2"
     ],
     "vim.statusBarColors.visual": [
-        "#6a9955",
+        "#227755",
         "#ffffff"
     ],
     "vim.statusBarColors.visualblock": [
-        "#6a9955",
+        "#772255",
         "#ffffff"
     ],
     "vim.statusBarColors.visualline": [
-        "#6a9955",
+        "#772255",
         "#ffffff"
     ],
     "vim.useCtrlKeys": true,
