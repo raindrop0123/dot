@@ -120,18 +120,6 @@ let g:loaded_tohtml=1
 let g:loaded_vimballPlugin=1
 let g:loaded_zipPlugin=1
 
-" Change TAB
-noremap <Leader>1 1gt
-noremap <Leader>2 2gt
-noremap <Leader>3 3gt
-noremap <Leader>4 4gt
-noremap <Leader>5 5gt
-noremap <Leader>6 6gt
-noremap <Leader>7 7gt
-noremap <Leader>8 8gt
-noremap <Leader>9 9gt
-noremap <Leader>0 <CMD>tablast<CR>
-
 " Map jk to <Esc>
 inoremap jk <ESC>
 
@@ -149,12 +137,6 @@ cnoremap <C-e> <END>
 cnoremap <C-d> <DEL>
 cnoremap <C-b> <LEFT>
 cnoremap <C-f> <RIGHT>
-
-" Change window width
-nnoremap <C-up> <C-w>+
-nnoremap <C-down> <C-w>-
-nnoremap <C-left> <C-w><
-nnoremap <C-right> <C-w>>
 
 " Change window
 nnoremap <C-k> <C-w>k
@@ -303,146 +285,3 @@ let g:netrw_banner=0
 let g:netrw_browse_split=0
 let g:netrw_winsize=15
 nnoremap <C-n> <CMD>Lexplore<CR>
-
-" vim-commentary
-function! s:Commentary(line) abort
-  let s:num=a:line
-  let line=getline(s:num)
-  let uncomment=2
-  let [l, r]=split(substitute(substitute(substitute(&commentstring, '^$', '%s', ''), '\S\zs%s',' %s', '') ,'%s\ze\S', '%s ', ''), '%s', 1)
-  let line=matchstr(getline(s:num), '\S.*\s\@<!')
-  if (l[-1:]==#' ')&&(stridx(line,l)==-1)&&(stridx(line, l[0:-2])==0)
-    let l=l[:-2]
-  endif
-  if (r[0]==#' ')&&(line[-strlen(r):]!=r)&&(line[1-strlen(r):]==r[1:])
-    let r=r[1:]
-  endif
-  if (len(line))&&(stridx(line, l)||line[strlen(line)-strlen(r):-1]!=r)
-    let uncomment = 0
-  endif
-  let line=getline(s:num)
-  let [l, r]=split(substitute(substitute(substitute(&commentstring, '^$', '%s', ''), '\S\zs%s',' %s', '') ,'%s\ze\S', '%s ', ''), '%s', 1)
-  if (strlen(r)>2)&&(l.r!~#'\\')
-    let line=substitute(line, '\M'.substitute(l, '\ze\S\s*$', '\\zs\\d\\*\\ze', '').'\|'.substitute(r, '\S\zs', '\\zs\\d\\*\\ze', ''), '\=substitute(submatch(0)+1-uncomment, "^0$\\|^-\\d*$", "", "")', 'g')
-  endif
-  if uncomment
-    let line=substitute(line, '\S.*\s\@<!', '\=submatch(0)[strlen(l):-strlen(r)-1]', '')
-  else
-    let line=substitute(line, '^\%('.matchstr(getline(s:num), '^\s*').'\|\s*\)\zs.*\S\@<=', '\=l.submatch(0).r', '')
-  endif
-  call setline(s:num,line)
-endfunc
-function! s:VisualComment() abort
-  for temp in range(min([line('.'), line('v')]), max([line('.'), line('v')]))
-    call s:Commentary(temp)
-  endfor
-endfunc
-nnoremap <SILENT><NOWAIT>gcc :call <SID>Commentary(line('.'))<CR>
-xnoremap <SILENT><NOWAIT>gc :call <SID>VisualComment()<CR>
-
-" easymotion
-let s:easymotion_key=['j', 'l', 'k', 'h', 'a', 's', 'd', 'f', 'g', 'q', 'w', 'e', 'r', 'u', 'i', 'o', 'p', 'c', 'v', 'b', 'n', 'm', 't', 'y', 'z', 'x']
-let s:easymotion_leader=[';', ',', ' ', "'", '.', '/', '[', '\', ']']
-let s:easymotion_leader_dict={';': 0, ',': 0, '.': 0, "'": 0, ' ': 0, '/': 0, '[': 0, '\': 0, ']': 0}
-function! s:EasyMotion() abort
-  echo 'Input:'
-  let ch=nr2char(getchar())
-  let s:easymotion={}
-  let llen=len(s:easymotion_leader)+1
-  let ch=tolower(ch)
-  if (ch>='a')&&(ch<='z')
-    let up=toupper(ch)
-  else
-    let up=''
-  endif
-  let info=winsaveview()
-  let info['endline']=winheight(0)+info['topline']
-  let width=winwidth(0)
-  let num=0
-  let old=ch
-  let pos=0
-  let klen=len(s:easymotion_key)
-  if ch=='\<c-[>'
-    return
-  endif
-  if &fen
-    setlocal nofen
-  endif
-  let lines=getbufline('%', info['topline'], info['endline'])
-  let bak=copy(lines)
-  set nohlsearch
-  let hlcomment=[]
-  let begin=info['topline']
-  let end=info['endline']
-  while end-begin>=8
-    call add(hlcomment, matchaddpos('comment', range(begin, end)))
-    let begin+=8
-  endwhile
-  call add(hlcomment, matchaddpos('comment', range(begin, end)))
-  let listl=range(0, len(lines)-1)
-  let nowline=info['lnum']-info['topline']
-  call sort(listl, {arg1, arg2 -> abs(arg2-nowline)-abs(arg1-nowline)})
-  for i in listl
-    " if i+info["topline"]==info["lnum"]|continue|endif
-    while 1
-      let pos=stridx(lines[i], ch, pos)
-      if up!=""
-        let postemp=stridx(lines[i], up, pos)
-        if (postemp!=-1)&&(postemp<pos||pos==-1)
-          let pos=postemp
-        endif
-      endif
-      if (pos!=-1)&&(pos<width||&wrap)
-        if num<klen
-          let req=s:easymotion_key[num]
-        elseif num<llen*klen
-          let req=s:easymotion_leader[num/klen-1].s:easymotion_key[num%klen]
-        else
-          break
-        endif
-        let m=matchaddpos('incsearch', [[i+info['topline'], pos+1, len(req)]])
-        let s:easymotion[req]={'line': i, 'pos': pos, 'hl': m}
-        let lines[i]=strpart(lines[i], 0, pos).req.strpart(lines[i], pos+len(req))
-        let num+=1
-        let pos+=2
-        if num>=llen*klen
-          break
-        endif
-      else
-        let pos=0
-        break
-      endif
-    endwhile
-    if num>=llen*klen
-      break
-    endif
-  endfor
-  if len(s:easymotion)==0
-    echo 'Can not find'
-  endif
-  silent! undojoin
-  call setline(info['topline'], lines)
-  redraw!
-  echo 'Key:'
-  let ch=nr2char(getchar())
-  if has_key(s:easymotion_leader_dict, ch)
-    let ch=ch.nr2char(getchar())
-  endif
-  if has_key(s:easymotion, ch)
-    let temp=s:easymotion[ch]
-    call cursor(temp['line']+info['topline'], temp['pos']+1)
-  endif
-  for [key, val] in items(s:easymotion)
-    let i=val['line']
-    let pos=val['pos']
-    let hl=val['hl']
-    call matchdelete(hl)
-  endfor
-  for hlnow in hlcomment
-    call matchdelete(hlnow)
-  endfor
-  silent! undojoin
-  call setline(info['topline'], bak)
-  setlocal nomodified
-endfunc
-nnoremap <leader>gw <CMD>call <SID>EasyMotion()<CR>
