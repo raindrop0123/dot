@@ -31,12 +31,12 @@ set virtualedit=block
 set showmode
 set hidden
 set matchpairs+=<:>
-set background=dark
 set splitbelow
 set splitright
 set clipboard^=unnamed,unnamedplus
 
 " Theme
+set background=dark
 colorscheme retrobox
 
 " Indent
