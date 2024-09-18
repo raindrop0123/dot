@@ -1,8 +1,9 @@
-" @Reference: https://gitee.com/mirrorvim/vim-fast/blob/master/vimrc-no-plug
-" @Reference: https://github.com/chenxuan520/vim-fast
-" @Reference: https://github.com/skywind3000/vim-init
-" @Reference: https://github.com/chenxuan520/vim-fast/blob/master/vimrc-no-plug
-" @Reference: https://github.com/skywind3000/vim/tree/master
+" Reference:
+" https://gitee.com/mirrorvim/vim-fast/blob/master/vimrc-no-plug
+" https://github.com/chenxuan520/vim-fast
+" https://github.com/skywind3000/vim-init
+" https://github.com/chenxuan520/vim-fast/blob/master/vimrc-no-plug
+" https://github.com/skywind3000/vim/tree/master
 
 " General
 let mapleader='\'
