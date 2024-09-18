@@ -52,10 +52,9 @@ set softtabstop=2
 set smarttab
 set nowrap
 set backspace=2
-set sidescroll=4
+set sidescroll=0
 set nofoldenable
 set list lcs=tab:│\ 
-set sidescroll=0
 set sidescrolloff=4
 set scrolloff=2
 
