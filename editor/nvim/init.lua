@@ -1,42 +1,93 @@
--- Options
-vim.opt.autoindent = true
-vim.opt.autoread = true
-vim.opt.autowrite = true
-vim.opt.background = "dark"
+-- Reference:
+-- https://github.com/ayamir/nvimdots/tree/main
+-- https://github.com/AstroNvim/AstroNvim
+-- https://github.com/NvChad/NvChad
+-- https://github.com/LazyVim/LazyVim
+-- https://github.com/nvim-lua/kickstart.nvim
+
+-- General
 vim.opt.backspace = "indent,eol,start"
-vim.opt.backup = false
 vim.opt.clipboard = "unnamedplus,unnamed"
 vim.opt.cmdheight = 0
 vim.opt.cmdwinheight = 1
 vim.opt.colorcolumn = "80"
 vim.opt.cursorcolumn = true
 vim.opt.cursorline = true
-vim.opt.expandtab = true
-vim.opt.ignorecase = true
-vim.opt.incsearch = true
-vim.opt.laststatus = 2
+vim.opt.laststatus = 0
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.ruler = true
-vim.opt.shiftwidth = 2
-vim.opt.showtabline = 2
-vim.opt.softtabstop = 2
+vim.opt.showtabline = 0
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-vim.opt.swapfile = false
+vim.opt.whichwrap = "h,l,<,>,[,],~"
+
+-- Encoding
+vim.opt.encoding = "utf-8"
+
+-- Indent
+vim.opt.autoindent = true
+vim.opt.cindent = true
+vim.opt.smartindent = true
+vim.opt.expandtab = true
 vim.opt.tabstop = 2
-vim.opt.termguicolors = true
-vim.opt.timeout = true
-vim.opt.timeoutlen = 500
-vim.opt.ttimeout = true
-vim.opt.ttimeoutlen = 0
-vim.opt.undofile = false
-vim.opt.wildmenu = true
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
+vim.opt.smarttab = true
 vim.opt.wrap = false
+vim.opt.sidescroll = 4
+vim.opt.scrolloff = 2
+vim.opt.sidescrolloff = 2
+
+-- Cache
+vim.opt.autoread = true
+vim.opt.autowrite = true
+vim.opt.backup = false
+vim.opt.swapfile = false
 vim.opt.writebackup = false
+vim.opt.undofile = false
+
+-- Search
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Completion
+vim.opt.wildmenu = true
 
 -- Theme
-vim.cmd.colorscheme("habamax")
+vim.opt.background = "dark"
+vim.cmd.colorscheme("retrobox")
+
+-- Map jk to <Esc>
+vim.g.mapleader = "\\"
+vim.g.maplocalleader = " "
+vim.api.nvim_set_keymap("n", "<leader>rc", "<Cmd>source $MYVIMRC<CR>", { desc = "Reload config" })
+vim.api.nvim_set_keymap("n", "<leader>rC", "<Cmd>edit $MYVIMRC<CR>", { desc = "Edit config" })
+vim.api.nvim_set_keymap("i", "jk", "<Esc>", { desc = "Back to normal mode" })
+
+-- Move under insert mode
+vim.api.nvim_set_keymap("i", "<C-a>", "<Home>", {})
+vim.api.nvim_set_keymap("i", "<C-e>", "<End>", {})
+vim.api.nvim_set_keymap("i", "<C-d>", "<Del>", {})
+vim.api.nvim_set_keymap("i", "<C-b>", "<Left>", {})
+vim.api.nvim_set_keymap("i", "<C-f>", "<Right>", {})
+vim.api.nvim_set_keymap("i", "<C-n>", "<Down>", {})
+vim.api.nvim_set_keymap("i", "<C-p>", "<Up>", {})
+
+-- Move under command mode
+vim.api.nvim_set_keymap("c", "<C-a>", "<Home>", {})
+vim.api.nvim_set_keymap("c", "<C-e>", "<End>", {})
+vim.api.nvim_set_keymap("c", "<C-d>", "<Del>", {})
+vim.api.nvim_set_keymap("c", "<C-b>", "<Left>", {})
+vim.api.nvim_set_keymap("c", "<C-f>", "<Right>", {})
+
+-- Change Window
+vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", {})
+vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", {})
+vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", {})
+vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", {})
 
 -- Autocmd
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -79,13 +130,6 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     end
   end
 })
-
--- Mapping
-vim.g.mapleader = "\\"
-vim.g.maplocalleader = " "
-vim.api.nvim_set_keymap("n", "<leader>rc", "<Cmd>source $MYVIMRC<CR>", { desc = "Reload config" })
-vim.api.nvim_set_keymap("n", "<leader>rC", "<Cmd>edit $MYVIMRC<CR>", { desc = "Edit config" })
-vim.api.nvim_set_keymap("i", "jk", "<Esc>", { desc = "Back to normal mode" })
 
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
