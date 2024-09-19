@@ -148,6 +148,15 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
+  ui = {
+    size = {
+      height = 0.88,
+      width = 0.92
+    },
+    border = "rounded",
+    title = "Lazy Panel",
+    title_pos = "center",
+  },
   performance = {
     rtp = {
       disabled_plugins = {
