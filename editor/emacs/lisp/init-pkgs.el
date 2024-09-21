@@ -6,7 +6,9 @@
   :init
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
-  :hook (after-init . evil-mode))
+  :hook (after-init . evil-mode)
+  :config
+  (setq evil-cross-lines t))
 
 (use-package evil-escape
   :hook (evil-mode . evil-escape-mode)
