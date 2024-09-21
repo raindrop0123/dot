@@ -31,7 +31,7 @@
 (use-package company
   :hook (prog-mode . company-mode)
   :config
-  (setq company-tooltip-limit 12)
+  (setq company-tooltip-limit 10)
   (setq company-minimum-prefix-length 1)
   (setq company-echo-delay 0.2)
   (setq company-idle-delay 0.2)
