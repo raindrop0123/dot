@@ -1,3 +1,6 @@
+-- Reference:
+-- https://awesomewm.org/apidoc/documentation/05-awesomerc.md.html
+
 -- Check weather luarocks is installed?
 pcall(require, "luarocks.loader")
 
@@ -52,21 +55,21 @@ end
 
 -- Theme
 beautiful.init({
-  font = "monospace 12",
-  bg_normal = "#222222",
-  bg_focus = "#535d6c",
+  font = "VictorMono Nerd Font Bold 12",
+  bg_normal = "#000000",
+  bg_focus = "#007aff",
   bg_urgent = "#ff0000",
   bg_minimize = "#444444",
-  bg_systray = "#222222",
-  fg_normal = "#aaaaaa",
+  bg_systray = "#000000",
+  fg_normal = "#ffffff",
   fg_focus = "#ffffff",
   fg_urgent = "#ffffff",
   fg_minimize = "#ffffff",
   useless_gap = require("beautiful.xresources").apply_dpi(4),
   border_width = require("beautiful.xresources").apply_dpi(2),
   border_normal = "#000000",
-  border_focus = "#535d6c",
-  border_marked = "#91231c",
+  border_focus = "#007aff",
+  border_marked = "#ff0000",
   taglist_squares_sel = require("beautiful.theme_assets").taglist_squares_sel(require("beautiful.xresources").apply_dpi(0), "#aaaaaa"),
   taglist_squares_unsel = require("beautiful.theme_assets").taglist_squares_unsel(require("beautiful.xresources").apply_dpi(0), "#222222"),
   menu_submenu_icon = require("gears.filesystem").get_themes_dir() .. "default/submenu.png",
@@ -109,7 +112,7 @@ beautiful.init({
   layout_cornerne = require("gears.filesystem").get_themes_dir() .. "default/layouts/cornernew.png",
   layout_cornersw = require("gears.filesystem").get_themes_dir() .. "default/layouts/cornersww.png",
   layout_cornerse = require("gears.filesystem").get_themes_dir() .. "default/layouts/cornersew.png",
-  awesome_icon = require("beautiful.theme_assets").awesome_icon(require("beautiful.xresources").apply_dpi(30), "#535d6c", "#ffffff"),
+  awesome_icon = require("beautiful.theme_assets").awesome_icon(require("beautiful.xresources").apply_dpi(30), "#007aff", "#000000"),
   icon_theme = nil,
 })
 
@@ -182,8 +185,8 @@ local function set_wallpaper(s)
     if type(wallpaper) == "function" then
       wallpaper = wallpaper(s)
     end
-    gears.wallpaper.maximized(wallpaper, s, true)
-    -- gears.wallpaper.set("#000000") -- set pure color background
+    -- gears.wallpaper.maximized(wallpaper, s, true)
+    gears.wallpaper.set("#000000") -- set pure color background
   end
 end
 screen.connect_signal("property::geometry", set_wallpaper)
