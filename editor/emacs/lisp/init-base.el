@@ -1,0 +1,152 @@
+;;; init-base.el --- -*- lexical-binding: t; coding: utf-8; -*-
+;;; Commentary:
+;;; Code:
+
+(setq-default enable-recursive-minibuffers t)
+(setq-default tab-width 2)
+
+(use-package use-package
+  :custom
+  (use-package-always-ensure t)
+  (use-package-always-defer t)
+  (use-package-expand-minimally t)
+  (use-package-enable-imenu-support t)
+  (use-package-compute-statistics t))
+
+(use-package package
+  :custom
+  (package-check-signature nil)
+  (package-quickstart t)
+  :config
+  (package-initialize)
+  (setq package-archives
+        '(;; ("elpa-devel" . "https://elpa.gnu.org/devel/")
+          ;; ("org" . "https://orgmode.org/elpa/")
+          ;; ("marmalade" . "http://marmalade-repo.org/packages/")
+          ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
+          ("gnu" . "https://elpa.gnu.org/packages/")
+          ("melpa" . "https://melpa.org/packages/")
+          ("nongnu" . "https://elpa.nongnu.org/nongnu/"))))
+
+(use-package modus-themes
+  :ensure nil
+  :hook (after-init . (lambda () (load-theme 'modus-vivendi t))))
+
+(use-package minibuffer
+  :ensure nil
+  :config
+  (setq completion-cycle-threshold 1)
+  (setq completions-detailed t)
+  (setq completion-styles '(basic initials substring))
+  (setq completion-auto-help 'always)
+  (setq completions-max-height 10)
+  (setq completions-format 'one-column)
+  (setq completions-group t))
+
+(use-package icomplete
+  :ensure nil
+  :hook (after-init . icomplete-mode))
+
+(use-package indent
+  :ensure nil
+  :config
+  (setq tabs-always-indent 'complete))
+
+(use-package simple
+  :ensure nil
+  :hook
+  (after-init . column-number-mode)
+  (after-init . line-number-mode)
+  (after-init . size-indication-mode)
+  :config
+  (setq-default indent-tabs-mode nil)
+  (setq idle-update-delay 1.0)
+  (setq completion-auto-select 'second-tab))
+
+(use-package frame
+  :ensure nil
+  :hook (after-init . blink-cursor-mode)
+  :config
+  (setq blink-cursor-blinks 0))
+
+(use-package files
+  :ensure nil
+  :hook (after-init . auto-save-visited-mode)
+  :config
+  (setq auto-mode-case-fold nil))
+
+(use-package autorevert
+  :ensure nil
+  :hook (after-init . global-auto-revert-mode))
+
+(use-package display-line-numbers
+  :ensure nil
+  :hook (prog-mode . display-line-numbers-mode)
+  :config
+  (setq display-line-numbers 'relative))
+
+(use-package display-fill-column-indicator
+  :ensure nil
+  :hook (prog-mode . display-fill-column-indicator-mode))
+
+(use-package elec-pair
+  :ensure nil
+  :hook (prog-mode . electric-pair-mode))
+
+(use-package flymake
+  :ensure nil
+  :hook (prog-mode . flymake-mode)
+  :bind
+  ("M-n" . flymake-goto-next-error)
+  ("M-p" . flymake-goto-prev-error))
+
+(use-package which-key
+  :disabled t
+  :ensure nil
+  :hook (after-init . which-key-mode)
+  :config
+  (setq which-key-idle-delay 0.4))
+
+(use-package ibuffer
+  :ensure nil
+  :init (defalias 'list-buffers 'ibuffer))
+
+(use-package dired
+  :ensure nil
+  :config
+  (setq dired-dwim-target t)
+  (setq dired-listing-switches "-alh"))
+
+(use-package whitespace
+  :hook (prog-mode . whitespace-mode)
+  :config
+  (setq whitespace-style '(trailing face)))
+
+(use-package so-long
+  :ensure nil
+  :hook (after-init . global-so-long-mode))
+
+(use-package delsel
+  :ensure nil
+  :hook (after-init . delete-selection-mode))
+
+(use-package paren
+  :ensure nil
+  :hook (after-init . show-paren-mode))
+
+(use-package hl-line
+  :ensure nil
+  :hook (prog-mode . hl-line-mode))
+
+(use-package isearch
+  :ensure nil
+  :config
+  (setq isearch-lazy-count t)
+  (setq lazy-count-prefix-format "[%s/%s]"))
+
+(use-package saveplace
+  :ensure nil
+  :hook (after-init . save-place-mode))
+
+(provide 'init-base)
+;;; init-base.el ends here
