@@ -128,7 +128,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     if file_size > 1048576 then
       vim.cmd("syntax clear")
     end
-  end
+  end,
 })
 
 -- lazy.nvim
@@ -140,18 +140,21 @@ if not vim.loop.fs_stat(lazypath) then
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
     "--branch=stable",
-    lazypath
+    lazypath,
   })
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
-    { import = "plugins" },
+    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    { "LazyVim/LazyVim", import = "lazyvim.plugins.extras.lang.clangd" },
+    -- { "AstroNvim/AstroNvim", version = "^4", import = "astronvim.plugins" },
+    -- { import = "plugins" },
   },
   ui = {
     size = {
       height = 0.88,
-      width = 0.92
+      width = 0.92,
     },
     border = "rounded",
     title = "Lazy Panel",
@@ -161,19 +164,39 @@ require("lazy").setup({
     rtp = {
       disabled_plugins = {
         "editorconfig",
+        "2html_plugin",
+        "tohtml",
+        "getscript",
+        "getscriptPlugin",
         "gzip",
+        "logipat",
+        "netrw",
+        "netrwPlugin",
+        "netrwSettings",
+        "netrwFileHandlers",
         "man",
         "matchit",
         "matchparen",
-        "netrwPlugin",
         "osc52",
+        "tar",
+        "tarPlugin",
         "rplugin",
+        "rrhelper",
         "shada",
         "spellfile",
-        "tarPlugin",
-        "tohtml",
-        "tutor",
+        "spellfile_plugin",
+        "vimball",
+        "vimballPlugin",
+        "zip",
         "zipPlugin",
+        "tutor",
+        "rplugin",
+        "syntax",
+        "synmenu",
+        "optwin",
+        "compiler",
+        "bugreport",
+        "ftplugin",
       },
     },
   },
