@@ -141,7 +141,7 @@ GUITOOL="pcmanfm"
 FONT="ttf-3270-nerd ttf-cascadia-code-nerd ttf-cascadia-mono-nerd ttf-dejavu-nerd  ttf-fantasque-nerd ttf-victor-mono-nerd"
 FONT="$FONT ttf-firacode-nerd ttf-hack-nerd ttf-ibmplex-mono-nerd ttf-inconsolata-nerd ttf-iosevka-nerd"
 FONT="$FONT ttf-jetbrains-mono-nerd ttf-meslo-nerd ttf-mononoki-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono"
-FONT="$FONT ttf-noto-nerd ttf-roboto-mono-nerd ttf-terminus-nerd ttf-ubuntu-nerd ttf-ubuntu-mono-nerd noto-fonts-cjk"
+FONT="$FONT ttf-noto-nerd ttf-roboto-mono-nerd ttf-terminus-nerd ttf-ubuntu-nerd ttf-ubuntu-mono-nerd noto-fonts-cjk ttf-recursive-nerd"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $WM $SYSTOOL $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL $FONT
 
 # yay
