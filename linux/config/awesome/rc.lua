@@ -1,4 +1,3 @@
--- Reference:
 -- https://awesomewm.org/apidoc/documentation/05-awesomerc.md.html
 
 -- Check weather luarocks is installed?
@@ -143,8 +142,8 @@ awful.layout.layouts = {
 -- Submenu: awesome
 awesomemenu = {
   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-  { "manual", "alacritty -e man awesome" },
-  { "edit config", "alacritty -e vim " .. awesome.conffile },
+  { "manual", "xterm man awesome" },
+  { "edit config", "xterm vim " .. awesome.conffile },
   { "restart", awesome.restart },
   { "quit", function() awesome.quit() end },
 }
@@ -152,15 +151,15 @@ awesomemenu = {
 -- Submenu: editor
 editormenu = {
   { "Emacs", "emacs" },
-  { "vim", "alacritty -e vim" },
-  { "neovim", "alacritty -e nvim" },
+  { "vim", "xterm vim" },
+  { "neovim", "xterm nvim" },
 }
 
 -- Main Menu
 mainmenu = awful.menu({
   items = {
     { " AwesomeWM ", awesomemenu, beautiful.awesome_icon },
-    { " Terminal ", "alacritty" },
+    { " Terminal ", "xterm" },
     { " Editor ", editormenu },
   }
 })
@@ -172,7 +171,7 @@ launcher = awful.widget.launcher({
 })
 
 -- Menubar configuration
-menubar.utils.terminal = "alacritty"
+menubar.utils.terminal = "xterm"
 
 -- wibar
 
@@ -184,8 +183,8 @@ local function set_wallpaper(s)
     if type(wallpaper) == "function" then
       wallpaper = wallpaper(s)
     end
-    gears.wallpaper.maximized(wallpaper, s, true)
-    -- gears.wallpaper.set("#000000") -- set pure color background
+    -- gears.wallpaper.maximized(wallpaper, s, true)
+    gears.wallpaper.set("#000000") -- set pure color background
   end
 end
 screen.connect_signal("property::geometry", set_wallpaper)
@@ -256,7 +255,7 @@ end)
 
 -- Keybinding and Mousebinding
 globalkeys = gears.table.join(
-  awful.key({ modkey }, "Return", function() awful.spawn("alacritty") end, { description = "open a terminal", group = "launcher" }),
+  awful.key({ modkey }, "Return", function() awful.spawn("xterm") end, { description = "open a terminal", group = "launcher" }),
   awful.key({ modkey, "Shift" }, "Return", function() awful.spawn("emacs") end, { description = "open Emacs", group = "launcher" }),
   awful.key({ modkey }, "j", function() awful.client.focus.byidx(1) end, { description = "focus next by index", group = "client" }),
   awful.key({ modkey }, "k", function() awful.client.focus.byidx(-1) end, { description = "focus previous by index", group = "client" }),
