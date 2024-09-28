@@ -1,25 +1,23 @@
 {
     // Builtin
     "editor.cursorStyle": "block",
-    "editor.fontFamily": "'JetBrainsMono Nerd Font', Consolas, Monaco, Menlo, 'Courier New', monospace",
-    "editor.folding": false,
+    "editor.fontFamily": "'VictorMono Nerd Font', Consolas, Monaco, Menlo, 'Courier New', monospace",
     "editor.fontLigatures": true,
-    "editor.fontSize": 14,
+    "editor.fontSize": 15,
     "editor.fontWeight": "normal",
-    "editor.glyphMargin": false,
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": true,
     "editor.guides.highlightActiveIndentation": true,
-    "editor.lineHeight": 1.6,
+    "editor.lineHeight": 1.5,
     "editor.lineNumbers": "relative",
     "editor.quickSuggestions": {
         "other": "on",
-        "comments": "off",
-        "strings": "off"
+        "comments": "on",
+        "strings": "on"
     },
-    "editor.renderWhitespace": "trailing",
+    "editor.renderWhitespace": "all",
     "editor.rulers": [
-        80,
+        80
     ],
     "editor.tabSize": 2,
     "editor.tokenColorCustomizations": {
@@ -30,7 +28,7 @@
                     "punctuation.definition.comment"
                 ],
                 "settings": {
-                    "fontStyle": "bold"
+                    "fontStyle": "italic bold"
                 }
             },
         ]
@@ -41,11 +39,8 @@
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
         "**/.DS_Store": true,
         "**/*.{jpg, jpeg, png, gif, webp}": true,
-        "**/Thumbs.db": true
     },
     "search.showLineNumbers": true,
     "search.smartCase": true,
@@ -54,22 +49,19 @@
         "**/bower_components": true,
         "**/*.code-search": true
     },
-    "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', 'Hack Nerd Font', Consolas, Monaco, Menlo, 'Courier New', monospace",
-    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.fontFamily": "'VictorMono Nerd Font', Consolas, Monaco, Menlo, 'Courier New', monospace",
+    "terminal.integrated.fontSize": 15,
     "terminal.integrated.gpuAcceleration": "on",
     "terminal.integrated.rightClickBehavior": "copyPaste",
     "window.titleBarStyle": "custom",
     "window.zoomLevel": -1.0,
     "workbench.colorTheme": "Default Dark Modern",
     "workbench.colorCustomizations": {
-        "editorCursor.foreground": "#ff0000",
-        "editor.background": "#000000",
-        "editor.lineHighlightBackground": "#313131",
-        "statusBar.background": "#772255",
-        "statusBar.noFolderBackground": "#772255",
-        "statusBar.debuggingBackground": "#772255",
-        "statusBar.foreground": "#ffffff",
-        "statusBar.debuggingForeground": "#ffffff"
+        "statusBar.background": "#608b4e",
+        "statusBar.noFolderBackground": "#608b4e",
+        "statusBar.debuggingBackground": "#608b4e",
+        "statusBar.foreground": "#d4d4d4",
+        "statusBar.debuggingForeground": "#d4d4d4"
     },
     "workbench.iconTheme": "vs-seti",
     "workbench.statusBar.visible": true,
@@ -90,9 +82,9 @@
         "<C-f>": false
     },
     "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.color": "#ff0000",
+    "vim.highlightedyank.color": "#f44747",
     "vim.highlightedyank.textColor": "#ffffff",
-    "vim.highlightedyank.duration": 1000,
+    "vim.highlightedyank.duration": 2000,
     "vim.hlsearch": true,
     "vim.incsearch": true,
     "vim.insertModeKeyBindings": [
@@ -173,36 +165,36 @@
     "vim.sneakUseIgnorecaseAndSmartcase": true,
     "vim.statusBarColorControl": true,
     "vim.statusBarColors.commandlineinprogress": [
-        "#557722",
-        "#ffffff"
+        "#56b6c2",
+        "#1f1f1f"
     ],
     "vim.statusBarColors.insert": [
-        "#ff0000",
+        "#f44747",
         "#ffffff"
     ],
     "vim.statusBarColors.normal": [
-        "#225577",
+        "#569cd6",
         "#ffffff"
     ],
     "vim.statusBarColors.replace": [
-        "#775522",
-        "#ffffff"
+        "#dcdcaa",
+        "#000000"
     ],
     "vim.statusBarColors.searchinprogressmode": [
-        "#552277",
-        "#ebdbb2"
+        "#c678dd",
+        "#d4d4d4"
     ],
     "vim.statusBarColors.visual": [
-        "#227755",
-        "#ffffff"
+        "#608b4e",
+        "#d4d4d4"
     ],
     "vim.statusBarColors.visualblock": [
-        "#772255",
-        "#ffffff"
+        "#608b4e",
+        "#d4d4d4"
     ],
     "vim.statusBarColors.visualline": [
-        "#772255",
-        "#ffffff"
+        "#608b4e",
+        "#d4d4d4"
     ],
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
