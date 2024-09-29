@@ -53,7 +53,7 @@ end
 
 -- Theme
 beautiful.init({
-  font = "VictorMono Nerd Font Bold 12",
+  font = "VictorMono Nerd Font Bold 14",
   bg_normal = "#222222",
   bg_focus = "#535d6c",
   bg_urgent = "#ff0000",
