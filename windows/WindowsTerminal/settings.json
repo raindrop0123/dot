@@ -29,7 +29,7 @@
     "centerOnLaunch": true,
     "copyFormatting": "none",
     "copyOnSelect": true,
-    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "defaultProfile": "{ceac3cde-96f8-4449-8080-5661dbc88060}",
     "disableAnimations": true,
     "initialCols": 180,
     "initialPosition": ",",
@@ -61,7 +61,7 @@
     ],
     "profiles": {
         "defaults": {
-            "colorScheme": "One Half Dark"
+            "colorScheme": "Catppuccin Mocha"
         },
         "list": [
             {
@@ -69,7 +69,7 @@
                 "cursorShape": "filledBox",
                 "experimental.retroTerminalEffect": false,
                 "font": {
-                    "face": "Cascadia Mono",
+                    "face": "Consolas",
                     "size": 8
                 },
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -91,9 +91,10 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
+                "colorScheme": "Catppuccin Mocha",
                 "guid": "{ceac3cde-96f8-4449-8080-5661dbc88060}",
                 "hidden": false,
-                "name": "Profile 4"
+                "name": "Catppccin"
             }
         ]
     },
@@ -134,12 +135,12 @@
                 "unfocusedBackground": null
             },
             "tabRow": {
-                "background": "#181825FF",
+                "background": "#11111BFF",
                 "unfocusedBackground": "#11111BFF"
             },
             "window": {
                 "applicationTheme": "dark",
-                "experimental.rainbowFrame": false,
+                "experimental.rainbowFrame": true,
                 "frame": null,
                 "unfocusedFrame": null,
                 "useMica": false
