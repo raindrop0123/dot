@@ -57,11 +57,11 @@
     "window.zoomLevel": -1.0,
     "workbench.colorTheme": "Default Dark Modern",
     "workbench.colorCustomizations": {
-        "statusBar.background": "#608b4e",
-        "statusBar.noFolderBackground": "#608b4e",
-        "statusBar.debuggingBackground": "#608b4e",
-        "statusBar.foreground": "#d4d4d4",
-        "statusBar.debuggingForeground": "#d4d4d4"
+        "statusBar.background": "#2ea043",
+        "statusBar.noFolderBackground": "#2ea043",
+        "statusBar.debuggingBackground": "#2ea043",
+        "statusBar.foreground": "#ffffff",
+        "statusBar.debuggingForeground": "#ffffff"
     },
     "workbench.iconTheme": "vs-seti",
     "workbench.statusBar.visible": true,
@@ -70,6 +70,8 @@
     "extensions.experimental.affinity": {
         "vscodevim.vim": 1
     },
+    "vim.autoindent": true,
+    "vim.camelCaseMotion.enable": true,
     "vim.cursorStylePerMode.insert": "line",
     "vim.cursorStylePerMode.normal": "block",
     "vim.cursorStylePerMode.replace": "block-outline",
@@ -77,12 +79,19 @@
     "vim.cursorStylePerMode.visualblock": "block-outline",
     "vim.cursorStylePerMode.visualline": "block-outline",
     "vim.easymotion": true,
+    "vim.easymotionMarkerBackgroundColor": "#0078d4",
+    "vim.easymotionMarkerForegroundColorOneChar": "#ffffff",
+    "vim.easymotionMarkerForegroundColorTwoCharFirst": "#ffffff",
+    "vim.easymotionMarkerForegroundColorTwoCharSecond": "#ffffff",
+    "vim.easymotionIncSearchForegroundColor": "#ce9178",
+    "vim.easymotionDimColor": "#444444",
+    "vim.easymotionMarkerFontWeight": "bold",
     "vim.handleKeys": {
         "<C-a>": false,
         "<C-f>": false
     },
     "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.color": "#f44747",
+    "vim.highlightedyank.color": "#f85149",
     "vim.highlightedyank.textColor": "#ffffff",
     "vim.highlightedyank.duration": 2000,
     "vim.hlsearch": true,
@@ -99,6 +108,7 @@
         }
     ],
     "vim.leader": "\\",
+    "vim.ignorecase": true,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -163,39 +173,48 @@
     "vim.sneak": true,
     "vim.sneakReplacesF": true,
     "vim.sneakUseIgnorecaseAndSmartcase": true,
+    "vim.surround": true,
     "vim.statusBarColorControl": true,
     "vim.statusBarColors.commandlineinprogress": [
-        "#56b6c2",
-        "#1f1f1f"
+        "#6A9955",
+        "#ffffff"
     ],
     "vim.statusBarColors.insert": [
-        "#f44747",
+        "#f85149",
         "#ffffff"
     ],
     "vim.statusBarColors.normal": [
-        "#569cd6",
+        "#0078d4",
         "#ffffff"
     ],
     "vim.statusBarColors.replace": [
-        "#dcdcaa",
+        "#D7BA7D",
         "#000000"
     ],
     "vim.statusBarColors.searchinprogressmode": [
-        "#c678dd",
-        "#d4d4d4"
+        "#C586C0",
+        "#ffffff"
     ],
     "vim.statusBarColors.visual": [
-        "#608b4e",
-        "#d4d4d4"
+        "#2ea043",
+        "#ffffff"
     ],
     "vim.statusBarColors.visualblock": [
-        "#608b4e",
-        "#d4d4d4"
+        "#2ea043",
+        "#ffffff"
     ],
     "vim.statusBarColors.visualline": [
-        "#608b4e",
-        "#d4d4d4"
+        "#2ea043",
+        "#ffffff"
     ],
+    "vim.searchHighlightColor": "#2ea043",
+    "vim.searchHighlightTextColor": "#ffffff",
+    "vim.searchMatchColor": "#D7BA7D",
+    "vim.searchMatchTextColor": "#000000",
+    "vim.substitutionColor": "#f85149",
+    "vim.substitutionTextColor": "#ffffff",
+    "vim.showcmd": true,
+    "vim.showmodename": true,
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
     "vim.visualstar": true,
