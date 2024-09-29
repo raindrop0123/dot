@@ -156,7 +156,8 @@
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
     "vim.visualstar": true,
-    // PLUGIN: Catppuccin
+    "vim.whichwrap": "b,s,h,l",
+    // PLUGIN: catppuccin
     "catppuccin.accentColor": "blue",
     "catppuccin.colorOverrides": {
         "mocha": {
