@@ -1,4 +1,3 @@
--- Reference:
 -- https://github.com/ayamir/nvimdots/tree/main
 -- https://github.com/AstroNvim/AstroNvim
 -- https://github.com/NvChad/NvChad
