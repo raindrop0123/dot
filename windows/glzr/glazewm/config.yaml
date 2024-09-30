@@ -103,7 +103,7 @@ keybindings:
   - commands: ['wm-enable-binding-mode --name pause']
     bindings: ['alt+shift+p']
   - commands: ['toggle-tiling-direction']
-    bindings: ['alt+v']
+    bindings: ['alt+shift+v']
   - commands: ['toggle-fullscreen']
     bindings: ['alt+f']
   - commands: ['close']
