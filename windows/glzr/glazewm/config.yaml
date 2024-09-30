@@ -1,8 +1,10 @@
-# %userprofile%\.glzr\glazewm\config.yaml
-
-general:
-  startup_commands: ['shell-exec zebar']
-  shutdown_commands: ['shell-exec taskkill /IM zebar.exe /F']
+  general:
+  startup_commands: [
+    #'shell-exec zebar'
+  ]
+  shutdown_commands: [
+    #'shell-exec taskkill /IM zebar.exe /F'
+  ]
   config_reload_commands: []
   focus_follows_cursor: true
   toggle_workspace_on_refocus: false
@@ -13,7 +15,7 @@ general:
 gaps:
   inner_gap: '4px'
   outer_gap:
-    top: '40x'
+    top: '4px'
     right: '4px'
     bottom: '4px'
     left: '4px'
