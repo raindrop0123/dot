@@ -59,7 +59,7 @@
     "window.zoomLevel": -0.8,
     "workbench.colorTheme": "Catppuccin Mocha",
     "workbench.colorCustomizations": {},
-    "workbench.iconTheme": "vs-seti",
+    "workbench.iconTheme": "catppuccin-mocha",
     "workbench.statusBar.visible": true,
     "workbench.startupEditor": "none",
     // PLUGIN: vim
@@ -176,4 +176,8 @@
     "catppuccin.boldKeywords": true,
     "catppuccin.workbenchMode": "flat",
     "catppuccin.bracketMode": "rainbow",
+    // PLUGIN: catppuccin-icons
+    "catppuccin-icons.hidesExplorerArrows": true,
+    "catppuccin-icons.specificFolders": true,
+    "catppuccin-icons.monochrome": true,
 }
