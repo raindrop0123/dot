@@ -1,6 +1,0 @@
-* glaze-wm
-
-
-A tiling window manager for Windows.
-
-Configuration Load Path: =%userprofile%\.glzr\glazewm\config.yaml=
