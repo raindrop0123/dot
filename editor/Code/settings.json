@@ -1,5 +1,5 @@
 {
-    // Builtin
+    // BUILTIN
     "editor.cursorStyle": "block",
     "editor.fontFamily": "'JetBrainsMono Nerd Font', 'VictorMono Nerd Font', Consolas, Monaco, Menlo, 'Courier New', monospace",
     "editor.fontLigatures": true,
