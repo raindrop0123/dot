@@ -5,7 +5,7 @@ general:
   shutdown_commands: ['shell-exec taskkill /IM zebar.exe /F']
   config_reload_commands: []
   focus_follows_cursor: true
-  toggle_workspace_on_refocus: false
+  toggle_workspace_on_refocus: true
   cursor_jump:
     enabled: true
     trigger: 'monitor_focus'
