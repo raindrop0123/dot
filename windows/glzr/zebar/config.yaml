@@ -3,7 +3,7 @@ window/bar:
   # GENERAL
   providers: ['self']
   width: '{{ self.args.MONITOR_WIDTH }}'
-  height: '40'
+  height: '36'
   position_x: '{{ self.args.MONITOR_X }}'
   position_y: '{{ self.args.MONITOR_Y }}'
   z_order: 'normal'
@@ -16,12 +16,12 @@ window/bar:
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     height: 100%;
-    color: #ffffff;
-    font-family: Segoe UI, Consolas, ui-monospace, monospace;
+    color: #cdd6f4;
+    font-family: JetBrainsMono Nerd Font, Segoe UI, Consolas, ui-monospace, monospace;
     font-weight: Semibold;
-    font-size: 12px;
+    font-size: 10px;
     padding: 0px 0px;
-    background: #000000;
+    background: #11111b;
   # LEFT SIDE
   group/left:
     styles: |
@@ -30,7 +30,7 @@ window/bar:
     # WINDOWS LOGO
     template/logo:
       styles: |
-        color: #ffffff;
+        color: #f5e0dc;
         margin-right: 8px;
         margin-left: 8px;
       template: |
@@ -38,24 +38,26 @@ window/bar:
     # WORKSPACE TAG
     template/glazewm_workspaces:
       styles: |
+        background: #11111b;
+        color: #cdd6f4;
         display: flex;
         align-items: center;
         .workspace {
-          background: #000000;
+          background: #11111b;
           padding: 8px 8px;
           color: #ffffff;
           border: none;
           border-radius: 0px;
           cursor: pointer;
           &.displayed {
-            background: #000000;
+            background: #11111b;
           }
           &.focused {
-            background: #0078d7;
+            color: #a6e3a1;
+            weight: bold;
           }
           &:hover {
-            background: #ffffff;
-            color: #000000;
+            color: #89b4fa;
           }
         }
       providers: ['glazewm']
@@ -76,6 +78,30 @@ window/bar:
   group/center:
     styles: |
       justify-self: center;
+    # WINDOW TITLE NAME
+    template/glazewm_current_window:
+      providers: ['glazewm', 'date']
+      styles: |
+        .current-window {
+          color: #cdd6f4;
+          white-space: nowrap;
+          max-width: 300px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .time {
+          color: #f5c2e7;
+        }
+      template: |
+        @if (glazewm.focusedContainer?.type === 'window') {
+          <span class="current-window">
+            {{ glazewm.focusedContainer.title.length > 80 ? glazewm.focusedContainer.title.slice(0, 80) + '...' : glazewm.focusedContainer.title }}
+          </span>
+        } @else {
+          <span class="time">
+            {{ date.toFormat(date.now, 'EEE    d MMM t') }}
+          </span>
+        }
   # RIGHT SIDE
   group/right:
     styles: |
@@ -85,6 +111,7 @@ window/bar:
     template/cpu:
       providers: ['cpu']
       styles: |
+        color: #f38ba8;
         margin-right: 8px;
         margin-left: 8px;
       template: |
@@ -94,6 +121,7 @@ window/bar:
     template/memory:
       providers: ['memory']
       styles: |
+        color: #fab387;
         margin-right: 8px;
         margin-left: 8px;
       template: |
@@ -103,6 +131,7 @@ window/bar:
     template/battery:
       providers: ['battery']
       styles: |
+        color: #a6e3a1;
         margin-right: 8px;
         margin-left: 8px;
       template: |
@@ -115,6 +144,7 @@ window/bar:
     template/clock:
       providers: ['date']
       styles: |
+        color: #cba6f7;
         margin-right: 8px;
         margin-left: 8px;
       template: |
