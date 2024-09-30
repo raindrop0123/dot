@@ -1,4 +1,4 @@
-# Path of configuration: %userprofile%\.glzr\glazewm\config.yaml
+# %userprofile%\.glzr\glazewm\config.yaml
 
 general:
   startup_commands: ['shell-exec zebar']
