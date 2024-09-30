@@ -18,8 +18,8 @@ window/bar:
     height: 100%;
     color: #cdd6f4;
     font-family: JetBrainsMono Nerd Font, Segoe UI, Consolas, ui-monospace, monospace;
-    font-weight: Semibold;
-    font-size: 10px;
+    font-weight: Bold;
+    font-size: 12px;
     padding: 0px 0px;
     background: #11111b;
   # LEFT SIDE
@@ -30,7 +30,7 @@ window/bar:
     # WINDOWS LOGO
     template/logo:
       styles: |
-        color: #f5e0dc;
+        color: #cba6f7;
         margin-right: 8px;
         margin-left: 8px;
       template: |
@@ -39,13 +39,12 @@ window/bar:
     template/glazewm_workspaces:
       styles: |
         background: #11111b;
-        color: #cdd6f4;
         display: flex;
         align-items: center;
         .workspace {
           background: #11111b;
           padding: 8px 8px;
-          color: #ffffff;
+          color: #7f849c;
           border: none;
           border-radius: 0px;
           cursor: pointer;
@@ -53,8 +52,7 @@ window/bar:
             background: #11111b;
           }
           &.focused {
-            color: #a6e3a1;
-            weight: bold;
+            color: #f9e2af;
           }
           &:hover {
             color: #89b4fa;
@@ -90,7 +88,7 @@ window/bar:
           text-overflow: ellipsis;
         }
         .time {
-          color: #f5c2e7;
+          color: #b4befe;
         }
       template: |
         @if (glazewm.focusedContainer?.type === 'window') {
@@ -144,7 +142,7 @@ window/bar:
     template/clock:
       providers: ['date']
       styles: |
-        color: #cba6f7;
+        color: #89b4fa;
         margin-right: 8px;
         margin-left: 8px;
       template: |
