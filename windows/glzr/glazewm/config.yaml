@@ -8,22 +8,22 @@ general:
     trigger: 'monitor_focus'
 # GAPS
 gaps:
-  inner_gap: '0px'
+  inner_gap: '4px'
   outer_gap:
-    top: '40px'
-    right: '0px'
-    bottom: '0px'
-    left: '0px'
+    top: '44px'
+    right: '4px'
+    bottom: '4px'
+    left: '4px'
 # WINDOW EFFECT
 window_effects:
   focused_window:
     border:
       enabled: true
-      color: '#0078d7'
+      color: '#a6e3a1'
   other_windows:
     border:
       enabled: false
-      color: '#000000'
+      color: '#11111b'
 # WINDOW BEHAVIOR
 window_behavior:
   initial_state: 'tiling'
