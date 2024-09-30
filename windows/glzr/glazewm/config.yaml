@@ -10,7 +10,7 @@ general:
 gaps:
   inner_gap: '4px'
   outer_gap:
-    top: '44px'
+    top: '40px'
     right: '4px'
     bottom: '4px'
     left: '4px'
