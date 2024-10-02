@@ -1,7 +1,12 @@
 #!/bin/sh
+
 # REF: https://nobodyzxc.github.io/2019/06/06/arch-install/#more
 # REF: https://wiki.archlinux.org/title/Installation_guide
 # REF: https://zhuanlan.zhihu.com/p/107135290
+
+# 1. Boot by USB
+# 2. Connect to the Internet
+# 3. curl -fsSL https://raw.githubusercontent.com/raindrop0123/dot/main/linux/arch/install.sh > install.sh && chmod +x install.sh && sh install.sh
 
 set -ex
 
