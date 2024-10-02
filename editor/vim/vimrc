@@ -154,7 +154,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) > 
 call plug#begin()
 Plug 'mhinz/vim-startify', { 'on': [] }
 Plug 'sheerun/vim-polyglot', { 'on': [] }
-Plug 'catppuccin/vim', { 'as': 'catppuccin', 'on': [] }
+Plug 'morhetz/gruvbox', { 'on': [] }
 Plug 'vim-airline/vim-airline', { 'on': [] }
 Plug 'tpope/vim-commentary', { 'on': [] }
 Plug 'andymass/vim-matchup', { 'on': [] }
@@ -195,16 +195,13 @@ augroup plug_vim_polyglot
         \| autocmd! plug_vim_polyglot
 augroup END
 
-" catppuccin
-augroup plug_catppuccin
+" gruvbox
+augroup plug_gruvbox
   autocmd!
-  autocmd BufReadPost,BufEnter * call plug#load('catppuccin')
-        \| autocmd! plug_catppuccin
-        \| set termguicolors
-        \| let g:airline_theme='catppuccin_mocha'
-        \| colorscheme catppuccin_mocha
-        \| highlight Normal guibg=#000000
-        \| highlight CursorLineNr guifg=#a6e3a1 gui=bold
+  autocmd BufReadPost,BufEnter * call plug#load('gruvbox')
+        \| autocmd! plug_gruvbox
+        \| set notermguicolors
+        \| colorscheme gruvbox
 augroup END
 
 " vim-airline
@@ -252,7 +249,6 @@ augroup plug_rainbow
   autocmd!
   autocmd InsertEnter * call plug#load('rainbow')
         \| autocmd! plug_rainbow
-        \| let g:rainbow_conf={ 'guifgs': ['#f38ba8', '#fab387', '#f9e2af', '#a6e3a1', '#89b4fa', '#cba6f7', '#f5e0dc', '#f2cdcd', '#f5c2e7', '#89dceb'] }
         \| call rainbow_main#load()
 augroup END
 
