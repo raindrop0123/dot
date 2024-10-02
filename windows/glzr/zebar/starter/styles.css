@@ -1,0 +1,154 @@
+/**
+ * Import the Nerdfonts icon font.
+ * Ref https://www.nerdfonts.com/cheat-sheet for a cheatsheet of available Nerdfonts icons.
+ */
+@import 'https://www.nerdfonts.com/assets/css/webfont.css';
+
+i {
+  color: #cdd6f4;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+body {
+  color: #cdd6f4;
+  font-family: 'Segoe UI', ui-monospace, monospace;
+  font-size: 10px;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+#root {
+  background: #11111b;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  height: 100%;
+  padding: 4px 4px 4px 4px;
+}
+
+.left,
+.center,
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.center {
+  justify-self: center;
+}
+
+.right {
+  justify-self: end;
+}
+
+/* LEFT */
+.logo {
+  background: #11111b;
+  color: #f5e0dc;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.workspaces {
+  display: flex;
+  align-items: center;
+}
+
+.workspace {
+  background: #11111b;
+  margin-left: 1px;
+  margin-right: 1px;
+  padding: 4px 8px 4px 8px;
+  color: #cdd6f4;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+
+  &.displayed {
+    background: #7f849c;
+  }
+
+  &.focused {
+    background: #a6e3a1;
+    color: #11111b;
+  }
+
+  &:hover {
+    background: #89b4fa;
+    color: #11111b;
+  }
+}
+
+.binding-mode {
+  background: #fab387;
+  color: #11111b;
+  border-radius: 2px;
+  line-height: 1;
+  padding: 4px 8px 4px 8px;
+  border: 0;
+  margin-left: 4px;
+  margin-right: 0px;
+}
+
+.tiling-direction {
+  background: #f5c2e7;
+  color: #11111b;
+  border-radius: 2px;
+  line-height: 1;
+  padding: 4px 8px 4px 8px;
+  border: 0;
+  cursor: pointer;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+/* CENTER */
+.title {
+  background: #11111b;
+  color: #cdd6f4;
+}
+
+/* RIGHT */
+.cpu i {
+  color: #f38ba8;
+}
+
+.cpu {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.memory i {
+  color: #f9e2af;
+}
+
+.memory {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.battery i {
+  color: #a6e3a1;
+}
+
+.battery {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.date i {
+  color: #cba6f7;
+}
+
+.date {
+  margin-left: 4px;
+  margin-right: 4px;
+}
