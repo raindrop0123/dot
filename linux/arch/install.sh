@@ -138,7 +138,7 @@ RUSTTOOL="lsd ripgrep bottom"
 TERM="xterm"
 EDITOR="gvim emacs neovim"
 GUITOOL="pcmanfm"
-FONT="ttf-victor-mono-nerd ttf-hack-nerd ttf-jetbrains-mono-nerd ttf-meslo-nerd ttf-noto-nerd ttf-roboto-mono-nerd ttf-terminus-nerd ttf-ubuntu-nerd ttf-ubuntu-mono-nerd noto-fonts-cjk ttf-recursive-nerd"
+FONT="ttf-victor-mono-nerd ttf-hack-nerd ttf-jetbrains-mono-nerd ttf-meslo-nerd ttf-noto-nerd ttf-roboto-mono-nerd ttf-terminus-nerd ttf-ubuntu-nerd ttf-ubuntu-mono-nerd noto-fonts-cjk"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $WM $SYSTOOL $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL $FONT
 
 # yay
