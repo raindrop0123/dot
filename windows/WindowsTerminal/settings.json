@@ -1,4 +1,5 @@
 {
+    // %userprofile%\AppData\Local\Microsoft\Windows Terminal\setting.json
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema-preview",
     "actions": [],
