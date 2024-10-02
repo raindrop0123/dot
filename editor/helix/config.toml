@@ -1,4 +1,4 @@
-theme = "catppuccin_mocha"
+theme = "solarized_dark"
 
 [editor]
 true-color = true
@@ -41,10 +41,10 @@ render = "all"
 
 [editor.whitespace.characters]
 space = "·"
-nbsp = "⍽"
-tab = "→"
-newline = "⏎"
-tabpad = "·"
+nbsp = " "
+tab = " "
+newline = " "
+tabpad = " "
 
 [editor.indent-guides]
 render = true
