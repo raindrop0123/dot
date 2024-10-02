@@ -7,11 +7,3 @@ export QT_ENABLE_HIGHDPI_SCALING=1
 export QT_FONT_DPI=108
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
-
-# Alias
-alias ls='ls --color=auto'
-alias tree='lsd -al --tree'
-alias em='emacs -nw'
-alias nv='nvim'
-alias ff='fastfetch'
-alias gd='git clone https://github.com/raindrop0123/dot.git --depth=1'
