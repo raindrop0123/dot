@@ -6,14 +6,14 @@
 
 i {
   color: #ffffff;
-  margin-left: 4px;
-  margin-right: 4px;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 body {
   color: #ffffff;
   font-family: 'Segoe UI', ui-monospace, monospace;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 html,
@@ -53,11 +53,34 @@ body,
 .logo {
   background: #ffffff;
   color: #000000;
-  border-radius: 2px;
+  border-radius: 1px;
   line-height: 1;
-  padding: 4px 8px 4px 8px;
-  margin-left: 8px;
-  margin-right: 8px;
+  padding: 4px 4px 4px 4px;
+  margin-left: 4px;
+  margin-right: 0px;
+}
+
+.binding-mode {
+  background: #ffffff;
+  color: #000000;
+  border-radius: 1px;
+  line-height: 1;
+  padding: 4px 4px 4px 4px;
+  border: 0;
+  margin-left: 4px;
+  margin-right: 0px;
+}
+
+.tiling-direction {
+  background: #ffffff;
+  color: #000000;
+  border-radius: 1px;
+  line-height: 1;
+  padding: 4px 4px 4px 4px;
+  border: 0;
+  cursor: pointer;
+  margin-left: 4px;
+  margin-right: 0px;
 }
 
 .workspaces {
@@ -67,94 +90,83 @@ body,
 
 .workspace {
   background: #000000;
-  margin-left: 1px;
-  margin-right: 1px;
+  font-weight: 600;
+  margin-left: 4px;
+  margin-right: 0px;
   padding: 4px 8px 4px 8px;
   color: #ffffff;
   border: none;
-  border-radius: 2px;
+  border-radius: 1px;
   cursor: pointer;
 
   &.displayed {
-    background: #808080;
+    background: #000000;
   }
 
   &.focused {
-    background: #ffffff;
-    color: #000000;
+    background: #0078d7;
+    color: #ffffff;
   }
 
   &:hover {
-    background: #808080;
+    background: #ffffff;
     color: #000000;
   }
-}
-
-.binding-mode {
-  background: #ffffff;
-  color: #000000;
-  border-radius: 2px;
-  line-height: 1;
-  padding: 4px 8px 4px 8px;
-  border: 0;
-  margin-left: 4px;
-  margin-right: 0px;
-}
-
-.tiling-direction {
-  background: #ffffff;
-  color: #000000;
-  border-radius: 2px;
-  line-height: 1;
-  padding: 4px 8px 4px 8px;
-  border: 0;
-  cursor: pointer;
-  margin-left: 4px;
-  margin-right: 4px;
 }
 
 .title {
   background: #000000;
   color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  font-weight: 600;
+  margin-left: 4px;
+  margin-right: 0px;
 }
 
 /* RIGHT */
-.cpu i {
-  background: #000000;
-  color: #ffffff;
-}
-
 .cpu {
-  margin-left: 4px;
+  font-weight: 600;
+  margin-left: 0px;
   margin-right: 4px;
-}
 
-.memory i {
-  background: #000000;
-  color: #ffffff;
+  &.i {
+    background: #000000;
+    color: #ffffff;
+  }
 }
 
 .memory {
-  margin-left: 4px;
+  font-weight: 600;
+  margin-left: 0px;
   margin-right: 4px;
-}
 
-.battery i {
-  background: #000000;
-  color: #ffffff;
+  &.i {
+    background: #000000;
+    color: #ffffff;
+  }
 }
 
 .battery {
-  margin-left: 4px;
+  font-weight: 600;
+  margin-left: 0px;
   margin-right: 4px;
-}
 
-.date i {
-  background: #000000;
-  color: #ffffff;
+  &.i {
+    background: #000000;
+    color: #ffffff;
+  }
 }
 
 .date {
-  margin-left: 4px;
+  font-weight: 600;
+  margin-left: 0px;
   margin-right: 4px;
+
+  &.i {
+    background: #000000;
+    color: #ffffff;
+  }
 }

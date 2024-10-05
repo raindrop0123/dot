@@ -23,11 +23,22 @@
     import { createRoot } from 'https://esm.sh/react-dom@18/client?dev';
     import * as zebar from 'https://esm.sh/zebar@2';
     const providers = zebar.createProviderGroup({
-      glazewm: { type: 'glazewm' },
-      cpu: { type: 'cpu' },
-      memory: { type: 'memory' },
-      battery: { type: 'battery' },
-      date: { type: 'date', formatting: 'yyyy-MM-dd hh:mm:ss' },
+      glazewm: {
+        type: 'glazewm'
+      },
+      cpu: {
+        type: 'cpu'
+      },
+      memory: {
+        type: 'memory'
+      },
+      battery: {
+        type: 'battery'
+      },
+      date: {
+        type: 'date',
+        formatting: 'yyyy-MM-dd hh:mm:ss'
+      },
     });
     createRoot(document.getElementById('root')).render(<App />);
     function App() {
@@ -39,73 +50,87 @@
         <div className="app">
           <div className="left">
             <i className="logo nf nf-custom-windows"></i>
-            {output.glazewm && (
-              <div className="workspaces">
-                {output.glazewm.currentWorkspaces.map(workspace => (
+            {
+              output.glazewm && (
+                <>
+                  {output.glazewm.bindingModes.map(bindingMode => (
+                    <button
+                      className="binding-mode"
+                      key={bindingMode.name}
+                    >
+                      {bindingMode.displayName ?? bindingMode.name}
+                    </button>
+                  ))}
                   <button
-                    className={`workspace ${workspace.hasFocus && 'focused'} ${workspace.isDisplayed && 'displayed'}`}
-                    onClick={() => output.glazewm.runCommand(`focus --workspace ${workspace.name}`)}
-                    key={workspace.name}
-                  >
-                    {workspace.displayName ?? workspace.name}
-                  </button>
-                ))}
-              </div>
-            )}
-            {output.glazewm && (
-              <>
-                {output.glazewm.bindingModes.map(bindingMode => (
-                  <button
-                    className="binding-mode"
-                    key={bindingMode.name}
-                  >
-                    {bindingMode.displayName ?? bindingMode.name}
-                  </button>
-                ))}
-                <button
-                  className={`tiling-direction nf ${output.glazewm.tilingDirection === 'horizontal' ? 'nf-md-swap_horizontal' : 'nf-md-swap_vertical'}`}
-                  onClick={() => output.glazewm.runCommand('toggle-tiling-direction')}
-                ></button>
-              </>
-            )}
-            {output.glazewm && (
-              <div className="title">
-                {(() => {
-                  if (output.glazewm.focusedContainer?.type === 'window') {
-                    return output.glazewm.focusedContainer.title.length > 80 ? output.glazewm.focusedContainer.title.slice(0, 80) + '...' : output.glazewm.focusedContainer.title
-                  } else {
-                    return " "
-                  }
-                })()}
-              </div>
-            )}
+                    className={`tiling-direction nf ${output.glazewm.tilingDirection === 'horizontal' ? 'nf-md-swap_horizontal' : 'nf-md-swap_vertical'}`}
+                    onClick={() => output.glazewm.runCommand('toggle-tiling-direction')}
+                  ></button>
+                </>
+              )
+            }
+            {
+              output.glazewm && (
+                <div className="workspaces">
+                  {output.glazewm.currentWorkspaces.map(workspace => (
+                    <button
+                      className={`workspace ${workspace.hasFocus && 'focused'} ${workspace.isDisplayed && 'displayed'}`}
+                      onClick={() => output.glazewm.runCommand(`focus --workspace ${workspace.name}`)}
+                      key={workspace.name}
+                    >
+                      {workspace.displayName ?? workspace.name}
+                    </button>
+                  ))}
+                </div>
+              )
+            }
+            {
+              output.glazewm && (
+                <div className="title">
+                  {(() => {
+                    if (output.glazewm.focusedContainer?.type === 'window') {
+                      return output.glazewm.focusedContainer.title.length > 80 ? output.glazewm.focusedContainer.title.slice(0, 80) + '...' : output.glazewm.focusedContainer.title
+                    } else {
+                      return " "
+                    }
+                  })()}
+                </div>
+              )
+            }
           </div>
           <div className="center"></div>
           <div className="right">
-            {output.cpu && (
-              <div className="cpu">
-                <i className="nf nf-oct-cpu"></i>
-                {Math.round(output.cpu.usage)}%
-              </div>
-            )}
-            {output.memory && (
-              <div className="memory">
-                <i className="nf nf-oct-stack"></i>
-                {Math.round(output.memory.usage)}%
-              </div>
-            )}
-            {output.battery && (
-              <div className="battery">
-                <i className="nf nf-md-battery"></i>
-                {Math.round(output.battery.chargePercent)}%
-              </div>
-            )}
-            {output.date && (
-              <div className="date">
-                <i className="nf nf-fa-calendar"></i>
-                {output.date?.formatted}
-              </div>
-            )}
+            {
+              output.cpu && (
+                <div className="cpu">
+                  <i className="nf nf-oct-cpu"></i>
+                  {Math.round(output.cpu.usage)}%
+                </div>
+              )
+            }
+            {
+              output.memory && (
+                <div className="memory">
+                  <i className="nf nf-oct-stack"></i>
+                  {Math.round(output.memory.usage)}%
+                </div>
+              )
+            }
+            {
+              output.battery && (
+                <div className="battery">
+                  <i className="nf nf-md-battery"></i>
+                  {Math.round(output.battery.chargePercent)}%
+                </div>
+              )
+            }
+            {
+              output.date && (
+                <div className="date">
+                  <i className="nf nf-fa-calendar"></i>
+                  {output.date?.formatted}
+                </div>
+              )
+            }
           </div>
         </div>
       );
