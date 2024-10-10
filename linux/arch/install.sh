@@ -6,7 +6,9 @@
 
 # 1. Boot by USB
 # 2. Connect to the Internet
-# 3. curl -fsSL https://raw.githubusercontent.com/raindrop0123/dot/main/linux/arch/install.sh > install.sh && chmod +x install.sh && sh install.sh
+# 3. curl -fsSL https://raw.githubusercontent.com/raindrop0123/dot/refs/heads/main/linux/arch/install.sh
+# 4. chmod +x install.sh
+# 5. sh install.sh
 
 set -ex
 
