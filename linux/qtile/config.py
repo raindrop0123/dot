@@ -12,7 +12,7 @@ mod = "mod1" # or mod4
 
 # KEYBINDING
 keys = [
-    Key([mod], "Return", lazy.spawn("xterm"), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn("alacritty"), desc="Launch terminal"),
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus to down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus to up"),
@@ -71,7 +71,7 @@ layouts = [
 
 # STATUSBAR & WIDGET
 widget_defaults = dict(
-    font="VictorMono Nerd Font Bold",
+    font="JetBrainsMono Nerd Font Bold",
     fontsize=16,
     padding=8,
 )
