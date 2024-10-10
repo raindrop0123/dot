@@ -71,9 +71,9 @@ layouts = [
 
 # STATUSBAR & WIDGET
 widget_defaults = dict(
-    font="monospace",
-    fontsize=14,
-    padding=4,
+    font="VictorMono Nerd Font Bold",
+    fontsize=16,
+    padding=8,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -88,14 +88,14 @@ screens = [
                 widget.WindowName(),
                 widget.CPU(format=" {load_percent}%"),
                 widget.Memory(format=" {MemUsed:.0f}{mm}"),
-                widget.Battery(format=" {percent:2.0%}"),
+                widget.Battery(format="󰁹 {percent:2.0%}"),
                 widget.Backlight(format=" {percent:2.0%}", backlight_name="intel_backlight"),
-                widget.PulseVolume(fmt=" {}"),
+                widget.Volume(fmt=" {}"),
                 widget.Clock(format=" %Y-%m-%d %H:%M"),
                 widget.Systray(),
                 widget.CurrentLayoutIcon(),
             ],
-            30,
+            36,
             border_width=[0, 0, 0, 0],
             border_color=["000000", "000000", "000000", "000000"]
         ),
@@ -140,6 +140,7 @@ wl_xcursor_size = 24
 # AUTOSTART
 @hook.subscribe.startup_once
 def start_once():
+    qtile.cmd_spawn("xrdb -merge ~/.Xresources")
     qtile.cmd_spawn("xclip")
     qtile.cmd_spawn("nm-applet")
     qtile.cmd_spawn("flameshot")
@@ -147,6 +148,5 @@ def start_once():
     qtile.cmd_spawn("udiskie")
     qtile.cmd_spawn("fcitx5 --replace -d")
     qtile.cmd_spawn("/usr/lib/polkit-kde-authentication-agent-1")
-    qtile.cmd_spawn("[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources")
 
 wmname = "LG3D"
