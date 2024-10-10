@@ -2,7 +2,7 @@
 
 options=(
   style=round
-  width=8.0
+  width=6.0
   hidpi=off
   active_color="gradient(top_left=0xdd007aff,bottom_right=0xfff5a97f)"
   inactive_color="gradient(top_left=0xff414550,bottom_right=0xff000000)"
