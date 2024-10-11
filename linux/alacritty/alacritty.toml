@@ -9,7 +9,7 @@ ipc_socket = true
 [window]
 dimensions = { columns = 0, lines = 0 }
 position = "None"
-padding = { x = 0, y = 0 }
+padding = { x = 8, y = 8 }
 dynamic_padding = false
 decorations = "Full"
 opacity = 0.9
