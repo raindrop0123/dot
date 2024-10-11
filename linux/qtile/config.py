@@ -55,12 +55,12 @@ for i in groups:
 
 # LAYOUT
 layouts = [
+    layout.MonadTall(border_width=4, margin=8, border_focus="#a1b55c", border_normal="#383838"),
     layout.Columns(),
     layout.Max(),
     layout.Stack(),
     layout.Bsp(),
     layout.Matrix(),
-    layout.MonadTall(),
     layout.MonadWide(),
     layout.RatioTile(),
     layout.Tile(),
@@ -71,7 +71,7 @@ layouts = [
 
 # STATUSBAR & WIDGET
 widget_defaults = dict(
-    font="JetBrainsMono Nerd Font Bold",
+    font="JetBrainsMono Nerd Font",
     fontsize=16,
     padding=8,
 )
@@ -79,21 +79,21 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper="/home/c/wp1.jpg",
+        wallpaper="/home/c/.config/qtile/wallpaper/wp1.png",
         wallpaper_mode="fill",
         bottom=bar.Bar(
             [
-                widget.GroupBox(hide_unused=True),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.CPU(format=" {load_percent}%"),
-                widget.Memory(format=" {MemUsed:.0f}{mm}"),
-                widget.Battery(format="󰁹 {percent:2.0%}"),
-                widget.Backlight(format=" {percent:2.0%}", backlight_name="intel_backlight"),
-                widget.Volume(fmt=" {}"),
-                widget.Clock(format=" %Y-%m-%d %H:%M"),
+                widget.GroupBox(hide_unused=True, border_width=4, active="#f8f8f8", inactive="#b8b8b8", this_current_screen_border="#f7ca88"),
+                widget.Prompt(background="#f7ca88", foreground="#181818"),
+                widget.WindowName(background="#181818", foreground="#f8f8f8"),
+                widget.CPU(format=" {load_percent}%", foreground="#ab4642"),
+                widget.Memory(format=" {MemUsed:.0f}{mm}", foreground="#dc9656"),
+                widget.Battery(format="󰁹 {percent:2.0%}", foreground="#a1b56c"),
+                widget.Backlight(format=" {percent:2.0%}", backlight_name="intel_backlight", foreground="#f7ca88"),
+                widget.Volume(fmt=" {}", foreground="#7cafc2"),
+                widget.Clock(format=" %Y-%m-%d %H:%M", foreground="#ba8baf"),
                 widget.Systray(),
-                widget.CurrentLayoutIcon(),
+                widget.CurrentLayoutIcon(scale=0.6),
             ],
             36,
             border_width=[0, 0, 0, 0],
