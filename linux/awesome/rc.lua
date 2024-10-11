@@ -53,7 +53,7 @@ end
 
 -- Theme
 beautiful.init({
-  font = "JetBrainsMono Nerd Font Bold 14",
+  font = "JetBrainsMono Nerd Font 14",
   bg_normal = "#222222",
   bg_focus = "#535d6c",
   bg_urgent = "#ff0000",
@@ -142,8 +142,8 @@ awful.layout.layouts = {
 -- Submenu: awesome
 awesomemenu = {
   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-  { "manual", "xterm man awesome" },
-  { "edit config", "xterm vim " .. awesome.conffile },
+  { "manual", "alacritty man awesome" },
+  { "edit config", "alacritty vim " .. awesome.conffile },
   { "restart", awesome.restart },
   { "quit", function() awesome.quit() end },
 }
@@ -151,15 +151,15 @@ awesomemenu = {
 -- Submenu: editor
 editormenu = {
   { "Emacs", "emacs" },
-  { "vim", "xterm vim" },
-  { "neovim", "xterm nvim" },
+  { "vim", "alacritty vim" },
+  { "neovim", "alacritty nvim" },
 }
 
 -- Main Menu
 mainmenu = awful.menu({
   items = {
     { " AwesomeWM ", awesomemenu, beautiful.awesome_icon },
-    { " Terminal ", "xterm" },
+    { " Terminal ", "alacritty" },
     { " Editor ", editormenu },
   }
 })
@@ -171,7 +171,7 @@ launcher = awful.widget.launcher({
 })
 
 -- Menubar configuration
-menubar.utils.terminal = "xterm"
+menubar.utils.terminal = "alacritty"
 
 -- wibar
 
@@ -218,7 +218,7 @@ awful.screen.connect_for_each_screen(function(s)
 
   -- Create wibox
   s.wibox = awful.wibar({
-    height = 24,
+    height = 30,
     position = "top",
     screen = s,
   })
@@ -241,12 +241,36 @@ awful.screen.connect_for_each_screen(function(s)
     -- Right Widgets
     {
       layout = wibox.layout.fixed.horizontal,
-      awful.widget.watch([[bash -c "echo \  $(top -bn1 | grep Cpu | awk '{print $2}')%\ "]], 2),
-      awful.widget.watch([[bash -c "echo \  $(echo $(free -h | grep Mem) | awk '{print $3}')\ "]], 2),
-      awful.widget.watch([[bash -c "echo \ 󰁹 $(cat /sys/class/power_supply/BAT1/capacity)%\ "]], 120),
-      awful.widget.watch([[bash -c "echo \  $(echo $(amixer sget Master | grep -o -E '[0-9]+%' | head -1))\ "]], 2),
-      awful.widget.watch([[bash -c "echo \  $(($(brightnessctl get)*100/$(brightnessctl max)))%\ "]], 2),
-      awful.widget.watch([[bash -c "echo \  $(date +%Y-%m-%d\ %H:%M)\ "]], 60),
+      wibox.widget({
+        awful.widget.watch([[bash -c "echo \  $(top -bn1 | grep Cpu | awk '{print $2}')%\ "]], 2),
+        fg = "#ffffff",
+        widget = wibox.container.background
+      }),
+      wibox.widget({
+        awful.widget.watch([[bash -c "echo \  $(echo $(free -h | grep Mem) | awk '{print $3}')\ "]], 2),
+        fg = "#ffffff",
+        widget = wibox.container.background
+      }),
+      wibox.widget({
+        awful.widget.watch([[bash -c "echo \ 󰁹 $(cat /sys/class/power_supply/BAT1/capacity)%\ "]], 120),
+        fg = "#ffffff",
+        widget = wibox.container.background
+      }),
+      wibox.widget({
+        awful.widget.watch([[bash -c "echo \  $(echo $(amixer sget Master | grep -o -E '[0-9]+%' | head -1))\ "]], 2),
+        fg = "#ffffff",
+        widget = wibox.container.background
+      }),
+      wibox.widget({
+        awful.widget.watch([[bash -c "echo \  $(($(brightnessctl get)*100/$(brightnessctl max)))%\ "]], 2),
+        fg = "#ffffff",
+        widget = wibox.container.background
+      }),
+      wibox.widget({
+        awful.widget.watch([[bash -c "echo \  $(date +%Y-%m-%d\ %H:%M)\ "]], 60),
+        fg = "#ffffff",
+        widget = wibox.container.background
+      }),
       wibox.widget.systray(),
       s.layoutbox,
     },
@@ -255,7 +279,7 @@ end)
 
 -- Keybinding and Mousebinding
 globalkeys = gears.table.join(
-  awful.key({ modkey }, "Return", function() awful.spawn("xterm") end, { description = "open a terminal", group = "launcher" }),
+  awful.key({ modkey }, "Return", function() awful.spawn("alacritty") end, { description = "open a terminal", group = "launcher" }),
   awful.key({ modkey, "Shift" }, "Return", function() awful.spawn("emacs") end, { description = "open Emacs", group = "launcher" }),
   awful.key({ modkey }, "j", function() awful.client.focus.byidx(1) end, { description = "focus next by index", group = "client" }),
   awful.key({ modkey }, "k", function() awful.client.focus.byidx(-1) end, { description = "focus previous by index", group = "client" }),
@@ -300,8 +324,7 @@ root.buttons(gears.table.join(awful.button({}, 3, function() mainmenu:toggle() e
 
 -- RULE
 
--- Rules to apply to new clients
--- (through the "manage" signal).
+-- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
   -- All clients will match this rule.
   {
