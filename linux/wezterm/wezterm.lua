@@ -88,7 +88,6 @@ config.window_frame = {
   inactive_titlebar_bg = "#1b1f27",
 }
 
-
 -- UI
 config.line_height = 1.15
 config.default_cursor_style = "BlinkingBlock"
