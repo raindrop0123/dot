@@ -1,0 +1,58 @@
+! GENERAL
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcdfilter
+
+! XTERM
+XTerm*renderFont: true
+XTerm*faceName: xft:JetBrainsMono Nerd Font:style=Regular:size=14
+XTerm*faceSize: 12
+XTerm*utf8: 2
+XTerm*locale: true
+XTerm*loginshell: true
+XTerm*savelines: 5000
+XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+! URXVT
+URxvt*imLocale: en_US.UTF-8
+URxvt*termName: rxvt-unicode-256color
+URxvt*buffered: false
+URxvt.intensityStyles: false
+URxvt.font: xft:JetBrainsMono Nerd Font Mono:style=Regular:size=14
+URxvt.saveLines: 5000
+URxvt.scrollBar: false
+URxvt.cursorColor: white
+URxvt*depth: 32
+
+! THEME
+*.foreground: #abb2bf
+*.background: #1b1f27
+*.cursorColor: #abb2bf
+! BLACK
+*.color0: #1e222a
+*.color8: #1e222a
+! RED
+*.color1: #e06c75
+*.color9: #ff75a0
+! GREEN
+*.color2: #98c379
+*.color10: #7eca9c
+! YELLOW
+*.color3: #e7c787
+*.color11: #ebcb8b
+! BLUE
+*.color4: #519aba
+*.color12: #61afef
+! MAGENTA
+*.color5: #c882e7
+*.color13: #de98fd
+! CYAN
+*.color6: #519aba
+*.color14: #a3b8ef
+! WHITE
+*.color7: #abb2bf
+*.color15: #abb2bf

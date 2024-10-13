@@ -1,0 +1,128 @@
+{
+    // BUILTIN
+    "editor.cursorStyle": "block",
+    "editor.fontFamily": "Monaco, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
+    "editor.fontSize": 14,
+    "editor.guides.bracketPairs": true,
+    "editor.guides.bracketPairsHorizontal": true,
+    "editor.guides.highlightActiveIndentation": true,
+    "editor.lineHeight": 1.618,
+    "editor.lineNumbers": "relative",
+    "editor.renderWhitespace": "all",
+    "editor.minimap.enabled": false,
+    "editor.rulers": [
+        80
+    ],
+    "editor.tabSize": 2,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/*.{jpg, jpeg, png, gif, webp}": true,
+    },
+    "search.showLineNumbers": true,
+    "search.smartCase": true,
+    "terminal.integrated.fontFamily": "Monaco, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
+    "terminal.integrated.fontSize": 14,
+    "window.zoomLevel": -0.5,
+    "workbench.startupEditor": "none",
+    // PLUGIN: vim
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
+    "vim.autoindent": true,
+    "vim.camelCaseMotion.enable": true,
+    "vim.cursorStylePerMode.insert": "line",
+    "vim.cursorStylePerMode.normal": "block",
+    "vim.cursorStylePerMode.replace": "block-outline",
+    "vim.cursorStylePerMode.visual": "block-outline",
+    "vim.cursorStylePerMode.visualblock": "block-outline",
+    "vim.cursorStylePerMode.visualline": "block-outline",
+    "vim.easymotion": true,
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-s>": false,
+        "<C-z>": false
+    },
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.duration": 2000,
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.leader": "\\",
+    "vim.ignorecase": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "<leader>",
+                "<leader>"
+            ],
+            "commands": [
+                "workbench.action.showCommands"
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "editor.action.showHover"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "d"
+            ],
+            "commands": [
+                "editor.action.revealDefinition"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "t",
+                "a"
+            ],
+            "commands": [
+                "workbench.action.toggleActivityBarVisibility"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "t",
+                "n"
+            ],
+            "commands": [
+                "workbench.action.toggleSidebarVisibility"
+            ]
+        },
+    ],
+    "vim.showMarksInGutter": true,
+    "vim.smartRelativeLine": true,
+    "vim.sneak": true,
+    "vim.sneakReplacesF": true,
+    "vim.sneakUseIgnorecaseAndSmartcase": true,
+    "vim.surround": true,
+    "vim.showcmd": true,
+    "vim.showmodename": true,
+    "vim.useCtrlKeys": true,
+    "vim.useSystemClipboard": true,
+    "vim.visualstar": true,
+    "vim.whichwrap": "b,s,h,l"
+}
