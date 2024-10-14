@@ -9,7 +9,7 @@ i {
 body {
   color: #abb2bf;
   font-family: 'Segoe UI', ui-monospace, monospace;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 html,
@@ -48,7 +48,7 @@ body,
 /* LEFT */
 .logo {
   background: #1b1f27;
-  color: #61afef;
+  color: #de98fd;
   border-radius: 2px;
   padding: 4px 4px 4px 4px;
   margin-left: 4px;
@@ -62,11 +62,10 @@ body,
 
 .workspace {
   background: #1b1f27;
-  font-weight: 600;
+  color: #abb2bf;
   margin-left: 4px;
   margin-right: 0px;
   padding: 4px 8px 4px 8px;
-  color: #abb2bf;
   border: none;
   border-radius: 2px;
   cursor: pointer;
@@ -76,13 +75,13 @@ body,
   }
 
   &.focused {
-    background: #1b1f27;
-    color: #7eca9c;
+    background: #61afef;
+    color: #1b1f27;
   }
 
   &:hover {
-    background: #1b1f27;
-    color: #de98fd;
+    background: #de98fd;
+    color: #1b1f27;
   }
 }
 
@@ -93,24 +92,22 @@ body,
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
-  font-weight: 600;
   margin-left: 4px;
   margin-right: 0px;
 }
 
 /* RIGHT */
 .binding-mode {
-  background: #1b1f27;
-  color: #fca2aa;
+  background: #e7c787;
+  color: #1b2f27;
   border-radius: 2px;
   padding: 4px 4px 4px 4px;
   border: 0;
-  margin-left: 4px;
-  margin-right: 0px;
+  margin-left: 0px;
+  margin-right: 4px;
 }
 
 .tiling-direction {
-  font-weight: 600;
   background: #1b2f27;
   color: #e7c787;
   border-radius: 2px;
@@ -122,7 +119,6 @@ body,
 }
 
 .cpu {
-  font-weight: 600;
   margin-left: 0px;
   margin-right: 4px;
   background: #1b1f27;
@@ -137,7 +133,6 @@ body,
 }
 
 .memory {
-  font-weight: 600;
   margin-left: 0px;
   margin-right: 4px;
   background: #1b1f27;
@@ -152,7 +147,6 @@ body,
 }
 
 .battery {
-  font-weight: 600;
   margin-left: 0px;
   margin-right: 4px;
   background: #1b1f27;
@@ -167,7 +161,6 @@ body,
 }
 
 .date {
-  font-weight: 600;
   margin-left: 0px;
   margin-right: 4px;
   background: #1b1f27;
