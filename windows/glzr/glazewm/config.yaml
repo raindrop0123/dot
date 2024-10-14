@@ -21,11 +21,11 @@ window_effects:
   focused_window:
     border:
       enabled: true
-      color: '#0078d7'
+      color: '#61afef'
   other_windows:
     border:
       enabled: true
-      color: '#666666'
+      color: '#98c379'
 
 window_behavior:
   initial_state: 'tiling'
