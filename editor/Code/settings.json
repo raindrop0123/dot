@@ -27,7 +27,7 @@
     "search.smartCase": true,
     "terminal.integrated.fontFamily": "Monaco, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
     "terminal.integrated.fontSize": 14,
-    "window.zoomLevel": -0.5,
+    "window.zoomLevel": -2.0,
     "workbench.startupEditor": "none",
     // PLUGIN: vim
     "extensions.experimental.affinity": {
