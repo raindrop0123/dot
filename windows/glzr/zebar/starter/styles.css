@@ -1,17 +1,13 @@
-/**
- * Import the Nerdfonts icon font.
- * Ref https://www.nerdfonts.com/cheat-sheet for a cheatsheet of available Nerdfonts icons.
- */
 @import 'https://www.nerdfonts.com/assets/css/webfont.css';
 
 i {
-  color: #ffffff;
-  margin-left: 2px;
-  margin-right: 2px;
+  color: #abb2bf;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 body {
-  color: #ffffff;
+  color: #abb2bf;
   font-family: 'Segoe UI', ui-monospace, monospace;
   font-size: 10px;
 }
@@ -23,7 +19,7 @@ body,
 }
 
 #root {
-  background: #000000;
+  background: #1b1f27;
 }
 
 .app {
@@ -51,20 +47,18 @@ body,
 
 /* LEFT */
 .logo {
-  background: #ffffff;
-  color: #000000;
-  border-radius: 1px;
-  line-height: 1;
+  background: #1b1f27;
+  color: #61afef;
+  border-radius: 2px;
   padding: 4px 4px 4px 4px;
   margin-left: 4px;
   margin-right: 0px;
 }
 
 .binding-mode {
-  background: #ffffff;
-  color: #000000;
-  border-radius: 1px;
-  line-height: 1;
+  background: #1b1f27;
+  color: #fca2aa;
+  border-radius: 2px;
   padding: 4px 4px 4px 4px;
   border: 0;
   margin-left: 4px;
@@ -72,10 +66,10 @@ body,
 }
 
 .tiling-direction {
-  background: #ffffff;
-  color: #000000;
-  border-radius: 1px;
-  line-height: 1;
+  font-weight: 600;
+  background: #1b2f27;
+  color: #e7c787;
+  border-radius: 2px;
   padding: 4px 4px 4px 4px;
   border: 0;
   cursor: pointer;
@@ -89,34 +83,34 @@ body,
 }
 
 .workspace {
-  background: #000000;
+  background: #1b1f27;
   font-weight: 600;
   margin-left: 4px;
   margin-right: 0px;
   padding: 4px 8px 4px 8px;
   color: #ffffff;
   border: none;
-  border-radius: 1px;
+  border-radius: 2px;
   cursor: pointer;
 
   &.displayed {
-    background: #000000;
+    background: #1b1f27;
   }
 
   &.focused {
-    background: #0078d7;
-    color: #ffffff;
+    background: #1b1f27;
+    color: #7eca9c;
   }
 
   &:hover {
-    background: #ffffff;
-    color: #000000;
+    background: #1b1f27;
+    color: #de98fd;
   }
 }
 
 .title {
-  background: #000000;
-  color: #ffffff;
+  background: #1b1f27;
+  color: #abb2bf;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -131,42 +125,58 @@ body,
   font-weight: 600;
   margin-left: 0px;
   margin-right: 4px;
+  background: #1b1f27;
+  color: #e06c75;
+}
 
-  &.i {
-    background: #000000;
-    color: #ffffff;
-  }
+.cpu i {
+  margin-left: 0px;
+  margin-right: 4px;
+  background: #1b1f27;
+  color: #e06c75;
 }
 
 .memory {
   font-weight: 600;
   margin-left: 0px;
   margin-right: 4px;
+  background: #1b1f27;
+  color: #de98fd;
+}
 
-  &.i {
-    background: #000000;
-    color: #ffffff;
-  }
+.memory i {
+  margin-left: 0px;
+  margin-right: 4px;
+  background: #1b1f27;
+  color: #de98fd;
 }
 
 .battery {
   font-weight: 600;
   margin-left: 0px;
   margin-right: 4px;
+  background: #1b1f27;
+  color: #98c379;
+}
 
-  &.i {
-    background: #000000;
-    color: #ffffff;
-  }
+.battery i {
+  margin-left: 0px;
+  margin-right: 4px;
+  background: #1b1f27;
+  color: #98c379;
 }
 
 .date {
   font-weight: 600;
   margin-left: 0px;
   margin-right: 4px;
+  background: #1b1f27;
+  color: #61afef;
+}
 
-  &.i {
-    background: #000000;
-    color: #ffffff;
-  }
+.date i {
+  margin-left: 0px;
+  margin-right: 4px;
+  background: #1b1f27;
+  color: #61afef;
 }
