@@ -52,7 +52,7 @@ body,
   border-radius: 2px;
   padding: 4px 4px 4px 4px;
   margin-left: 4px;
-  margin-right: 0px;
+  margin-right: 4px;
 }
 
 .workspaces {
@@ -63,7 +63,7 @@ body,
 .workspace {
   background: #1b1f27;
   color: #abb2bf;
-  margin-left: 4px;
+  margin-left: 0px;
   margin-right: 0px;
   padding: 4px 8px 4px 8px;
   border: none;
@@ -92,7 +92,7 @@ body,
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
-  margin-left: 4px;
+  margin-left: 8px;
   margin-right: 0px;
 }
 
@@ -104,7 +104,7 @@ body,
   padding: 4px 4px 4px 4px;
   border: 0;
   margin-left: 0px;
-  margin-right: 4px;
+  margin-right: 8px;
 }
 
 .tiling-direction {
@@ -115,61 +115,61 @@ body,
   border: 0;
   cursor: pointer;
   margin-left: 0px;
-  margin-right: 4px;
+  margin-right: 8px;
 }
 
 .cpu {
   margin-left: 0px;
-  margin-right: 4px;
+  margin-right: 8px;
   background: #1b1f27;
   color: #e06c75;
 }
 
 .cpu i {
   margin-left: 0px;
-  margin-right: 4px;
+  margin-right: 8px;
   background: #1b1f27;
   color: #e06c75;
 }
 
 .memory {
   margin-left: 0px;
-  margin-right: 4px;
+  margin-right: 8px;
   background: #1b1f27;
   color: #de98fd;
 }
 
 .memory i {
   margin-left: 0px;
-  margin-right: 4px;
+  margin-right: 8px;
   background: #1b1f27;
   color: #de98fd;
 }
 
 .battery {
   margin-left: 0px;
-  margin-right: 4px;
+  margin-right: 8px;
   background: #1b1f27;
   color: #98c379;
 }
 
 .battery i {
   margin-left: 0px;
-  margin-right: 4px;
+  margin-right: 8px;
   background: #1b1f27;
   color: #98c379;
 }
 
 .date {
   margin-left: 0px;
-  margin-right: 4px;
+  margin-right: 8px;
   background: #1b1f27;
-  color: #61afef;
+  color: #fca2aa;
 }
 
 .date i {
   margin-left: 0px;
-  margin-right: 4px;
+  margin-right: 8px;
   background: #1b1f27;
-  color: #61afef;
+  color: #fca2aa;
 }
