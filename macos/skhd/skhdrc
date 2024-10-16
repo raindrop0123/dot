@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/zsh
 
 # Open Terminal
 alt - return : /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal --single-instance -d ~ &> /dev/null
