@@ -51,6 +51,7 @@ workspaces:
 
 window_rules:
   - commands: ['ignore']
+    match_title: "/Excel/"
     match:
       - window_process: { equals: 'zebar' }
       - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
