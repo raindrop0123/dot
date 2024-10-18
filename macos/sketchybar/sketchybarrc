@@ -6,29 +6,29 @@ PLUGIN_DIR=$CONFIG_DIR/plugins
 
 default=(
   updates=when_shown
-  icon.font="SF Pro:Semibold:12.0"
-  label.font="SF Pro:Semibold:12.0"
-  icon.color=0xffabb2bf
-  label.color=0xffabb2bf
-  icon.highlight_color=0xffe06c75
+  icon.font="SF Pro:Semibold:13.0"
+  label.font="SF Pro:Semibold:13.0"
+  icon.color=0xffffffff
+  label.color=0xffffffff
+  icon.highlight_color=0xff3c3e4f
   icon.padding_left=2
   icon.padding_right=2
   label.padding_left=4
   label.padding_right=4
   background.corner_radius=4
-  background.height=30
+  background.height=24
   popup.background.border_width=2
-  popup.background.corner_radius=5
-  popup.background.border_color=0xffabb2bf
-  popup.background.color=0xff1b1f27
-  popup.height=30
+  popup.background.corner_radius=4
+  popup.background.border_color=0xffffffff
+  popup.background.color=0xff000000
+  popup.height=24
 )
 sketchybar --default "${default[@]}"
 
 bar=(
-  height=30
+  height=24
   blur_radius=0
-  color=0xff1b1f27
+  color=0xff000000
   position=bottom
   padding_left=4
   padding_right=4
@@ -47,7 +47,7 @@ sketchybar --add event skhd_mode_change
 apple=(
   icon=􀣺
   label.drawing=off
-  icon.color=0xff98c379
+  icon.color=0xffb3e1a7
   icon.padding_left=8
   icon.padding_right=8
   background.padding_right=4
@@ -63,16 +63,16 @@ for name in ${spaces[@]}; do
   space=(
     space=$sid
     icon=$name
-    icon.padding_left=4
-    icon.padding_right=4
-    icon.highlight_color=0xffe06c75
+    icon.padding_left=8
+    icon.padding_right=8
+    icon.highlight_color=0xff3c3e4f
     background.padding_left=0
     background.padding_right=0
-    background.color=0xff373b43
+    background.color=0xff92b3f5
     background.drawing=off
     script=$PLUGIN_DIR/space.sh
     label.drawing=off
-    icon.font="SF Pro:Semibold:12.0"
+    icon.font="SF Pro:Semibold:13.0"
     click_script="yabai -m space --focus $sid"
   )
   sketchybar --add space space.$sid left
@@ -84,7 +84,7 @@ title=(
   icon=􀁵
   icon.padding_left=8
   icon.padding_right=8
-  icon.color=0xff61afef
+  icon.color=0xff92b3f5
   script=$PLUGIN_DIR/title.sh
 )
 sketchybar --add item title left
@@ -97,7 +97,11 @@ sketchybar --subscribe title window_focus title_change front_app_switched space_
 time=(
   update_freq=5
   icon=􀐫
-  icon.color=0xffde98fd
+  icon.color=0xfff5e3b5
+  icon.padding_left=4
+  icon.padding_right=2
+  label.padding_left=2
+  label.padding_right=4
   script=$PLUGIN_DIR/time.sh
 )
 sketchybar --add item time right
@@ -107,7 +111,11 @@ sketchybar --set time "${time[@]}"
 date=(
   update_freq=5
   icon=􀉉
-  icon.color=0xffebcb8b
+  icon.color=0xff92b3f5
+  icon.padding_left=4
+  icon.padding_right=2
+  label.padding_left=2
+  label.padding_right=4
   script=$PLUGIN_DIR/date.sh
 )
 sketchybar --add item date right
@@ -117,7 +125,11 @@ sketchybar --set date "${date[@]}"
 battery=(
   update_freq=120
   script=$PLUGIN_DIR/battery.sh
-  icon.color=0xff7eca9c
+  icon.color=0xffb3e1a7
+  icon.padding_left=4
+  icon.padding_right=2
+  label.padding_left=2
+  label.padding_right=4
   label.drawing=on
 )
 sketchybar --add item battery right
@@ -127,7 +139,12 @@ sketchybar --subscribe battery system_woke power_source_change
 # MEMORY
 memory=(
   icon=􀫦
-  icon.font="SF Pro:Semibold:12.0"
+  icon.color=0xfff69c5e
+  icon.font="SF Pro:Semibold:13.0"
+  icon.padding_left=4
+  icon.padding_right=2
+  label.padding_left=2
+  label.padding_right=4
   update_freq=3
   script=$PLUGIN_DIR/memory.sh
 )
@@ -137,7 +154,12 @@ sketchybar --set memory "${memory[@]}"
 # CPU
 cpu=(
   icon=􀫥
-  icon.font="SF Pro:Semibold:12.0"
+  icon.color=0xffe48fa8
+  icon.font="SF Pro:Semibold:13.0"
+  icon.padding_left=4
+  icon.padding_right=2
+  label.padding_left=2
+  label.padding_right=4
   update_freq=3
   script=$PLUGIN_DIR/cpu.sh
 )
