@@ -1,4 +1,4 @@
-# `%userprofile%/.glzr/glazewm/config.yaml`
+# %userprofile%/.glzr/glazewm/config.yaml
 general:
   startup_commands: ['shell-exec zebar']
   shutdown_commands: ['shell-exec taskkill /IM zebar.exe /F']
