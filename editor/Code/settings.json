@@ -10,6 +10,7 @@
     "editor.lineNumbers": "relative",
     "editor.renderWhitespace": "all",
     "editor.minimap.enabled": false,
+    "editor.semanticHighlighting.enabled": true,
     "editor.rulers": [
         80
     ],
@@ -124,5 +125,31 @@
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
     "vim.visualstar": true,
-    "vim.whichwrap": "b,s,h,l"
+    "vim.whichwrap": "b,s,h,l",
+    // PLUGIN: catppuccin
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "catppuccin.accentColor": "blue",
+    "catppuccin.colorOverrides": {
+        "mocha": {
+            "base": "#11111b",
+            "mantle": "#11111b",
+            "crust": "#11111b",
+        },
+    },
+    "catppuccin.customUIColors": {
+        "mocha": {
+            "editorLineNumber.activeForeground": "green",
+        },
+    },
+    "catppuccin.italicComments": true,
+    "catppuccin.italicKeywords": true,
+    "catppuccin.boldKeywords": true,
+    "catppuccin.extraBordersEnabled": true,
+    "catppuccin.workbenchMode": "default",
+    "catppuccin.bracketMode": "rainbow",
+    // PLUGIN: catppucin icon theme
+    "workbench.iconTheme": "catppuccin-mocha",
+    "catppuccin-icons.hidesExplorerArrows": true,
+    "catppuccin-icons.specificFolders": true,
+    "catppuccin-icons.monochrome": true,
 }
