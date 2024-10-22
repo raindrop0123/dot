@@ -16,3 +16,7 @@
   + =https://zhuanlan.zhihu.com/p/302568011=
   + =https://github.com/VSCodeVim/Vim=
   + =https://vspacecode.github.io/docs/default-keybindings#file=
++ Pugins:
+  + vscodevim
+  + catppuccin
+  + catppuccin icon theme
