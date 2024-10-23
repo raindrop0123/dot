@@ -83,7 +83,7 @@ config.colors = {
 }
 config.window_frame = {
   font = wezterm.font { family = "JetBrainsMono Nerd Font", weight = "Bold" },
-  font_size = 12.0,
+  font_size = 8.0,
   active_titlebar_bg = "#1b1f27",
   inactive_titlebar_bg = "#1b1f27",
 }
