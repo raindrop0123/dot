@@ -6,77 +6,77 @@ if wezterm.config_builder then
 end
 
 -- FONT
-config.font_size = 12.0
+config.font_size = 8.0
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 
 -- THEME
 --config.color_scheme = "Default Dark (base16)"
 config.colors = {
-  foreground = "#abb2bf",
-  background = "#1b1f27",
-  cursor_fg = "#1b1f27",
-  cursor_bg = "#ff75a0",
-  cursor_border = "#ff75a0",
-  selection_fg = "#1b1f27",
-  selection_bg = "#61afef",
-  scrollbar_thumb = "#1e222a",
-  split = "#373b43",
+  foreground = "#cdd6f4",
+  background = "#11111b",
+  cursor_fg = "#11111b",
+  cursor_bg = "#f5e0dc",
+  cursor_border = "#f5e0dc",
+  selection_fg = "#11111b",
+  selection_bg = "#89dceb",
+  scrollbar_thumb = "#6c7086",
+  split = "#9399b2",
   ansi = {
-    "#1b1f27",
-    "#e06c75",
-    "#98c379",
-    "#e7c787",
-    "#61afef",
-    "#c882e7",
-    "#a3b8ef",
-    "#abb2bf"
+    "#1e1e2e",
+    "#f38ba8",
+    "#a6e3a1",
+    "#f9e2af",
+    "#89b4fa",
+    "#cba6f7",
+    "#74c7ec",
+    "#cdd6f4",
   },
   brights = {
-    "#1e222a",
-    "#ff75a0",
-    "#7eca9c",
-    "#EBCB8B",
-    "#81A1C1",
-    "#c882e7",
-    "#519ABA",
-    "#abb2bf",
+    "#1e1e2e",
+    "#f38ba8",
+    "#a6e3a1",
+    "#f9e2af",
+    "#89b4fa",
+    "#cba6f7",
+    "#74c7ec",
+    "#cdd6f4",
   },
-  compose_cursor = "#ff75a0",
+  compose_cursor = "#f2cdcd",
   tab_bar = {
-    background = "#1b1f27",
-    inactive_tab_edge = "#42464e",
+    background = "#11111b",
+    inactive_tab_edge = "#11111b",
     active_tab = {
-      bg_color = "#1b1f27",
-      fg_color = "#98c379",
+      bg_color = "#11111b",
+      fg_color = "#a6e3a1",
       intensity = "Bold",
       underline = "None",
       italic = true,
       strikethrough = true,
     },
     inactive_tab = {
-      bg_color = "#1b1f27",
-      fg_color = "#abb2bf",
+      bg_color = "#11111b",
+      fg_color = "#b4befe",
       intensity = "Normal",
       underline = "None",
       italic = true,
       strikethrough = true,
     },
     inactive_tab_hover = {
-      bg_color = "#1b1f27",
-      fg_color = "#abb2bf",
+      bg_color = "#11111b",
+      fg_color = "#a6e3a1",
       intensity = "Normal",
       underline = "None",
       italic = true,
       strikethrough = true,
     },
     new_tab = {
-      bg_color = "#1b1f27",
-      fg_color = "#abb2bf",
+      bg_color = "#11111b",
+      fg_color = "#cdd6f4",
       italic = true,
     },
     new_tab_hover = {
-      bg_color = "#1b1f27",
-      fg_color = "#abb2bf",
+      bg_color = "#11111b",
+      fg_color = "#cdd6f4",
       italic = true,
     },
   },
@@ -84,12 +84,12 @@ config.colors = {
 config.window_frame = {
   font = wezterm.font { family = "JetBrainsMono Nerd Font", weight = "Bold" },
   font_size = 8.0,
-  active_titlebar_bg = "#1b1f27",
-  inactive_titlebar_bg = "#1b1f27",
+  active_titlebar_bg = "#11111b",
+  inactive_titlebar_bg = "#11111b",
 }
 
 -- UI
-config.line_height = 1.15
+config.line_height = 1.2
 config.default_cursor_style = "BlinkingBlock"
 config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
