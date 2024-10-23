@@ -1,13 +1,13 @@
 @import 'https://www.nerdfonts.com/assets/css/webfont.css';
 
 i {
-  color: #abb2bf;
+  color: #cdd6f4;
   margin-left: 4px;
   margin-right: 4px;
 }
 
 body {
-  color: #abb2bf;
+  color: #cdd6f4;
   font-family: 'Segoe UI', ui-monospace, monospace;
   font-size: 12px;
 }
@@ -19,7 +19,7 @@ body,
 }
 
 #root {
-  background: #1b1f27;
+  background: #11111b;
 }
 
 .app {
@@ -47,8 +47,8 @@ body,
 
 /* LEFT */
 .logo {
-  background: #1b1f27;
-  color: #de98fd;
+  background: #11111b;
+  color: #cba6f7;
   border-radius: 2px;
   padding: 4px 4px 4px 4px;
   margin-left: 4px;
@@ -61,8 +61,8 @@ body,
 }
 
 .workspace {
-  background: #1b1f27;
-  color: #abb2bf;
+  background: #11111b;
+  color: #cdd6f4;
   margin-left: 0px;
   margin-right: 0px;
   padding: 4px 8px 4px 8px;
@@ -71,23 +71,23 @@ body,
   cursor: pointer;
 
   &.displayed {
-    background: #1b1f27;
+    background: #11111b;
   }
 
   &.focused {
-    background: #61afef;
-    color: #1b1f27;
+    background: #89b4fa;
+    color: #11111b;
   }
 
   &:hover {
-    background: #de98fd;
-    color: #1b1f27;
+    background: #f5e0dc;
+    color: #11111b;
   }
 }
 
 .title {
-  background: #1b1f27;
-  color: #abb2bf;
+  background: #11111b;
+  color: #b4befe;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -98,8 +98,8 @@ body,
 
 /* RIGHT */
 .binding-mode {
-  background: #e7c787;
-  color: #1b2f27;
+  background: #f9e2af;
+  color: #11111b;
   border-radius: 2px;
   padding: 4px 4px 4px 4px;
   border: 0;
@@ -108,8 +108,8 @@ body,
 }
 
 .tiling-direction {
-  background: #1b2f27;
-  color: #e7c787;
+  background: #11111b;
+  color: #f9e2af;
   border-radius: 2px;
   padding: 4px 4px 4px 4px;
   border: 0;
@@ -121,55 +121,55 @@ body,
 .cpu {
   margin-left: 0px;
   margin-right: 8px;
-  background: #1b1f27;
-  color: #e06c75;
+  background: #11111b;
+  color: #f38ba8;
 }
 
 .cpu i {
   margin-left: 0px;
   margin-right: 8px;
-  background: #1b1f27;
-  color: #e06c75;
+  background: #11111b;
+  color: #f38ba8;
 }
 
 .memory {
   margin-left: 0px;
   margin-right: 8px;
-  background: #1b1f27;
-  color: #de98fd;
+  background: #11111b;
+  color: #fab387;
 }
 
 .memory i {
   margin-left: 0px;
   margin-right: 8px;
-  background: #1b1f27;
-  color: #de98fd;
+  background: #11111b;
+  color: #fab387;
 }
 
 .battery {
   margin-left: 0px;
   margin-right: 8px;
-  background: #1b1f27;
-  color: #98c379;
+  background: #11111b;
+  color: #a6e3a1;
 }
 
 .battery i {
   margin-left: 0px;
   margin-right: 8px;
-  background: #1b1f27;
-  color: #98c379;
+  background: #11111b;
+  color: #a6e3a1;
 }
 
 .date {
   margin-left: 0px;
   margin-right: 8px;
-  background: #1b1f27;
-  color: #fca2aa;
+  background: #11111b;
+  color: #f9e2af;
 }
 
 .date i {
   margin-left: 0px;
   margin-right: 8px;
-  background: #1b1f27;
-  color: #fca2aa;
+  background: #11111b;
+  color: #f9e2af;
 }
