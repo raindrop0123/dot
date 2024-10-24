@@ -170,27 +170,29 @@ hotkeys:
 terminal:
   searchOptions: {}
   colorScheme:
-    name: One Dark
-    foreground: '#abb2bf'
-    background: '#1b1f27'
-    cursor: '#e06c75'
+    name: Catppuccin Mocha
+    foreground: '#cdd6f4'
+    background: '#1e1e2e'
+    selection: null
+    cursor: '#f5e0dc'
+    cursorAccent: null
     colors:
-      - '#1b1f27'
-      - '#e06c75'
-      - '#98c379'
-      - '#e7c787'
-      - '#61afef'
-      - '#de98fd'
-      - '#519ABA'
-      - '#abb2bf'
-      - '#1b1f27'
-      - '#ff75a0'
-      - '#7eca9c'
-      - '#EBCB8B'
-      - '#81A1C1'
-      - '#c882e7'
-      - '#519ABA'
-      - '#abb2bf'
+      - '#45475a'
+      - '#f38ba8'
+      - '#a6e3a1'
+      - '#f9e2af'
+      - '#89b4fa'
+      - '#f5c2e7'
+      - '#94e2d5'
+      - '#bac2de'
+      - '#585b70'
+      - '#f38ba8'
+      - '#a6e3a1'
+      - '#f9e2af'
+      - '#89b4fa'
+      - '#f5c2e7'
+      - '#94e2d5'
+      - '#a6adc8'
   minimumContrastRatio: 8
   font: JetBrainsMono Nerd Font
   ligatures: true
