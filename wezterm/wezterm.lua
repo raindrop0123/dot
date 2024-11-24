@@ -5,11 +5,11 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
---- FONT ---
+-- [[ Font ]]
 config.font_size = 9.0
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 
---- THEME ---
+-- [[ Theme ]]
 --config.color_scheme = "Default Dark (base16)"
 config.colors = {
   foreground = "#cdd6f4",
@@ -88,7 +88,7 @@ config.window_frame = {
   inactive_titlebar_bg = "#11111b",
 }
 
---- UI ---
+-- [[ UI ]]
 config.line_height = 1.0
 config.default_cursor_style = "BlinkingBlock"
 config.cursor_blink_ease_in = "Constant"
@@ -100,13 +100,13 @@ config.window_padding = {
   bottom = 8,
 }
 
---- ANIMATION ---
+-- [[ Animation ]]
 config.animation_fps = 1
 
---- TAB ---
+-- [[ Tab ]]
 config.hide_tab_bar_if_only_one_tab = true
 
---- CUSTOM ---
+-- [[ Custom ]]
 config.window_close_confirmation = "NeverPrompt"
 
 return config
