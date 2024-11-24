@@ -5,11 +5,11 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
--- [[ Font ]]
+-- [[ FONT ]]
 config.font_size = 9.0
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 
--- [[ Theme ]]
+-- [[ THEME ]]
 --config.color_scheme = "Default Dark (base16)"
 config.colors = {
   foreground = "#cdd6f4",
@@ -100,13 +100,13 @@ config.window_padding = {
   bottom = 8,
 }
 
--- [[ Animation ]]
+-- [[ ANIMATION ]]
 config.animation_fps = 1
 
--- [[ Tab ]]
+-- [[ TAB ]]
 config.hide_tab_bar_if_only_one_tab = true
 
--- [[ Custom ]]
+-- [[ CUSTOM ]]
 config.window_close_confirmation = "NeverPrompt"
 
 return config
