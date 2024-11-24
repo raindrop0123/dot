@@ -1,4 +1,4 @@
---- REFERENCE ---
+-- [[ REFERENCE ]]
 -- https://github.com/boltlessengineer/NativeVim
 -- https://github.com/HCY-ASLEEP/NVIM-Config
 -- https://github.com/LazyVim/LazyVim
@@ -6,19 +6,15 @@
 -- https://github.com/NvChad/NvChad
 -- https://github.com/ayamir/nvimdots
 
---- GENERAL ---
+-- [[ GENERAL ]]
 vim.opt.backspace = "indent,eol,start"
 vim.opt.clipboard = "unnamedplus,unnamed"
-vim.opt.cmdheight = 0
-vim.opt.cmdwinheight = 1
 vim.opt.colorcolumn = "80"
 vim.opt.cursorcolumn = true
 vim.opt.cursorline = true
-vim.opt.laststatus = 0
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.ruler = true
-vim.opt.showtabline = 0
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.whichwrap = "h,l,<,>,[,],~"
@@ -32,9 +28,6 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.smarttab = true
 vim.opt.wrap = false
-vim.opt.sidescroll = 4
-vim.opt.scrolloff = 2
-vim.opt.sidescrolloff = 2
 vim.opt.autoread = true
 vim.opt.autowrite = true
 vim.opt.backup = false
@@ -46,20 +39,13 @@ vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.wildmenu = true
-vim.opt.background = "dark"
-vim.cmd.colorscheme("retrobox")
-vim.diagnostic.config({
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = "",
-      [vim.diagnostic.severity.WARN] = "",
-      [vim.diagnostic.severity.INFO] = "",
-      [vim.diagnostic.severity.HINT] = "󰌵",
-    }
-  }
-})
 
---- MAPPING ---
+-- [[ THEME ]]
+vim.opt.termguicolors = true
+vim.opt.background = "dark"
+vim.cmd.colorscheme("desert")
+
+-- [[ MAPPING ]]
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = " "
 vim.api.nvim_set_keymap("n", "<leader>rc", "<cmd>source $MYVIMRC<cr>", { desc = "Reload config" })
@@ -67,22 +53,15 @@ vim.api.nvim_set_keymap("n", "<leader>rC", "<cmd>edit $MYVIMRC<cr>", { desc = "E
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", { desc = "Back to normal mode" })
 vim.api.nvim_set_keymap("i", "<C-a>", "<Home>", {})
 vim.api.nvim_set_keymap("i", "<C-e>", "<End>", {})
-vim.api.nvim_set_keymap("i", "<C-d>", "<Del>", {})
-vim.api.nvim_set_keymap("i", "<C-b>", "<Left>", {})
-vim.api.nvim_set_keymap("i", "<C-f>", "<Right>", {})
-vim.api.nvim_set_keymap("i", "<C-n>", "<Down>", {})
-vim.api.nvim_set_keymap("i", "<C-p>", "<Up>", {})
 vim.api.nvim_set_keymap("c", "<C-a>", "<Home>", {})
 vim.api.nvim_set_keymap("c", "<C-e>", "<End>", {})
 vim.api.nvim_set_keymap("c", "<C-d>", "<Del>", {})
-vim.api.nvim_set_keymap("c", "<C-b>", "<Left>", {})
-vim.api.nvim_set_keymap("c", "<C-f>", "<Right>", {})
 vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", {})
 vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", {})
 vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", {})
 vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", {})
 
---- AUTOCMD ---
+-- [[ AUTOCMD ]]
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
   callback = function()
@@ -124,7 +103,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
   end,
 })
 
---- LAZY.NVIM ---
+-- [[ LAZY.NVIM ]]
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -139,19 +118,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
-    -- { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    -- { "LazyVim/LazyVim", import = "lazyvim.plugins.extras.lang.clangd" },
-    -- { "AstroNvim/AstroNvim", version = "^4", import = "astronvim.plugins" },
     { import = "plugin" },
-  },
-  ui = {
-    size = {
-      height = 0.88,
-      width = 0.92,
-    },
-    border = "rounded",
-    title = "Lazy Panel",
-    title_pos = "center",
   },
   performance = {
     rtp = {
