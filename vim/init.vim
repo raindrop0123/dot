@@ -10,6 +10,7 @@
 "
 " GENERAL
 "
+
 let mapleader='\'
 let maplocalleader=' '
 filetype on
@@ -23,8 +24,8 @@ set cmdheight=1
 set showcmd
 set textwidth=0
 set ruler
-set showtabline=1
-set laststatus=1
+set showtabline=2
+set laststatus=2
 set number
 set relativenumber
 set cursorline
@@ -56,6 +57,7 @@ set wildmenu
 "
 " THEME
 "
+
 set notermguicolors
 set background=dark
 colorscheme habamax
@@ -63,6 +65,7 @@ colorscheme habamax
 "
 " INDENTATION
 "
+
 set autoindent
 set cindent
 set cinoptions=g0,:0,N-s,(0
@@ -77,6 +80,7 @@ set smarttab
 "
 " SEARCH
 "
+
 set hlsearch
 set incsearch
 set ignorecase
@@ -85,6 +89,7 @@ set smartcase
 "
 " BACKUP
 "
+
 set nobackup
 set noswapfile
 set autoread
@@ -94,6 +99,7 @@ set confirm
 "
 " ENCODING
 "
+
 set langmenu=en_US.UTF-8
 set helplang=en
 set termencoding=utf-8
@@ -103,6 +109,7 @@ set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 "
 " GUI SETTING
 "
+
 if has('gui_running')
   set guifont=JetBrainsMono\ Nerd\ Font\ Regular\ 14
   set guioptions-=m
@@ -117,6 +124,7 @@ endif
 "
 " DISABLE DISTRIBUTION PLUGINS
 "
+
 let g:loaded_getscriptPlugin=1
 let g:loaded_gzip=1
 let g:loaded_logiPat=1
@@ -134,6 +142,7 @@ let g:loaded_zipPlugin=1
 "
 " AUTOCMD
 "
+
 autocmd BufReadPost * if line("'\"")>1&&line("'\"")<=line('$')|exe "normal! g'\""|endif
 autocmd InsertEnter * setlocal formatoptions-=r formatoptions-=c formatoptions-=o
 autocmd BufWinEnter * if getfsize(expand('%'))>1048576|syntax clear|endif
@@ -141,6 +150,7 @@ autocmd BufWinEnter * if getfsize(expand('%'))>1048576|syntax clear|endif
 "
 " MAPPING
 "
+
 nnoremap <leader>rc <cmd>edit $MYVIMRC<cr>
 nnoremap <leader>rC <cmd>source $MYVIMRC<cr>
 nnoremap <c-h> <c-w>h
@@ -156,6 +166,7 @@ cnoremap <c-e> <end>
 "
 " VIM-PLUGIN
 "
+
 let data_dir=has('nvim')?stdpath('data').'/site':'~/.vim'
 if empty(glob(data_dir.'/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -165,10 +176,13 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))>0|
 
 call plug#begin()
 
-" UI
+" SYNTAX HIGHLIGHT
 Plug 'sheerun/vim-polyglot', {'on': []}
+
+" UI
 Plug 'morhetz/gruvbox', {'on': []}
 Plug 'vim-airline/vim-airline', {'on': []}
+Plug 'ap/vim-buftabline', {'on': []}
 Plug 'ryanoasis/vim-devicons', {'on': []}
 Plug 'Yggdroot/indentLine', {'on': []}
 Plug 'airblade/vim-gitgutter', {'on': []}
@@ -190,6 +204,7 @@ Plug 'dyng/ctrlsf.vim', {'on': ['CtrlSF']}
 Plug 'thinca/vim-quickrun', {'on': ['QuickRun']}
 Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-bd-jk)', '<Plug>(easymotion-bd-w)']}
 Plug 'voldikss/vim-floaterm', {'on': ['FloatermNew', 'FloatermToggle']}
+Plug 'liuchengxu/vista.vim', {'on': ['Vista']}
 
 " LINTER
 Plug 'dense-analysis/ale', {'on': []}
@@ -210,7 +225,7 @@ Plug 'puremourning/vimspector', { 'on': [] }
 call plug#end()
 
 "
-" UI
+" SYNTAX HIGHLIGHT
 "
 
 " vim-polyglot
@@ -219,6 +234,10 @@ augroup plug_vim_polyglot
   autocmd InsertEnter * call plug#load('vim-polyglot')
         \| autocmd! plug_vim_polyglot
 augroup END
+
+"
+" UI
+"
 
 " gruvbox
 augroup plug_gruvbox
@@ -229,11 +248,18 @@ augroup plug_gruvbox
 augroup END
 
 " vim-airline
+let g:airline_extensions=[]
 augroup plug_vim_airline
   autocmd!
   autocmd BufReadPost * call plug#load('vim-airline')
         \| autocmd! plug_vim_airline
-        \| let g:airline#extensions#tabline#enabled=1
+augroup END
+
+" vim-buftabline
+augroup plug_vim_buftabline
+  autocmd!
+  autocmd BufReadPost * call plug#load('vim-buftabline')
+        \| autocmd! plug_vim_buftabline
 augroup END
 
 " vim-devicons
@@ -360,6 +386,9 @@ nnoremap <leader>gw <Plug>(easymotion-bd-w)
 " vim-floaterm
 nnoremap <leader>tt <cmd>FloatermToggle<cr>
 tnoremap <leader>tt <c-\><c-n><cmd>FloatermToggle<cr>
+
+" vista.vim
+nnoremap <leader>lv <cmd>Vista vim_lsp<cr> 
 
 "
 " LINTER
