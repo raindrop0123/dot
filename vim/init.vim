@@ -224,7 +224,7 @@ augroup END
 " gruvbox
 augroup plug_gruvbox
   autocmd!
-  autocmd BufEnter,BufReadPost * call plug#load('gruvbox')
+  autocmd BufReadPost * call plug#load('gruvbox')
         \| autocmd! plug_gruvbox
         \| colorscheme gruvbox
 augroup END
