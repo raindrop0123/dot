@@ -1,8 +1,12 @@
-""" REFERENCE """
+"
+" REFERENCE
+"
 " https://gitee.com/mirrorvim/vim-fast/blob/master/vimrc-no-plug
 " https://github.com/chenxuan520/vim-fast
 
-""" GENERAL """
+"
+" GENERAL
+"
 let mapleader='\'
 let maplocalleader=' '
 filetype on
@@ -29,12 +33,16 @@ set complete=.,b,i,w,u,t
 set completeopt=menuone,noinsert,noselect,preview
 set wildmenu
 
-""" THEME """
+"
+" THEME
+"
 set notermguicolors
 set background=dark
 colorscheme desert
 
-""" INDENTATION """
+"
+" INDENTATION
+"
 set autoindent
 set cindent
 set smartindent
@@ -45,32 +53,42 @@ set shiftwidth=2
 set softtabstop=2
 set smarttab
 
-""" SEARCH """
+"
+" SEARCH
+"
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 
-""" BACKUP """
+"
+" BACKUP
+"
 set nobackup
 set noswapfile
 set autoread
 set autowrite
 set confirm
 
-""" ENCODING """
+"
+" ENCODING
+"
 set langmenu=en_US.UTF-8
 set helplang=en
 set termencoding=utf-8
 set encoding=utf8
 set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 
-""" AUTOCMD """
-autocmd BufReadPost * if line("'\"")>1&&line("'\"")<=line('$') | exe "normal! g'\"" | endif
+"
+" AUTOCMD
+"
+autocmd BufReadPost * if line("'\"")>1&&line("'\"")<=line('$')|exe "normal! g'\""|endif
 autocmd InsertEnter * setlocal formatoptions-=r formatoptions-=c formatoptions-=o
-autocmd BufWinEnter * if getfsize(expand('%'))>1048576 | syntax clear | endif
+autocmd BufWinEnter * if getfsize(expand('%'))>1048576|syntax clear|endif
 
-""" MAPPING """
+"
+" MAPPING
+"
 nnoremap <leader>rc <cmd>edit $MYVIMRC<cr>
 nnoremap <leader>rC <cmd>source $MYVIMRC<cr>
 nnoremap <c-h> <c-w>h
@@ -83,7 +101,9 @@ inoremap <c-e> <end>
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
 
-""" NETRW """
+"
+" NETRW
+"
 let g:netrw_banner=0
 let g:netrw_liststyle=3
 let g:netrw_browse_split=4
@@ -92,7 +112,9 @@ let g:netrw_winsize=15
 set fillchars=vert:\⎜
 nnoremap <c-n> :Lexplore<cr>
 
-""" STATUSLINE """
+"
+" STATUSLINE
+"
 function! GetMode()
   let s:str=''
   let s:color='88'
@@ -124,7 +146,9 @@ set statusline+=%4*%Y｜
 set statusline+=%4*%{\"\".(\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\"+\":\"\").\"\"}｜
 set statusline+=%4*%l:%v:%-L%3p%%\ 
 
-""" TABLINE """
+"
+" TABLINE
+"
 let s:tab_after=""
 function! TabLine(direct)
   let s:tab_result=""
@@ -136,11 +160,11 @@ function! TabLine(direct)
   endif
   for buf in getbufinfo({'buflisted':1})
     let s:name=buf.name
-    if strridx(buf.name,"/")!=-1
-      let s:name=strpart(buf.name,strridx(buf.name,"/")+1)
+    if strridx(buf.name, "/")!=-1
+      let s:name=strpart(buf.name, strridx(buf.name, "/")+1)
     endif
     if buf.name!=expand('%:p')
-      let bt=getbufvar(buf.bufnr,"&buftype")
+      let bt=getbufvar(buf.bufnr, "&buftype")
       if bt!=""
         continue
       endif
@@ -170,7 +194,9 @@ endfunction
 set showtabline=2
 set tabline=%!TabLineSet()
 
-""" AUTO-PAIRS """
+"
+" AUTO-PAIRS
+"
 function! s:Judge(ch,mode)
   if a:mode!='c'
     let ch=getline('.')[col('.')-1]
@@ -225,8 +251,10 @@ cnoremap <expr>] <sid>Judge(']', 'c')
 inoremap <expr><bs> <sid>BackSpace('i')
 cnoremap <expr><bs> <sid>BackSpace('c')
 
-""" VIM-COMMENTARY """
-func! s:Commentary(line) abort
+"
+" VIM-COMMENTARY
+"
+function! s:Commentary(line) abort
   let s:num=a:line
   let line=getline(s:num)
   let uncomment=2
@@ -252,11 +280,11 @@ func! s:Commentary(line) abort
     let line=substitute(line, '^\%('.matchstr(getline(s:num), '^\s*').'\|\s*\)\zs.*\S\@<=', '\=l.submatch(0).r', '')
   endif
   call setline(s:num, line)
-endfunc
-func! s:VisualComment() abort
+endfunction
+function! s:VisualComment() abort
   for temp in range(min([line('.'), line('v')]), max([line('.'), line('v')]))
     call s:Commentary(temp)
   endfor
-endfunc
+endfunction
 nnoremap <silent><nowait>gcc :call <sid>Commentary(line('.'))<cr>
 xnoremap <silent><nowait>gc :call <sid>VisualComment()<cr>
