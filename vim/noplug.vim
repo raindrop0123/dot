@@ -9,41 +9,24 @@ filetype on
 filetype plugin on
 syntax enable
 syntax on
-set noeb
-set t_Co=256
-set vb t_vb=
-set cmdheight=1
-set showcmd
-set textwidth=0
 set ruler
-set showtabline=1
-set laststatus=1
+set showtabline=2
+set laststatus=2
 set number
 set relativenumber
 set cursorline
 set cursorcolumn
 set colorcolumn=80
 set whichwrap+=<,>,h,l
-set timeoutlen=500
-set ttimeoutlen=0
-set virtualedit=block
-set showmode
-set hidden
 set matchpairs+=<:>
 set splitbelow
 set splitright
 set clipboard^=unnamed,unnamedplus
 set nowrap
 set backspace=2
-set sidescroll=0
 set nofoldenable
-set sidescrolloff=4
-set scrolloff=2
 set complete=.,b,i,w,u,t
 set completeopt=menuone,noinsert,noselect,preview
-set omnifunc=syntaxcomplete#Complete
-set shortmess+=c
-set cpt+=kspell
 set wildmenu
 
 """ THEME """
@@ -54,7 +37,6 @@ colorscheme desert
 """ INDENTATION """
 set autoindent
 set cindent
-set cinoptions=g0,:0,N-s,(0
 set smartindent
 filetype indent on
 set expandtab
