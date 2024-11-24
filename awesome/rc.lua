@@ -1,4 +1,4 @@
--- [[ Load Package ]]
+-- [[ LOAD ]]
 pcall(require, "luarocks.loader")
 local gears = require("gears")
 local awful = require("awful")
@@ -13,7 +13,7 @@ local filesystem = require("gears.filesystem")
 local theme_assets = require("beautiful.theme_assets")
 require("awful.hotkeys_popup.keys")
 
--- [[ Error Handling ]]
+-- [[ ERROE HANDLING ]]
 if awesome.startup_errors then
   naughty.notify({
     preset = naughty.config.presets.critical,
@@ -35,7 +35,7 @@ do
   end)
 end
 
--- [[ Theme ]]
+-- [[ THEME ]]
 beautiful.init({
   font = "JetBrainsMono Nerd Font Bold 10",
   bg_normal = "#222222",
@@ -119,10 +119,10 @@ beautiful.init({
   icon_theme = nil,
 })
 
--- [[ Mod Key ]]
+-- [[ MODKEY ]]
 local modkey = "Mod4" -- or Mod1
 
--- [[ Layout ]]
+-- [[ LAYOUT ]]
 awful.layout.layouts = {
   awful.layout.suit.tile,
   awful.layout.suit.tile.left,
@@ -142,7 +142,7 @@ awful.layout.layouts = {
   awful.layout.suit.floating,
 }
 
--- [[ Menu ]]
+-- [[ MENU ]]
 local mainmenu = awful.menu({
   items = {
     {
@@ -206,7 +206,7 @@ local launcher = awful.widget.launcher({
 -- Menubar configuration
 menubar.utils.terminal = "alacritty"
 
--- [[ Wibar ]]
+-- [[ WIBAR ]]
 -- Wallpaper setup
 local function set_wallpaper(s)
   if beautiful.wallpaper then
@@ -286,7 +286,7 @@ awful.screen.connect_for_each_screen(function(s)
   })
 end)
 
--- [[ Keybingind & Mousebinding ]]
+-- [[ KEYBINDING & MOUSEBINDING ]]
 local globalkeys = gears.table.join(
 
 -- Launcher
@@ -346,7 +346,7 @@ awful.key({}, "XF86AudioMute", function() awful.util.spawn("amixer sset Master 1
 root.keys(globalkeys)
 root.buttons(gears.table.join(awful.button({}, 3, function() mainmenu:toggle() end)))
 
--- [[ Rule ]]
+-- [[ RULE ]]
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
   -- All clients will match this rule.
@@ -426,7 +426,7 @@ awful.rules.rules = {
   },
 }
 
--- [[ Signal ]]
+-- [[ SIGNAL ]]
 -- Signal function to execute when a new client appears.
 -- Prevent clients from being unreachable after screen count changes.
 client.connect_signal("manage", function(c) if awesome.startup and not c.size_hints.user_position and not c.size_hints.program_position then awful.placement.no_offscreen(c) end end)
@@ -473,7 +473,7 @@ client.connect_signal("mouse::enter", function(c) c:emit_signal("request::activa
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
--- [[ Autostart ]]
+-- [[ AUTOSTART ]]
 local application = {
   "xclip",
   "nm-applet",
@@ -488,7 +488,7 @@ for _, app in ipairs(application) do
   awful.spawn.with_shell(app)
 end
 
--- [[ Gargabe Collection ]]
+-- [[ GARBAGE COLLECTION ]]
 gears.timer({
   timeout = 5,
   autostart = true,
