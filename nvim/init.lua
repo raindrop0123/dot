@@ -1,4 +1,4 @@
--- [[ REFERENCE ]]
+---@REFERENC
 -- https://github.com/boltlessengineer/NativeVim
 -- https://github.com/HCY-ASLEEP/NVIM-Config
 -- https://github.com/LazyVim/LazyVim
@@ -6,7 +6,7 @@
 -- https://github.com/NvChad/NvChad
 -- https://github.com/ayamir/nvimdots
 
--- [[ GENERAL ]]
+---@GENERAL
 vim.opt.backspace = "indent,eol,start"
 vim.opt.clipboard = "unnamedplus,unnamed"
 vim.opt.colorcolumn = "80"
@@ -39,13 +39,11 @@ vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.wildmenu = true
-
--- [[ THEME ]]
-vim.opt.termguicolors = true
+vim.opt.termguicolors = false
 vim.opt.background = "dark"
 vim.cmd.colorscheme("desert")
 
--- [[ MAPPING ]]
+---@KEYBINDING
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = " "
 vim.api.nvim_set_keymap("n", "<leader>rc", "<cmd>source $MYVIMRC<cr>", { desc = "Reload config" })
@@ -61,7 +59,7 @@ vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", {})
 vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", {})
 vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", {})
 
--- [[ AUTOCMD ]]
+---@AUTOCMD
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
   callback = function()
@@ -103,7 +101,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
   end,
 })
 
--- [[ LAZY.NVIM ]]
+---@LAZY.NVIM
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -117,9 +115,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
-  spec = {
-    { import = "plugin" },
-  },
   performance = {
     rtp = {
       disabled_plugins = {
@@ -158,6 +153,14 @@ require("lazy").setup({
         "bugreport",
         "ftplugin",
       },
+    },
+  },
+  spec = {
+    {
+      "windwp/nvim-autopairs",
+      lazy = true,
+      event = "InsertEnter",
+      opts = {},
     },
   },
 })
