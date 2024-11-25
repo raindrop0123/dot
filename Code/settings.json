@@ -1,22 +1,19 @@
 {
-    // ==================================================================================
-    // @CONFIG PATH
+    // [[ PATH ]]
     //    Linux => ~/.config/Code/User/
     //    MacOS => ~/Library/Application Support/Code/User/
     //    Windows => %AppData%\Code\User
-    // ==================================================================================
-    // @REFERENCE
+    // [[ REFERENCE ]]
     //    https://github.com/mydearxym/vscode-backup
     //    https://zhuanlan.zhihu.com/p/73561114
     //    https://vspacecode.github.io/
     //    https://zhuanlan.zhihu.com/p/302568011
     //    https://github.com/VSCodeVim/Vim
     //    https://vspacecode.github.io/docs/default-keybindings#file
-    // ==================================================================================
-    // @BUILTIN
+    // [[ BUILTIN ]]
     "editor.cursorStyle": "block",
     "editor.fontFamily": "Menlo, Monaco, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
-    "editor.fontSize": 15,
+    "editor.fontSize": 16,
     "editor.fontWeight": "600",
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": true,
@@ -44,21 +41,18 @@
     "search.showLineNumbers": true,
     "search.smartCase": true,
     "terminal.integrated.fontFamily": "Menlo, Monaco, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
-    "terminal.integrated.fontSize": 15,
-    "window.zoomLevel": -1.8,
-    "workbench.colorTheme": "Catppuccin Mocha",
-    "workbench.iconTheme": "catppuccin-mocha",
+    "terminal.integrated.fontSize": 16,
+    "window.zoomLevel": -1.6,
     "workbench.startupEditor": "none",
     "workbench.activityBar.location": "top",
     "workbench.colorCustomizations": {
-        "statusBar.background": "#f5c2e7",
-        "statusBar.noFolderBackground": "#f5c2e7",
-        "statusBar.debuggingBackground": "#f5c2e7",
-        "statusBar.foreground": "#11111b",
-        "statusBar.debuggingForeground": "#11111b"
+        "statusBar.background": "#557700",
+        "statusBar.noFolderBackground": "#557700",
+        "statusBar.debuggingBackground": "#557700",
+        "statusBar.foreground": "#ffffff",
+        "statusBar.debuggingForeground": "#ffffff"
     },
-    // ==================================================================================
-    // @PLUGIN: vim
+    // [[ PLUGIN: vim ]]
     "extensions.experimental.affinity": {
         "vscodevim.vim": 1
     },
@@ -77,9 +71,9 @@
         "<C-z>": false
     },
     "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.duration": 2000,
-    "vim.highlightedyank.color": "#f2cdcd",
-    "vim.highlightedyank.textColor": "#11111b",
+    "vim.highlightedyank.duration": 3000,
+    "vim.highlightedyank.color": "#ff0000",
+    "vim.highlightedyank.textColor": "#ffffff",
     "vim.hlsearch": true,
     "vim.incsearch": true,
     "vim.insertModeKeyBindings": [
@@ -144,12 +138,12 @@
             ]
         },
     ],
-    "vim.searchHighlightColor": "#f5e0dc",
-    "vim.searchHighlightTextColor": "#11111b",
-    "vim.searchMatchColor": "#f5c2e7",
-    "vim.searchMatchTextColor": "#11111b",
-    "vim.substitutionColor": "#fab387",
-    "vim.substitutionTextColor": "#11111b",
+    "vim.searchHighlightColor": "#ff0000",
+    "vim.searchHighlightTextColor": "#ffffff",
+    "vim.searchMatchColor": "#005577",
+    "vim.searchMatchTextColor": "#ffffff",
+    "vim.substitutionColor": "#557700",
+    "vim.substitutionTextColor": "#ffffff",
     "vim.showMarksInGutter": true,
     "vim.smartRelativeLine": true,
     "vim.sneak": true,
@@ -164,74 +158,47 @@
     "vim.whichwrap": "b,s,h,l",
     "vim.statusBarColorControl": true,
     "vim.statusBarColors.normal": [
-        "#11111b",
-        "#cdd6f4"
+        "#000000",
+        "#ffffff"
     ],
     "vim.statusBarColors.insert": [
-        "#f38ba8",
-        "#11111b"
+        "#ff0000",
+        "#ffffff"
     ],
     "vim.statusBarColors.visual": [
-        "#f5c2e7",
-        "#11111b"
+        "#557700",
+        "#ffffff"
     ],
     "vim.statusBarColors.visualline": [
-        "#f5c2e7",
-        "#11111b"
+        "#557700",
+        "#ffffff"
     ],
     "vim.statusBarColors.visualblock": [
-        "#f5c2e7",
-        "#11111b"
+        "#557700",
+        "#ffffff"
     ],
     "vim.statusBarColors.replace": [
-        "#f9e2af",
-        "#11111b"
+        "#770055",
+        "#ffffff"
     ],
     "vim.statusBarColors.commandlineinprogress": [
-        "#b4befe",
-        "#11111b"
+        "#005577",
+        "#ffffff"
     ],
     "vim.statusBarColors.searchinprogressmode": [
-        "#cba6f7",
-        "#11111b"
+        "#005577",
+        "#ffffff"
     ],
     "vim.statusBarColors.easymotionmode": [
-        "#f5e0dc",
-        "#11111b"
+        "#772200",
+        "#ffffff"
     ],
     "vim.statusBarColors.easymotioninputmode": [
-        "#f5e0dc",
-        "#11111b"
+        "#772200",
+        "#ffffff"
     ],
     "vim.statusBarColors.surroundinputmode": [
-        "#f38ba8",
-        "#11111b"
+        "#772200",
+        "#ffffff"
     ],
-    // ==================================================================================
-    // @PLUGIN: catppuccin
-    "catppuccin.accentColor": "blue",
-    "catppuccin.colorOverrides": {
-        "mocha": {
-            "base": "#11111b",
-            "mantle": "#11111b",
-            "crust": "#11111b",
-        },
-    },
-    "catppuccin.customUIColors": {
-        "mocha": {
-            "editorLineNumber.activeForeground": "green",
-            "editorCursor.foreground": "rosewater",
-        },
-    },
-    "catppuccin.italicComments": true,
-    "catppuccin.italicKeywords": true,
-    "catppuccin.boldKeywords": true,
-    "catppuccin.extraBordersEnabled": true,
-    "catppuccin.workbenchMode": "default",
-    "catppuccin.bracketMode": "rainbow",
-    // ==================================================================================
-    // @PLUGIN: catppucin icon theme
-    "catppuccin-icons.hidesExplorerArrows": true,
-    "catppuccin-icons.specificFolders": true,
-    "catppuccin-icons.monochrome": true,
 }
