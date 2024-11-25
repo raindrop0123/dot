@@ -13,7 +13,7 @@
     // [[ BUILTIN ]]
     "editor.cursorStyle": "block",
     "editor.fontFamily": "Menlo, Monaco, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
-    "editor.fontSize": 16,
+    "editor.fontSize": 15,
     "editor.fontWeight": "600",
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": true,
@@ -41,8 +41,8 @@
     "search.showLineNumbers": true,
     "search.smartCase": true,
     "terminal.integrated.fontFamily": "Menlo, Monaco, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
-    "terminal.integrated.fontSize": 16,
-    "window.zoomLevel": -1.6,
+    "terminal.integrated.fontSize": 15,
+    "window.zoomLevel": -1.5,
     "workbench.startupEditor": "none",
     "workbench.activityBar.location": "top",
     "workbench.colorCustomizations": {
