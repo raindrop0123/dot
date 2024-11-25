@@ -41,7 +41,7 @@ vim.opt.smartcase = true
 vim.opt.wildmenu = true
 vim.opt.termguicolors = false
 vim.opt.background = "dark"
-vim.cmd.colorscheme("desert")
+vim.cmd.colorscheme("habamax")
 
 ---@KEYBINDING
 vim.g.mapleader = "\\"
