@@ -48,16 +48,16 @@ vim.g.mapleader = "\\"
 vim.g.maplocalleader = " "
 vim.api.nvim_set_keymap("n", "<leader>rc", "<cmd>source $MYVIMRC<cr>", { desc = "Reload config" })
 vim.api.nvim_set_keymap("n", "<leader>rC", "<cmd>edit $MYVIMRC<cr>", { desc = "Edit config" })
-vim.api.nvim_set_keymap("i", "jk", "<Esc>", { desc = "Back to normal mode" })
-vim.api.nvim_set_keymap("i", "<C-a>", "<Home>", {})
-vim.api.nvim_set_keymap("i", "<C-e>", "<End>", {})
-vim.api.nvim_set_keymap("c", "<C-a>", "<Home>", {})
-vim.api.nvim_set_keymap("c", "<C-e>", "<End>", {})
-vim.api.nvim_set_keymap("c", "<C-d>", "<Del>", {})
-vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", {})
-vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", {})
-vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", {})
-vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", {})
+vim.api.nvim_set_keymap("i", "jk", "<esc>", { desc = "Back to normal mode" })
+vim.api.nvim_set_keymap("i", "<c-a>", "<home>", {})
+vim.api.nvim_set_keymap("i", "<c-e>", "<end>", {})
+vim.api.nvim_set_keymap("c", "<c-a>", "<home>", {})
+vim.api.nvim_set_keymap("c", "<c-e>", "<end>", {})
+vim.api.nvim_set_keymap("c", "<c-d>", "<del>", {})
+vim.api.nvim_set_keymap("n", "<c-h>", "<c-w>h", {})
+vim.api.nvim_set_keymap("n", "<c-j>", "<c-w>j", {})
+vim.api.nvim_set_keymap("n", "<c-k>", "<c-w>k", {})
+vim.api.nvim_set_keymap("n", "<c-l>", "<c-w>l", {})
 
 ---@AUTOCMD
 vim.api.nvim_create_autocmd("TextYankPost", {
