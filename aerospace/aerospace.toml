@@ -16,9 +16,9 @@ outer.right = 4
 outer.top = 4
 
 [mode.main.binding]
-# alt-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
+alt-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
 # alt-enter = 'exec-and-forget /opt/homebrew/Caskroom/iterm2/3.5.5/iTerm.app/Contents/MacOS/iTerm2 --single-instancd -d ~ &> /dev/null'
-alt-enter = 'exec-and-forget /opt/homebrew/bin/kitty ~/'
+# alt-enter = 'exec-and-forget /opt/homebrew/bin/kitty ~/'
 alt-shift-enter = 'exec-and-forget /opt/homebrew/bin/emacs'
 alt-h = 'focus left'
 alt-j = 'focus down'
