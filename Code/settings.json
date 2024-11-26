@@ -1,8 +1,8 @@
 {
     // PATH:
-    //    Linux => ~/.config/Code/User/
-    //    MacOS => ~/Library/Application Support/Code/User/
-    //    Windows => %AppData%\Code\User
+    //    Linux: ~/.config/Code/User/
+    //    macOS: ~/Library/Application Support/Code/User/
+    //    Windows: %AppData%\Code\User
     // REFERENCE:
     //    https://github.com/mydearxym/vscode-backup
     //    https://zhuanlan.zhihu.com/p/73561114
@@ -12,9 +12,8 @@
     //    https://vspacecode.github.io/docs/default-keybindings#file
     // BUILTIN:
     "editor.cursorStyle": "block",
-    "editor.fontFamily": "Menlo, Monaco, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "Monaco, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
     "editor.fontSize": 15,
-    "editor.fontWeight": "600",
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": true,
     "editor.guides.highlightActiveIndentation": true,
@@ -23,8 +22,6 @@
     "editor.renderWhitespace": "all",
     "editor.minimap.enabled": false,
     "editor.semanticHighlighting.enabled": true,
-    "editor.scrollbar.horizontal": "hidden",
-    "editor.scrollbar.vertical": "hidden",
     "editor.rulers": [
         80
     ],
@@ -40,15 +37,15 @@
     },
     "search.showLineNumbers": true,
     "search.smartCase": true,
-    "terminal.integrated.fontFamily": "Menlo, Monaco, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
+    "terminal.integrated.fontFamily": "Monaco, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
     "terminal.integrated.fontSize": 15,
     "window.zoomLevel": -1.5,
     "workbench.startupEditor": "none",
     "workbench.activityBar.location": "top",
     "workbench.colorCustomizations": {
-        "statusBar.background": "#557700",
-        "statusBar.noFolderBackground": "#557700",
-        "statusBar.debuggingBackground": "#557700",
+        "statusBar.background": "#7400e8",
+        "statusBar.noFolderBackground": "#7400e8",
+        "statusBar.debuggingBackground": "#7400e8",
         "statusBar.foreground": "#ffffff",
         "statusBar.debuggingForeground": "#ffffff"
     },
@@ -71,8 +68,8 @@
         "<C-z>": false
     },
     "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.duration": 3000,
-    "vim.highlightedyank.color": "#ff0000",
+    "vim.highlightedyank.duration": 2000,
+    "vim.highlightedyank.color": "#e80000",
     "vim.highlightedyank.textColor": "#ffffff",
     "vim.hlsearch": true,
     "vim.incsearch": true,
@@ -138,11 +135,11 @@
             ]
         },
     ],
-    "vim.searchHighlightColor": "#ff0000",
+    "vim.searchHighlightColor": "#e80000",
     "vim.searchHighlightTextColor": "#ffffff",
-    "vim.searchMatchColor": "#005577",
+    "vim.searchMatchColor": "#006fa0",
     "vim.searchMatchTextColor": "#ffffff",
-    "vim.substitutionColor": "#557700",
+    "vim.substitutionColor": "#e80074",
     "vim.substitutionTextColor": "#ffffff",
     "vim.showMarksInGutter": true,
     "vim.smartRelativeLine": true,
@@ -158,47 +155,47 @@
     "vim.whichwrap": "b,s,h,l",
     "vim.statusBarColorControl": true,
     "vim.statusBarColors.normal": [
-        "#000000",
+        "#006fa0",
         "#ffffff"
     ],
     "vim.statusBarColors.insert": [
-        "#ff0000",
+        "#e80000",
         "#ffffff"
     ],
     "vim.statusBarColors.visual": [
-        "#557700",
-        "#ffffff"
+        "#00e8e8",
+        "#000000"
     ],
     "vim.statusBarColors.visualline": [
-        "#557700",
+        "#7400e8",
         "#ffffff"
     ],
     "vim.statusBarColors.visualblock": [
-        "#557700",
+        "#7400e8",
         "#ffffff"
     ],
     "vim.statusBarColors.replace": [
-        "#770055",
+        "#7400e8",
         "#ffffff"
     ],
     "vim.statusBarColors.commandlineinprogress": [
-        "#005577",
+        "#e80074",
         "#ffffff"
     ],
     "vim.statusBarColors.searchinprogressmode": [
-        "#005577",
+        "#e80074",
         "#ffffff"
     ],
     "vim.statusBarColors.easymotionmode": [
-        "#772200",
+        "#e80074",
         "#ffffff"
     ],
     "vim.statusBarColors.easymotioninputmode": [
-        "#772200",
+        "#e80074",
         "#ffffff"
     ],
     "vim.statusBarColors.surroundinputmode": [
-        "#772200",
+        "#e80074",
         "#ffffff"
     ],
 }
