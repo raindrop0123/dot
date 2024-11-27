@@ -1,16 +1,16 @@
 {
-    // PATH:
+    // @PATH:
     //    Linux: ~/.config/Code/User/
     //    macOS: ~/Library/Application Support/Code/User/
     //    Windows: %AppData%\Code\User
-    // REFERENCE:
+    // @REFERENCE:
     //    https://github.com/mydearxym/vscode-backup
     //    https://zhuanlan.zhihu.com/p/73561114
     //    https://vspacecode.github.io/
     //    https://zhuanlan.zhihu.com/p/302568011
     //    https://github.com/VSCodeVim/Vim
     //    https://vspacecode.github.io/docs/default-keybindings#file
-    // BUILTIN:
+    // @BUILTIN:
     "editor.cursorStyle": "block",
     "editor.fontFamily": "Monaco, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
     "editor.fontSize": 15,
@@ -49,7 +49,7 @@
         "statusBar.foreground": "#ffffff",
         "statusBar.debuggingForeground": "#ffffff"
     },
-    // PLUGIN: VIM
+    // @PLUGIN: VIM
     "extensions.experimental.affinity": {
         "vscodevim.vim": 1
     },
@@ -163,8 +163,8 @@
         "#ffffff"
     ],
     "vim.statusBarColors.visual": [
-        "#00e8e8",
-        "#000000"
+        "#7400e8",
+        "#ffffff"
     ],
     "vim.statusBarColors.visualline": [
         "#7400e8",
