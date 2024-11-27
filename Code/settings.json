@@ -26,15 +26,6 @@
         80
     ],
     "editor.tabSize": 2,
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/Thumbs.db": true,
-        "**/*.{jpg, jpeg, png, gif, webp}": true,
-    },
     "search.showLineNumbers": true,
     "search.smartCase": true,
     "terminal.integrated.fontFamily": "Monaco, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
