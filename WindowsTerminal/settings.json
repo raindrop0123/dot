@@ -11,11 +11,11 @@
     "keybindings": [
         {
             "id": "Terminal.CopyToClipboard",
-            "keys": "ctrl+c"
+            "keys": "ctrl+shift+c"
         },
         {
             "id": "Terminal.PasteFromClipboard",
-            "keys": "ctrl+v"
+            "keys": "ctrl+shift+v"
         }
     ],
     "launchMode": "maximized",
@@ -27,7 +27,7 @@
     "theme": "dark",
     "profiles": {
         "defaults": {
-            "colorScheme": "Catppuccin Mocha"
+            "colorScheme": "SelfDefinedColor"
         },
         "list": [
             {
@@ -36,28 +36,28 @@
                     "audible",
                     "window"
                 ],
-                "colorScheme": "Catppuccin Mocha",
+                "colorScheme": "SelfDefinedColor",
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "cursorShape": "filledBox",
                 "experimental.repositionCursorWithMouse": true,
                 "experimental.rightClickContextMenu": true,
                 "font": {
-                    "builtinGlyphs": false,
-                    "cellHeight": "1.618",
+                    "builtinGlyphs": true,
+                    "cellHeight": "1.2",
                     "face": "JetBrainsMono Nerd Font",
-                    "size": 8,
-                    "weight": "bold"
+                    "size": 9,
+                    "weight": "normal"
                 },
                 "guid": "{aa854585-6314-418e-959d-29f82b8546ea}",
                 "hidden": false,
-                "historySize": 20000,
+                "historySize": 2000,
                 "intenseTextStyle": "all",
                 "name": "SelfDefinedConfig",
                 "opacity": 95,
                 "padding": "12",
                 "scrollbarState": "always",
                 "startingDirectory": "%USERPROFILE%",
-                "suppressApplicationTitle": false,
+                "suppressApplicationTitle": true,
                 "useAcrylic": false
             },
             {
@@ -88,41 +88,41 @@
     },
     "schemes": [
         {
-            "name": "Catppuccin Mocha",
-            "cursorColor": "#F5E0DC",
-            "selectionBackground": "#585B70",
-            "background": "#11111B",
-            "foreground": "#CDD6F4",
-            "black": "#45475A",
-            "red": "#F38BA8",
-            "green": "#A6E3A1",
-            "yellow": "#F9E2AF",
-            "blue": "#89B4FA",
-            "purple": "#F5C2E7",
-            "cyan": "#94E2D5",
-            "white": "#BAC2DE",
-            "brightBlack": "#1E1E2E",
-            "brightRed": "#F38BA8",
-            "brightGreen": "#A6E3A1",
-            "brightYellow": "#F9E2AF",
-            "brightBlue": "#89B4FA",
-            "brightPurple": "#F5C2E7",
-            "brightCyan": "#94E2D5",
-            "brightWhite": "#A6ADC8"
+            "name": "SelfDefinedColor",
+            "cursorColor": "#d8d8d8",
+            "selectionBackground": "#7cafc2",
+            "background": "#181818",
+            "foreground": "#d8d8d8",
+            "black": "#181818",
+            "red": "#ab4642",
+            "green": "#a1b56c",
+            "yellow": "#f7ca88",
+            "blue": "#7cafc2",
+            "purple": "#ba8baf",
+            "cyan": "#86c1b9",
+            "white": "#d8d8d8",
+            "brightBlack": "#585858",
+            "brightRed": "#ab4642",
+            "brightGreen": "#a1b56c",
+            "brightYellow": "#f7ca88",
+            "brightBlue": "#7cafc2",
+            "brightPurple": "#ba8baf",
+            "brightCyan": "#86c1b9",
+            "brightWhite": "#f8f8f8"
         }
     ],
     "tabWidthMode": "titleLength",
     "themes": [
         {
-            "name": "Catppuccin Mocha",
+            "name": "SelfDefinedColor",
             "tab": {
-                "background": "#11111BFF",
+                "background": "#181818",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
             "tabRow": {
-                "background": "#11111BFF",
-                "unfocusedBackground": "#11111BFF"
+                "background": "#585858",
+                "unfocusedBackground": "#181818"
             },
             "window": {
                 "applicationTheme": "dark"
