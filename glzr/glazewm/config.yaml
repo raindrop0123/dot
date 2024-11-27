@@ -21,11 +21,11 @@ window_effects:
   focused_window:
     border:
       enabled: true
-      color: '#005577'
+      color: '#0078d7'
   other_windows:
     border:
       enabled: true
-      color: '#222222'
+      color: '#000000'
 
 window_behavior:
   initial_state: 'tiling'
@@ -113,8 +113,8 @@ keybindings:
     bindings: ['alt+shift+r']
   - commands: ['wm-redraw']
     bindings: ['alt+shift+w']
-  # - commands: ['shell-exec cmd']
-  #   bindings: ['alt+enter']
+  - commands: ['shell-exec wezterm-gui']
+    bindings: ['alt+shift+enter']
   - commands: ['focus --workspace 1']
     bindings: ['alt+1']
   - commands: ['focus --workspace 2']
