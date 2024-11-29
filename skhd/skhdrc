@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/env sh
 
 alt - return : kitty
 alt + shift - return : /opt/homebrew/bin/emacs
