@@ -12,7 +12,7 @@
     //    https://vspacecode.github.io/docs/default-keybindings#file
     // @BUILTIN:
     "editor.cursorStyle": "block",
-    "editor.fontFamily": "Monaco, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "Monaco, Consolas, 'Courier New', monospace",
     "editor.fontSize": 15,
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": true,
@@ -104,16 +104,6 @@
             ],
             "commands": [
                 "editor.action.revealDefinition"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "t",
-                "a"
-            ],
-            "commands": [
-                "workbench.action.toggleActivityBarVisibility"
             ]
         },
         {
