@@ -30,7 +30,7 @@
     "search.smartCase": true,
     "terminal.integrated.fontFamily": "Monaco, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
     "terminal.integrated.fontSize": 13,
-    "window.zoomLevel": -1.6,
+    "window.zoomLevel": -1.618,
     "workbench.startupEditor": "none",
     "workbench.activityBar.location": "top",
     "workbench.colorCustomizations": {
@@ -40,6 +40,7 @@
         "statusBar.foreground": "#ffffff",
         "statusBar.debuggingForeground": "#ffffff"
     },
+    "workbench.panel.showLabels": false,
     // @PLUGIN: VIM
     "extensions.experimental.affinity": {
         "vscodevim.vim": 1
