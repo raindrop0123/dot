@@ -204,6 +204,7 @@ end)
 local globalkeys = gears.table.join(
   awful.key({modkey}, "space", function () awful.screen.focused().promptbox:run() end),
   awful.key({modkey}, "Return", function () awful.spawn("alacritty") end),
+  awful.key({modkey, "Shift"}, "Return", function () awful.spawn("emacs") end),
   awful.key({modkey}, "j", function () awful.client.focus.byidx(1) end),
   awful.key({modkey}, "k", function () awful.client.focus.byidx(-1) end),
   awful.key({modkey, "Shift"}, "j", function () awful.client.swap.byidx(1) end),
