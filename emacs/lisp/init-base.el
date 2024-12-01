@@ -33,6 +33,7 @@
   :ensure nil
   :config
   (setq-default tab-width 2)
+  (setq-default truncate-lines t)
   (setq completion-ignore-case t)
   (add-hook 'minibuffer-setup-hook #'(lambda () (setq gc-cons-threshold most-positive-fixnum)))
   (add-hook 'minibuffer-exit-hook #'(lambda () (setq gc-cons-threshold 800000))))
