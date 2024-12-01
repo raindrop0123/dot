@@ -140,7 +140,7 @@ arch-chroot /mnt systemctl enable NetworkManager.service
 # Official Packages
 WM="awesome xorg-xinit xorg-server"
 SYSTOOL="brightnessctl xclip fastfetch udiskie polkit-kde-agent pulseaudio pamixer"
-INPUT="fcitx5-im fcitx5-chewing"
+INPUT="ibus ibus-chewing"
 RUSTTOOL="lsd ripgrep bottom fzf fd"
 TERM="alacritty"
 EDITOR="gvim emacs neovim"
