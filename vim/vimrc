@@ -46,8 +46,8 @@ set noswapfile
 colorscheme desert
 
 " {{{ Keybinding }}}
-let mapleader = ' '
-let maplocalleader = '\'
+let mapleader=' '
+let maplocalleader='\'
 nnoremap <leader>CE <cmd>edit $MYVIMRC<cr>
 nnoremap <leader>CR <cmd>source $MYVIMRC<cr>
 inoremap jk <esc>
