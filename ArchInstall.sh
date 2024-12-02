@@ -139,10 +139,10 @@ arch-chroot /mnt systemctl enable NetworkManager.service
 
 # Official Packages
 WM="awesome xorg-xinit xorg-server"
-SYSTOOL="brightnessctl xclip fastfetch udiskie polkit-kde-agent pulseaudio pamixer"
+SYSTOOL="brightnessctl xclip fastfetch udiskie polkit-kde-agent alsa-utils"
 INPUT="ibus ibus-chewing"
 RUSTTOOL="lsd ripgrep bottom fzf fd"
-TERM="alacritty"
+TERM="alacritty kitty wezterm xterm rxvt-unicode"
 EDITOR="gvim emacs neovim"
 GUITOOL="pcmanfm"
 FONT="ttf-victor-mono-nerd ttf-hack-nerd ttf-jetbrains-mono-nerd ttf-meslo-nerd"
