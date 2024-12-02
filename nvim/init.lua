@@ -154,7 +154,7 @@ vim.opt.rtp:prepend(lazypath)
 -- {{{ lazy.nvim setup }}}
 require("lazy").setup({
 	default = {
-		lazy = false,
+		lazy = true,
 		version = "*",
 		cond = nil,
 	},
