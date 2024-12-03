@@ -24,7 +24,6 @@ set splitbelow
 set splitright
 set clipboard^=unnamed,unnamedplus
 set nowrap
-set notermguicolors
 set background=dark
 set showtabline=2
 set laststatus=2
@@ -43,11 +42,12 @@ set ignorecase
 set smartcase
 set nobackup
 set noswapfile
+set termguicolors
 colorscheme desert
 
 " {{{ Keybinding }}}
-let mapleader=' '
-let maplocalleader='\'
+let mapleader = ' '
+let maplocalleader = '\'
 nnoremap <leader>CE <cmd>edit $MYVIMRC<cr>
 nnoremap <leader>CR <cmd>source $MYVIMRC<cr>
 inoremap jk <esc>
@@ -69,22 +69,91 @@ let g:loaded_zipPlugin=1
 
 " {{{ autocmd }}}
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line('$') | exe "normal! g'\"" | endif
-autocmd BufEnter * setlocal formatoptions-=r formatoptions-=c formatoptions-=o
+autocmd bufenter * setlocal formatoptions-=r formatoptions-=c formatoptions-=o
 autocmd BufWinEnter * if getfsize(expand('%')) > 1048576 | syntax clear | endif
 
 " {{{ Bootstrap vim-plug }}}
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+let data_dir = has('win32') || has('win64') ? '$HOME\vimfiles' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  if has('win32') || has('win64')
+    silent execute '!powershell -Command "New-Item -Path "'.data_dir.' -Name autoload -Type Directory -Force; Invoke-WebRequest -Uri https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -OutFile '.data_dir.'\autoload\plug.vim"'
+  else
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  endif
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) > 0 | PlugInstall --sync | source $MYVIMRC | endif
 
 " {{{ vim-plug }}}
 call plug#begin()
+Plug 'morhetz/gruvbox', {'on': []}
+Plug 'itchyny/lightline.vim', {'on': []}
+Plug 'wincent/terminus', {'on': []}
+Plug 'Yggdroot/indentLine', {'on': []}
+Plug 'wellle/context.vim', {'on': []}
+Plug 'ap/vim-buftabline', {'on': []}
+Plug 'andymass/vim-matchup', {'on': []}
+Plug 'ntpeters/vim-better-whitespace', {'on': []}
 Plug 'LunarWatcher/auto-pairs', {'on': []}
+Plug 'luochen1990/rainbow', {'on': []}
 Plug 'tpope/vim-commentary', {'on': []}
+Plug 'machakann/vim-highlightedyank', {'on': []}
+Plug 'airblade/vim-gitgutter', {'on': []}
+Plug 'junegunn/fzf', {'do': {->fzf#install()}}
+Plug 'junegunn/fzf.vim', {'on': ['Files', 'Buffers', 'Colors', 'Lines', 'BLines', 'History', 'Commands']}
 call plug#end()
+
+augroup gruvbox
+  autocmd!
+  autocmd BufReadPost * call plug#load('gruvbox')
+        \| autocmd! gruvbox
+        \| colorscheme gruvbox
+augroup END
+
+augroup lightline
+  autocmd!
+  autocmd BufReadPost * call plug#load('lightline.vim')
+        \| autocmd! lightline
+        \| call lightline#enable()
+augroup END
+
+augroup terminus
+  autocmd!
+  autocmd BufReadPost * call plug#load('terminus')
+        \| autocmd! terminus
+augroup END
+
+augroup indentline
+  autocmd!
+  autocmd BufReadPost * call plug#load('indentLine')
+        \| autocmd! indentline
+        \| IndentLinesToggle
+augroup END
+
+augroup context_vim
+  autocmd!
+  autocmd BufReadPost * call plug#load('context.vim')
+        \| autocmd! context_vim
+        \| ContextEnable
+augroup END
+
+augroup vim_buftabline
+  autocmd!
+  autocmd BufReadPost * call plug#load('vim-buftabline')
+        \| autocmd! vim_buftabline
+augroup END
+
+augroup vim_matchup
+  autocmd!
+  autocmd BufReadPost * call plug#load('vim-matchup')
+        \| autocmd! vim_matchup
+augroup END
+
+augroup vim_better_whitespace
+  autocmd!
+  autocmd BufReadPost * call plug#load('vim-better-whitespace')
+        \| autocmd! vim_better_whitespace
+augroup END
 
 augroup auto_pairs
   autocmd!
@@ -93,8 +162,41 @@ augroup auto_pairs
         \| call autopairs#AutoPairsTryInit()
 augroup END
 
+augroup rainbow
+  autocmd!
+  autocmd BufReadPost * call plug#load('rainbow')
+        \| autocmd! rainbow
+        \| RainbowToggle
+augroup END
+
 augroup vim_commentary
   autocmd!
   autocmd BufReadPost * call plug#load('vim-commentary')
         \| autocmd! vim_commentary
 augroup END
+
+augroup vim_highlightedyank
+  autocmd!
+  autocmd BufReadPost * call plug#load('vim-highlightedyank')
+        \| autocmd! vim_highlightedyank
+augroup END
+
+augroup vim_gitgutter
+  autocmd!
+  autocmd BufReadPost * call plug#load('vim-gitgutter')
+        \| autocmd! vim_gitgutter
+        \| GitGutterEnable
+augroup END
+
+let g:fzf_layout={'down': '40%'}
+nnoremap <leader>ff <cmd>Files<cr>
+nnoremap <c-x><c-f> <cmd>Files<cr>
+nnoremap <leader>fb <cmd>Buffers<cr>
+nnoremap <c-x><c-b> <cmd>Buffers<cr>
+nnoremap <leader>fc <cmd>Colors<cr>
+nnoremap <leader>fs <cmd>BLines<cr>
+nnoremap <leader>fS <cmd>Lines<cr>
+nnoremap <c-x><c-s> <cmd>BLines<cr>
+nnoremap <leader>fr <cmd>History<cr>
+nnoremap <c-x><c-r> <cmd>History<cr>
+nnoremap <leader><leader> <cmd>Commands<cr>
