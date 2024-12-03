@@ -86,9 +86,9 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) > 
 
 " {{{ vim-plug }}}
 call plug#begin()
+Plug 'sheerun/vim-polyglot', {'on': []}
 Plug 'morhetz/gruvbox', {'on': []}
 Plug 'itchyny/lightline.vim', {'on': []}
-Plug 'wincent/terminus', {'on': []}
 Plug 'Yggdroot/indentLine', {'on': []}
 Plug 'wellle/context.vim', {'on': []}
 Plug 'ap/vim-buftabline', {'on': []}
@@ -97,11 +97,19 @@ Plug 'ntpeters/vim-better-whitespace', {'on': []}
 Plug 'LunarWatcher/auto-pairs', {'on': []}
 Plug 'luochen1990/rainbow', {'on': []}
 Plug 'tpope/vim-commentary', {'on': []}
-Plug 'machakann/vim-highlightedyank', {'on': []}
 Plug 'airblade/vim-gitgutter', {'on': []}
+Plug 'dense-analysis/ale', {'on': []}
 Plug 'junegunn/fzf', {'do': {->fzf#install()}}
 Plug 'junegunn/fzf.vim', {'on': ['Files', 'Buffers', 'Colors', 'Lines', 'BLines', 'History', 'Commands']}
+Plug 'mbbill/undotree', {'on': ['UndotreeToggle']}
+Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-overwin-f)', '<Plug>(easymotion-overwin-line)']}
 call plug#end()
+
+augroup vim_polyglot
+  autocmd!
+  autocmd BufReadPost * call plug#load('vim-polyglot')
+        \| autocmd! vim_polyglot
+augroup END
 
 augroup gruvbox
   autocmd!
@@ -114,13 +122,8 @@ augroup lightline
   autocmd!
   autocmd BufReadPost * call plug#load('lightline.vim')
         \| autocmd! lightline
+        \| let g:lightline={'colorscheme': 'apprentice'}
         \| call lightline#enable()
-augroup END
-
-augroup terminus
-  autocmd!
-  autocmd BufReadPost * call plug#load('terminus')
-        \| autocmd! terminus
 augroup END
 
 augroup indentline
@@ -175,17 +178,17 @@ augroup vim_commentary
         \| autocmd! vim_commentary
 augroup END
 
-augroup vim_highlightedyank
-  autocmd!
-  autocmd BufReadPost * call plug#load('vim-highlightedyank')
-        \| autocmd! vim_highlightedyank
-augroup END
-
 augroup vim_gitgutter
   autocmd!
   autocmd BufReadPost * call plug#load('vim-gitgutter')
         \| autocmd! vim_gitgutter
         \| GitGutterEnable
+augroup END
+
+augroup ale
+  autocmd!
+  autocmd BufReadPost * call plug#load('ale')
+        \| autocmd! ale
 augroup END
 
 let g:fzf_layout={'down': '40%'}
@@ -200,3 +203,10 @@ nnoremap <c-x><c-s> <cmd>BLines<cr>
 nnoremap <leader>fr <cmd>History<cr>
 nnoremap <c-x><c-r> <cmd>History<cr>
 nnoremap <leader><leader> <cmd>Commands<cr>
+
+nnoremap <leader>tu <cmd>UndotreeToggle<cr>
+
+let g:EasyMotion_do_mapping=0
+nnoremap <leader>gf <Plug>(easymotion-overwin-f)
+nnoremap <leader>gl <Plug>(easymotion-overwin-line)
+nnoremap <leader>gw <Plug>(easymotion-overwin-w)
