@@ -191,7 +191,7 @@ augroup ale
         \| autocmd! ale
 augroup END
 
-let g:fzf_layout={'down': '40%'}
+let g:fzf_layout={'down': '25%'}
 nnoremap <leader>ff <cmd>Files<cr>
 nnoremap <c-x><c-f> <cmd>Files<cr>
 nnoremap <leader>fb <cmd>Buffers<cr>
