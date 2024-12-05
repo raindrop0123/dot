@@ -8,7 +8,7 @@
   (setq evil-want-keybinding nil)
   :hook (after-init . evil-mode)
   :config
-  (setq evil-cross-lines t)
+  (setq evil-cross-lines nil)
   (setq evil-normal-state-cursor 'box)
   (setq evil-insert-state-cursor 'bar)
   (setq evil-emacs-state-cursor 'bar)
@@ -36,6 +36,11 @@
   (:map evil-visual-state-map
         ("gc" . evilnc-comment-or-uncomment-lines)))
 
+(use-package evil-goggles
+  :hook (evil-mode . evil-goggles-mode)
+  :config
+  (setq evil-goggles-duration 2.400))
+
 (use-package company
   :hook (prog-mode . company-mode)
   :config
@@ -47,7 +52,7 @@
   (setq company-require-match nil)
   (setq company-dabbrev-downcase nil)
   (setq company-dabbrev-ignore-case t)
-  (setq company-icon-margin 5)
+  (setq company-icon-margin 3)
   (setq company-dabbrev-code-completion-styles '(basic flex))
   (setq company-format-margin-function #'company-vscode-dark-icons-margin)
   (setq company-tooltip-align-annotations t)
@@ -109,6 +114,16 @@
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
+
+(use-package beacon
+  :hook (after-init . beacon-mode)
+  :config
+  (setq beacon-size 60)
+  (setq beacon-blink-duration 1.0)
+  (setq beacon-blink-when-window-scrolls t)
+  (setq beacon-blink-when-window-changes t)
+  (setq beacon-blink-when-point-moves-vertically 5)
+  (setq beacon-blink-when-point-moves-horizontally 5))
 
 (use-package indent-bars
   :hook (prog-mode . indent-bars-mode)
