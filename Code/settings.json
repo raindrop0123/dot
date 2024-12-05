@@ -12,7 +12,7 @@
     //    https://vspacecode.github.io/docs/default-keybindings#file
     // @BUILTIN:
     "editor.cursorStyle": "block",
-    "editor.fontFamily": "Monaco, Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "Menlo, Monaco, Consolas, 'Courier New', monospace",
     "editor.fontSize": 15,
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": true,
@@ -28,15 +28,16 @@
     "editor.tabSize": 2,
     "search.showLineNumbers": true,
     "search.smartCase": true,
-    "terminal.integrated.fontFamily": "Monaco, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
+    "terminal.integrated.fontFamily": "Menlo, Monaco, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
     "terminal.integrated.fontSize": 13,
     "window.zoomLevel": -1.618,
+    "workbench.colorTheme": "Solarized Dark",
     "workbench.startupEditor": "none",
     "workbench.activityBar.location": "top",
     "workbench.colorCustomizations": {
-        "statusBar.background": "#7400e8",
-        "statusBar.noFolderBackground": "#7400e8",
-        "statusBar.debuggingBackground": "#7400e8",
+        "statusBar.background": "#571b26",
+        "statusBar.noFolderBackground": "#571b26",
+        "statusBar.debuggingBackground": "#571b26",
         "statusBar.foreground": "#ffffff",
         "statusBar.debuggingForeground": "#ffffff"
     },
@@ -61,7 +62,7 @@
     },
     "vim.highlightedyank.enable": true,
     "vim.highlightedyank.duration": 2000,
-    "vim.highlightedyank.color": "#e80000",
+    "vim.highlightedyank.color": "#d33682",
     "vim.highlightedyank.textColor": "#ffffff",
     "vim.hlsearch": true,
     "vim.incsearch": true,
@@ -117,11 +118,11 @@
             ]
         },
     ],
-    "vim.searchHighlightColor": "#e80000",
+    "vim.searchHighlightColor": "#d33682",
     "vim.searchHighlightTextColor": "#ffffff",
-    "vim.searchMatchColor": "#006fa0",
+    "vim.searchMatchColor": "#047aa6",
     "vim.searchMatchTextColor": "#ffffff",
-    "vim.substitutionColor": "#e80074",
+    "vim.substitutionColor": "#b58900",
     "vim.substitutionTextColor": "#ffffff",
     "vim.showMarksInGutter": true,
     "vim.smartRelativeLine": true,
@@ -137,47 +138,47 @@
     "vim.whichwrap": "b,s,h,l",
     "vim.statusBarColorControl": true,
     "vim.statusBarColors.normal": [
-        "#006fa0",
+        "#047aa6",
         "#ffffff"
     ],
     "vim.statusBarColors.insert": [
-        "#e80000",
+        "#d33682",
         "#ffffff"
     ],
     "vim.statusBarColors.visual": [
-        "#7400e8",
+        "#571b26",
         "#ffffff"
     ],
     "vim.statusBarColors.visualline": [
-        "#7400e8",
+        "#571b26",
         "#ffffff"
     ],
     "vim.statusBarColors.visualblock": [
-        "#7400e8",
+        "#571b26",
         "#ffffff"
     ],
     "vim.statusBarColors.replace": [
-        "#7400e8",
+        "#b58900",
         "#ffffff"
     ],
     "vim.statusBarColors.commandlineinprogress": [
-        "#e80074",
+        "#003847",
         "#ffffff"
     ],
     "vim.statusBarColors.searchinprogressmode": [
-        "#e80074",
+        "#003847",
         "#ffffff"
     ],
     "vim.statusBarColors.easymotionmode": [
-        "#e80074",
+        "#003847",
         "#ffffff"
     ],
     "vim.statusBarColors.easymotioninputmode": [
-        "#e80074",
+        "#003847",
         "#ffffff"
     ],
     "vim.statusBarColors.surroundinputmode": [
-        "#e80074",
+        "#003847",
         "#ffffff"
     ],
 }
