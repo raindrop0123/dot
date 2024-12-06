@@ -71,15 +71,11 @@ let g:loaded_zipPlugin=1
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line('$') | exe "normal! g'\"" | endif
 autocmd bufenter * setlocal formatoptions-=r formatoptions-=c formatoptions-=o
 autocmd BufWinEnter * if getfsize(expand('%')) > 1048576 | syntax clear | endif
+autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
 " {{{ Bootstrap vim-plug }}}
-let data_dir = has('win32') || has('win64') ? '$HOME\vimfiles' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  if has('win32') || has('win64')
-    silent execute '!powershell -Command "New-Item -Path "'.data_dir.' -Name autoload -Type Directory -Force; Invoke-WebRequest -Uri https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -OutFile '.data_dir.'\autoload\plug.vim"'
-  else
-    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  endif
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) > 0 | PlugInstall --sync | source $MYVIMRC | endif
@@ -99,10 +95,16 @@ Plug 'luochen1990/rainbow', {'on': []}
 Plug 'tpope/vim-commentary', {'on': []}
 Plug 'airblade/vim-gitgutter', {'on': []}
 Plug 'dense-analysis/ale', {'on': []}
+Plug 'ryanoasis/vim-devicons', {'on': []}
 Plug 'junegunn/fzf', {'do': {->fzf#install()}}
+Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!']}
 Plug 'junegunn/fzf.vim', {'on': ['Files', 'Buffers', 'Colors', 'Lines', 'BLines', 'History', 'Commands']}
 Plug 'mbbill/undotree', {'on': ['UndotreeToggle']}
 Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-overwin-f)', '<Plug>(easymotion-overwin-line)']}
+Plug 'dyng/ctrlsf.vim', {'on': ['CtrlSF']}
+Plug 'skywind3000/asyncrun.vim', {'on': ['AsyncRun']}
+Plug 'preservim/nerdtree', {'on': ['NERDTreeToggle']}
+Plug 'voldikss/vim-floaterm'
 call plug#end()
 
 augroup vim_polyglot
@@ -191,6 +193,15 @@ augroup ale
         \| autocmd! ale
 augroup END
 
+augroup vim_devicons
+  autocmd!
+  autocmd BufReadPost * call plug#load('vim-devicons')
+        \| autocmd! vim_devicons
+augroup END
+
+nnoremap <silent><leader> :<c-u>WhichKey '<space>'<cr>
+nnoremap <silent><localleader> :<c-u>WhichKey  '\'<cr>
+
 let g:fzf_layout={'down': '25%'}
 nnoremap <leader>ff <cmd>Files<cr>
 nnoremap <c-x><c-f> <cmd>Files<cr>
@@ -210,3 +221,11 @@ let g:EasyMotion_do_mapping=0
 nnoremap <leader>gf <Plug>(easymotion-overwin-f)
 nnoremap <leader>gl <Plug>(easymotion-overwin-line)
 nnoremap <leader>gw <Plug>(easymotion-overwin-w)
+
+let g:NERDTreeShowHidden=1
+nnoremap <leader>tn <cmd>NERDTreeToggle<cr>
+
+let g:floaterm_wintype='split'
+let g:floaterm_height=0.3
+nnoremap <leader>tt <cmd>FloatermNew<cr>
+tnoremap <leader>tt <c-\><c-n><cmd>FloatermKill<cr>
