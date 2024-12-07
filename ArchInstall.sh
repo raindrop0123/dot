@@ -8,7 +8,7 @@
 # 2. Connect to the Internet - iwctl
 # 3. curl -fsSL https://raw.githubusercontent.com/raindrop0123/dot/refs/heads/main/ArchInstall.sh > install.sh
 # 4. chmod +x install.sh
-# 5. write you os information
+# 5. write down your os information
 # 6. sh install.sh
 
 # show shell script command on monitor
