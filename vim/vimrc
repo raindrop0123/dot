@@ -43,7 +43,7 @@ set smartcase
 set nobackup
 set noswapfile
 set termguicolors
-colorscheme desert
+" colorscheme desert
 
 " {{{ Keybinding }}}
 let mapleader = ' '
@@ -83,6 +83,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) > 
 " {{{ vim-plug }}}
 call plug#begin()
 Plug 'sheerun/vim-polyglot', {'on': []}
+Plug 'mhinz/vim-startify', {'on': []}
 Plug 'morhetz/gruvbox', {'on': []}
 Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim', {'on': []}
@@ -117,9 +118,35 @@ augroup VimPolyglot
         \| autocmd! VimPolyglot
 augroup END
 
+augroup VimStartify
+  autocmd!
+  autocmd BufEnter * call plug#load('vim-startify')
+        \| autocmd! VimStartify
+        \| let g:startify_custom_header = [
+        \'',
+        \'',
+        \'   ⣇⣿⠘⣿⣿⣿⡿⡿⣟⣟⢟⢟⢝⠵⡝⣿⡿⢂⣼⣿⣷⣌⠩⡫⡻⣝⠹⢿⣿⣷   ',
+        \'   ⡆⣿⣆⠱⣝⡵⣝⢅⠙⣿⢕⢕⢕⢕⢝⣥⢒⠅⣿⣿⣿⡿⣳⣌⠪⡪⣡⢑⢝⣇   ',
+        \'   ⡆⣿⣿⣦⠹⣳⣳⣕⢅⠈⢗⢕⢕⢕⢕⢕⢈⢆⠟⠋⠉⠁⠉⠉⠁⠈⠼⢐⢕⢽   ',
+        \'   ⡗⢰⣶⣶⣦⣝⢝⢕⢕⠅⡆⢕⢕⢕⢕⢕⣴⠏⣠⡶⠛⡉⡉⡛⢶⣦⡀⠐⣕⢕   ',
+        \'   ⡝⡄⢻⢟⣿⣿⣷⣕⣕⣅⣿⣔⣕⣵⣵⣿⣿⢠⣿⢠⣮⡈⣌⠨⠅⠹⣷⡀⢱⢕   ',
+        \'   ⡝⡵⠟⠈⢀⣀⣀⡀⠉⢿⣿⣿⣿⣿⣿⣿⣿⣼⣿⢈⡋⠴⢿⡟⣡⡇⣿⡇⡀⢕   ',
+        \'   ⡝⠁⣠⣾⠟⡉⡉⡉⠻⣦⣻⣿⣿⣿⣿⣿⣿⣿⣿⣧⠸⣿⣦⣥⣿⡇⡿⣰⢗⢄   ',
+        \'   ⠁⢰⣿⡏⣴⣌⠈⣌⠡⠈⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣬⣉⣉⣁⣄⢖⢕⢕⢕   ',
+        \'   ⡀⢻⣿⡇⢙⠁⠴⢿⡟⣡⡆⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣵⣵⣿   ',
+        \'   ⡻⣄⣻⣿⣌⠘⢿⣷⣥⣿⠇⣿⣿⣿⣿⣿⣿⠛⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿   ',
+        \'   ⣷⢄⠻⣿⣟⠿⠦⠍⠉⣡⣾⣿⣿⣿⣿⣿⣿⢸⣿⣦⠙⣿⣿⣿⣿⣿⣿⣿⣿⠟   ',
+        \'   ⡕⡑⣑⣈⣻⢗⢟⢞⢝⣻⣿⣿⣿⣿⣿⣿⣿⠸⣿⠿⠃⣿⣿⣿⣿⣿⣿⡿⠁⣠   ',
+        \'   ⡝⡵⡈⢟⢕⢕⢕⢕⣵⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣿⣿⣿⣿⣿⠿⠋⣀⣈⠙   ',
+        \'   ⡝⡵⡕⡀⠑⠳⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⢉⡠⡲⡫⡪⡪⡣   ',
+        \'',
+        \'',
+        \ ]
+augroup END
+
 augroup Gruvbox
   autocmd!
-  autocmd BufReadPost * call plug#load('gruvbox')
+  autocmd BufEnter,BufReadPost * call plug#load('gruvbox')
         \| autocmd! Gruvbox
         \| colorscheme gruvbox
 augroup END
