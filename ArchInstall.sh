@@ -153,7 +153,10 @@ FONT4="ttf-liberation-mono-nerd ttf-meslo-nerd ttf-mononoki-nerd ttf-mplus-nerd 
 FONT5="ttf-noto-nerd ttf-roboto-mono-nerd ttf-terminus-nerd ttf-ubuntu-mono-nerd ttf-ubuntu-nerd"
 FONT6="ttf-victor-mono-nerd ttf-zed-mono-nerd noto-fonts-cjk ttf-sarasa-gothic"
 FONT7="wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei"
-arch-chroot /mnt sudo pacman -S --noconfirm --needed $WM $SYSTOOL $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL $FONT1 $FONT2 $FONT3 $FONT4 $FONT5 $FONT6 $FONT7
+FONT8="adobe-source-han-sans-tw-fonts adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts adobe-source-han-serif-tw-fonts"
+FONT9="otf-latinmodern-math otf-latinmodern-math otf-latin-modern"
+arch-chroot /mnt sudo pacman -S --noconfirm --needed $WM $SYSTOOL $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL
+arch-chroot /mnt sudo pacman -S --noconfirm --needed $FONT1 $FONT2 $FONT3 $FONT4 $FONT5 $FONT6 $FONT7 $FONT8 $FONT9
 
 # yay
 arch-chroot /mnt pacman -S --noconfirm --needed git base-devel
@@ -162,7 +165,7 @@ arch-chroot /mnt sudo -u $USERNAME bash -c "cd && git clone https://aur.archlinu
 # AUR Packages
 AURBROWSER="google-chrome"
 AUREDITOR="visual-studio-code-bin"
-AURFONT="ttf-tw ttf-ms-fonts ttf-pt-mono otf-monego-git ttf-monaco apple-fonts"
+AURFONT="ttf-tw ttf-ms-fonts ttf-pt-mono otf-monego-git ttf-monaco apple-fonts otf-apple-pingfang-relaxed otf-apple-pingfang otf-stix"
 arch-chroot /mnt sudo -u $USERNAME bash -c "yay -S --sudoloop $AURBROWSER $AUREDITOR $AURFONT"
 
 # paru
