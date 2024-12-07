@@ -150,13 +150,14 @@ FONT1="otf-codenewroman-nerd otf-comicshanns-nerd otf-droid-nerd otf-firamono-ne
 FONT2="ttf-cascadia-code-nerd ttf-cascadia-mono-nerd ttf-dejavu-nerd ttf-fantasque-nerd ttf-firacode-nerd ttf-hack-nerd"
 FONT3="ttf-ibmplex-mono-nerd ttf-inconsolata-nerd ttf-iosevka-nerd ttf-jetbrains-mono-nerd"
 FONT4="ttf-liberation-mono-nerd ttf-meslo-nerd ttf-mononoki-nerd ttf-mplus-nerd ttf-nerd-fonts-symbols"
-FONT5="ttf-noto-nerd ttf-roboto-mono-nerd ttf-terminus-nerd ttf-ubuntu-mono-nerd ttf-ubuntu-nerd"
+FONT5="noto-fonts-emoji noto-fonts-extra noto-fonts ttf-noto-nerd"
 FONT6="ttf-victor-mono-nerd ttf-zed-mono-nerd noto-fonts-cjk ttf-sarasa-gothic"
 FONT7="wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei"
 FONT8="adobe-source-han-sans-tw-fonts adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts adobe-source-han-serif-tw-fonts adobe-source-code-pro-fonts"
 FONT9="otf-latinmodern-math otf-latinmodern-math otf-latin-modern"
+FONT10="ttf-roboto-mono-nerd ttf-terminus-nerd ttf-ubuntu-mono-nerd ttf-ubuntu-nerd"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $WM $SYSTOOL $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL
-arch-chroot /mnt sudo pacman -S --noconfirm --needed $FONT1 $FONT2 $FONT3 $FONT4 $FONT5 $FONT6 $FONT7 $FONT8 $FONT9
+arch-chroot /mnt sudo pacman -S --noconfirm --needed $FONT1 $FONT2 $FONT3 $FONT4 $FONT5 $FONT6 $FONT7 $FONT8 $FONT9 $FONT10
 
 # yay
 arch-chroot /mnt pacman -S --noconfirm --needed git base-devel
