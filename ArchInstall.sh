@@ -7,7 +7,8 @@
 # 2. Connect to the Internet - iwctl
 # 3. curl -fsSL https://raw.githubusercontent.com/raindrop0123/dot/refs/heads/main/ArchInstall.sh > install.sh
 # 4. chmod +x install.sh
-# 5. sh install.sh
+# 5. write you os information
+# 6. sh install.sh
 
 set -ex
 
@@ -19,10 +20,10 @@ HDLOC=/dev/nvme0n1
 ROOTSIZE=32G
 SWAPSIZE=16G
 UEFISIZE=250M
-NEWHOSTNAME=cya
-USERNAME=cya
-ROOTPASS=root
-USERPASS=user
+NEWHOSTNAME=
+USERNAME=
+ROOTPASS=
+USERPASS=
 
 # Change TTY Font
 setfont ter-218b.psf.gz
