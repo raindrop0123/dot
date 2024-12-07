@@ -153,7 +153,7 @@ FONT4="ttf-liberation-mono-nerd ttf-meslo-nerd ttf-mononoki-nerd ttf-mplus-nerd 
 FONT5="ttf-noto-nerd ttf-roboto-mono-nerd ttf-terminus-nerd ttf-ubuntu-mono-nerd ttf-ubuntu-nerd"
 FONT6="ttf-victor-mono-nerd ttf-zed-mono-nerd noto-fonts-cjk ttf-sarasa-gothic"
 FONT7="wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei"
-FONT8="adobe-source-han-sans-tw-fonts adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts adobe-source-han-serif-tw-fonts"
+FONT8="adobe-source-han-sans-tw-fonts adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts adobe-source-han-serif-tw-fonts adobe-source-code-pro-fonts"
 FONT9="otf-latinmodern-math otf-latinmodern-math otf-latin-modern"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $WM $SYSTOOL $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $FONT1 $FONT2 $FONT3 $FONT4 $FONT5 $FONT6 $FONT7 $FONT8 $FONT9
