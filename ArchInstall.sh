@@ -135,8 +135,8 @@ arch-chroot /mnt pacman -S --noconfirm --needed net-tools wireless_tools
 arch-chroot /mnt pacman -S --noconfirm --needed wpa_supplicant openssh
 arch-chroot /mnt pacman -S --noconfirm --needed networkmanager network-manager-applet
 arch-chroot /mnt systemctl enable NetworkManager.service
-# arch-chroot /mnt pacman -S --noconfirm --needed dhclient dhcpcd
-# arch-chroot /mnt systemctl enable dhcpcd.service
+arch-chroot /mnt pacman -S --noconfirm --needed dhclient dhcpcd
+arch-chroot /mnt systemctl enable dhcpcd.service
 
 # Official Packages
 WM="awesome xorg-xinit xorg-server"
