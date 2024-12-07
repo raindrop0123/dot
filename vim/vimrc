@@ -84,6 +84,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) > 
 call plug#begin()
 Plug 'sheerun/vim-polyglot', {'on': []}
 Plug 'morhetz/gruvbox', {'on': []}
+Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim', {'on': []}
 Plug 'Yggdroot/indentLine', {'on': []}
 Plug 'wellle/context.vim', {'on': []}
@@ -96,6 +97,9 @@ Plug 'tpope/vim-commentary', {'on': []}
 Plug 'airblade/vim-gitgutter', {'on': []}
 Plug 'dense-analysis/ale', {'on': []}
 Plug 'ryanoasis/vim-devicons', {'on': []}
+Plug 'machakann/vim-highlightedyank', {'on': []}
+Plug 'wincent/terminus', {'on': []}
+Plug 'dominikduda/vim_current_word', {'on': []}
 Plug 'junegunn/fzf', {'do': {->fzf#install()}}
 Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!']}
 Plug 'junegunn/fzf.vim', {'on': ['Files', 'Buffers', 'Colors', 'Lines', 'BLines', 'History', 'Commands']}
@@ -107,96 +111,115 @@ Plug 'preservim/nerdtree', {'on': ['NERDTreeToggle']}
 Plug 'voldikss/vim-floaterm'
 call plug#end()
 
-augroup vim_polyglot
+augroup VimPolyglot
   autocmd!
   autocmd BufReadPost * call plug#load('vim-polyglot')
-        \| autocmd! vim_polyglot
+        \| autocmd! VimPolyglot
 augroup END
 
-augroup gruvbox
+augroup Gruvbox
   autocmd!
   autocmd BufReadPost * call plug#load('gruvbox')
-        \| autocmd! gruvbox
+        \| autocmd! Gruvbox
         \| colorscheme gruvbox
 augroup END
 
-augroup lightline
+augroup LightLine
   autocmd!
   autocmd BufReadPost * call plug#load('lightline.vim')
-        \| autocmd! lightline
+        \| autocmd! LightLine
         \| let g:lightline={'colorscheme': 'apprentice'}
         \| call lightline#enable()
 augroup END
 
-augroup indentline
+augroup IndentLine
   autocmd!
   autocmd BufReadPost * call plug#load('indentLine')
-        \| autocmd! indentline
+        \| autocmd! IndentLine
         \| IndentLinesToggle
 augroup END
 
-augroup context_vim
+augroup ContextVim
   autocmd!
   autocmd BufReadPost * call plug#load('context.vim')
-        \| autocmd! context_vim
+        \| autocmd! ContextVim
         \| ContextEnable
 augroup END
 
-augroup vim_buftabline
+augroup VimBufTabLine
   autocmd!
   autocmd BufReadPost * call plug#load('vim-buftabline')
-        \| autocmd! vim_buftabline
+        \| autocmd! VimBufTabLine
 augroup END
 
-augroup vim_matchup
+augroup VimMatchUp
   autocmd!
   autocmd BufReadPost * call plug#load('vim-matchup')
-        \| autocmd! vim_matchup
+        \| autocmd! VimMatchUp
 augroup END
 
-augroup vim_better_whitespace
+augroup VimBetterWhitespace
   autocmd!
   autocmd BufReadPost * call plug#load('vim-better-whitespace')
-        \| autocmd! vim_better_whitespace
+        \| autocmd! VimBetterWhitespace
 augroup END
 
-augroup auto_pairs
+augroup AutoPairs
   autocmd!
   autocmd InsertEnter * call plug#load('auto-pairs')
-        \| autocmd! auto_pairs
+        \| autocmd! AutoPairs
         \| call autopairs#AutoPairsTryInit()
 augroup END
 
-augroup rainbow
+augroup Rainbow
   autocmd!
   autocmd BufReadPost * call plug#load('rainbow')
-        \| autocmd! rainbow
+        \| autocmd! Rainbow
         \| RainbowToggle
 augroup END
 
-augroup vim_commentary
+augroup VimCommentary
   autocmd!
   autocmd BufReadPost * call plug#load('vim-commentary')
-        \| autocmd! vim_commentary
+        \| autocmd! VimCommentary
 augroup END
 
-augroup vim_gitgutter
+augroup VimGitGutter
   autocmd!
   autocmd BufReadPost * call plug#load('vim-gitgutter')
-        \| autocmd! vim_gitgutter
+        \| autocmd! VimGitGutter
         \| GitGutterEnable
 augroup END
 
-augroup ale
+augroup ALE
   autocmd!
   autocmd BufReadPost * call plug#load('ale')
-        \| autocmd! ale
+        \| autocmd! ALE
 augroup END
 
-augroup vim_devicons
+augroup VimDevIcons
   autocmd!
   autocmd BufReadPost * call plug#load('vim-devicons')
-        \| autocmd! vim_devicons
+        \| autocmd! VimDevIcons
+augroup END
+
+augroup VimHighlightedYank
+  autocmd!
+  autocmd BufReadPost * call plug#load('vim-highlightedyank')
+        \| autocmd! VimHighlightedYank
+        \| let g:highlightedyank_highlight_duration=2500
+augroup END
+
+augroup Terminus
+  autocmd!
+  autocmd InsertEnter * call plug#load('terminus')
+        \| autocmd! Terminus
+augroup END
+
+augroup VimCurrentWord
+  autocmd!
+  autocmd BufReadPost * call plug#load('vim_current_word')
+        \| autocmd! VimCurrentWord
 augroup END
 
 nnoremap <silent><leader> :<c-u>WhichKey '<space>'<cr>
@@ -210,7 +233,7 @@ nnoremap <c-x><c-b> <cmd>Buffers<cr>
 nnoremap <leader>fc <cmd>Colors<cr>
 nnoremap <leader>fs <cmd>BLines<cr>
 nnoremap <leader>fS <cmd>Lines<cr>
-nnoremap <c-x><c-s> <cmd>BLines<cr>
+nnoremap <c-s> <cmd>BLines<cr>
 nnoremap <leader>fr <cmd>History<cr>
 nnoremap <c-x><c-r> <cmd>History<cr>
 nnoremap <leader><leader> <cmd>Commands<cr>
