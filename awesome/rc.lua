@@ -347,3 +347,5 @@ gears.timer({
     collectgarbage()
   end,
 })
+collectgarbage("setpause", 110)
+collectgarbage("setstepmul", 1000)
