@@ -135,7 +135,7 @@
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
     "vim.visualstar": true,
-    "vim.whichwrap": "b,s,h,l",
+    "vim.whichwrap": "b,s",
     "vim.statusBarColorControl": true,
     "vim.statusBarColors.normal": [
         "#047aa6",
