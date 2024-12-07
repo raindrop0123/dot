@@ -11,7 +11,7 @@
 # 5. write you os information
 # 6. sh install.sh
 
-# Show execution output
+# show shell script command on monitor
 set -e
 
 # Update System Clock
