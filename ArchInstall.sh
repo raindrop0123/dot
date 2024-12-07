@@ -191,5 +191,5 @@ arch-chroot /mnt sudo -u $USERNAME bash -c "yay -S --sudoloop $AURBROWSER $AURED
 
 # Installation finished text hint
 echo "ArchLinux installation is finished."
-echo "Don't forget to umount all partitions by `umount -R /mnt`"
+echo "Don't forget to umount all partitions by 'umount -R /mnt'"
 echo "Now you should reboot you machine."
