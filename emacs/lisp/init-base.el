@@ -36,17 +36,22 @@
   (setq-default truncate-lines t)
   (setq completion-ignore-case t)
   (add-hook 'minibuffer-setup-hook #'(lambda () (setq gc-cons-threshold most-positive-fixnum)))
-  (add-hook 'minibuffer-exit-hook #'(lambda () (setq gc-cons-threshold 800000))))
+  (add-hook 'minibuffer-exit-hook #'(lambda () (setq gc-cons-threshold 800000)))
+  (when (eq system-type 'darwin)
+    (setq mac-command-modifier 'meta)
+    (setq mac-option-modifier 'super)))
 
 (use-package modus-themes
   :ensure nil
   :hook (after-init . (lambda () (load-theme 'modus-vivendi t))))
 
 (use-package which-key
+  :disabled t
   :ensure nil
   :hook (after-init . which-key-mode))
 
 (use-package loaddefs
+  :disabled t
   :ensure nil
   :hook (prog-mode . global-completion-preview-mode))
 
