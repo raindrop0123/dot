@@ -137,7 +137,7 @@ arch-chroot /mnt systemctl enable NetworkManager.service
 
 # Official Packages
 WM="awesome xorg-xinit xorg-server"
-SYSTOOL="brightnessctl xclip fastfetch udiskie polkit-kde-agent alsa-utils flatpak redshift"
+SYSTOOL="brightnessctl xclip fastfetch udiskie polkit-kde-agent alsa-utils flatpak redshift flameshot"
 INPUT="ibus ibus-chewing"
 RUSTTOOL="lsd ripgrep bottom fzf fd"
 TERM="alacritty kitty wezterm xterm rxvt-unicode"
