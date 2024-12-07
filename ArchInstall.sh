@@ -146,18 +146,34 @@ RUSTTOOL="lsd ripgrep bottom fzf fd"
 TERM="alacritty kitty wezterm xterm rxvt-unicode"
 EDITOR="gvim emacs neovim"
 GUITOOL="pcmanfm lxappearance qt5ct firefox"
-FONT1="otf-codenewroman-nerd otf-comicshanns-nerd otf-droid-nerd otf-firamono-nerd otf-monaspace-nerd"
-FONT2="ttf-cascadia-code-nerd ttf-cascadia-mono-nerd ttf-dejavu-nerd ttf-fantasque-nerd ttf-firacode-nerd ttf-hack-nerd"
-FONT3="ttf-ibmplex-mono-nerd ttf-inconsolata-nerd ttf-iosevka-nerd ttf-jetbrains-mono-nerd"
-FONT4="ttf-liberation-mono-nerd ttf-meslo-nerd ttf-mononoki-nerd ttf-mplus-nerd ttf-nerd-fonts-symbols"
-FONT5="noto-fonts-emoji noto-fonts-extra noto-fonts ttf-noto-nerd"
-FONT6="ttf-victor-mono-nerd ttf-zed-mono-nerd noto-fonts-cjk ttf-sarasa-gothic"
-FONT7="wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei"
-FONT8="adobe-source-han-sans-tw-fonts adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts adobe-source-han-serif-tw-fonts adobe-source-code-pro-fonts"
-FONT9="otf-latinmodern-math otf-latinmodern-math otf-latin-modern"
-FONT10="ttf-roboto-mono-nerd ttf-terminus-nerd ttf-ubuntu-mono-nerd ttf-ubuntu-nerd"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $WM $SYSTOOL $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL
-arch-chroot /mnt sudo pacman -S --noconfirm --needed $FONT1 $FONT2 $FONT3 $FONT4 $FONT5 $FONT6 $FONT7 $FONT8 $FONT9 $FONT10
+ADOBE1="adobe-source-code-pro-fonts	adobe-source-han-sans-cn-fonts adobe-source-han-sans-hk-fonts adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts"
+ADOBE2="adobe-source-han-sans-otc-fonts adobe-source-han-sans-tw-fonts adobe-source-han-serif-cn-fonts adobe-source-han-serif-hk-fonts adobe-source-han-serif-jp-fonts"
+ADOBE3="adobe-source-han-serif-kr-fonts adobe-source-han-serif-otc-fonts adobe-source-han-serif-tw-fonts adobe-source-sans-fonts adobe-source-serif-fonts"
+arch-chroot /mnt sudo pacman -S --noconfirm --needed $ADOBE1 $ADOBE2 $ADOBE3
+WQY="wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei"
+MATH="otf-latinmodern-math otf-latinmodern-math otf-latin-modern"
+NOTO="noto-fonts-emoji noto-fonts-extra noto-fonts ttf-noto-nerd noto-fonts-cjk"
+UBUNTU="ttf-ubuntu-mono-nerd ttf-ubuntu-nerd"
+CASCADIA="ttf-cascadia-code-nerd ttf-cascadia-mono-nerd"
+SYMBOLS="ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono"
+LIBERATION="ttf-liberation ttf-liberation-mono-nerd"
+arch-chroot /mnt sudo pacman -S --noconfirm --needed $WQY $MATH $NOTO $UBUNTU $CASCADIA $SYMBOLS $LIBERATION
+INCONSOLATA="ttf-inconsolata-nerd ttf-inconsolata-go-nerd ttf-inconsolata-lgc-nerd"
+DEJAVU="ttf-dejavu ttf-dejavu-nerd"
+FIRA="otf-fira-mono otf-fira-sans otf-firamono-nerd ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-firacode-nerd"
+FANTASQUE="ttf-fantasque-nerd ttf-fantasque-sans-mono otf-fantasque-sans-mono"
+HACK="ttf-hack ttf-hack-nerd"
+JETBRAINS="ttf-jetbrains-mono ttf-jetbrains-mono-nerd"
+ROBOTO="ttf-roboto ttf-roboto-mono ttf-roboto-mono-nerd"
+arch-chroot /mnt sudo pacman -S --noconfirm --needed $INCONSOLATA $DEJAVU $FIRA $FANTASQUE $HACK $JETBRAINS $ROBOTO
+NERD1="ttf-ibmplex-mono-nerd ttf-terminus-nerd"
+NERD2="ttf-iosevka-nerd ttf-meslo-nerd"
+NERD3="ttf-mononoki-nerd ttf-mplus-nerd"
+NERD4="ttf-victor-mono-nerd ttf-zed-mono-nerd ttf-sarasa-gothic"
+arch-chroot /mnt sudo pacman -S --noconfirm --needed $NERD1 $NERD2 $NERD3 $NERD4
+MISC="otf-codenewroman-nerd otf-comicshanns-nerd otf-droid-nerd otf-monaspace-nerd"
+arch-chroot /mnt sudo pacman -S --noconfirm --needed $MISC
 
 # yay
 arch-chroot /mnt pacman -S --noconfirm --needed git base-devel
