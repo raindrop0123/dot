@@ -105,7 +105,7 @@ do
     layout_cornerse = get_themes_dir .. "default/layouts/cornersew.png",
     prompt_bg = "#222222",
     prompt_fg = "#ffffff",
-    prompt_bg_cursor = "#ff0000",
+    prompt_bg_cursor = "#aaaaaa",
     notification_font = "JetBrainsMono Nerd Font 10",
     notification_bg = "#222222",
     notification_fg = "#ffffff",
