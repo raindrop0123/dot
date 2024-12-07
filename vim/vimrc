@@ -24,7 +24,6 @@ set splitbelow
 set splitright
 set clipboard^=unnamed,unnamedplus
 set nowrap
-set background=dark
 set showtabline=2
 set laststatus=2
 set wildmenu
@@ -42,7 +41,8 @@ set ignorecase
 set smartcase
 set nobackup
 set noswapfile
-set termguicolors
+set notermguicolors
+set background=dark
 " colorscheme desert
 
 " {{{ Keybinding }}}
