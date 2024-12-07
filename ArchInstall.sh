@@ -1,9 +1,8 @@
 #!/bin/sh
 
-# REF: https://nobodyzxc.github.io/2019/06/06/arch-install/#more
-# REF: https://wiki.archlinux.org/title/Installation_guide
-# REF: https://zhuanlan.zhihu.com/p/107135290
-
+# https://nobodyzxc.github.io/2019/06/06/arch-install/#more
+# https://wiki.archlinux.org/title/Installation_guide
+# https://zhuanlan.zhihu.com/p/107135290
 # 1. Boot by USB
 # 2. Connect to the Internet - iwctl
 # 3. curl -fsSL https://raw.githubusercontent.com/raindrop0123/dot/refs/heads/main/ArchInstall.sh > install.sh
@@ -26,7 +25,6 @@ ROOTPASS=root
 USERPASS=user
 
 # Change TTY Font
-# list all console fonts: ls /usr/share/kbd/consolefonts/
 setfont ter-218b.psf.gz
 
 # Hard Disk Partition
@@ -145,18 +143,34 @@ RUSTTOOL="lsd ripgrep bottom fzf fd"
 TERM="alacritty kitty wezterm xterm rxvt-unicode"
 EDITOR="gvim emacs neovim"
 GUITOOL="pcmanfm"
-FONT="ttf-victor-mono-nerd ttf-hack-nerd ttf-jetbrains-mono-nerd ttf-meslo-nerd"
-FONT="$FONT ttf-noto-nerd ttf-roboto-mono-nerd ttf-terminus-nerd ttf-ubuntu-nerd"
-FONT="$FONT ttf-ubuntu-mono-nerd noto-fonts-cjk"
-arch-chroot /mnt sudo pacman -S --noconfirm --needed $WM $SYSTOOL $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL $FONT
+FONT1="otf-codenewroman-nerd otf-comicshanns-nerd otf-droid-nerd otf-firamono-nerd otf-monaspace-nerd"
+FONT2="ttf-cascadia-code-nerd ttf-cascadia-mono-nerd ttf-dejavu-nerd ttf-fantasque-nerd ttf-firacode-nerd ttf-hack-nerd"
+FONT3="ttf-ibmplex-mono-nerd ttf-inconsolata-nerd ttf-iosevka-nerd ttf-jetbrains-mono-nerd"
+FONT4="ttf-liberation-mono-nerd ttf-meslo-nerd ttf-mononoki-nerd ttf-mplus-nerd ttf-nerd-fonts-symbols"
+FONT5="ttf-noto-nerd ttf-roboto-mono-nerd ttf-terminus-nerd ttf-ubuntu-mono-nerd ttf-ubuntu-nerd"
+FONT6="ttf-victor-mono-nerd ttf-zed-mono-nerd noto-fonts-cjk ttf-sarasa-gothic"
+FONT7="wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei"
+arch-chroot /mnt sudo pacman -S --noconfirm --needed $WM $SYSTOOL $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL $FONT1 $FONT2 $FONT3 $FONT4 $FONT5 $FONT6 $FONT7
 
 # yay
-# REF: https://github.com/Jguer/yay
 arch-chroot /mnt pacman -S --noconfirm --needed git base-devel
 arch-chroot /mnt sudo -u $USERNAME bash -c "cd && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si"
 
 # AUR Packages
 AURBROWSER="google-chrome"
 AUREDITOR="visual-studio-code-bin"
-AURFONT="ttf-tw ttf-ms-fonts"
+AURFONT="ttf-tw ttf-ms-fonts ttf-pt-mono otf-monego-git ttf-monaco"
 arch-chroot /mnt sudo -u $USERNAME bash -c "yay -S --sudoloop $AURBROWSER $AUREDITOR $AURFONT"
+
+# paru
+# arch-chroot /mnt pacman -S --noconfirm --needed base-devel
+# arch-chroot /mnt sudo -u $USERNAME bash -c "cd && git clone https://aur.archlinux.org/paru.git && cd paru && makepkg -si"
+
+# Umount all partitions
+umount -R /mnt
+
+# Installation finished text hint
+echo "#######################################"
+echo "# ArchLinux installation is finished. #"
+echo "# Now you should reboot you machine.  #"
+echo "#######################################"
