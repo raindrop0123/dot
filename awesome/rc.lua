@@ -14,12 +14,14 @@ require("awful.hotkeys_popup.keys")
 local filesystem = require("gears.filesystem")
 local xresources = require("beautiful.xresources")
 local theme_assets = require("beautiful.theme_assets")
+local get_themes_dir = filesystem.get_themes_dir()
+local dpi = xresources.apply_dpi
 
 -- {{{ Error handling }}}
 if awesome.startup_errors then
   naughty.notify({
     preset = naughty.config.presets.critical,
-    title = "Oops, there were errors during startup!",
+    title = "There were errors during startup!",
     text = awesome.startup_errors
   })
 end
@@ -32,7 +34,7 @@ do
       in_error = true
       naughty.notify({
         preset = naughty.config.presets.critical,
-        title = "Oops, an error happened!",
+        title = "An error happened!",
         text = tostring(err)
       })
       in_error = false
@@ -41,7 +43,7 @@ end
 
 -- {{{ Theme }}}
 beautiful.init({
-  font = "JetBrainsMono Nerd Font 11",
+  font = "JetBrainsMono Nerd Font 10",
   bg_normal = "#222222",
   bg_focus = "#535d6c",
   bg_urgent = "#ff0000",
@@ -51,56 +53,56 @@ beautiful.init({
   fg_focus = "#ffffff",
   fg_urgent = "#ffffff",
   fg_minimize = "#ffffff",
-  useless_gap = xresources.apply_dpi(4),
-  border_width = xresources.apply_dpi(2),
+  useless_gap = dpi(4),
+  border_width = dpi(2),
   border_normal = "#000000",
   border_focus = "#535d6c",
   border_marked = "#91231c",
-  menu_submenu_icon = filesystem.get_themes_dir() .. "default/submenu.png",
-  menu_height = xresources.apply_dpi(40),
-  menu_width = xresources.apply_dpi(200),
-  taglist_squares_sel = theme_assets.taglist_squares_sel(xresources.apply_dpi(4), "#ffffff"),
-  taglist_squares_unsel = theme_assets.taglist_squares_unsel(xresources.apply_dpi(4), "#ffffff"),
-  titlebar_close_button_normal = filesystem.get_themes_dir() .. "default/titlebar/close_normal.png",
-  titlebar_close_button_focus = filesystem.get_themes_dir() .. "default/titlebar/close_focus.png",
-  titlebar_minimize_button_normal = filesystem.get_themes_dir() .. "default/titlebar/minimize_normal.png",
-  titlebar_minimize_button_focus  = filesystem.get_themes_dir() .. "default/titlebar/minimize_focus.png",
-  titlebar_ontop_button_normal_inactive = filesystem.get_themes_dir() .. "default/titlebar/ontop_normal_inactive.png",
-  titlebar_ontop_button_focus_inactive = filesystem.get_themes_dir() .. "default/titlebar/ontop_focus_inactive.png",
-  titlebar_ontop_button_normal_active = filesystem.get_themes_dir() .. "default/titlebar/ontop_normal_active.png",
-  titlebar_ontop_button_focus_active = filesystem.get_themes_dir() .. "default/titlebar/ontop_focus_active.png",
-  titlebar_sticky_button_normal_inactive = filesystem.get_themes_dir() .. "default/titlebar/sticky_normal_inactive.png",
-  titlebar_sticky_button_focus_inactive = filesystem.get_themes_dir() .. "default/titlebar/sticky_focus_inactive.png",
-  titlebar_sticky_button_normal_active = filesystem.get_themes_dir() .. "default/titlebar/sticky_normal_active.png",
-  titlebar_sticky_button_focus_active = filesystem.get_themes_dir() .. "default/titlebar/sticky_focus_active.png",
-  titlebar_floating_button_normal_inactive = filesystem.get_themes_dir() .. "default/titlebar/floating_normal_inactive.png",
-  titlebar_floating_button_focus_inactive = filesystem.get_themes_dir() .. "default/titlebar/floating_focus_inactive.png",
-  titlebar_floating_button_normal_active = filesystem.get_themes_dir() .. "default/titlebar/floating_normal_active.png",
-  titlebar_floating_button_focus_active = filesystem.get_themes_dir() .. "default/titlebar/floating_focus_active.png",
-  titlebar_maximized_button_normal_inactive = filesystem.get_themes_dir() .. "default/titlebar/maximized_normal_inactive.png",
-  titlebar_maximized_button_focus_inactive = filesystem.get_themes_dir() .. "default/titlebar/maximized_focus_inactive.png",
-  titlebar_maximized_button_normal_active = filesystem.get_themes_dir() .. "default/titlebar/maximized_normal_active.png",
-  titlebar_maximized_button_focus_active = filesystem.get_themes_dir() .. "default/titlebar/maximized_focus_active.png",
+  menu_height = dpi(40),
+  menu_width = dpi(200),
+  taglist_squares_sel = theme_assets.taglist_squares_sel(dpi(4), "#ffffff"),
+  taglist_squares_unsel = theme_assets.taglist_squares_unsel(dpi(4), "#ffffff"),
+  menu_submenu_icon = get_themes_dir .. "default/submenu.png",
+  titlebar_close_button_normal = get_themes_dir .. "default/titlebar/close_normal.png",
+  titlebar_close_button_focus = get_themes_dir .. "default/titlebar/close_focus.png",
+  titlebar_minimize_button_normal = get_themes_dir .. "default/titlebar/minimize_normal.png",
+  titlebar_minimize_button_focus  = get_themes_dir .. "default/titlebar/minimize_focus.png",
+  titlebar_ontop_button_normal_inactive = get_themes_dir .. "default/titlebar/ontop_normal_inactive.png",
+  titlebar_ontop_button_focus_inactive = get_themes_dir .. "default/titlebar/ontop_focus_inactive.png",
+  titlebar_ontop_button_normal_active = get_themes_dir .. "default/titlebar/ontop_normal_active.png",
+  titlebar_ontop_button_focus_active = get_themes_dir .. "default/titlebar/ontop_focus_active.png",
+  titlebar_sticky_button_normal_inactive = get_themes_dir .. "default/titlebar/sticky_normal_inactive.png",
+  titlebar_sticky_button_focus_inactive = get_themes_dir .. "default/titlebar/sticky_focus_inactive.png",
+  titlebar_sticky_button_normal_active = get_themes_dir .. "default/titlebar/sticky_normal_active.png",
+  titlebar_sticky_button_focus_active = get_themes_dir .. "default/titlebar/sticky_focus_active.png",
+  titlebar_floating_button_normal_inactive = get_themes_dir .. "default/titlebar/floating_normal_inactive.png",
+  titlebar_floating_button_focus_inactive = get_themes_dir .. "default/titlebar/floating_focus_inactive.png",
+  titlebar_floating_button_normal_active = get_themes_dir .. "default/titlebar/floating_normal_active.png",
+  titlebar_floating_button_focus_active = get_themes_dir .. "default/titlebar/floating_focus_active.png",
+  titlebar_maximized_button_normal_inactive = get_themes_dir .. "default/titlebar/maximized_normal_inactive.png",
+  titlebar_maximized_button_focus_inactive = get_themes_dir .. "default/titlebar/maximized_focus_inactive.png",
+  titlebar_maximized_button_normal_active = get_themes_dir .. "default/titlebar/maximized_normal_active.png",
+  titlebar_maximized_button_focus_active = get_themes_dir .. "default/titlebar/maximized_focus_active.png",
   tasklist_bg_normal = "#222222",
   tasklist_bg_focus = "#222222",
   tasklist_fg_normal = "#535d6c",
   tasklist_fg_focus = "#ffffff",
-  layout_fairh = filesystem.get_themes_dir() .. "default/layouts/fairhw.png",
-  layout_fairv = filesystem.get_themes_dir() .. "default/layouts/fairvw.png",
-  layout_floating  = filesystem.get_themes_dir() .. "default/layouts/floatingw.png",
-  layout_magnifier = filesystem.get_themes_dir() .. "default/layouts/magnifierw.png",
-  layout_max = filesystem.get_themes_dir() .. "default/layouts/maxw.png",
-  layout_fullscreen = filesystem.get_themes_dir() .. "default/layouts/fullscreenw.png",
-  layout_tilebottom = filesystem.get_themes_dir() .. "default/layouts/tilebottomw.png",
-  layout_tileleft = filesystem.get_themes_dir() .. "default/layouts/tileleftw.png",
-  layout_tile = filesystem.get_themes_dir() .. "default/layouts/tilew.png",
-  layout_tiletop = filesystem.get_themes_dir() .. "default/layouts/tiletopw.png",
-  layout_spiral = filesystem.get_themes_dir() .. "default/layouts/spiralw.png",
-  layout_dwindle = filesystem.get_themes_dir() .. "default/layouts/dwindlew.png",
-  layout_cornernw = filesystem.get_themes_dir() .. "default/layouts/cornernww.png",
-  layout_cornerne = filesystem.get_themes_dir() .. "default/layouts/cornernew.png",
-  layout_cornersw = filesystem.get_themes_dir() .. "default/layouts/cornersww.png",
-  layout_cornerse = filesystem.get_themes_dir() .. "default/layouts/cornersew.png",
+  layout_fairh = get_themes_dir .. "default/layouts/fairhw.png",
+  layout_fairv = get_themes_dir .. "default/layouts/fairvw.png",
+  layout_floating  = get_themes_dir .. "default/layouts/floatingw.png",
+  layout_magnifier = get_themes_dir .. "default/layouts/magnifierw.png",
+  layout_max = get_themes_dir .. "default/layouts/maxw.png",
+  layout_fullscreen = get_themes_dir .. "default/layouts/fullscreenw.png",
+  layout_tilebottom = get_themes_dir .. "default/layouts/tilebottomw.png",
+  layout_tileleft = get_themes_dir .. "default/layouts/tileleftw.png",
+  layout_tile = get_themes_dir .. "default/layouts/tilew.png",
+  layout_tiletop = get_themes_dir .. "default/layouts/tiletopw.png",
+  layout_spiral = get_themes_dir .. "default/layouts/spiralw.png",
+  layout_dwindle = get_themes_dir .. "default/layouts/dwindlew.png",
+  layout_cornernw = get_themes_dir .. "default/layouts/cornernww.png",
+  layout_cornerne = get_themes_dir .. "default/layouts/cornernew.png",
+  layout_cornersw = get_themes_dir .. "default/layouts/cornersww.png",
+  layout_cornerse = get_themes_dir .. "default/layouts/cornersew.png",
   prompt_bg = "#222222",
   prompt_fg = "#ffffff",
   prompt_bg_cursor = "#ff0000",
@@ -108,8 +110,8 @@ beautiful.init({
   notification_bg = "#222222",
   notification_fg = "#ffffff",
   notification_border_color = "#535d6c",
-  awesome_icon = theme_assets.awesome_icon(xresources.apply_dpi(15), "#535d6c", "#ffffff"),
-  wallpaper = filesystem.get_themes_dir() .. "default/background.png",
+  awesome_icon = theme_assets.awesome_icon(dpi(15), "#535d6c", "#ffffff"),
+  wallpaper = get_themes_dir .. "default/background.png",
   icon_theme = nil,
 })
 
@@ -289,7 +291,7 @@ client.connect_signal("request::titlebars", function(c)
       awful.titlebar.widget.iconwidget(c),
       buttons = gears.table.join(
         awful.button({}, 1, function() c:emit_signal("request::activate", "titlebar", {raise = true}); awful.mouse.client.move(c) end),
-        awful.button({}, 3, function() c:emit_signal("request::activate", "titlebar", {raise = true}); awful.mouse.client.resize(c) end) 
+        awful.button({}, 3, function() c:emit_signal("request::activate", "titlebar", {raise = true}); awful.mouse.client.resize(c) end)
       ),
       layout  = wibox.layout.fixed.horizontal
     },
@@ -301,7 +303,7 @@ client.connect_signal("request::titlebars", function(c)
       },
       buttons = gears.table.join(
         awful.button({}, 1, function() c:emit_signal("request::activate", "titlebar", {raise = true}); awful.mouse.client.move(c) end),
-        awful.button({}, 3, function() c:emit_signal("request::activate", "titlebar", {raise = true}); awful.mouse.client.resize(c) end) 
+        awful.button({}, 3, function() c:emit_signal("request::activate", "titlebar", {raise = true}); awful.mouse.client.resize(c) end)
       ),
       layout  = wibox.layout.flex.horizontal
     },
