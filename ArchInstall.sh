@@ -173,7 +173,5 @@ arch-chroot /mnt sudo -u $USERNAME bash -c "yay -S --sudoloop $AURBROWSER $AURED
 umount -R /mnt
 
 # Installation finished text hint
-echo "#######################################"
-echo "# ArchLinux installation is finished. #"
-echo "# Now you should reboot you machine.  #"
-echo "#######################################"
+echo "ArchLinux installation is finished."
+echo "Now you should reboot you machine."
