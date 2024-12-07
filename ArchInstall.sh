@@ -3,6 +3,7 @@
 # https://nobodyzxc.github.io/2019/06/06/arch-install/#more
 # https://wiki.archlinux.org/title/Installation_guide
 # https://zhuanlan.zhihu.com/p/107135290
+
 # 1. Boot by USB
 # 2. Connect to the Internet - iwctl
 # 3. curl -fsSL https://raw.githubusercontent.com/raindrop0123/dot/refs/heads/main/ArchInstall.sh > install.sh
@@ -10,7 +11,8 @@
 # 5. write you os information
 # 6. sh install.sh
 
-set -ex
+# Show execution output
+set -e
 
 # Update System Clock
 timedatectl set-ntp true
