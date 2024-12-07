@@ -46,12 +46,10 @@
   :hook (after-init . (lambda () (load-theme 'modus-vivendi t))))
 
 (use-package which-key
-  :disabled t
   :ensure nil
   :hook (after-init . which-key-mode))
 
 (use-package loaddefs
-  :disabled t
   :ensure nil
   :hook (prog-mode . global-completion-preview-mode))
 
