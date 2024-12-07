@@ -189,9 +189,7 @@ arch-chroot /mnt sudo -u $USERNAME bash -c "yay -S --sudoloop $AURBROWSER $AURED
 # arch-chroot /mnt pacman -S --noconfirm --needed base-devel
 # arch-chroot /mnt sudo -u $USERNAME bash -c "cd && git clone https://aur.archlinux.org/paru.git && cd paru && makepkg -si"
 
-# Umount all partitions
-umount -R /mnt
-
 # Installation finished text hint
 echo "ArchLinux installation is finished."
+echo "Don't forget to umount all partitions by `umount -R /mnt`"
 echo "Now you should reboot you machine."
