@@ -85,7 +85,6 @@ call plug#begin()
 Plug 'sheerun/vim-polyglot', {'on': []}
 Plug 'mhinz/vim-startify', {'on': []}
 Plug 'morhetz/gruvbox', {'on': []}
-Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim', {'on': []}
 Plug 'Yggdroot/indentLine', {'on': []}
 Plug 'wellle/context.vim', {'on': []}
