@@ -137,12 +137,12 @@ arch-chroot /mnt systemctl enable NetworkManager.service
 
 # Official Packages
 WM="awesome xorg-xinit xorg-server"
-SYSTOOL="brightnessctl xclip fastfetch udiskie polkit-kde-agent alsa-utils flatpak redshift flameshot"
+SYSTOOL="brightnessctl xclip fastfetch udiskie polkit-kde-agent alsa-utils flatpak redshift flameshot unzip"
 INPUT="ibus ibus-chewing"
 RUSTTOOL="lsd ripgrep bottom fzf fd"
 TERM="alacritty kitty wezterm xterm rxvt-unicode"
 EDITOR="gvim emacs neovim"
-GUITOOL="pcmanfm"
+GUITOOL="pcmanfm lxappearance qt5ct"
 FONT1="otf-codenewroman-nerd otf-comicshanns-nerd otf-droid-nerd otf-firamono-nerd otf-monaspace-nerd"
 FONT2="ttf-cascadia-code-nerd ttf-cascadia-mono-nerd ttf-dejavu-nerd ttf-fantasque-nerd ttf-firacode-nerd ttf-hack-nerd"
 FONT3="ttf-ibmplex-mono-nerd ttf-inconsolata-nerd ttf-iosevka-nerd ttf-jetbrains-mono-nerd"
