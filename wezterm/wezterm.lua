@@ -10,7 +10,7 @@ wezterm.on("gui-startup", function()
 	window:gui_window():maximize()
 end)
 
-config.font_size = 8.0
+config.font_size = 10.0
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.color_scheme = "Default Dark (base16)"
 config.colors = {
