@@ -143,7 +143,7 @@ WM="awesome xorg-xinit xorg-server"
 SYSTOOL="brightnessctl xclip fastfetch udiskie polkit-kde-agent alsa-utils flatpak redshift flameshot unzip"
 INPUT="ibus ibus-chewing"
 RUSTTOOL="lsd ripgrep bottom fzf fd"
-TERM="alacritty kitty wezterm xterm rxvt-unicode"
+TERM="wezterm xterm rxvt-unicode"
 EDITOR="emacs neovim"
 GUITOOL="pcmanfm lxappearance qt5ct firefox"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $WM $SYSTOOL $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL
