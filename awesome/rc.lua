@@ -135,7 +135,7 @@ do
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
   }
-  menubar.utils.terminal = "alacritty"
+  menubar.utils.terminal = "wezterm"
 
   -- {{{ Wibar }}}
   awful.screen.connect_for_each_screen(function(s)
@@ -205,7 +205,7 @@ do
   -- {{{ Keybindings }}}
   local globalkeys = gears.table.join(
     awful.key({modkey}, "space", function () awful.screen.focused().promptbox:run() end),
-    awful.key({modkey}, "Return", function () awful.spawn("alacritty") end),
+    awful.key({modkey}, "Return", function () awful.spawn("wezterm") end),
     awful.key({modkey, "Shift"}, "Return", function () awful.spawn("emacs") end),
     awful.key({modkey}, "j", function () awful.client.focus.byidx(1) end),
     awful.key({modkey}, "k", function () awful.client.focus.byidx(-1) end),
