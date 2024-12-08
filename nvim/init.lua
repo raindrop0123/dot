@@ -214,14 +214,14 @@ require("lazy").setup({
 			"LazyVim/LazyVim",
 			import = "lazyvim.plugins",
 		},
-		{
-			"LazyVim/LazyVim",
-			import = "lazyvim.plugins.extras.lang.clangd",
-		},
-		{
-			"LazyVim/LazyVim",
-			import = "lazyvim.plugins.extras.lang.python",
-		},
+		-- {
+		-- 	"LazyVim/LazyVim",
+		-- 	import = "lazyvim.plugins.extras.lang.clangd",
+		-- },
+		-- {
+		-- 	"LazyVim/LazyVim",
+		-- 	import = "lazyvim.plugins.extras.lang.python",
+		-- },
 		-- AstroNvim
 		-- {
 		-- 	"AstroNvim/AstroNvim",
