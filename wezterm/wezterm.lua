@@ -8,6 +8,7 @@ end
 config.font_size = 11.25
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.color_scheme = "Default Dark (base16)"
+config.window_background_opacity = 0.95
 config.line_height = 1.0
 config.default_cursor_style = "BlinkingBlock"
 config.animation_fps = 1
