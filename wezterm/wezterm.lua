@@ -5,12 +5,12 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-wezterm.on("gui-startup", function()
-	local tab, pane, window = wezterm.mux.spawn_window({})
-	window:gui_window():maximize()
-end)
+-- wezterm.on("gui-startup", function()
+-- 	local tab, pane, window = wezterm.mux.spawn_window({})
+-- 	window:gui_window():maximize()
+-- end)
 
-config.font_size = 10.0
+config.font_size = 11.25
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.color_scheme = "Default Dark (base16)"
 config.colors = {
