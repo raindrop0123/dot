@@ -156,23 +156,24 @@ do
     s.layoutbox = awful.widget.layoutbox(s)
 
     -- Taglist Widget
-    awful.tag({" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 ", " 0 "}, s, awful.layout.layouts[1])
-    s.taglist = awful.widget.taglist {
+    awful.tag({ " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 ", " 0 " }, s, awful.layout.layouts[1])
+    s.taglist = awful.widget.taglist({
       screen = s,
       filter = awful.widget.taglist.filter.noempty,
-    }
+    })
 
     -- Tasklist Widget
-    s.tasklist = awful.widget.tasklist {
+    s.tasklist = awful.widget.tasklist({
       screen  = s,
       filter  = awful.widget.tasklist.filter.currenttags,
-    }
+    })
 
     -- Wibox
     s.wibox = awful.wibar({
       position = "top",
       screen = s
     })
+
     s.wibox:setup({
       layout = wibox.layout.align.horizontal,
       -- Left
@@ -204,39 +205,39 @@ do
 
   -- {{{ Keybindings }}}
   local globalkeys = gears.table.join(
-    awful.key({modkey}, "space", function () awful.screen.focused().promptbox:run() end),
-    awful.key({modkey}, "Return", function () awful.spawn("wezterm") end),
-    awful.key({modkey, "Shift"}, "Return", function () awful.spawn("emacs") end),
-    awful.key({modkey}, "j", function () awful.client.focus.byidx(1) end),
-    awful.key({modkey}, "k", function () awful.client.focus.byidx(-1) end),
-    awful.key({modkey, "Shift"}, "j", function () awful.client.swap.byidx(1) end),
-    awful.key({modkey, "Shift"}, "k", function () awful.client.swap.byidx(-1) end),
-    awful.key({modkey, "Shift"}, "r", awesome.restart),
-    awful.key({modkey, "Shift"}, "e", awesome.quit),
-    awful.key({modkey}, "l", function () awful.tag.incmwfact(0.05) end),
-    awful.key({modkey}, "h", function () awful.tag.incmwfact(-0.05) end),
-    awful.key({modkey}, "Tab", function () awful.layout.inc(1) end),
-    awful.key({modkey, "Shift"}, "Tab", function () awful.layout.inc(-1) end),
-    awful.key({modkey}, "#10", function() local screen = awful.screen.focused(); local tag = screen.tags[1]; if tag then tag:view_only() end; end),
-    awful.key({modkey}, "#11", function() local screen = awful.screen.focused(); local tag = screen.tags[2]; if tag then tag:view_only() end; end),
-    awful.key({modkey}, "#12", function() local screen = awful.screen.focused(); local tag = screen.tags[3]; if tag then tag:view_only() end; end),
-    awful.key({modkey}, "#13", function() local screen = awful.screen.focused(); local tag = screen.tags[4]; if tag then tag:view_only() end; end),
-    awful.key({modkey}, "#14", function() local screen = awful.screen.focused(); local tag = screen.tags[5]; if tag then tag:view_only() end; end),
-    awful.key({modkey}, "#15", function() local screen = awful.screen.focused(); local tag = screen.tags[6]; if tag then tag:view_only() end; end),
-    awful.key({modkey}, "#16", function() local screen = awful.screen.focused(); local tag = screen.tags[7]; if tag then tag:view_only() end; end),
-    awful.key({modkey}, "#17", function() local screen = awful.screen.focused(); local tag = screen.tags[8]; if tag then tag:view_only() end; end),
-    awful.key({modkey}, "#18", function() local screen = awful.screen.focused(); local tag = screen.tags[9]; if tag then tag:view_only() end; end),
-    awful.key({modkey}, "#19", function() local screen = awful.screen.focused(); local tag = screen.tags[10]; if tag then tag:view_only() end; end),
-    awful.key({modkey, "Shift"}, "#10", function() if client.focus then local tag = client.focus.screen.tags[1]; if tag then client.focus:move_to_tag(tag) end end end),
-    awful.key({modkey, "Shift"}, "#11", function() if client.focus then local tag = client.focus.screen.tags[2]; if tag then client.focus:move_to_tag(tag) end end end),
-    awful.key({modkey, "Shift"}, "#12", function() if client.focus then local tag = client.focus.screen.tags[3]; if tag then client.focus:move_to_tag(tag) end end end),
-    awful.key({modkey, "Shift"}, "#13", function() if client.focus then local tag = client.focus.screen.tags[4]; if tag then client.focus:move_to_tag(tag) end end end),
-    awful.key({modkey, "Shift"}, "#14", function() if client.focus then local tag = client.focus.screen.tags[5]; if tag then client.focus:move_to_tag(tag) end end end),
-    awful.key({modkey, "Shift"}, "#15", function() if client.focus then local tag = client.focus.screen.tags[6]; if tag then client.focus:move_to_tag(tag) end end end),
-    awful.key({modkey, "Shift"}, "#16", function() if client.focus then local tag = client.focus.screen.tags[7]; if tag then client.focus:move_to_tag(tag) end end end),
-    awful.key({modkey, "Shift"}, "#17", function() if client.focus then local tag = client.focus.screen.tags[8]; if tag then client.focus:move_to_tag(tag) end end end),
-    awful.key({modkey, "Shift"}, "#18", function() if client.focus then local tag = client.focus.screen.tags[9]; if tag then client.focus:move_to_tag(tag) end end end),
-    awful.key({modkey, "Shift"}, "#19", function() if client.focus then local tag = client.focus.screen.tags[10]; if tag then client.focus:move_to_tag(tag) end end end),
+    awful.key({ modkey }, "space", function () awful.screen.focused().promptbox:run() end),
+    awful.key({ modkey }, "Return", function () awful.spawn("wezterm") end),
+    awful.key({ modkey, "Shift" }, "Return", function () awful.spawn("emacs") end),
+    awful.key({ modkey }, "j", function () awful.client.focus.byidx(1) end),
+    awful.key({ modkey }, "k", function () awful.client.focus.byidx(-1) end),
+    awful.key({ modkey, "Shift" }, "j", function () awful.client.swap.byidx(1) end),
+    awful.key({ modkey, "Shift" }, "k", function () awful.client.swap.byidx(-1) end),
+    awful.key({ modkey, "Shift" }, "r", awesome.restart),
+    awful.key({ modkey, "Shift" }, "e", awesome.quit),
+    awful.key({ modkey }, "l", function () awful.tag.incmwfact(0.05) end),
+    awful.key({ modkey }, "h", function () awful.tag.incmwfact(-0.05) end),
+    awful.key({ modkey }, "Tab", function () awful.layout.inc(1) end),
+    awful.key({ modkey, "Shift" }, "Tab", function () awful.layout.inc(-1) end),
+    awful.key({ modkey }, "#10", function() local screen = awful.screen.focused(); local tag = screen.tags[1]; if tag then tag:view_only() end; end),
+    awful.key({ modkey }, "#11", function() local screen = awful.screen.focused(); local tag = screen.tags[2]; if tag then tag:view_only() end; end),
+    awful.key({ modkey }, "#12", function() local screen = awful.screen.focused(); local tag = screen.tags[3]; if tag then tag:view_only() end; end),
+    awful.key({ modkey }, "#13", function() local screen = awful.screen.focused(); local tag = screen.tags[4]; if tag then tag:view_only() end; end),
+    awful.key({ modkey }, "#14", function() local screen = awful.screen.focused(); local tag = screen.tags[5]; if tag then tag:view_only() end; end),
+    awful.key({ modkey }, "#15", function() local screen = awful.screen.focused(); local tag = screen.tags[6]; if tag then tag:view_only() end; end),
+    awful.key({ modkey }, "#16", function() local screen = awful.screen.focused(); local tag = screen.tags[7]; if tag then tag:view_only() end; end),
+    awful.key({ modkey }, "#17", function() local screen = awful.screen.focused(); local tag = screen.tags[8]; if tag then tag:view_only() end; end),
+    awful.key({ modkey }, "#18", function() local screen = awful.screen.focused(); local tag = screen.tags[9]; if tag then tag:view_only() end; end),
+    awful.key({ modkey }, "#19", function() local screen = awful.screen.focused(); local tag = screen.tags[10]; if tag then tag:view_only() end; end),
+    awful.key({ modkey, "Shift" }, "#10", function() if client.focus then local tag = client.focus.screen.tags[1]; if tag then client.focus:move_to_tag(tag) end end end),
+    awful.key({ modkey, "Shift" }, "#11", function() if client.focus then local tag = client.focus.screen.tags[2]; if tag then client.focus:move_to_tag(tag) end end end),
+    awful.key({ modkey, "Shift" }, "#12", function() if client.focus then local tag = client.focus.screen.tags[3]; if tag then client.focus:move_to_tag(tag) end end end),
+    awful.key({ modkey, "Shift" }, "#13", function() if client.focus then local tag = client.focus.screen.tags[4]; if tag then client.focus:move_to_tag(tag) end end end),
+    awful.key({ modkey, "Shift" }, "#14", function() if client.focus then local tag = client.focus.screen.tags[5]; if tag then client.focus:move_to_tag(tag) end end end),
+    awful.key({ modkey, "Shift" }, "#15", function() if client.focus then local tag = client.focus.screen.tags[6]; if tag then client.focus:move_to_tag(tag) end end end),
+    awful.key({ modkey, "Shift" }, "#16", function() if client.focus then local tag = client.focus.screen.tags[7]; if tag then client.focus:move_to_tag(tag) end end end),
+    awful.key({ modkey, "Shift" }, "#17", function() if client.focus then local tag = client.focus.screen.tags[8]; if tag then client.focus:move_to_tag(tag) end end end),
+    awful.key({ modkey, "Shift" }, "#18", function() if client.focus then local tag = client.focus.screen.tags[9]; if tag then client.focus:move_to_tag(tag) end end end),
+    awful.key({ modkey, "Shift" }, "#19", function() if client.focus then local tag = client.focus.screen.tags[10]; if tag then client.focus:move_to_tag(tag) end end end),
     awful.key({}, "XF86MonBrightnessUp", function() awful.util.spawn("brightnessctl s +5%") end),
     awful.key({}, "XF86MonBrightnessDown", function() awful.util.spawn("brightnessctl s 5%-") end),
     awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer sset Master 5%+") end),
@@ -256,8 +257,8 @@ do
         focus = awful.client.focus.filter,
         raise = true,
         keys = gears.table.join(
-          awful.key({modkey}, "f", function(c) c.fullscreen = not c.fullscreen; c:raise() end),
-          awful.key({modkey, "Shift"}, "q", function (c) c:kill() end)
+          awful.key({ modkey }, "f", function(c) c.fullscreen = not c.fullscreen; c:raise() end),
+          awful.key({ modkey, "Shift" }, "q", function (c) c:kill() end)
         ),
         screen = awful.screen.preferred,
         placement = awful.placement.no_overlap+awful.placement.no_offscreen
@@ -266,32 +267,32 @@ do
     -- Floating clients.
     {
       rule_any = {
-        instance = {"DTA", "copyq", "pinentry"},
-        class = {"Arandr", "Blueman-manager", "Gpick", "Kruler", "MessageWin", "Sxiv", "Tor Browser", "Wpa_gui", "veromix", "xtightvncviewer"},
-        name = {"Event Tester"},
-        role = {"AlarmWindow", "ConfigManager", "pop-up"}
+        instance = { "DTA", "copyq", "pinentry" },
+        class = { "Arandr", "Blueman-manager", "Gpick", "Kruler", "MessageWin", "Sxiv", "Tor Browser", "Wpa_gui", "veromix", "xtightvncviewer" },
+        name = { "Event Tester" },
+        role = { "AlarmWindow", "ConfigManager", "pop-up" },
       },
-      properties = {floating = true}
+      properties = { floating = true }
     },
     -- Add titlebars to normal clients and dialogs
     {
       rule_any = {
-        type = {"normal", "dialog"}
+        type = { "normal", "dialog" }
       },
-      properties = {titlebars_enabled = true}
+      properties = { titlebars_enabled = true }
     },
   }
 
   -- {{{ Signal }}}
   client.connect_signal("manage", function(c) if awesome.startup and not c.size_hints.user_position and not c.size_hints.program_position then awful.placement.no_offscreen(c) end end)
   client.connect_signal("request::titlebars", function(c)
-    awful.titlebar(c, {size=16}):setup({
+    awful.titlebar(c, { size=16 }):setup({
       -- Left
       {
         awful.titlebar.widget.iconwidget(c),
         buttons = gears.table.join(
-          awful.button({}, 1, function() c:emit_signal("request::activate", "titlebar", {raise = true}); awful.mouse.client.move(c) end),
-          awful.button({}, 3, function() c:emit_signal("request::activate", "titlebar", {raise = true}); awful.mouse.client.resize(c) end)
+          awful.button({}, 1, function() c:emit_signal("request::activate", "titlebar", { raise = true }); awful.mouse.client.move(c) end),
+          awful.button({}, 3, function() c:emit_signal("request::activate", "titlebar", { raise = true }); awful.mouse.client.resize(c) end)
         ),
         layout  = wibox.layout.fixed.horizontal
       },
@@ -302,8 +303,8 @@ do
           widget = awful.titlebar.widget.titlewidget(c)
         },
         buttons = gears.table.join(
-          awful.button({}, 1, function() c:emit_signal("request::activate", "titlebar", {raise = true}); awful.mouse.client.move(c) end),
-          awful.button({}, 3, function() c:emit_signal("request::activate", "titlebar", {raise = true}); awful.mouse.client.resize(c) end)
+          awful.button({}, 1, function() c:emit_signal("request::activate", "titlebar", { raise = true }); awful.mouse.client.move(c) end),
+          awful.button({}, 3, function() c:emit_signal("request::activate", "titlebar", { raise = true }); awful.mouse.client.resize(c) end)
         ),
         layout  = wibox.layout.flex.horizontal
       },
@@ -319,7 +320,7 @@ do
       layout = wibox.layout.align.horizontal
     })
   end)
-  client.connect_signal("mouse::enter", function(c) c:emit_signal("request::activate", "mouse_enter", {raise = false}) end)
+  client.connect_signal("mouse::enter", function(c) c:emit_signal("request::activate", "mouse_enter", { raise = false }) end)
   client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
   client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
