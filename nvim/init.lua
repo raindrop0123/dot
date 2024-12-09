@@ -235,6 +235,10 @@ require("lazy").setup({
       import = "lazyvim.plugins.extras.editor.navic",
     },
     {
+			"LazyVim/LazyVim",
+			import = "lazyvim.plugins.extras.editor.outline",
+		},
+    {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins.extras.coding.luasnip",
     },
