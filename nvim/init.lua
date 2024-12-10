@@ -138,7 +138,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
   end,
 })
 
--- {{{ Bootstrap lazy.nvim }}}
+-- {{{ lazy.nvim }}}
 if not vim.loop.fs_stat(vim.fn.stdpath("data") .. "/lazy/lazy.nvim") then
   vim.fn.system({
     "git",
@@ -150,8 +150,6 @@ if not vim.loop.fs_stat(vim.fn.stdpath("data") .. "/lazy/lazy.nvim") then
   })
 end
 vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/lazy.nvim")
-
--- {{{ lazy.nvim setup }}}
 require("lazy").setup({
   default = {
     lazy = true,
