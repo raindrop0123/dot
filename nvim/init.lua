@@ -1,4 +1,4 @@
--- {{{ Reference }}}
+-- {{{ REFERENCE }}}
 -- https://github.com/boltlessengineer/NativeVim
 -- https://github.com/HCY-ASLEEP/NVIM-Config
 -- https://github.com/LazyVim/LazyVim
@@ -7,7 +7,7 @@
 -- https://github.com/ayamir/nvimdots
 -- https://github.com/nvim-lua/kickstart.nvim
 
--- {{{ Options }}}
+-- {{{ OPTIONS }}}
 vim.opt.clipboard = "unnamedplus,unnamed"
 vim.opt.colorcolumn = "80"
 vim.opt.cursorcolumn = true
@@ -36,7 +36,7 @@ vim.opt.undofile = false
 vim.opt.background = "dark"
 -- vim.cmd.colorscheme("habamax")
 
--- {{{ Keybinding }}}
+-- {{{ KEYBINDING }}}
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.api.nvim_set_keymap("n", "<leader>CR", "<cmd>source $MYVIMRC<cr>", { desc = "Config: Reload" })
@@ -45,7 +45,7 @@ vim.api.nvim_set_keymap("i", "jk", "<esc>", { desc = "Back to Normal Mode" })
 vim.api.nvim_set_keymap("v", "jk", "<esc>", { desc = "Stop Visual Mode" })
 vim.api.nvim_set_keymap("c", "jk", "<c-c>", { desc = "Stop Input Commands" })
 
--- {{{ AutoCMD }}}
+-- {{{ AUTOCMD }}}
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("HighlightYank", { clear = true }),
   callback = function()
@@ -138,7 +138,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
   end,
 })
 
--- {{{ lazy.nvim }}}
+-- {{{ LAZY.NVIM }}}
 if not vim.loop.fs_stat(vim.fn.stdpath("data") .. "/lazy/lazy.nvim") then
   vim.fn.system({
     "git",
