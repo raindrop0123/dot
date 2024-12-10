@@ -110,7 +110,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.spell = true
   end,
 })
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+vim.api.nvim_create_autocmd("BufWritePre", {
   group = vim.api.nvim_create_augroup("AutoCreateDirWhenSaveFile", { clear = true }),
   callback = function(event)
     if event.match:match("^%w%w+:[\\/][\\/]") then
