@@ -7,7 +7,7 @@
 -- https://github.com/ayamir/nvimdots
 -- https://github.com/nvim-lua/kickstart.nvim
 
--- {{{ OPTIONS }}}
+-- {{{ OPTION }}}
 vim.opt.clipboard = "unnamedplus,unnamed"
 vim.opt.colorcolumn = "80"
 vim.opt.cursorcolumn = true
