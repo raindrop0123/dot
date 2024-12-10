@@ -5,6 +5,7 @@
 -- https://github.com/AstroNvim/AstroNvim
 -- https://github.com/NvChad/NvChad
 -- https://github.com/ayamir/nvimdots
+-- https://github.com/nvim-lua/kickstart.nvim
 
 -- {{{ Options }}}
 vim.opt.clipboard = "unnamedplus,unnamed"
