@@ -16,7 +16,7 @@ elseif wezterm.target_triple == "aarch64-apple-darwin" then
   config.default_prog = { "zsh", "-l" }
   config.window_background_opacity = 0.95
 elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
-  config.font_size = 10.00
+  config.font_size = 11.00
   config.font = wezterm.font("JetBrainsMono Nerd Font")
   config.default_prog = { "bash", "-l" }
   config.window_background_opacity = 1.00
