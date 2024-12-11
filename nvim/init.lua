@@ -7,6 +7,10 @@
 -- https://github.com/ayamir/nvimdots
 -- https://github.com/nvim-lua/kickstart.nvim
 
+-- {{{ LazyVim Setup }}}
+vim.b.autoformat = false
+vim.g.lazyvim_python_lsp = "basedpyright"
+
 -- {{{ OPTION }}}
 vim.opt.clipboard = "unnamedplus,unnamed"
 vim.opt.colorcolumn = "80"
@@ -238,19 +242,13 @@ require("lazy").setup({
       import = "lazyvim.plugins.extras.editor.navic",
     },
     {
-			"LazyVim/LazyVim",
-			import = "lazyvim.plugins.extras.editor.outline",
-		},
+      "LazyVim/LazyVim",
+      import = "lazyvim.plugins.extras.editor.outline",
+    },
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins.extras.coding.luasnip",
     },
-    -- AstroNvim
-    -- {
-    -- 	"AstroNvim/AstroNvim",
-    -- 	version = "^4",
-    -- 	import = "astronvim.plugins",
-    -- },
   },
   local_spec = true,
   profiling = {
