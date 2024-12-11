@@ -1,7 +1,7 @@
--- {{{ LuaRocks }}}
+-- {{{ LUAROCKS }}} --
 pcall(require, "luarocks.loader")
 
--- {{{ Standard awesome library }}}
+-- {{{ AWESOME LIBRARY }}} --
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
@@ -17,7 +17,7 @@ local theme_assets = require("beautiful.theme_assets")
 local get_themes_dir = filesystem.get_themes_dir()
 local dpi = xresources.apply_dpi
 
--- {{{ Error handling }}}
+-- {{{ ERROR HANDLING }}} --
 if awesome.startup_errors then
   naughty.notify({
     preset = naughty.config.presets.critical,
@@ -41,7 +41,7 @@ do
     end)
 end
 
--- {{{ Theme }}}
+-- {{{ THEME }}} --
 beautiful.init({
   font = "JetBrainsMono Nerd Font 10",
   bg_normal = "#222222",
@@ -116,7 +116,7 @@ beautiful.init({
   icon_theme = nil,
 })
 
--- {{{ Variable Definitions }}}
+-- {{{ VARIABLE DEFINITION }}} --
 local modkey = "Mod4"
 awful.layout.layouts = {
   awful.layout.suit.tile,
@@ -138,7 +138,7 @@ awful.layout.layouts = {
 }
 menubar.utils.terminal = "wezterm"
 
--- {{{ Wibar }}}
+-- {{{ WIBAR }}} --
 awful.screen.connect_for_each_screen(function(s)
   -- Wallpaper
   if beautiful.wallpaper then
@@ -206,7 +206,7 @@ awful.screen.connect_for_each_screen(function(s)
   })
 end)
 
--- {{{ Keybindings }}}
+-- {{{ KEYBINDING }}} --
 local globalkeys = gears.table.join(
   awful.key({ modkey }, "space", function()
     awful.screen.focused().promptbox:run()
@@ -401,7 +401,7 @@ local globalkeys = gears.table.join(
 )
 root.keys(globalkeys)
 
--- {{{ Rules }}}
+-- {{{ RULE }}} --
 awful.rules.rules = {
   -- All clients will match this rule.
   {
@@ -443,7 +443,7 @@ awful.rules.rules = {
   },
 }
 
--- {{{ Signal }}}
+-- {{{ SIGNAL }}} --
 client.connect_signal("manage", function(c)
   if awesome.startup and not c.size_hints.user_position and not c.size_hints.program_position then
     awful.placement.no_offscreen(c)
@@ -506,7 +506,7 @@ client.connect_signal("unfocus", function(c)
   c.border_color = beautiful.border_normal
 end)
 
--- {{{ Auto Start }}}
+-- {{{ AUTOSTART }}} --
 local application = {
   "xclip",
   "nm-applet",
@@ -522,7 +522,7 @@ for _, app in ipairs(application) do
   awful.spawn.with_shell(app)
 end
 
--- {{{ Garbage Collection }}}
+-- {{{ GARBAGE COLLECTION }}} --
 collectgarbage("setpause", 110)
 collectgarbage("setstepmul", 1000)
 gears.timer({
