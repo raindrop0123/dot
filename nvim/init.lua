@@ -7,7 +7,7 @@
 -- https://github.com/ayamir/nvimdots
 -- https://github.com/nvim-lua/kickstart.nvim
 
--- {{{ LazyVim Setup }}} --
+-- {{{ LAZYVIM SETTING }}} --
 vim.b.autoformat = false
 vim.g.lazyvim_python_lsp = "basedpyright"
 
