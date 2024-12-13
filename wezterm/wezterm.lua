@@ -11,7 +11,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   config.default_prog = { "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" }
   config.window_background_opacity = 0.95
 elseif wezterm.target_triple == "aarch64-apple-darwin" then
-  config.font_size = 12.50
+  config.font_size = 13.00
   config.font = wezterm.font("JetBrains Mono")
   config.default_prog = { "zsh", "-l" }
   config.window_background_opacity = 0.95
