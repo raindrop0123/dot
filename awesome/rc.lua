@@ -450,7 +450,7 @@ client.connect_signal("manage", function(c)
   end
 end)
 client.connect_signal("request::titlebars", function(c)
-  awful.titlebar(c, { size=16 }):setup({
+  awful.titlebar(c, { size = 16 }):setup({
     -- Left
     {
       awful.titlebar.widget.iconwidget(c),
