@@ -14,7 +14,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(let* ((minimum-version "31.0"))
+(let* ((minimum-version "30.0"))
   (when (version< emacs-version minimum-version)
     (error "Emacs v%s or higher is required" minimum-version)))
 
