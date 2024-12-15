@@ -10,6 +10,7 @@
 ;; https://github.com/MiniApollo/kickstart.emacs
 ;; https://github.com/SystemCrafters/crafted-emacs
 ;; https://github.com/jamescherti/minimal-emacs.d
+;; https://github.com/LionyxML/emacs-kick
 
 ;;; Commentary:
 ;;; Code:
