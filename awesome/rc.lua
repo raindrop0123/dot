@@ -512,7 +512,7 @@ local application = {
   "nm-applet",
   "blueman-applet",
   "flameshot",
-  "udiskie",
+  "udiskie --tray",
   "/usr/lib/polkit-kde-authentication-agent-1",
   "xrdb -merge ~/.Xresources",
   "ibus-daemon -drxR",
