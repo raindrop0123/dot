@@ -1,23 +1,23 @@
 {
-    // @PATH:
+    // {{{ CONFIGURATION PATH }}}
     //    Linux: ~/.config/Code/User/
     //    macOS: ~/Library/Application Support/Code/User/
     //    Windows: %AppData%\Code\User
-    // @REFERENCE:
+    // {{{ REFERENCE }}}
     //    https://github.com/mydearxym/vscode-backup
     //    https://zhuanlan.zhihu.com/p/73561114
     //    https://vspacecode.github.io/
     //    https://zhuanlan.zhihu.com/p/302568011
     //    https://github.com/VSCodeVim/Vim
     //    https://vspacecode.github.io/docs/default-keybindings#file
-    // @BUILTIN:
+    // {{{ BUILTIN }}}
     "editor.cursorStyle": "block",
-    "editor.fontFamily": "Menlo, Monaco, Consolas, 'Courier New', monospace",
-    "editor.fontSize": 15,
+    "editor.fontFamily": "Monaco, Menlo, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
+    "editor.fontSize": 13,
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": true,
     "editor.guides.highlightActiveIndentation": true,
-    "editor.lineHeight": 1.618,
+    "editor.lineHeight": 0,
     "editor.lineNumbers": "relative",
     "editor.renderWhitespace": "all",
     "editor.minimap.enabled": false,
@@ -28,21 +28,22 @@
     "editor.tabSize": 2,
     "search.showLineNumbers": true,
     "search.smartCase": true,
-    "terminal.integrated.fontFamily": "Menlo, Monaco, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
+    "terminal.integrated.fontFamily": "Monaco, Menlo, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
     "terminal.integrated.fontSize": 13,
-    "window.zoomLevel": -1.618,
-    "workbench.colorTheme": "Solarized Dark",
+    "terminal.integrated.minimumContrastRatio": 1,
+    "window.zoomLevel": -0.5,
+    "window.titleBarStyle": "custom",
     "workbench.startupEditor": "none",
-    "workbench.activityBar.location": "top",
+    "workbench.activityBar.location": "bottom",
     "workbench.colorCustomizations": {
-        "statusBar.background": "#571b26",
-        "statusBar.noFolderBackground": "#571b26",
-        "statusBar.debuggingBackground": "#571b26",
-        "statusBar.foreground": "#ffffff",
-        "statusBar.debuggingForeground": "#ffffff"
+        "statusBar.background": "#cba6f7",
+        "statusBar.noFolderBackground": "#cba6f7",
+        "statusBar.debuggingBackground": "#cba6f7",
+        "statusBar.foreground": "#11111b",
+        "statusBar.debuggingForeground": "#11111b"
     },
     "workbench.panel.showLabels": false,
-    // @PLUGIN: VIM
+    // {{{ PLUGIN: VIM }}}
     "extensions.experimental.affinity": {
         "vscodevim.vim": 1
     },
@@ -62,8 +63,8 @@
     },
     "vim.highlightedyank.enable": true,
     "vim.highlightedyank.duration": 2000,
-    "vim.highlightedyank.color": "#d33682",
-    "vim.highlightedyank.textColor": "#ffffff",
+    "vim.highlightedyank.color": "#f38ba8",
+    "vim.highlightedyank.textColor": "#11111b",
     "vim.hlsearch": true,
     "vim.incsearch": true,
     "vim.insertModeKeyBindings": [
@@ -118,12 +119,12 @@
             ]
         },
     ],
-    "vim.searchHighlightColor": "#d33682",
-    "vim.searchHighlightTextColor": "#ffffff",
-    "vim.searchMatchColor": "#047aa6",
-    "vim.searchMatchTextColor": "#ffffff",
-    "vim.substitutionColor": "#b58900",
-    "vim.substitutionTextColor": "#ffffff",
+    "vim.searchHighlightColor": "#a6e3a1",
+    "vim.searchHighlightTextColor": "#11111b",
+    "vim.searchMatchColor": "#89b4fa",
+    "vim.searchMatchTextColor": "#11111b",
+    "vim.substitutionColor": "#cba6f7",
+    "vim.substitutionTextColor": "#11111b",
     "vim.showMarksInGutter": true,
     "vim.smartRelativeLine": true,
     "vim.sneak": true,
@@ -138,47 +139,71 @@
     "vim.whichwrap": "b,s",
     "vim.statusBarColorControl": true,
     "vim.statusBarColors.normal": [
-        "#047aa6",
-        "#ffffff"
+        "#11111b",
+        "#cdd6f4"
     ],
     "vim.statusBarColors.insert": [
-        "#d33682",
-        "#ffffff"
+        "#f38ba8",
+        "#11111b"
     ],
     "vim.statusBarColors.visual": [
-        "#571b26",
-        "#ffffff"
+        "#cba6f7",
+        "#11111b"
     ],
     "vim.statusBarColors.visualline": [
-        "#571b26",
-        "#ffffff"
+        "#cba6f7",
+        "#11111b"
     ],
     "vim.statusBarColors.visualblock": [
-        "#571b26",
-        "#ffffff"
+        "#cba6f7",
+        "#11111b"
     ],
     "vim.statusBarColors.replace": [
-        "#b58900",
-        "#ffffff"
+        "#f9e2af",
+        "#11111b"
     ],
     "vim.statusBarColors.commandlineinprogress": [
-        "#003847",
-        "#ffffff"
+        "#89b4fa",
+        "#11111b"
     ],
     "vim.statusBarColors.searchinprogressmode": [
-        "#003847",
-        "#ffffff"
+        "#eba0ac",
+        "#11111b"
     ],
     "vim.statusBarColors.easymotionmode": [
-        "#003847",
-        "#ffffff"
+        "#f5c2e7",
+        "#11111b"
     ],
     "vim.statusBarColors.easymotioninputmode": [
-        "#003847",
-        "#ffffff"
+        "#f5c2e7",
+        "#11111b"
     ],
     "vim.statusBarColors.surroundinputmode": [
-        "#003847",
-        "#ffffff"
+        "#f5c2e7",
+        "#11111b"
     ],
+    // {{{ PLUGIN: Catppuccin }}}
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "catppuccin.accentColor": "blue",
+    "catppuccin.colorOverrides": {
+        "mocha": {
+            "text": "#ffffff",
+            "base": "#11111b",
+            "mantle": "#11111b",
+            "crust": "#11111b",
+        },
+    },
+    "catppuccin.customUIColors": {
+        "mocha": {
+            "editorLineNumber.activeForeground": "green",
+            "editorCursor.foreground": "rosewater",
+            "commandCenter.border": "blue",
+            "widget.border": "blue",
+        },
+    },
+    // {{{ PLUGIN: Catppuccin Icons }}}
+    "workbench.iconTheme": "catppuccin-mocha",
+    "catppuccin-icons.hidesExplorerArrows": false,
+    "catppuccin-icons.specificFolders": true,
+    "catppuccin-icons.monochrome": false,
 }
