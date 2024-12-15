@@ -11,6 +11,7 @@
 ;; https://github.com/SystemCrafters/crafted-emacs
 ;; https://github.com/jamescherti/minimal-emacs.d
 ;; https://github.com/LionyxML/emacs-kick
+;; https://protesilaos.com/codelog/2024-11-28-basic-emacs-configuration/
 
 ;;; Commentary:
 ;;; Code:
