@@ -139,11 +139,11 @@ arch-chroot /mnt systemctl enable dhcpcd.service
 
 # OFFICIAL PACKAGE
 WM="awesome xorg-xinit xorg-server"
-SYSTOOL="brightnessctl xclip fastfetch udiskie polkit-kde-agent alsa-utils flatpak redshift flameshot unzip"
+SYSTOOL="brightnessctl xclip fastfetch udiskie polkit-kde-agent alsa-utils flatpak redshift flameshot unzip p7zip"
 INPUT="ibus ibus-chewing"
-RUSTTOOL="lsd ripgrep bottom fzf fd"
+RUSTTOOL="lsd ripgrep bottom fzf fd bat"
 TERM="wezterm xterm rxvt-unicode"
-EDITOR="emacs neovim"
+EDITOR="emacs neovim gvim"
 GUITOOL="pcmanfm lxappearance qt5ct firefox"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $WM $SYSTOOL $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL
 ADOBE1="adobe-source-code-pro-fonts	adobe-source-han-sans-cn-fonts adobe-source-han-sans-hk-fonts adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts"
