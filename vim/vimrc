@@ -45,8 +45,8 @@ set notermguicolors
 set background=dark
 
 """ KEYBINDING """
-let mapleader=' '
-let maplocalleader='\'
+let mapleader='\'
+let maplocalleader=' '
 nnoremap <leader>CE <cmd>edit $MYVIMRC<cr>
 nnoremap <leader>CR <cmd>source $MYVIMRC<cr>
 inoremap jk <esc>
@@ -82,16 +82,24 @@ endif
 autocmd BufWinEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) > 0 | PlugInstall --sync | source $MYVIMRC | endif
 call plug#begin()
   Plug 'morhetz/gruvbox', { 'on': [] }
+  Plug 'andymass/vim-matchup', { 'on': [] }
   Plug 'LunarWatcher/auto-pairs', { 'on': [] }
   Plug 'luochen1990/rainbow', { 'on': [] }
   Plug 'tpope/vim-commentary', { 'on': [] }
   Plug 'machakann/vim-highlightedyank', { 'on': [] }
+  Plug 'junegunn/fzf', { 'do': { ->fzf#install() } }
+  Plug 'junegunn/fzf.vim', { 'on': ['Files', 'Buffers', 'Colors', 'Lines', 'BLines', 'History', 'Commands'] }
 call plug#end()
 augroup Gruvbox
   autocmd!
   autocmd BufReadPost * call plug#load('gruvbox')
         \| autocmd! Gruvbox
         \| colorscheme gruvbox
+augroup END
+augroup VimMatchUp
+  autocmd!
+  autocmd BufReadPost * call plug#load('vim-matchup')
+        \| autocmd! VimMatchUp
 augroup END
 augroup AutoPairs
   autocmd!
@@ -116,3 +124,9 @@ augroup VimHighlightedYank
         \| autocmd! VimHighlightedYank
         \| let g:highlightedyank_highlight_duration=2400
 augroup END
+let g:fzf_layout={ 'down': '25%' }
+nnoremap <c-x><c-f> <cmd>Files<cr>
+nnoremap <c-x><c-b> <cmd>Buffers<cr>
+nnoremap <c-s> <cmd>BLines<cr>
+nnoremap <c-x><c-r> <cmd>History<cr>
+nnoremap <leader><leader> <cmd>Commands<cr>
