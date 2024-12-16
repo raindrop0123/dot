@@ -225,10 +225,10 @@ require("lazy").setup({
       "LazyVim/LazyVim",
       import = "lazyvim.plugins.extras.lang.python",
     },
-    -- {
-    --   "LazyVim/LazyVim",
-    --   import = "lazyvim.plugins.extras.lang.r",
-    -- },
+    {
+      "LazyVim/LazyVim",
+      import = "lazyvim.plugins.extras.lang.r",
+    },
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins.extras.editor.fzf",
