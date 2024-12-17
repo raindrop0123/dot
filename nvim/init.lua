@@ -231,10 +231,6 @@ require("lazy").setup({
     },
     {
       "LazyVim/LazyVim",
-      import = "lazyvim.plugins.extras.editor.fzf",
-    },
-    {
-      "LazyVim/LazyVim",
       import = "lazyvim.plugins.extras.editor.illuminate",
     },
     {
@@ -244,10 +240,6 @@ require("lazy").setup({
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins.extras.editor.outline",
-    },
-    {
-      "LazyVim/LazyVim",
-      import = "lazyvim.plugins.extras.coding.luasnip",
     },
   },
   local_spec = true,
