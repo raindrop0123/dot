@@ -26,7 +26,7 @@ window_effects:
   focused_window:
     border:
       enabled: true
-      color: '#8dbcff'
+      color: '#005577'
     hide_title_bar:
       enabled: false
     corner_style:
@@ -35,12 +35,12 @@ window_effects:
   other_windows:
     border:
       enabled: true
-      color: '#a1a1a1'
+      color: '#222222'
     hide_title_bar:
       enabled: false
     corner_style:
       enabled: false
-      style: 'square'
+      style: 'rounded'
 
 window_behavior:
   initial_state: 'tiling'
