@@ -1,31 +1,46 @@
-### %userprofile%/.glzr/glazewm/config.yaml ###
 general:
-  startup_commands: []
-  shutdown_commands: []
-  config_reload_commands: []
-  focus_follows_cursor: true
+  startup_commands: ['shell-exec zebar']
+  shutdown_commands: ['shell-exec taskkill /IM zebar.exe /F']
+  config_reload_commands: [
+    'shell-exec taskkill /IM zebar.exe /F',
+    'shell-exec zebar'
+  ]
+  focus_follows_cursor: false
   toggle_workspace_on_refocus: false
   cursor_jump:
     enabled: true
     trigger: 'monitor_focus'
+  hide_method: 'cloak'
+  show_all_in_taskbar: false
 
 gaps:
-  inner_gap: '1px'
+  scale_with_dpi: true
+  inner_gap: '4px'
   outer_gap:
-    top: '1px'
-    right: '1px'
-    bottom: '1px'
-    left: '1px'
+    top: '32px'
+    right: '4px'
+    bottom: '4px'
+    left: '4px'
 
 window_effects:
   focused_window:
     border:
       enabled: true
-      color: '#0078d7'
+      color: '#8dbcff'
+    hide_title_bar:
+      enabled: false
+    corner_style:
+      enabled: false
+      style: 'rounded'
   other_windows:
     border:
       enabled: true
-      color: '#000000'
+      color: '#a1a1a1'
+    hide_title_bar:
+      enabled: false
+    corner_style:
+      enabled: false
+      style: 'square'
 
 window_behavior:
   initial_state: 'tiling'
@@ -57,8 +72,10 @@ window_rules:
         window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
       - window_process: { equals: 'PowerToys' }
         window_class: { regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]' }
+      - window_process: { equals: 'PowerToys' }
+        window_title: { regex: '.*? - Peek' }
       - window_process: { equals: 'Lively' }
-        window_class: { regex: 'HwndWrapper*' }
+        window_class: { regex: 'HwndWrapper' }
 
 binding_modes:
   - name: 'resize'
@@ -73,10 +90,6 @@ binding_modes:
         bindings: ['j', 'down']
       - commands: ['wm-disable-binding-mode --name resize']
         bindings: ['escape', 'enter']
-  - name: 'pause'
-    keybindings:
-      - commands: ['wm-disable-binding-mode --name pause']
-        bindings: ['alt+shift+p']
 
 keybindings:
   - commands: ['focus --direction left']
@@ -97,14 +110,12 @@ keybindings:
     bindings: ['alt+shift+j']
   - commands: ['wm-enable-binding-mode --name resize']
     bindings: ['alt+r']
-  - commands: ['wm-enable-binding-mode --name pause']
+  - commands: ['wm-toggle-pause']
     bindings: ['alt+shift+p']
   - commands: ['toggle-tiling-direction']
     bindings: ['alt+shift+v']
   - commands: ['toggle-fullscreen']
     bindings: ['alt+f']
-  - commands: ['toggle-floating']
-    bindings: ['alt+shift+f']
   - commands: ['close']
     bindings: ['alt+shift+q']
   - commands: ['wm-exit']
@@ -135,23 +146,23 @@ keybindings:
     bindings: ['alt+9']
   - commands: ['focus --workspace 10']
     bindings: ['alt+0']
-  - commands: ['move --workspace 1']
+  - commands: ['move --workspace 1', 'focus --workspace 1']
     bindings: ['alt+shift+1']
-  - commands: ['move --workspace 2']
+  - commands: ['move --workspace 2', 'focus --workspace 2']
     bindings: ['alt+shift+2']
-  - commands: ['move --workspace 3']
+  - commands: ['move --workspace 3', 'focus --workspace 3']
     bindings: ['alt+shift+3']
-  - commands: ['move --workspace 4']
+  - commands: ['move --workspace 4', 'focus --workspace 4']
     bindings: ['alt+shift+4']
-  - commands: ['move --workspace 5']
+  - commands: ['move --workspace 5', 'focus --workspace 5']
     bindings: ['alt+shift+5']
-  - commands: ['move --workspace 6']
+  - commands: ['move --workspace 6', 'focus --workspace 6']
     bindings: ['alt+shift+6']
-  - commands: ['move --workspace 7']
+  - commands: ['move --workspace 7', 'focus --workspace 7']
     bindings: ['alt+shift+7']
-  - commands: ['move --workspace 8']
+  - commands: ['move --workspace 8', 'focus --workspace 8']
     bindings: ['alt+shift+8']
-  - commands: ['move --workspace 9']
+  - commands: ['move --workspace 9', 'focus --workspace 9']
     bindings: ['alt+shift+9']
-  - commands: ['move --workspace 10']
+  - commands: ['move --workspace 10', 'focus --workspace 10']
     bindings: ['alt+shift+0']
