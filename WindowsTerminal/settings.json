@@ -95,7 +95,7 @@
                 "padding": "12",
                 "showMarksOnScrollbar": true,
                 "startingDirectory": "%USERPROFILE%",
-                "useAcrylic": true
+                "useAcrylic": false
             }
         ]
     },
