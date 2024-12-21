@@ -139,11 +139,16 @@ arch-chroot /mnt pacman -S --noconfirm --needed dhclient dhcpcd
 arch-chroot /mnt systemctl enable dhcpcd.service
 echo "DHCPCD services are enabled."
 
+### BLUETOOTH ###
+arch-chroot /mnt pacman -S --noconfirm --needed bluez
+arch-chroot /mnt systemctl enable bluetooth.service
+echo "Bluetooth services are enabled."
+
 ### OFFICIAL PACKAGE ###
 WM="awesome qtile xorg-xinit xorg-server hyprland hyprpaper hypridle hyprlock hyprpicker"
-SYSTOOL1="brightnessctl pulseaudio pulseaudio-alsa pamixer xclip fastfetch udiskie python-psutil"
+SYSTOOL1="brightnessctl pulseaudio pulseaudio-alsa pamixer xclip fastfetch udiskie python-psutil blueman"
 SYSTOOL2="polkit-kde-agent alsa-utils flatpak redshift flameshot unzip p7zip rofi dunst picom conky"
-INPUT="ibus ibus-chewing"
+INPUT="ibus ibus-chewing fcitx fcitx-chewing"
 RUSTTOOL="lsd ripgrep bottom fzf fd bat"
 TERM="alacritty kitty wezterm xterm rxvt-unicode"
 EDITOR="emacs neovim gvim"
