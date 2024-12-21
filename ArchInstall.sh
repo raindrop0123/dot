@@ -141,7 +141,7 @@ echo "DHCPCD services are enabled."
 
 ### OFFICIAL PACKAGE ###
 WM="awesome qtile xorg-xinit xorg-server hyprland hyprpaper hypridle hyprlock hyprpicker"
-SYSTOOL1="brightnessctl pulseaudio pulseaudio-alsa pamixer xclip fastfetch udiskie"
+SYSTOOL1="brightnessctl pulseaudio pulseaudio-alsa pamixer xclip fastfetch udiskie python-psutil"
 SYSTOOL2="polkit-kde-agent alsa-utils flatpak redshift flameshot unzip p7zip rofi dunst picom conky"
 INPUT="ibus ibus-chewing"
 RUSTTOOL="lsd ripgrep bottom fzf fd bat"
