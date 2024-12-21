@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-# LAUNCH TERMINAL
+# LAUNCH APPLICATIONS
 alt - return : /opt/homebrew/bin/wezterm
 alt + shift - return : /opt/homebrew/bin/emacs
 
@@ -47,7 +47,7 @@ alt + shift - 9 : yabai -m window --space 9
 alt + shift - 0 : yabai -m window --space 10
 
 # OTHER MANIPULATIONS
-alt + shift - f : yabai -m window --toggle zoom-fullscreen
-alt + shift - q : /opt/homebrew/bin/skhd --key "cmd - w"
+alt - f : yabai -m window --toggle zoom-fullscreen
+alt + shift - q : /opt/homebrew/bin/skhd --key "cmd - q"
 alt + shift - r : yabai --restart-service && skhd --restart-service
 alt + shift - e : yabai --stop-service && skhd --stop-service
