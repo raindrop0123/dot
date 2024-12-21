@@ -93,7 +93,7 @@ screens = [
                 widget.TextBox(fmt="  ", foreground="#ffffff"),
                 widget.GroupBox(
                     hide_unused=True,
-                    active="#53d6c0",
+                    active="#535d6c",
                     block_highlight_text_color="#eeeeee",
                     this_current_screen_border="#535d6c",
                     fontsize=12,
