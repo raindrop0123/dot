@@ -138,8 +138,8 @@ arch-chroot /mnt pacman -S --noconfirm --needed dhclient dhcpcd
 arch-chroot /mnt systemctl enable dhcpcd.service
 
 # OFFICIAL PACKAGE
-WM="awesome xorg-xinit xorg-server"
-SYSTOOL="brightnessctl xclip fastfetch udiskie polkit-kde-agent alsa-utils flatpak redshift flameshot unzip p7zip"
+WM="awesome qtile xorg-xinit xorg-server"
+SYSTOOL="brightnessctl xclip fastfetch udiskie polkit-kde-agent alsa-utils flatpak redshift flameshot unzip p7zip rofi dunst picom conky"
 INPUT="ibus ibus-chewing"
 RUSTTOOL="lsd ripgrep bottom fzf fd bat"
 TERM="wezterm xterm rxvt-unicode"
