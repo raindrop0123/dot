@@ -61,7 +61,7 @@ for i in groups:
     
 # LAYOUT
 layouts = [
-    layout.MonadTall(border_width=2, margin=8, border_focus="#007aff", border_normal="#000000"),
+    layout.MonadTall(border_width=2, margin=8, border_focus="#535d6c", border_normal="#222222"),
     layout.Columns(),
     layout.Max(),
     layout.Stack(),
@@ -80,6 +80,8 @@ widget_defaults = dict(
     font="JetBrainsMono Nerd Font Bold",
     fontsize=15,
     padding=10,
+    background="#222222",
+    foreground="#eeeeee"
 )
 extension_defaults = widget_defaults.copy()
 screens = [
@@ -91,28 +93,28 @@ screens = [
                 widget.TextBox(fmt="  ", foreground="#ffffff"),
                 widget.GroupBox(
                     hide_unused=True,
-                    active="#808080",
-                    block_highlight_text_color="#ffffff",
-                    this_current_screen_border="#007aff",
+                    active="#53d6c0",
+                    block_highlight_text_color="#eeeeee",
+                    this_current_screen_border="#535d6c",
                     fontsize=12,
                     padding=5
                 ),
-                widget.Prompt(background="#000000", foreground="#ffffff"),
-                widget.WindowName(background="#000000", foreground="#ffffff"),
-                widget.CPU(format=" {load_percent}%", foreground="#ffffff"),
-                widget.Memory(format=" {MemUsed:.0f}{mm}", foreground="#ffffff"),
-                widget.Battery(format=" {percent:2.0%}", foreground="#ffffff"),
+                widget.Prompt(background="#222222", foreground="#eeeeee"),
+                widget.WindowName(background="#222222", foreground="#eeeeee"),
+                widget.CPU(format=" {load_percent}%", foreground="#eeeeee"),
+                widget.Memory(format=" {MemUsed:.0f}{mm}", foreground="#eeeeee"),
+                widget.Battery(format="󰁹 {percent:2.0%}", foreground="#eeeeee"),
                 widget.Net(format=" {down:.0f}{down_suffix}"),
                 widget.Net(format=" {up:.0f}{up_suffix}"),
-                widget.Backlight(format=" {percent:2.0%}", backlight_name="intel_backlight", foreground="#ffffff"),
-                widget.Volume(fmt=" {}", foreground="#ffffff"),
-                widget.Clock(format=" %Y-%m-%d %H:%M", foreground="#ffffff"),
+                widget.Backlight(format=" {percent:2.0%}", backlight_name="intel_backlight", foreground="#eeeeee"),
+                widget.Volume(fmt=" {}", foreground="#eeeeee"),
+                widget.Clock(format=" %Y-%m-%d %H:%M", foreground="#eeeeee"),
                 widget.Systray(),
                 widget.CurrentLayoutIcon(scale=0.75),
             ],
             25,
-            border_width=[0, 0, 0, 0],
-            border_color=["#000000", "#000000", "#000000", "#000000"]
+            border_width=[1, 1, 1, 1],
+            border_color=["#222222", "#222222", "#222222", "#222222"]
         ),
         x11_drag_polling_rate = 60,
     ),
