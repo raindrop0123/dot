@@ -1,16 +1,16 @@
 #!/usr/bin/python
 
-# MODULE
+### MODULE ###
 import os
 import subprocess
 from libqtile import bar, layout, qtile, widget, extension, hook
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
 
-# MODKEY
+### MODKEY ###
 mod = "mod4" # or mod1
 
-# KEYBINDING
+### KEYBINDING ###
 keys = [
     Key([mod], "Return", lazy.spawn("alacritty"), desc="Launch terminal"),
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -49,7 +49,7 @@ for vt in range(1, 10):
         )
     )
 
-# WORKSPACE
+### WORKSPACE ###
 groups = [Group(i) for i in "1234567890"]
 for i in groups:
     keys.extend(
@@ -59,7 +59,7 @@ for i in groups:
         ]
     )
     
-# LAYOUT
+### LAYOUT ###
 layouts = [
     layout.MonadTall(border_width=2, margin=8, border_focus="#535d6c", border_normal="#222222"),
     layout.Columns(),
@@ -75,7 +75,7 @@ layouts = [
     layout.Zoomy(),
 ]
 
-# BAR
+### BAR ###
 widget_defaults = dict(
     font="JetBrainsMono Nerd Font Bold",
     fontsize=15,
@@ -112,7 +112,7 @@ screens = [
                 widget.Systray(),
                 widget.CurrentLayoutIcon(scale=0.75),
             ],
-            25,
+            30,
             border_width=[1, 1, 1, 1],
             border_color=["#222222", "#222222", "#222222", "#222222"]
         ),
@@ -120,13 +120,14 @@ screens = [
     ),
 ]
 
-# MOUSEBINDING
+### MOUSEBINDING ###
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
-# MISCELLANEOUS
+
+### MISCELLANEOUS ###
 dgroups_key_binder = None
 dgroups_app_rules = []
 follow_mouse_focus = True
@@ -153,7 +154,7 @@ wl_input_rules = None
 wl_xcursor_theme = None
 wl_xcursor_size = 24
 
-# AUTOSTART
+### AUTOSTART ###
 @hook.subscribe.startup_once
 def start_once():
     qtile.cmd_spawn("nm-applet")
@@ -170,4 +171,5 @@ def start_once():
     qtile.cmd_spawn("ibus-daemon -rxdR")
     qtile.cmd_spawn("redshift -x && redshift -O 4500")
 
+### WM NAME ###
 wmname = "LG3D"
