@@ -12,7 +12,7 @@ mod = "mod4" # or mod1
 
 ### KEYBINDING ###
 keys = [
-    Key([mod], "Return", lazy.spawn("alacritty"), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn("wezterm"), desc="Launch terminal"),
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus to down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus to up"),
