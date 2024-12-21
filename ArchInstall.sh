@@ -190,7 +190,7 @@ arch-chroot /mnt sudo -u $USERNAME bash -c "cd && git clone https://aur.archlinu
 # arch-chroot /mnt pacman -S --noconfirm --needed base-devel
 # arch-chroot /mnt sudo -u $USERNAME bash -c "cd && git clone https://aur.archlinux.org/paru.git && cd paru && makepkg -si"
 
-#### AUR PACKAGE ###
+### AUR PACKAGE ###
 AURAPP="google-chrome visual-studio-code-bin hyprland-qtutils hyprshot"
 AURFONT="ttf-tw ttf-ms-fonts ttf-pt-mono otf-monego-git ttf-monaco apple-fonts otf-apple-pingfang-relaxed otf-apple-pingfang otf-stix"
 arch-chroot /mnt sudo -u $USERNAME bash -c "yay -S --sudoloop $AURAPP $AURFONT"
