@@ -2,13 +2,13 @@
 
 i {
   background: #222222;
-  color: #aaaaaa;
+  color: #eeeeee;
   font-size: 11px;
 }
 
 body {
   background: #222222;
-  color: #aaaaaa;
+  color: #eeeeee;
   font-family: 'Segoe UI', ui-monospace, monospace;
   font-size: 11px;
 }
@@ -21,7 +21,7 @@ body,
 
 #root {
   background: #222222;
-  color: #aaaaaa;
+  color: #eeeeee;
 }
 
 .app {
@@ -50,7 +50,7 @@ body,
 /* LEFT */
 .logo {
   background: #222222;
-  color: #aaaaaa;
+  color: #eeeeee;
   font-size: 14px;
   margin-left: 8px;
   margin-right: 8px;
@@ -65,7 +65,7 @@ body,
   background: #222222;
   border: none;
   border-radius: 0px;
-  color: #aaaaaa;
+  color: #eeeeee;
   cursor: pointer;
   font-weight: 600;
   padding: 4px 6px 4px 6px;
@@ -75,14 +75,14 @@ body,
   }
 
   &.focused {
-    background: #005577;
+    background: #535d6c;
     color: #ffffff;
   }
 }
 
 .title {
   background: #222222;
-  color: #aaaaaa;
+  color: #eeeeee;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -93,20 +93,20 @@ body,
 
 /* RIGHT */
 .binding-mode {
-  background: #005577;
+  background: #535d6c;
   border: none;
   border-radius: 0px;
-  color: #aaaaaa;
+  color: #eeeeee;
   padding: 4px 8px 4px 8px;
   margin-left: 4px;
   margin-right: 4px;
 }
 
 .tiling-direction {
-  background: #005577;
+  background: #535d6c;
   border: none;
   border-radius: 0px;
-  color: #aaaaaa;
+  color: #eeeeee;
   cursor: pointer;
   line-height: 1;
   padding: 4px 8px 4px 8px;
@@ -116,56 +116,56 @@ body,
 
 .cpu i {
   background: #222222;
-  color: #aaaaaa;
+  color: #eeeeee;
   margin-left: 4px;
   margin-right: 4px;
 }
 
 .cpu {
   background: #222222;
-  color: #aaaaaa;
+  color: #eeeeee;
   margin-left: 4px;
   margin-right: 4px;
 }
 
 .memory i {
   background: #222222;
-  color: #aaaaaa;
+  color: #eeeeee;
   margin-left: 4px;
   margin-right: 4px;
 }
 
 .memory {
   background: #222222;
-  color: #aaaaaa;
+  color: #eeeeee;
   margin-left: 4px;
   margin-right: 4px;
 }
 
 .battery i {
   background: #222222;
-  color: #aaaaaa;
+  color: #eeeeee;
   margin-left: 4px;
   margin-right: 4px;
 }
 
 .battery {
   background: #222222;
-  color: #aaaaaa;
+  color: #eeeeee;
   margin-left: 4px;
   margin-right: 4px;
 }
 
 .date i {
   background: #222222;
-  color: #aaaaaa;
+  color: #eeeeee;
   margin-left: 4px;
   margin-right: 4px;
 }
 
 .date {
   background: #222222;
-  color: #aaaaaa;
+  color: #eeeeee;
   margin-left: 4px;
   margin-right: 4px;
 }
