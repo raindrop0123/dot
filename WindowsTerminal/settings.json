@@ -1,11 +1,9 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": 
-    [
+    "actions": [
         {
-            "command": 
-            {
+            "command": {
                 "action": "copy",
                 "singleLine": false
             },
@@ -18,8 +16,7 @@
             "keys": "ctrl+shift+v"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
@@ -36,17 +33,14 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{96cba0a6-05df-49c9-974a-a718d7b9976f}",
-    "newTabMenu": 
-    [
+    "newTabMenu": [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles": 
-    {
+    "profiles": {
         "defaults": {},
-        "list": 
-        [
+        "list": [
             {
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -68,20 +62,18 @@
             {
                 "antialiasingMode": "cleartype",
                 "autoMarkPrompts": false,
-                "bellStyle": 
-                [
+                "bellStyle": [
                     "audible",
                     "window",
                     "taskbar"
                 ],
-                "colorScheme": "One Half Dark",
+                "colorScheme": "MyTheme",
                 "commandline": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "cursorShape": "filledBox",
                 "elevate": false,
                 "experimental.retroTerminalEffect": false,
                 "experimental.rightClickContextMenu": true,
-                "font": 
-                {
+                "font": {
                     "cellHeight": "1.618",
                     "face": "Consolas",
                     "size": 9
@@ -99,6 +91,51 @@
             }
         ]
     },
-    "schemes": [],
-    "themes": []
+    "schemes": [
+        {
+            "name": "MyTheme",
+            "cursorColor": "#f7ca88",
+            "selectionBackground": "#181818",
+            "background": "#181818",
+            "foreground": "#e8e8e8",
+            "black": "#181818",
+            "red": "#ab4642",
+            "green": "#a1b56c",
+            "yellow": "#f7ca88",
+            "blue": "#7cafc2",
+            "purple": "#ba8baf",
+            "cyan": "#86c1b9",
+            "white": "#d8d8d8",
+            "brightBlack": "#585858",
+            "brightRed": "#ab4642",
+            "brightGreen": "#a1b56c",
+            "brightYellow": "#f7ca88",
+            "brightBlue": "#7cafc2",
+            "brightPurple": "#ba8baf",
+            "brightCyan": "#86c1b9",
+            "brightWhite": "#d8d8d8"
+        }
+    ],
+    "themes": [
+        {
+            "name": "MyTheme",
+            "tab": {
+                "background": "#181818",
+                "showCloseButton": "always",
+                "unfocusedBackground": null,
+                "iconStyle": "monochrome"
+            },
+            "tabRow": {
+                "background": "#181818",
+                "unfocusedBackground": "#181818",
+            },
+            "window": {
+                "applicationTheme": "dark",
+                "frame": "terminalBackground",
+                "unfocusedFrame": "terminalBackground",
+                "useMica": true,
+                "experimental.rainbowFrame": true
+            }
+        }
+    ]
 }
