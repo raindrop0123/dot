@@ -31,7 +31,7 @@
         }
     ],
     "copyFormatting": "none",
-    "copyOnSelect": false,
+    "copyOnSelect": true,
     "defaultProfile": "{96cba0a6-05df-49c9-974a-a718d7b9976f}",
     "newTabMenu": [
         {
@@ -75,8 +75,8 @@
                 "experimental.rightClickContextMenu": true,
                 "font": {
                     "cellHeight": "1.618",
-                    "face": "Consolas",
-                    "size": 9
+                    "face": "'JetBrainsMono Nerd Font'",
+                    "size": 8
                 },
                 "guid": "{96cba0a6-05df-49c9-974a-a718d7b9976f}",
                 "hidden": false,
