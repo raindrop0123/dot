@@ -124,7 +124,7 @@ keybindings:
     bindings: ['alt+shift+r']
   - commands: ['wm-redraw']
     bindings: ['alt+shift+w']
-  - commands: ['shell-exec wezterm-gui']
+  - commands: ['shell-exec wt']
     bindings: ['alt+shift+enter']
   - commands: ['focus --workspace 1']
     bindings: ['alt+1']
