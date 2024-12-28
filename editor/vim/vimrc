@@ -50,11 +50,11 @@ colorscheme desert
 " KEYBINDING
 let mapleader='\'
 let maplocalleader=' '
-nnoremap <leader>CE <cmd>edit $MYVIMRC<cr>
-nnoremap <leader>CR <cmd>source $MYVIMRC<cr>
-inoremap jk <esc>
-vnoremap jk <esc>
-cnoremap jk <c-c>
+nnoremap <Leader>CE :edit $MYVIMRC<CR>
+nnoremap <Leader>CR :source $MYVIMRC<CR>
+inoremap jk <ESC>
+vnoremap jk <ESC>
+cnoremap jk <C-c>
 
 " BUILTIN PLUGIN
 let g:loaded_getscriptPlugin=1
@@ -76,7 +76,7 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line('$') | exe "norm
 autocmd BufEnter * setlocal formatoptions-=r formatoptions-=c formatoptions-=o
 autocmd BufWinEnter * if getfsize(expand('%')) > 1048576 | syntax clear | endif
 autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4
-autocmd FileType help noremap <buffer> q :bd<CR>
+autocmd FileType help noremap <buffer>q :bd<CR>
 
 " VIM-PLUG
 if empty(glob('~/.vim/autoload/plug.vim'))
