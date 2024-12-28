@@ -1,0 +1,91 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.31/schema.json",
+  "app_specific_configuration_path": "$Env:USERPROFILE/applications.json",
+  "window_hiding_behaviour": "Cloak",
+  "cross_monitor_move_behaviour": "Insert",
+  "default_workspace_padding": 0,
+  "default_container_padding": 0,
+  "border": true,
+  "border_style": "Rounded",
+  "border_width": 5,
+  "border_offset": -1,
+  "border_colours": {
+    "single": "#89b4fa",
+    "stack": "#cdd6f4",
+    "monocle": "#a6e3a1",
+    "unfocused": "#585b70"
+  },
+  "stackbar": {
+    "height": 40,
+    "mode": "Never",
+    "tabs": {
+      "width": 300
+    }
+  },
+  "monitors": [
+    {
+      "workspaces": [
+        {
+          "name": "1",
+          "layout": "BSP",
+          "container_padding": 0,
+          "workspace_padding": 0
+        },
+        {
+          "name": "2",
+          "layout": "BSP",
+          "container_padding": 0,
+          "workspace_padding": 0
+        },
+        {
+          "name": "3",
+          "layout": "BSP",
+          "container_padding": 0,
+          "workspace_padding": 0
+        },
+        {
+          "name": "4",
+          "layout": "BSP",
+          "container_padding": 0,
+          "workspace_padding": 0
+        },
+        {
+          "name": "5",
+          "layout": "BSP",
+          "container_padding": 0,
+          "workspace_padding": 0
+        },
+        {
+          "name": "6",
+          "layout": "BSP",
+          "container_padding": 0,
+          "workspace_padding": 0
+        },
+        {
+          "name": "7",
+          "layout": "BSP",
+          "container_padding": 0,
+          "workspace_padding": 0
+        },
+        {
+          "name": "8",
+          "layout": "BSP",
+          "container_padding": 0,
+          "workspace_padding": 0
+        },
+        {
+          "name": "9",
+          "layout": "BSP",
+          "container_padding": 0,
+          "workspace_padding": 0
+        },
+        {
+          "name": "10",
+          "layout": "BSP",
+          "container_padding": 0,
+          "workspace_padding": 0
+        }
+      ]
+    }
+  ]
+}

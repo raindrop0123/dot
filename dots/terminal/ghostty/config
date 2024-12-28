@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+font-size = 12.00
+font-thicken = true
+adjust-cell-width = 4%
+adjust-cell-height = 20%
+theme = dark:catppuccin-mocha,light:catppuccin-latte
+cursor-style-blink = true
+background-opacity = 0.2
+background-blur-radius = 20
+window-padding-x = 12
+window-padding-y = 12
+macos-option-as-alt = true
