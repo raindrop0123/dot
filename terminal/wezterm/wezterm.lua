@@ -22,7 +22,7 @@ elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
   config.window_background_opacity = 1.00
 end
 config.color_scheme = "Default Dark (base16)"
-config.line_height = 1.08
+config.line_height = 1.00
 config.default_cursor_style = "BlinkingBlock"
 config.animation_fps = 1
 config.cursor_blink_ease_in = "Constant"
