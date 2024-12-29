@@ -16,6 +16,16 @@
 ;;; Commentary:
 ;;; Code:
 
+;;; BUILTIN
+
+;; faces.el
+(add-hook
+ 'window-setup-hook
+ #'(lambda()
+     (cl-loop for font in '("Jetbrains Mono" "SF Mono" "Monaco" "Menlo" "Consolas")
+              when (find-font (font-spec :name font))
+              return (set-face-attribute 'default nil :family font :height 130))))
+
 ;; C source code
 (setq gc-cons-threshold most-positive-fixnum)
 (setq gc-cons-percentage 0.6)
@@ -47,16 +57,8 @@
 ;; startup.el
 (setq auto-save-list-file-prefix nil)
 (setq initial-major-mode 'fundamental-mode)
-(setq initial-scratch-message
-      (concat
-       ";; Happy hacking, "
-       user-login-name
-       " - Emacs ♥ you!\n\n"))
+(setq initial-scratch-message (concat ";; Happy hacking, " user-login-name " - Emacs ♥ you!\n\n"))
 (setq inhibit-startup-message t)
-
-;; mule-cmds.el
-(set-language-environment 'UTF-8)
-(setq default-input-method nil)
 
 ;; package.el
 (when (or (featurep 'esup-child)
@@ -69,15 +71,29 @@
           (daemonp)
           noninteractive)
   (package-initialize))
-(setq-default package-archives
-              '(;; ("elpa-devel" . "https://elpa.gnu.org/devel/")
-                ;; ("org" . "https://orgmode.org/elpa/")
-                ;; ("marmalade" . "http://marmalade-repo.org/packages/")
-                ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
-                ;; ("jcs-elpa" . "https://jcs-emacs.github.io/jcs-elpa/packages/")
-                ("gnu" . "https://elpa.gnu.org/packages/")
-                ("melpa" . "https://melpa.org/packages/")
-                ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
+(setq-default package-archives '(;; ("elpa-devel" . "https://elpa.gnu.org/devel/")
+                                 ;; ("org" . "https://orgmode.org/elpa/")
+                                 ;; ("marmalade" . "http://marmalade-repo.org/packages/")
+                                 ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
+                                 ;; ("jcs-elpa" . "https://jcs-emacs.github.io/jcs-elpa/packages/")
+                                 ("gnu" . "https://elpa.gnu.org/packages/")
+                                 ("melpa" . "https://melpa.org/packages/")
+                                 ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
+(defun require-package(package &optional min-version no-refresh)
+  "Ask elpa to install given PACKAGE with MIN-VERSION.
+If NO-REFRESH is nil, `package-refresh-contents' is called."
+  (unless (featurep 'package)
+    (condition-case nil
+        (require 'package)
+      (error nil)))
+  (unless (package-installed-p package min-version)
+    (unless (or (assoc package package-archive-contents) no-refresh)
+      (message "Missing package: %s" package)
+      (package-refresh-contents))
+    (package-install package)))
+
+;; modus-themes.el
+(add-hook 'after-init-hook #'(lambda() (load-theme 'modus-vivendi t)))
 
 ;; which-key.el
 (add-hook 'after-init-hook #'which-key-mode)
@@ -99,9 +115,6 @@
 ;; cus-edit.el
 (setq custom-file (locate-user-emacs-file "custom.el"))
 ;; (when (file-exists-p custom-file) (load custom-file))
-
-;; icomplete.el
-(add-hook 'after-init-hook #'icomplete-vertical-mode)
 
 ;; files.el
 (add-hook 'after-init-hook #'auto-save-visited-mode)
@@ -128,8 +141,6 @@
 
 ;; ibuffer.el
 (global-set-key (kbd "C-x C-b") #'ibuffer)
-(with-eval-after-load 'ibuffer
-  (setq-default ibuffer-filter-group-name-face 'font-lock-doc-face))
 
 ;; dired.el
 (with-eval-after-load 'dired
@@ -176,16 +187,106 @@
   (setq inhibit-message-regexps '("^Saving file" "^Wrote"))
   (setq set-message-functions '(inhibit-message)))
 
-;; winner.el
-(add-hook 'after-init-hook #'winner-mode)
+;;; THIRD-PARTY PACKAGES
 
-;; flymake.el
-(add-hook 'prog-mode-hook #'flymake-mode)
-(global-set-key (kbd "M-n") 'flymake-goto-next-error)
-(global-set-key (kbd "M-p") 'flymake-goto-prev-error)
+;; evil
+(setq evil-want-integration t)
+(setq evil-want-keybinding nil)
+(require-package 'evil)
+(add-hook 'after-init-hook #'evil-mode)
 
-;; syntax.el
-(setq-default syntax-wholeline-max 500)
+;; evil-escape
+(require-package 'evil-escape)
+(add-hook 'evil-mode-hook #'evil-escape-mode)
+(with-eval-after-load 'evil-escape
+  (setq-default evil-escape-delay 0.2)
+  (setq-default evil-escape-key-sequence "jk"))
+
+;; evil-collection
+(require-package 'evil-collection)
+(run-with-idle-timer
+ 2
+ nil
+ (lambda() (evil-collection-init '(ivy buffer company flycheck flymake minibuffer ibuffer dired which-key))))
+
+;; evil-matchit
+(require-package 'evil-matchit)
+(add-hook 'evil-mode-hook #'global-evil-matchit-mode)
+
+;; evil-nerd-commenter
+(require-package 'evil-nerd-commenter)
+(with-eval-after-load 'evil-maps
+  (define-key evil-normal-state-map "gcc" #'evilnc-comment-or-uncomment-lines)
+  (define-key evil-visual-state-map "gc" #'evilnc-comment-or-uncomment-lines))
+
+;; evil-goggles
+(require-package 'evil-goggles)
+(add-hook 'evil-mode-hook #'evil-goggles-mode)
+(with-eval-after-load 'evil-goggles
+  (setq evil-goggles-duration 2.500))
+
+;; rainbow-delimiters
+(require-package 'rainbow-delimiters)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+;; xclip
+(require-package 'xclip)
+(add-hook 'after-init-hook #'xclip-mode)
+
+;; company
+(require-package 'company)
+(add-hook 'prog-mode-hook #'company-mode)
+(with-eval-after-load 'company
+  (setq company-idle-delay 0.1)
+  (setq company-global-modes '(not ehsell))
+  (setq company-tooltip-align-annotations t)
+  (setq company-tooltip-annotation-padding 1)
+  (setq company-tooltip-limit 10)
+  (setq company-tooltip-offset-display 'scollbar)
+  (setq company-tooltip-margin 5)
+  (setq company-format-margin-function #'company-text-icons-margin)
+  (setq company-text-icons-add-background t)
+  (setq company-minimum-prefix-length 1))
+
+;; diredfl
+(require-package 'diredfl)
+(add-hook 'dired-mode-hook #'diredfl-mode)
+
+;; colorful-mode
+(require-package 'colorful-mode)
+(add-hook 'prog-mode-hook #'global-colorful-mode)
+
+;; ivy
+(require-package 'ivy)
+(add-hook 'after-init-hook #'ivy-mode)
+(with-eval-after-load 'ivy
+  (setq ivy-use-virutal-buffers t)
+  (setq enable-recursive-minibuffers t)
+  (setq ivy-height 10)
+  (setq ivy-initial-inputs-alist nil)
+  (setq ivy-count-format "[%d/%d]")
+  (setq ivy-re-builders-alist `((t . ivy--regex-ignore-order))))
+
+;; counsel
+(require-package 'counsel)
+(add-hook 'ivy-mode-hook #'counsel-mode)
+
+;; swiper
+(require-package 'swiper)
+(global-set-key (kbd "C-s") 'swiper-isearch-backward)
+
+;; wgrep
+(require-package 'wgrep)
+
+;; flycheck
+(require-package 'flycheck)
+(add-hook 'prog-mode-hook #'global-flycheck-mode)
+(global-set-key (kbd "M-n") 'flycheck-next-error)
+(global-set-key (kbd "M-p") 'flycheck-previous-error)
+
+;; gcmh
+(require-package 'gcmh)
+(add-hook 'after-init-hook #'gcmh-mode)
 
 (provide 'init)
 ;;; init.el ends here
