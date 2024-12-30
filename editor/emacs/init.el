@@ -278,6 +278,9 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;; wgrep
 (require-package 'wgrep)
 
+;; amx
+(require-package 'amx)
+
 ;; flycheck
 (require-package 'flycheck)
 (add-hook 'prog-mode-hook #'global-flycheck-mode)
