@@ -358,5 +358,17 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;; magit
 (require-package 'magit)
 
+;; esup
+(require-package 'esup)
+
+;; csv-mode
+(require-package 'csv-mode)
+
+;; json-mode
+(require-package 'json-mode)
+
+;; toml-mode
+(require-package 'toml-mode)
+
 (provide 'init)
 ;;; init.el ends here
