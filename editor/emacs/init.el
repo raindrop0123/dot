@@ -249,12 +249,29 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (setq company-tooltip-offset-display 'scollbar)
   (setq company-format-margin-function #'company-text-icons-margin)
   (setq company-text-icons-add-background t)
-  (setq company-minimum-prefix-length 1))
+  (setq company-minimum-prefix-length 1)
+  (setq company-backends
+        '((company-bbdb :with company-yasnippet)
+          (company-semantic :with company-yasnippet)
+          (company-cmake :with company-yasnippet)
+          (company-capf :with company-yasnippet)
+          (company-clang :with company-yasnippet)
+          (company-files :with company-yasnippet)
+          (company-oddmuse :with company-yasnippet)
+          (company-dabbrev :with company-yasnippet)
+          ((company-dabbrev-code company-gtags company-etags company-keywords) :with company-yasnippet))))
 
 ;; company-quickhelp
 (require-package 'company-quickhelp)
 (when (display-graphic-p)
   (add-hook 'company-mode-hook #'company-quickhelp-mode))
+
+;; yasnippet
+(require-package 'yasnippet)
+(add-hook 'prog-mode-hook #'yas-global-mode)
+
+;; yasnippet-snippets
+(require-package 'yasnippet-snippets)
 
 ;; diredfl
 (require-package 'diredfl)
@@ -369,6 +386,13 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 
 ;; toml-mode
 (require-package 'toml-mode)
+
+;; lua-mode
+(require-package 'lua-mode)
+(with-eval-after-load 'lua-mode
+  (setq lua-indent-level 2)
+  (setq lua-indent-nested-block-content-align nil)
+  (setq lua-indent-close-paren-align nil))
 
 (provide 'init)
 ;;; init.el ends here
