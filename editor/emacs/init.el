@@ -14,9 +14,12 @@
 ;; https://protesilaos.com/codelog/2024-11-28-basic-emacs-configuration/
 
 ;;; Commentary:
+;; This is a single-file Emacs configuration, aiming for minimal setup and
+;; making use of built-in features as much as possible.
+
 ;;; Code:
 
-;;; BUILTIN
+;;; BUILT-IN
 
 ;; faces.el
 (add-hook
@@ -204,10 +207,7 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 
 ;; evil-collection
 (require-package 'evil-collection)
-(run-with-idle-timer
- 2
- nil
- (lambda() (evil-collection-init '(ivy buffer company flycheck flymake minibuffer ibuffer dired which-key))))
+(run-with-idle-timer 2 nil #'evil-collection-init)
 
 ;; evil-matchit
 (require-package 'evil-matchit)
@@ -229,6 +229,10 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (require-package 'rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
+;; symbols-overlay
+(require-package 'symbol-overlay)
+(add-hook 'prog-mode-hook #'symbol-overlay-mode)
+
 ;; xclip
 (require-package 'xclip)
 (add-hook 'after-init-hook #'xclip-mode)
@@ -243,10 +247,14 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (setq company-tooltip-annotation-padding 1)
   (setq company-tooltip-limit 10)
   (setq company-tooltip-offset-display 'scollbar)
-  (setq company-tooltip-margin 5)
   (setq company-format-margin-function #'company-text-icons-margin)
   (setq company-text-icons-add-background t)
   (setq company-minimum-prefix-length 1))
+
+;; company-quickhelp
+(require-package 'company-quickhelp)
+(when (display-graphic-p)
+  (add-hook 'company-mode-hook #'company-quickhelp-mode))
 
 ;; diredfl
 (require-package 'diredfl)
@@ -255,6 +263,18 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;; colorful-mode
 (require-package 'colorful-mode)
 (add-hook 'prog-mode-hook #'global-colorful-mode)
+
+;; nerd-icons-ibuffer
+(require-package 'nerd-icons-ibuffer)
+(add-hook 'ibuffer-mode-hook #'nerd-icons-ibuffer-mode)
+
+;; nerd-icons-dired
+(require-package 'nerd-icons-dired)
+(add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
+
+;; mode-line-bell
+(require-package 'mode-line-bell)
+(run-with-idle-timer 2 nil #'mode-line-bell-mode)
 
 ;; ivy
 (require-package 'ivy)
@@ -266,6 +286,14 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (setq ivy-initial-inputs-alist nil)
   (setq ivy-count-format "[%d/%d]")
   (setq ivy-re-builders-alist `((t . ivy--regex-ignore-order))))
+
+;; ivy-rich
+(require-package 'ivy-rich)
+(add-hook 'ivy-mode-hook #'ivy-rich-mode)
+
+;; nerd-icons-ivy-rich
+(require-package 'nerd-icons-ivy-rich)
+(add-hook 'ivy-mode-hook #'nerd-icons-ivy-rich-mode)
 
 ;; counsel
 (require-package 'counsel)
@@ -281,6 +309,12 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;; amx
 (require-package 'amx)
 
+;; avy
+(require-package 'avy)
+(global-set-key (kbd "M-g l") 'avy-goto-line)
+(global-set-key (kbd "M-g w") 'avy-goto-word-0)
+(global-set-key (kbd "M-g t") 'avy-goto-char-timer)
+
 ;; flycheck
 (require-package 'flycheck)
 (add-hook 'prog-mode-hook #'global-flycheck-mode)
@@ -290,6 +324,39 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;; gcmh
 (require-package 'gcmh)
 (add-hook 'after-init-hook #'gcmh-mode)
+
+;; helpful
+(require-package 'helpful)
+(global-set-key (kbd "C-c C-d") #'helpful-at-point)
+(global-set-key (kbd "C-h f") #'helpful-callable)
+(global-set-key (kbd "C-h v") #'helpful-variable)
+(global-set-key (kbd "C-h k") #'helpful-key)
+(global-set-key (kbd "C-h x") #'helpful-command)
+
+;; ace-window
+(require-package 'ace-window)
+(global-set-key [remap other-window] 'ace-window)
+(with-eval-after-load 'ace-window
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  (setq aw-background nil)
+  (setq aw-char-position 'top-left))
+
+;; winum
+(require-package 'winum)
+(run-with-idle-timer 2 nil #'winum-mode)
+(with-eval-after-load 'winum
+  (setq winum-format "[%s]")
+  (setq winum-mode-line-position 0)
+  (set-face-attribute 'winum-face nil :foreground "DeepPink" :underline "DeepPink" :weight 'bold))
+
+;; dired-sidebar
+(require-package 'dired-sidebar)
+(global-set-key [f1] #'dired-sidebar-toggle-sidebar)
+(with-eval-after-load 'dired-sidebar
+  (setq dired-sidebar-theme 'nerd-icons))
+
+;; magit
+(require-package 'magit)
 
 (provide 'init)
 ;;; init.el ends here
