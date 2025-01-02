@@ -1,16 +1,4 @@
 {
-    // [ PATH ]
-    // > Linux: ~/.config/Code/User/
-    // > macOS: ~/Library/Application Support/Code/User/
-    // > Windows: %AppData%\Code\User
-    // [ REFERENCE ]
-    // > https://github.com/mydearxym/vscode-backup
-    // > https://zhuanlan.zhihu.com/p/73561114
-    // > https://vspacecode.github.io/
-    // > https://zhuanlan.zhihu.com/p/302568011
-    // > https://github.com/VSCodeVim/Vim
-    // > https://vspacecode.github.io/docs/default-keybindings#file
-    // 
     // [ BUILT-IN ]
     "editor.cursorStyle": "block",
     "editor.fontFamily": "Monaco, Menlo, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
