@@ -3,7 +3,7 @@
     // > Linux: ~/.config/Code/User/
     // > macOS: ~/Library/Application Support/Code/User/
     // > Windows: %AppData%\Code\User
-    // {{{ REFERENCE }}}
+    // [ REFERENCE ]
     // > https://github.com/mydearxym/vscode-backup
     // > https://zhuanlan.zhihu.com/p/73561114
     // > https://vspacecode.github.io/
