@@ -188,11 +188,6 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (setq inhibit-message-regexps '("^Saving file" "^Wrote"))
   (setq set-message-functions '(inhibit-message)))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; THIRD-PARTY PACKAGES ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
 ;;;;;;;;;;
 ;; EVIL ;;
 ;;;;;;;;;;
