@@ -111,6 +111,7 @@ Plug 'vim-airline/vim-airline', { 'on': [] }
 Plug 'Yggdroot/indentLine', { 'on': [] }
 Plug 'ntpeters/vim-better-whitespace', { 'on': [] }
 Plug 'machakann/vim-highlightedyank', { 'on': [] }
+Plug 'wincent/terminus', { 'on': [] }
 
 """"""""""
 " EDITOR "
@@ -135,6 +136,10 @@ Plug 'preservim/nerdtree', { 'on': ['NERDTreeToggle'] }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle'] }
 Plug 'junegunn/fzf', { 'do': { ->fzf#install() } }
 Plug 'junegunn/fzf.vim', { 'on': ['Files', 'Buffers', 'Colors', 'Lines', 'BLines', 'History', 'Commands'] }
+Plug 'junegunn/limelight.vim', { 'on': ['Limelight'] }
+Plug 'junegunn/goyo.vim', { 'on': ['Goyo'] }
+Plug 'dyng/ctrlsf.vim', { 'on': ['CtrlSF'] }
+Plug 'lambdalisue/vim-suda', { 'on': ['SudaRead', 'SudaWrite'] }
 
 """"""""""""""""""""""""
 " COMPLETION & SNIPPET "
@@ -205,6 +210,13 @@ augroup LOAD_VIM_HIGHLIGHTEDYANK
   autocmd BufReadPost * call plug#load('vim-highlightedyank')
     \| autocmd! LOAD_VIM_HIGHLIGHTEDYANK
     \| let g:highlightedyank_highlight_duration=2500
+augroup END
+
+" TERMINUS
+augroup LOAD_TERMINUS
+  autocmd!
+  autocmd InsertEnter * call plug#load('terminus')
+    \| autocmd! LOAD_TERMINUS
 augroup END
 
 """"""""""
