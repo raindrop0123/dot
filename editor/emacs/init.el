@@ -192,7 +192,6 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;; EVIL ;;
 ;;;;;;;;;;
 
-;; evil
 (require-package 'evil)
 (add-hook 'after-init-hook
           #'(lambda()
@@ -200,28 +199,23 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
               (setq evil-want-keybinding nil)
               (evil-mode)))
 
-;; evil-escape
 (require-package 'evil-escape)
 (add-hook 'evil-mode-hook #'evil-escape-mode)
 (with-eval-after-load 'evil-escape
   (setq-default evil-escape-delay 0.2)
   (setq-default evil-escape-key-sequence "jk"))
 
-;; evil-collection
 (require-package 'evil-collection)
 (run-with-idle-timer 2 nil #'evil-collection-init)
 
-;; evil-matchit
 (require-package 'evil-matchit)
 (add-hook 'evil-mode-hook #'global-evil-matchit-mode)
 
-;; evil-nerd-commenter
 (require-package 'evil-nerd-commenter)
 (with-eval-after-load 'evil-maps
   (define-key evil-normal-state-map "gcc" #'evilnc-comment-or-uncomment-lines)
   (define-key evil-visual-state-map "gc" #'evilnc-comment-or-uncomment-lines))
 
-;; evil-goggles
 (require-package 'evil-goggles)
 (add-hook 'evil-mode-hook #'evil-goggles-mode)
 (with-eval-after-load 'evil-goggles
@@ -230,6 +224,7 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;;;;;;;;;;;;;
 ;; GENERAL ;;
 ;;;;;;;;;;;;;
+
 (require-package 'general)
 (run-with-idle-timer
  4 nil
@@ -267,23 +262,18 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;; EDITOR ;;
 ;;;;;;;;;;;;
 
-;; rainbow-delimiters
 (require-package 'rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
-;; symbols-overlay
 (require-package 'symbol-overlay)
 (add-hook 'prog-mode-hook #'symbol-overlay-mode)
 
-;; colorful-mode
 (require-package 'colorful-mode)
 (add-hook 'prog-mode-hook #'global-colorful-mode)
 
-;; git-gutter
 (require-package 'git-gutter)
 (add-hook 'prog-mode-hook #'git-gutter-mode)
 
-;; indent-bars
 (require-package 'indent-bars)
 (add-hook 'prog-mode-hook #'indent-bars-mode)
 (with-eval-after-load 'indent-bars
@@ -295,32 +285,19 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;; TOOL ;;
 ;;;;;;;;;;
 
-;; xclip
 (require-package 'xclip)
 (add-hook 'after-init-hook #'xclip-mode)
 
-;; wgrep
-(require-package 'wgrep)
-
-;; avy
 (require-package 'avy)
 (global-set-key (kbd "M-g l") 'avy-goto-line)
 (global-set-key (kbd "M-g w") 'avy-goto-word-0)
 (global-set-key (kbd "M-g t") 'avy-goto-char-timer)
 
-;; minimap
 (require-package 'minimap)
 (with-eval-after-load 'minimap
   (setq minimap-hide-fringes t)
   (setq minimap-window-location 'right))
 
-;; writeroom-mode
-(require-package 'writeroom-mode)
-
-;; vundo
-(require-package 'vundo)
-
-;; helpful
 (require-package 'helpful)
 (global-set-key (kbd "C-c C-d") #'helpful-at-point)
 (global-set-key (kbd "C-h f") #'helpful-callable)
@@ -328,7 +305,6 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (global-set-key (kbd "C-h k") #'helpful-key)
 (global-set-key (kbd "C-h x") #'helpful-command)
 
-;; ace-window
 (require-package 'ace-window)
 (global-set-key [remap other-window] 'ace-window)
 (with-eval-after-load 'ace-window
@@ -336,34 +312,30 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (setq aw-background nil)
   (setq aw-char-position 'top-left))
 
-;; winum
 (require-package 'winum)
 (run-with-idle-timer 2 nil #'winum-mode)
 (with-eval-after-load 'winum
   (setq winum-format "[%s]")
   (setq winum-mode-line-position 0))
 
-;; dired-sidebar
 (require-package 'dired-sidebar)
 (global-set-key [f1] #'dired-sidebar-toggle-sidebar)
 (with-eval-after-load 'dired-sidebar
   (setq dired-sidebar-theme 'nerd-icons))
 
-;; magit
-(require-package 'magit)
-
-;; esup
-(require-package 'esup)
-
-;; gcmh
 (require-package 'gcmh)
 (add-hook 'after-init-hook #'gcmh-mode)
+
+(require-package 'magit)
+(require-package 'writeroom-mode)
+(require-package 'wgrep)
+(require-package 'vundo)
+(require-package 'esup)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; COMPANY & SNIPPETS ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; company
 (require-package 'company)
 (add-hook 'prog-mode-hook #'company-mode)
 (with-eval-after-load 'company
@@ -387,69 +359,38 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
           (company-dabbrev :with company-yasnippet)
           ((company-dabbrev-code company-gtags company-etags company-keywords) :with company-yasnippet))))
 
-;; company-quickhelp
 (require-package 'company-quickhelp)
 (when (display-graphic-p)
   (add-hook 'company-mode-hook #'company-quickhelp-mode))
 
-;; yasnippet
 (require-package 'yasnippet)
-(add-hook 'prog-mode-hook #'yas-global-mode)
-
-;; yasnippet-snippets
 (require-package 'yasnippet-snippets)
+(add-hook 'prog-mode-hook #'yas-global-mode)
 
 ;;;;;;;;
 ;; UI ;;
 ;;;;;;;;
 
-;; doom-themes
 (require-package 'doom-themes)
 (add-hook 'after-init-hook
           #'(lambda()
               (setq doom-one-brighter-comments t)
               (load-theme 'doom-one t)))
 
-;; catppuccin-theme
 (require-package 'catppuccin-theme)
-
-;; zenburn-theme
 (require-package 'zenburn-theme)
-
-;; solarized-theme
 (require-package 'solarized-theme)
-
-;; color-theme-sanityinc-tomorrow
 (require-package 'color-theme-sanityinc-tomorrow)
-
-;; color-theme-sanityinc-solarized
 (require-package 'color-theme-sanityinc-solarized)
-
-;; spacemacs-theme
 (require-package 'spacemacs-theme)
-
-;; gruvbox-theme
 (require-package 'gruvbox-theme)
-
-;; dradula-theme
 (require-package 'dracula-theme)
-
-;; material-theme
 (require-package 'material-theme)
-
-;; moe-theme
 (require-package 'moe-theme)
-
-;; tao-theme
 (require-package 'tao-theme)
-
-;; ef-theme
 (require-package 'ef-themes)
-
-;; standard-themes
 (require-package 'standard-themes)
 
-;; doom-modeline
 (require-package 'doom-modeline)
 (add-hook 'after-init-hook #'doom-modeline-mode)
 (with-eval-after-load 'doom-modeline
@@ -458,20 +399,16 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (setq doom-modeline-enable-word-count t)
   (setq doom-modeline-minor-modes t))
 
-;; hide-mode-line
 (require-package 'hide-mode-line)
 (add-hook 'dired-mode-hook #'hide-mode-line-mode)
 (add-hook 'eshell-mode-hook #'hide-mode-line-mode)
 
-;; minions
 (require-package 'minions)
 (add-hook 'doom-modeline-mode-hook #'minions-mode)
 
-;; solaire-mode
 (require-package 'solaire-mode)
 (run-with-idle-timer 2 nil #'solaire-global-mode)
 
-;; centaur-tabs
 (require-package 'centaur-tabs)
 (run-with-idle-timer
  8 nil
@@ -482,23 +419,18 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
      (setq centaur-tabs-icon-type 'nerd-icons)
      (centaur-tabs-mode)))
 
-;; diredfl
 (require-package 'diredfl)
 (add-hook 'dired-mode-hook #'diredfl-mode)
 
-;; nerd-icons-ibuffer
 (require-package 'nerd-icons-ibuffer)
 (add-hook 'ibuffer-mode-hook #'nerd-icons-ibuffer-mode)
 
-;; nerd-icons-dired
 (require-package 'nerd-icons-dired)
 (add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
 
-;; mode-line-bell
 (require-package 'mode-line-bell)
 (run-with-idle-timer 2 nil #'mode-line-bell-mode)
 
-;; beacon
 (require-package 'beacon)
 (add-hook 'after-init-hook #'beacon-mode)
 (with-eval-after-load 'beacon
@@ -514,7 +446,6 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;; IVY ;;
 ;;;;;;;;;
 
-;; ivy
 (require-package 'ivy)
 (add-hook 'after-init-hook #'ivy-mode)
 (with-eval-after-load 'ivy
@@ -525,31 +456,25 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (setq ivy-count-format "[%d/%d]")
   (setq ivy-re-builders-alist `((t . ivy--regex-ignore-order))))
 
-;; ivy-rich
 (require-package 'ivy-rich)
 (add-hook 'ivy-mode-hook #'ivy-rich-mode)
 
-;; nerd-icons-ivy-rich
 (require-package 'nerd-icons-ivy-rich)
 (add-hook 'ivy-mode-hook #'nerd-icons-ivy-rich-mode)
 
-;; counsel
 (require-package 'counsel)
 (add-hook 'ivy-mode-hook #'counsel-mode)
 (global-set-key (kbd "M-g f") 'counsel-flycheck)
 
-;; swiper
 (require-package 'swiper)
 (global-set-key (kbd "C-s") 'swiper-isearch-backward)
 
-;; amx
 (require-package 'amx)
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; SYNTAX CHECKING ;;
 ;;;;;;;;;;;;;;;;;;;;;
 
-;; flycheck
 (require-package 'flycheck)
 (add-hook 'prog-mode-hook #'global-flycheck-mode)
 (global-set-key (kbd "M-n") 'flycheck-next-error)
@@ -559,16 +484,9 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;; PROGRAMMING ;;
 ;;;;;;;;;;;;;;;;;
 
-;; csv-mode
 (require-package 'csv-mode)
-
-;; json-mode
 (require-package 'json-mode)
-
-;; toml-mode
 (require-package 'toml-mode)
-
-;; lua-mode
 (require-package 'lua-mode)
 (with-eval-after-load 'lua-mode
   (setq lua-indent-level 2)
@@ -579,14 +497,10 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;; LSP & DAP ;;
 ;;;;;;;;;;;;;;;
 
-;; lsp-mode
 (require-package 'lsp-mode)
-
-;; lsp-ivy
 (require-package 'lsp-ivy)
 (global-set-key (kbd "M-g L") #'lsp-ivy-workspace-symbol)
 
-;; dap-mode
 (require-package 'dap-mode)
 
 (provide 'init)
