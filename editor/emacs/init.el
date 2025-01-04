@@ -191,7 +191,6 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;;;;;;;;;;
 ;; EVIL ;;
 ;;;;;;;;;;
-
 (require-package 'evil)
 (add-hook 'after-init-hook
           #'(lambda()
@@ -224,7 +223,6 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;;;;;;;;;;;;;
 ;; GENERAL ;;
 ;;;;;;;;;;;;;
-
 (require-package 'general)
 (run-with-idle-timer
  4 nil
@@ -261,7 +259,6 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;;;;;;;;;;;;
 ;; EDITOR ;;
 ;;;;;;;;;;;;
-
 (require-package 'rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
@@ -284,7 +281,6 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;;;;;;;;;;
 ;; TOOL ;;
 ;;;;;;;;;;
-
 (require-package 'xclip)
 (add-hook 'after-init-hook #'xclip-mode)
 
@@ -335,7 +331,6 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; COMPANY & SNIPPETS ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
-
 (require-package 'company)
 (add-hook 'prog-mode-hook #'company-mode)
 (with-eval-after-load 'company
@@ -370,7 +365,6 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;;;;;;;;
 ;; UI ;;
 ;;;;;;;;
-
 (require-package 'doom-themes)
 (add-hook 'after-init-hook
           #'(lambda()
@@ -445,7 +439,6 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;;;;;;;;;
 ;; IVY ;;
 ;;;;;;;;;
-
 (require-package 'ivy)
 (add-hook 'after-init-hook #'ivy-mode)
 (with-eval-after-load 'ivy
@@ -483,7 +476,6 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;;;;;;;;;;;;;;;;;
 ;; PROGRAMMING ;;
 ;;;;;;;;;;;;;;;;;
-
 (require-package 'csv-mode)
 (require-package 'json-mode)
 (require-package 'toml-mode)
@@ -496,7 +488,6 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;;;;;;;;;;;;;;;
 ;; LSP & DAP ;;
 ;;;;;;;;;;;;;;;
-
 (require-package 'lsp-mode)
 (require-package 'lsp-ivy)
 (global-set-key (kbd "M-g L") #'lsp-ivy-workspace-symbol)
