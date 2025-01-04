@@ -1,11 +1,15 @@
 #!/bin/sh
 
-### REFERENCE ###
+#############
+# REFERENCE #
+#############
 # https://nobodyzxc.github.io/2019/06/06/arch-install/#more
 # https://wiki.archlinux.org/title/Installation_guide
 # https://zhuanlan.zhihu.com/p/107135290
 
-### STEP ###
+########
+# STEP #
+########
 # 1. Boot by USB
 # 2. Connect to the Internet - iwctl
 # 3. curl -fsSL https://raw.githubusercontent.com/raindrop0123/dot/refs/heads/main/ArchInstall.sh > install.sh
@@ -16,10 +20,14 @@
 set -e
 setfont ter-218b.psf.gz
 
-### SYSTEM CLOCK ###
+################
+# SYSTEM CLOCK #
+################
 timedatectl set-ntp true
 
-### VARIABLE DEFINITION ###
+#######################
+# VARIABLE DEFINITION #
+#######################
 HDLOC=/dev/nvme0n1
 ROOTSIZE=32G
 SWAPSIZE=16G
@@ -29,7 +37,9 @@ USERNAME=
 ROOTPASS=
 USERPASS=
 
-### PARTITION ###
+#############
+# PARTITION #
+#############
 # Use 'cgdisk /dev/sda' to clean your HDD.
 read -p "${USERNAME}@${NEWHOSTNAME} on $HDLOC
 `lsblk`
@@ -72,36 +82,50 @@ trap 'echo "\"${last_command}\" command end with exit code $?."' EXIT
   echo "20"; sleep 5; \
   echo "w";  sleep 1;) | fdisk $HDLOC
 
-### FORMAT ###
+##########
+# FORMAT #
+##########
 mkfs.vfat ${HDLOC}p1
 mkfs.ext4 ${HDLOC}p2
 mkfs.ext4 ${HDLOC}p4
 mkswap ${HDLOC}p3
 swapon ${HDLOC}p3
 
-### MOUNT ###
+#########
+# MOUNT #
+#########
 mount ${HDLOC}p2 /mnt
 mkdir /mnt/boot
 mount ${HDLOC}p1 /mnt/boot
 mkdir /mnt/home
 mount ${HDLOC}p4 /mnt/home
 
-### MIRROR ###
+##########
+# MIRROR #
+##########
 # https://wiki.archlinux.org/title/Reflector
 # Use 'reflector' to find the fastest 15 sources to override /etc/pacman.d/mirrorlist
 reflector --verbose --latest 15 --sort rate --save /etc/pacman.d/mirrorlist
 
-### INSTALL BASE & KERNEL ###
+#########################
+# INSTALL BASE & KERNEL #
+#########################
 pacstrap /mnt base linux linux-firmware
 
-### FSTAB ###
+#########
+# FSTAB #
+#########
 genfstab -U /mnt >> /mnt/etc/fstab
 
-### TIMEZONE ###
+############
+# TIMEZONE #
+############
 arch-chroot /mnt ln -s -f /usr/share/zoneinfo/Asia/Taipei /etc/localtime
 arch-chroot /mnt hwclock --systohc
 
-### LOCALIZATION ###
+################
+# LOCALIZATION #
+################
 sed -i "s/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/" /mnt/etc/locale.gen
 sed -i "s/#zh_TW.UTF-8 UTF-8/zh_TW.UTF-8 UTF-8/" /mnt/etc/locale.gen
 arch-chroot /mnt locale-gen
@@ -114,7 +138,9 @@ cat << EOF > /mnt/etc/hosts
 EOF
 echo "nameserver 8.8.8.8" >> /mnt/etc/resolv.conf
 
-### CREATE USER ###
+###############
+# CREATE USER #
+###############
 arch-chroot /mnt pacman -Syy --noconfirm --needed sudo
 sed -i 's/^#\s*\(%wheel\s\+ALL=(ALL\:ALL)\s\+ALL\)/\1/' /mnt/etc/sudoers
 arch-chroot /mnt useradd -m -u 1001 $USERNAME
@@ -122,14 +148,18 @@ arch-chroot /mnt usermod $USERNAME -G wheel
 arch-chroot /mnt bash -c "echo root:$ROOTPASS | chpasswd"
 arch-chroot /mnt bash -c "echo ${USERNAME}:${USERPASS} | chpasswd"
 
-### GRUB ###
+########
+# GRUB #
+########
 # https://wiki.archlinux.org/title/GRUB
 arch-chroot /mnt mkinitcpio -p linux
 arch-chroot /mnt pacman -S --noconfirm --needed grub os-prober efibootmgr
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg # warnning here
 
-### NETWORK ###
+###########
+# NETWORK #
+###########
 arch-chroot /mnt pacman -S --noconfirm --needed net-tools wireless_tools
 arch-chroot /mnt pacman -S --noconfirm --needed wpa_supplicant openssh
 arch-chroot /mnt pacman -S --noconfirm --needed networkmanager network-manager-applet
@@ -139,12 +169,16 @@ arch-chroot /mnt pacman -S --noconfirm --needed dhclient dhcpcd
 arch-chroot /mnt systemctl enable dhcpcd.service
 echo "DHCPCD services are enabled."
 
-### BLUETOOTH ###
+#############
+# BLUETOOTH #
+#############
 arch-chroot /mnt pacman -S --noconfirm --needed bluez
 arch-chroot /mnt systemctl enable bluetooth.service
 echo "Bluetooth services are enabled."
 
-### OFFICIAL PACKAGE ###
+####################
+# OFFICIAL PACKAGE #
+####################
 WM="awesome qtile xorg-xinit xorg-server hyprland hyprpaper hypridle hyprlock hyprpicker"
 SYSTOOL1="brightnessctl pulseaudio pulseaudio-alsa pamixer xclip fastfetch udiskie python-psutil blueman"
 SYSTOOL2="polkit-kde-agent alsa-utils flatpak redshift flameshot unzip p7zip rofi dunst picom conky"
@@ -182,20 +216,28 @@ arch-chroot /mnt sudo pacman -S --noconfirm --needed $NERD1 $NERD2 $NERD3 $NERD4
 MISC="otf-codenewroman-nerd otf-comicshanns-nerd otf-droid-nerd otf-monaspace-nerd ttf-font-awesome"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $MISC
 
-### YAY ###
+#######
+# YAY #
+#######
 arch-chroot /mnt pacman -S --noconfirm --needed git base-devel
 arch-chroot /mnt sudo -u $USERNAME bash -c "cd && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si"
 
-### PARU ###
+########
+# PARU #
+########
 # arch-chroot /mnt pacman -S --noconfirm --needed base-devel
 # arch-chroot /mnt sudo -u $USERNAME bash -c "cd && git clone https://aur.archlinux.org/paru.git && cd paru && makepkg -si"
 
-### AUR PACKAGE ###
+###############
+# AUR PACKAGE #
+###############
 AURAPP="google-chrome visual-studio-code-bin hyprland-qtutils hyprshot"
 AURFONT="ttf-tw ttf-ms-fonts ttf-pt-mono otf-monego-git ttf-monaco apple-fonts otf-apple-pingfang-relaxed otf-apple-pingfang otf-stix"
 arch-chroot /mnt sudo -u $USERNAME bash -c "yay -S --sudoloop $AURAPP $AURFONT"
 
-### HINT ###
+########
+# HINT #
+########
 echo "ArchLinux installation is finished."
 echo "Don't forget to umount all partitions."
 echo "Now you should reboot you machine."
