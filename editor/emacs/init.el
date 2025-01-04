@@ -14,12 +14,13 @@
 ;; https://protesilaos.com/codelog/2024-11-28-basic-emacs-configuration/
 
 ;;; Commentary:
-;; This is a single-file Emacs configuration, aiming for minimal setup and
-;; making use of built-in features as much as possible.
+;; A personal EMACS configuration.
 
 ;;; Code:
 
-;;; BUILT-IN
+;;;;;;;;;;;;;;
+;; BUILT-IN ;;
+;;;;;;;;;;;;;;
 
 ;; faces.el
 (add-hook
@@ -27,7 +28,7 @@
  #'(lambda()
      (cl-loop for font in '("Jetbrains Mono" "SF Mono" "Monaco" "Menlo" "Consolas")
               when (find-font (font-spec :name font))
-              return (set-face-attribute 'default nil :family font :height 130))))
+              return (set-face-attribute 'default nil :family font :height 125))))
 
 ;; C source code
 (setq gc-cons-threshold most-positive-fixnum)
@@ -94,9 +95,6 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
       (message "Missing package: %s" package)
       (package-refresh-contents))
     (package-install package)))
-
-;; modus-themes.el
-(add-hook 'after-init-hook #'(lambda() (load-theme 'modus-vivendi t)))
 
 ;; which-key.el
 (add-hook 'after-init-hook #'which-key-mode)
@@ -190,13 +188,22 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (setq inhibit-message-regexps '("^Saving file" "^Wrote"))
   (setq set-message-functions '(inhibit-message)))
 
-;;; THIRD-PARTY PACKAGES
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; THIRD-PARTY PACKAGES ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;
+;; EVIL ;;
+;;;;;;;;;;
 
 ;; evil
-(setq evil-want-integration t)
-(setq evil-want-keybinding nil)
 (require-package 'evil)
-(add-hook 'after-init-hook #'evil-mode)
+(add-hook 'after-init-hook
+          #'(lambda()
+              (setq evil-want-integration t)
+              (setq evil-want-keybinding nil)
+              (evil-mode)))
 
 ;; evil-escape
 (require-package 'evil-escape)
@@ -225,6 +232,46 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (with-eval-after-load 'evil-goggles
   (setq evil-goggles-duration 2.500))
 
+;;;;;;;;;;;;;
+;; GENERAL ;;
+;;;;;;;;;;;;;
+(require-package 'general)
+(run-with-idle-timer
+ 4 nil
+ #'(lambda()
+     (require 'general)
+     (general-create-definer spc-leader-def
+       :prefix "SPC"
+       :states '(normal visual))
+     (spc-leader-def
+       "SPC" 'counsel-M-x
+       "tT" 'emacs-init-time
+       "H" 'helpful-at-point
+       "1" 'winum-select-window-1
+       "2" 'winum-select-window-2
+       "3" 'winum-select-window-3
+       "4" 'winum-select-window-4
+       "5" 'winum-select-window-5
+       "6" 'winum-select-window-6
+       "7" 'winum-select-window-7
+       "8" 'winum-select-window-8
+       "9" 'winum-select-window-9
+       "0" 'winum-select-window-0-or-10
+       "ww" 'ace-window
+       "gl" 'avy-goto-line
+       "gw" 'avy-goto-word-0
+       "gt" 'avy-goto-char-timer
+       "ff" 'counsel-find-file
+       "fF" 'counsel-fzf
+       "fb" 'counsel-ibuffer
+       "fw" 'counsel-rg
+       "fs" 'swiper-isearch-backward
+       "fc" 'counsel-load-theme)))
+
+;;;;;;;;;;;;
+;; EDITOR ;;
+;;;;;;;;;;;;
+
 ;; rainbow-delimiters
 (require-package 'rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
@@ -233,9 +280,93 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (require-package 'symbol-overlay)
 (add-hook 'prog-mode-hook #'symbol-overlay-mode)
 
+;; colorful-mode
+(require-package 'colorful-mode)
+(add-hook 'prog-mode-hook #'global-colorful-mode)
+
+;; git-gutter
+(require-package 'git-gutter)
+(add-hook 'prog-mode-hook #'git-gutter-mode)
+
+;; indent-bars
+(require-package 'indent-bars)
+(add-hook 'prog-mode-hook #'indent-bars-mode)
+(with-eval-after-load 'indent-bars
+  (setq indent-bars-color '(highlight :face-bg t :blend 0.5))
+  (setq indent-bars-no-descend-string t)
+  (setq indent-bars-prefer-character t))
+
+;;;;;;;;;;
+;; TOOL ;;
+;;;;;;;;;;
+
 ;; xclip
 (require-package 'xclip)
 (add-hook 'after-init-hook #'xclip-mode)
+
+;; wgrep
+(require-package 'wgrep)
+
+;; avy
+(require-package 'avy)
+(global-set-key (kbd "M-g l") 'avy-goto-line)
+(global-set-key (kbd "M-g w") 'avy-goto-word-0)
+(global-set-key (kbd "M-g t") 'avy-goto-char-timer)
+
+;; minimap
+(require-package 'minimap)
+(with-eval-after-load 'minimap
+  (setq minimap-hide-fringes t)
+  (setq minimap-window-location 'right))
+
+;; writeroom-mode
+(require-package 'writeroom-mode)
+
+;; vundo
+(require-package 'vundo)
+
+;; helpful
+(require-package 'helpful)
+(global-set-key (kbd "C-c C-d") #'helpful-at-point)
+(global-set-key (kbd "C-h f") #'helpful-callable)
+(global-set-key (kbd "C-h v") #'helpful-variable)
+(global-set-key (kbd "C-h k") #'helpful-key)
+(global-set-key (kbd "C-h x") #'helpful-command)
+
+;; ace-window
+(require-package 'ace-window)
+(global-set-key [remap other-window] 'ace-window)
+(with-eval-after-load 'ace-window
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  (setq aw-background nil)
+  (setq aw-char-position 'top-left))
+
+;; winum
+(require-package 'winum)
+(run-with-idle-timer 2 nil #'winum-mode)
+(with-eval-after-load 'winum
+  (setq winum-format "[%s]")
+  (setq winum-mode-line-position 0))
+
+;; dired-sidebar
+(require-package 'dired-sidebar)
+(global-set-key [f1] #'dired-sidebar-toggle-sidebar)
+(with-eval-after-load 'dired-sidebar
+  (setq dired-sidebar-theme 'nerd-icons))
+
+;; magit
+(require-package 'magit)
+
+;; esup
+(require-package 'esup)
+
+;; gcmh
+(require-package 'gcmh)
+(add-hook 'after-init-hook #'gcmh-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+;; COMPANY & SNIPPETS ;;
+;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; company
 (require-package 'company)
@@ -273,13 +404,92 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;; yasnippet-snippets
 (require-package 'yasnippet-snippets)
 
+;;;;;;;;
+;; UI ;;
+;;;;;;;;
+
+;; doom-themes
+(require-package 'doom-themes)
+(add-hook 'after-init-hook
+          #'(lambda()
+              (setq doom-one-brighter-comments t)
+              (load-theme 'doom-one t)))
+
+;; catppuccin-theme
+(require-package 'catppuccin-theme)
+
+;; zenburn-theme
+(require-package 'zenburn-theme)
+
+;; solarized-theme
+(require-package 'solarized-theme)
+
+;; color-theme-sanityinc-tomorrow
+(require-package 'color-theme-sanityinc-tomorrow)
+
+;; color-theme-sanityinc-solarized
+(require-package 'color-theme-sanityinc-solarized)
+
+;; spacemacs-theme
+(require-package 'spacemacs-theme)
+
+;; gruvbox-theme
+(require-package 'gruvbox-theme)
+
+;; dradula-theme
+(require-package 'dracula-theme)
+
+;; material-theme
+(require-package 'material-theme)
+
+;; moe-theme
+(require-package 'moe-theme)
+
+;; tao-theme
+(require-package 'tao-theme)
+
+;; ef-theme
+(require-package 'ef-themes)
+
+;; standard-themes
+(require-package 'standard-themes)
+
+;; doom-modeline
+(require-package 'doom-modeline)
+(add-hook 'after-init-hook #'doom-modeline-mode)
+(with-eval-after-load 'doom-modeline
+  (setq doom-modeline-height 24)
+  (setq doom-modeline-bar-width 5)
+  (setq doom-modeline-enable-word-count t)
+  (setq doom-modeline-minor-modes t))
+
+;; hide-mode-line
+(require-package 'hide-mode-line)
+(add-hook 'dired-mode-hook #'hide-mode-line-mode)
+(add-hook 'eshell-mode-hook #'hide-mode-line-mode)
+
+;; minions
+(require-package 'minions)
+(add-hook 'doom-modeline-mode-hook #'minions-mode)
+
+;; solaire-mode
+(require-package 'solaire-mode)
+(run-with-idle-timer 2 nil #'solaire-global-mode)
+
+;; centaur-tabs
+(require-package 'centaur-tabs)
+(run-with-idle-timer
+ 8 nil
+ #'(lambda ()
+     (setq centaur-tabs-style "bar")
+     (setq centaur-tabs-height 28)
+     (setq centaur-tabs-set-bar 'left)
+     (setq centaur-tabs-icon-type 'nerd-icons)
+     (centaur-tabs-mode)))
+
 ;; diredfl
 (require-package 'diredfl)
 (add-hook 'dired-mode-hook #'diredfl-mode)
-
-;; colorful-mode
-(require-package 'colorful-mode)
-(add-hook 'prog-mode-hook #'global-colorful-mode)
 
 ;; nerd-icons-ibuffer
 (require-package 'nerd-icons-ibuffer)
@@ -293,13 +503,29 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (require-package 'mode-line-bell)
 (run-with-idle-timer 2 nil #'mode-line-bell-mode)
 
+;; beacon
+(require-package 'beacon)
+(add-hook 'after-init-hook #'beacon-mode)
+(with-eval-after-load 'beacon
+  (setq beacon-size 60)
+  (setq beacon-color 0.4)
+  (setq beacon-blink-duration 2.5)
+  (setq beacon-blink-delay 1.0)
+  (setq beacon-blink-when-window-scrolls t)
+  (setq beacon-blink-when-window-changes t)
+  (setq beacon-blink-when-point-moves t))
+
+;;;;;;;;;
+;; IVY ;;
+;;;;;;;;;
+
 ;; ivy
 (require-package 'ivy)
 (add-hook 'after-init-hook #'ivy-mode)
 (with-eval-after-load 'ivy
   (setq ivy-use-virutal-buffers t)
   (setq enable-recursive-minibuffers t)
-  (setq ivy-height 10)
+  (setq ivy-height 12)
   (setq ivy-initial-inputs-alist nil)
   (setq ivy-count-format "[%d/%d]")
   (setq ivy-re-builders-alist `((t . ivy--regex-ignore-order))))
@@ -315,22 +541,18 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;; counsel
 (require-package 'counsel)
 (add-hook 'ivy-mode-hook #'counsel-mode)
+(global-set-key (kbd "M-g f") 'counsel-flycheck)
 
 ;; swiper
 (require-package 'swiper)
 (global-set-key (kbd "C-s") 'swiper-isearch-backward)
 
-;; wgrep
-(require-package 'wgrep)
-
 ;; amx
 (require-package 'amx)
 
-;; avy
-(require-package 'avy)
-(global-set-key (kbd "M-g l") 'avy-goto-line)
-(global-set-key (kbd "M-g w") 'avy-goto-word-0)
-(global-set-key (kbd "M-g t") 'avy-goto-char-timer)
+;;;;;;;;;;;;;;;;;;;;;
+;; SYNTAX CHECKING ;;
+;;;;;;;;;;;;;;;;;;;;;
 
 ;; flycheck
 (require-package 'flycheck)
@@ -338,45 +560,9 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (global-set-key (kbd "M-n") 'flycheck-next-error)
 (global-set-key (kbd "M-p") 'flycheck-previous-error)
 
-;; gcmh
-(require-package 'gcmh)
-(add-hook 'after-init-hook #'gcmh-mode)
-
-;; helpful
-(require-package 'helpful)
-(global-set-key (kbd "C-c C-d") #'helpful-at-point)
-(global-set-key (kbd "C-h f") #'helpful-callable)
-(global-set-key (kbd "C-h v") #'helpful-variable)
-(global-set-key (kbd "C-h k") #'helpful-key)
-(global-set-key (kbd "C-h x") #'helpful-command)
-
-;; ace-window
-(require-package 'ace-window)
-(global-set-key [remap other-window] 'ace-window)
-(with-eval-after-load 'ace-window
-  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-  (setq aw-background nil)
-  (setq aw-char-position 'top-left))
-
-;; winum
-(require-package 'winum)
-(run-with-idle-timer 2 nil #'winum-mode)
-(with-eval-after-load 'winum
-  (setq winum-format "[%s]")
-  (setq winum-mode-line-position 0)
-  (set-face-attribute 'winum-face nil :foreground "DeepPink" :underline "DeepPink" :weight 'bold))
-
-;; dired-sidebar
-(require-package 'dired-sidebar)
-(global-set-key [f1] #'dired-sidebar-toggle-sidebar)
-(with-eval-after-load 'dired-sidebar
-  (setq dired-sidebar-theme 'nerd-icons))
-
-;; magit
-(require-package 'magit)
-
-;; esup
-(require-package 'esup)
+;;;;;;;;;;;;;;;;;
+;; PROGRAMMING ;;
+;;;;;;;;;;;;;;;;;
 
 ;; csv-mode
 (require-package 'csv-mode)
@@ -393,6 +579,20 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (setq lua-indent-level 2)
   (setq lua-indent-nested-block-content-align nil)
   (setq lua-indent-close-paren-align nil))
+
+;;;;;;;;;;;;;;;
+;; LSP & DAP ;;
+;;;;;;;;;;;;;;;
+
+;; lsp-mode
+(require-package 'lsp-mode)
+
+;; lsp-ivy
+(require-package 'lsp-ivy)
+(global-set-key (kbd "M-g L") #'lsp-ivy-workspace-symbol)
+
+;; dap-mode
+(require-package 'dap-mode)
 
 (provide 'init)
 ;;; init.el ends here
