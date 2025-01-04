@@ -1,7 +1,6 @@
 """""""""""""
 " REFERENCE "
 """""""""""""
-
 " https://github.com/junegunn/vim-plug/wiki/tips
 " https://github.com/skywind3000/vim-init
 " https://github.com/wklken/k-vim
