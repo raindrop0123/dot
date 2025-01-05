@@ -282,6 +282,20 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (setq indent-bars-no-descend-string t)
   (setq indent-bars-prefer-character t))
 
+(require-package 'hl-todo)
+(add-hook 'prog-mode-hook #'hl-todo-mode)
+(with-eval-after-load 'hl-todo
+  (setq hl-todo-highlight-punctuation ":")
+  (setq hl-todo-keyword-faces
+        '(("TODO" warning bold)
+          ("FIXME" error bold)
+          ("REVIEW" font-lock-keyword-face bold)
+          ("HACK" font-lock-constant-face bold)
+          ("DEPRECATED" font-lock-doc-face bold)
+          ("NOTE" success bold)
+          ("BUG" error bold)
+          ("XXX" font-lock-constant-face bold))))
+
 ;;;;;;;;;;
 ;; TOOL ;;
 ;;;;;;;;;;
