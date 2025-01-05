@@ -86,6 +86,7 @@ autocmd BufEnter * setlocal formatoptions-=r formatoptions-=c formatoptions-=o
 autocmd BufWinEnter * if getfsize(expand('%'))>1048576 | syntax clear | endif
 autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType help noremap <buffer>q :bd<CR>
+autocmd FileType c,cpp setlocal commentstring=//\ %s
 
 """"""""""""""""""""
 " INSTALL VIM-PLUG "
@@ -308,11 +309,12 @@ nnoremap <F1> <Cmd>NERDTreeToggle<CR>
 
 " FZF & FZF.VIM
 let g:fzf_layout={ 'down': '30%' }
-nnoremap <C-x><C-f> <Cmd>Files<CR>
-nnoremap <C-x><C-b> <Cmd>Buffers<CR>
-nnoremap <C-x><C-w> <Cmd>Rg<CR>
-nnoremap <C-s> <Cmd>BLines<CR>
-nnoremap <C-x><C-r> <Cmd>History<CR>
+nnoremap <Leader>ff <Cmd>Files<CR>
+nnoremap <Leader>fF <Cmd>Files ~/<CR>
+nnoremap <Leader>fb <Cmd>Buffers<CR>
+nnoremap <Leader>fw <Cmd>Rg<CR>
+nnoremap <Leader>fs <Cmd>BLines<CR>
+nnoremap <Leader>fr <Cmd>History<CR>
 nnoremap <Leader><Leader> <Cmd>Commands<CR>
 
 """""""""""""""""""""""""
