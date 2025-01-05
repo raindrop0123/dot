@@ -2,10 +2,10 @@
 
 options=(
 	style=round
-	width=5.0
+	width=6.0
 	hidpi=off
-	active_color="gradient(top_left=0xff535d6c,bottom_right=0xffeeeeee)"
-	inactive_color="gradient(top_left=0xff222222,bottom_right=0xff000000)"
+	active_color="gradient(top_left=0xfff7ca88,bottom_right=0xff7cafc2)"
+	inactive_color="gradient(top_left=0xff181818,bottom_right=0xff585858)"
 	background_color=0xff000000
 )
 
