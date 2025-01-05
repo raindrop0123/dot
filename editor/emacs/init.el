@@ -386,8 +386,13 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (require-package 'material-theme)
 (require-package 'moe-theme)
 (require-package 'tao-theme)
+(require-package 'vscode-dark-plus-theme)
+(require-package 'base16-theme)
+(require-package 'atom-one-dark-theme)
+(require-package 'molokai-theme)
 (require-package 'ef-themes)
 (require-package 'standard-themes)
+(require-package 'sublime-themes)
 
 (require-package 'doom-modeline)
 (add-hook 'after-init-hook #'doom-modeline-mode)
