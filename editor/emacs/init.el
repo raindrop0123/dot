@@ -456,7 +456,7 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
  8 nil
  #'(lambda ()
      (setq centaur-tabs-style "bar")
-     (setq centaur-tabs-height 28)
+     (setq centaur-tabs-height 24)
      (setq centaur-tabs-set-bar 'left)
      (setq centaur-tabs-icon-type 'nerd-icons)
      (centaur-tabs-mode)))
