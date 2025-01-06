@@ -3,7 +3,7 @@
     // BUILTIN //
     /////////////
     "accessibility.dimUnfocused.enabled": true,
-    "accessibility.dimUnfocused.opacity": 0.5,
+    "accessibility.dimUnfocused.opacity": 0.7,
     "editor.cursorStyle": "block",
     "editor.cursorBlinking": "smooth",
     "editor.cursorSmoothCaretAnimation": "on",
