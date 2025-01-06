@@ -2,6 +2,8 @@
     /////////////
     // BUILTIN //
     /////////////
+    "accessibility.dimUnfocused.enabled": true,
+    "accessibility.dimUnfocused.opacity": 0.5,
     "editor.cursorStyle": "block",
     "editor.cursorBlinking": "smooth",
     "editor.cursorSmoothCaretAnimation": "on",
@@ -20,6 +22,7 @@
     ],
     "editor.tabSize": 2,
     "editor.smoothScrolling": true,
+    "explorer.sortOrder": "type",
     "search.showLineNumbers": true,
     "search.smartCase": true,
     "terminal.integrated.fontFamily": "Monaco, Menlo, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
@@ -39,6 +42,7 @@
         "statusBar.debuggingForeground": "#a6e3a1"
     },
     "workbench.panel.showLabels": false,
+    "workbench.settings.editor": "json",
     "workbench.list.smoothScrolling": true,
     ///////////////
     // VscodeVim //
