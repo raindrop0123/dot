@@ -201,6 +201,31 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
               (setq evil-want-integration t)
               (setq evil-want-keybinding nil)
               (evil-mode)))
+(defun modeline-color-border (&rest _)
+  "A tweak for change modeline border color with evil mode."
+  (unless (minibufferp)
+    (when (eq (window-buffer (selected-window)) (current-buffer))
+      (let*
+          ((face
+            (cond
+             ((evil-normal-state-p) 'doom-modeline-evil-normal-state)
+             ((evil-emacs-state-p) 'doom-modeline-evil-emacs-state)
+             ((evil-insert-state-p) 'doom-modeline-evil-insert-state)
+             ((evil-motion-state-p) 'doom-modeline-evil-motion-state)
+             ((evil-visual-state-p) 'doom-modeline-evil-visual-state)
+             ((evil-operator-state-p) 'doom-modeline-evil-operator-state)
+             ((evil-replace-state-p) 'doom-modeline-evil-replace-state)
+             (t 'doom-modeline-evil-user-state)))
+           (color (face-foreground face nil t)))
+        (set-face-attribute 'mode-line nil :box `(:line-width (-1 . -1) :color ,color))))))
+(add-hook 'evil-emacs-state-entry-hook #'modeline-color-border)
+(add-hook 'evil-insert-state-entry-hook #'modeline-color-border)
+(add-hook 'evil-motion-state-entry-hook #'modeline-color-border)
+(add-hook 'evil-normal-state-entry-hook #'modeline-color-border)
+(add-hook 'evil-visual-state-entry-hook #'modeline-color-border)
+(add-hook 'evil-replace-state-entry-hook #'modeline-color-border)
+(add-hook 'evil-operator-state-entry-hook #'modeline-color-border)
+(add-hook 'window-selection-change-functions #'modeline-color-border)
 
 (require-package 'evil-escape)
 (add-hook 'evil-mode-hook #'evil-escape-mode)
@@ -411,7 +436,7 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (require-package 'doom-modeline)
 (add-hook 'after-init-hook #'doom-modeline-mode)
 (with-eval-after-load 'doom-modeline
-  (setq doom-modeline-height 24)
+  (setq doom-modeline-height 25)
   (setq doom-modeline-bar-width 5)
   (setq doom-modeline-enable-word-count t)
   (setq doom-modeline-minor-modes t))
