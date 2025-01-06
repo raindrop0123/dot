@@ -32,11 +32,11 @@
     "workbench.startupEditor": "none",
     "workbench.activityBar.location": "bottom",
     "workbench.colorCustomizations": {
-        "statusBar.background": "#1f1f1f",
-        "statusBar.noFolderBackground": "#1f1f1f",
-        "statusBar.debuggingBackground": "#1f1f1f",
-        "statusBar.foreground": "#9CDCFE",
-        "statusBar.debuggingForeground": "#9CDCFE"
+        "statusBar.background": "#11111b",
+        "statusBar.noFolderBackground": "#11111b",
+        "statusBar.debuggingBackground": "#11111b",
+        "statusBar.foreground": "#a6e3a1",
+        "statusBar.debuggingForeground": "#a6e3a1"
     },
     "workbench.panel.showLabels": false,
     "workbench.list.smoothScrolling": true,
@@ -62,8 +62,8 @@
     },
     "vim.highlightedyank.enable": true,
     "vim.highlightedyank.duration": 2500,
-    "vim.highlightedyank.color": "#f85149",
-    "vim.highlightedyank.textColor": "#1f1f1f",
+    "vim.highlightedyank.color": "#f5e0dc",
+    "vim.highlightedyank.textColor": "#11111b",
     "vim.hlsearch": true,
     "vim.incsearch": true,
     "vim.insertModeKeyBindings": [
@@ -118,12 +118,12 @@
             ]
         },
     ],
-    "vim.searchHighlightColor": "#9CDCFE",
-    "vim.searchHighlightTextColor": "#1f1f1f",
-    "vim.searchMatchColor": "#4EC9B0",
-    "vim.searchMatchTextColor": "#1f1f1f",
-    "vim.substitutionColor": "#f85149",
-    "vim.substitutionTextColor": "#1f1f1f",
+    "vim.searchHighlightColor": "#f9e2af",
+    "vim.searchHighlightTextColor": "#11111b",
+    "vim.searchMatchColor": "#fab387",
+    "vim.searchMatchTextColor": "#11111b",
+    "vim.substitutionColor": "#cba6f7",
+    "vim.substitutionTextColor": "#11111b",
     "vim.showMarksInGutter": true,
     "vim.smartRelativeLine": true,
     "vim.sneak": true,
@@ -138,48 +138,48 @@
     "vim.whichwrap": "b,s",
     "vim.statusBarColorControl": true,
     "vim.statusBarColors.normal": [
-        "#1f1f1f",
-        "#cccccc"
+        "#11111b",
+        "#ffffff"
     ],
     "vim.statusBarColors.insert": [
-        "#1f1f1f",
-        "#f85149"
+        "#11111b",
+        "#f38ba8"
     ],
     "vim.statusBarColors.visual": [
-        "#1f1f1f",
-        "#9CDCFE"
+        "#11111b",
+        "#a6e3a1"
     ],
     "vim.statusBarColors.visualline": [
-        "#1f1f1f",
-        "#9CDCFE"
+        "#11111b",
+        "#a6e3a1"
     ],
     "vim.statusBarColors.visualblock": [
-        "#1f1f1f",
-        "#9CDCFE"
+        "#11111b",
+        "#a6e3a1"
     ],
     "vim.statusBarColors.replace": [
-        "#1f1f1f",
-        "#ffd700"
+        "#11111b",
+        "#f9e2af"
     ],
     "vim.statusBarColors.commandlineinprogress": [
-        "#1f1f1f",
-        "#cccccc"
+        "#11111b",
+        "#cba6f7"
     ],
     "vim.statusBarColors.searchinprogressmode": [
-        "#1f1f1f",
-        "#cccccc"
+        "#11111b",
+        "#f5c2e7"
     ],
     "vim.statusBarColors.easymotionmode": [
-        "#1f1f1f",
-        "#4EC9B0"
+        "#11111b",
+        "#f5e0dc"
     ],
     "vim.statusBarColors.easymotioninputmode": [
-        "#1f1f1f",
-        "#4EC9B0"
+        "#11111b",
+        "#f5e0dc"
     ],
     "vim.statusBarColors.surroundinputmode": [
-        "#1f1f1f",
-        "#B5CEA8"
+        "#11111b",
+        "#b4befe"
     ],
     ////////////////
     // Catppuccin //
