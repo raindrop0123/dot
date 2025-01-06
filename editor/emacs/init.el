@@ -28,7 +28,14 @@
  #'(lambda()
      (cl-loop for font in '("Jetbrains Mono" "SF Mono" "Monaco" "Menlo" "Consolas")
               when (find-font (font-spec :name font))
-              return (set-face-attribute 'default nil :family font :height 125))))
+              return (set-face-attribute 'default nil :family font :height 125))
+     (cl-loop for font in '("Menlo" "SF Pro Display" "Helvetica")
+              when (find-font (font-spec :name font))
+              return (progn
+                       (set-face-attribute 'mode-line nil :family font :height 110)
+                       (when (facep 'mode-line-active)
+                         (set-face-attribute 'mode-line-active nil :family font :height 110))
+                       (set-face-attribute 'mode-line-inactive nil :family font :height 110)))))
 
 ;; C source code
 (setq gc-cons-threshold most-positive-fixnum)
@@ -261,29 +268,29 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
        :prefix "SPC"
        :states '(normal visual))
      (spc-leader-def
-       "SPC" 'counsel-M-x
-       "tT" 'emacs-init-time
-       "H" 'helpful-at-point
-       "1" 'winum-select-window-1
-       "2" 'winum-select-window-2
-       "3" 'winum-select-window-3
-       "4" 'winum-select-window-4
-       "5" 'winum-select-window-5
-       "6" 'winum-select-window-6
-       "7" 'winum-select-window-7
-       "8" 'winum-select-window-8
-       "9" 'winum-select-window-9
-       "0" 'winum-select-window-0-or-10
-       "ww" 'ace-window
-       "gl" 'avy-goto-line
-       "gw" 'avy-goto-word-0
-       "gt" 'avy-goto-char-timer
-       "ff" 'counsel-find-file
-       "fF" 'counsel-fzf
-       "fb" 'counsel-ibuffer
-       "fw" 'counsel-rg
-       "fs" 'swiper-isearch-backward
-       "fc" 'counsel-load-theme)))
+      "SPC" 'counsel-M-x
+      "tT" 'emacs-init-time
+      "H" 'helpful-at-point
+      "1" 'winum-select-window-1
+      "2" 'winum-select-window-2
+      "3" 'winum-select-window-3
+      "4" 'winum-select-window-4
+      "5" 'winum-select-window-5
+      "6" 'winum-select-window-6
+      "7" 'winum-select-window-7
+      "8" 'winum-select-window-8
+      "9" 'winum-select-window-9
+      "0" 'winum-select-window-0-or-10
+      "ww" 'ace-window
+      "gl" 'avy-goto-line
+      "gw" 'avy-goto-word-0
+      "gt" 'avy-goto-char-timer
+      "ff" 'counsel-find-file
+      "fF" 'counsel-fzf
+      "fb" 'counsel-ibuffer
+      "fw" 'counsel-rg
+      "fs" 'swiper-isearch-backward
+      "fc" 'counsel-load-theme)))
 
 ;;;;;;;;;;;;
 ;; EDITOR ;;
@@ -436,7 +443,7 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (require-package 'doom-modeline)
 (add-hook 'after-init-hook #'doom-modeline-mode)
 (with-eval-after-load 'doom-modeline
-  (setq doom-modeline-height 25)
+  (setq doom-modeline-height 20)
   (setq doom-modeline-bar-width 5)
   (setq doom-modeline-enable-word-count t)
   (setq doom-modeline-minor-modes t))
@@ -450,16 +457,6 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 
 (require-package 'solaire-mode)
 (run-with-idle-timer 2 nil #'solaire-global-mode)
-
-(require-package 'centaur-tabs)
-(run-with-idle-timer
- 8 nil
- #'(lambda ()
-     (setq centaur-tabs-style "bar")
-     (setq centaur-tabs-height 24)
-     (setq centaur-tabs-set-bar 'left)
-     (setq centaur-tabs-icon-type 'nerd-icons)
-     (centaur-tabs-mode)))
 
 (require-package 'diredfl)
 (add-hook 'dired-mode-hook #'diredfl-mode)
