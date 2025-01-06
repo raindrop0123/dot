@@ -180,5 +180,33 @@
     "vim.statusBarColors.surroundinputmode": [
         "#1f1f1f",
         "#B5CEA8"
-    ]
+    ],
+    ////////////////
+    // Catppuccin //
+    ////////////////
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "catppuccin.accentColor": "blue",
+    "catppuccin.colorOverrides": {
+        "mocha": {
+            "text": "#ffffff",
+            "base": "#181825",
+            "mantle": "#11111b",
+            "crust": "#000000",
+        },
+    },
+    "catppuccin.customUIColors": {
+        "mocha": {
+            "editorLineNumber.activeForeground": "green",
+            "editorCursor.foreground": "rosewater",
+            "commandCenter.border": "blue",
+            "widget.border": "blue",
+        },
+    },
+    //////////////////////
+    // Catppuccin Icons //
+    //////////////////////
+    "workbench.iconTheme": "catppuccin-mocha",
+    "catppuccin-icons.hidesExplorerArrows": false,
+    "catppuccin-icons.specificFolders": true,
+    "catppuccin-icons.monochrome": false,
 }
