@@ -1,22 +1,10 @@
 ;;; init.el --- -*- lexical-binding: t; coding: utf-8; -*-
-
-;;; Reference:
-;; https://github.com/redguardtoo/emacs.d
-;; https://github.com/seagle0128/.emacs.d
-;; https://github.com/manateelazycat/lazycat-emacs
-;; https://github.com/purcell/emacs.d
-;; https://github.com/bbatsov/prelude
-;; https://github.com/doomemacs/doomemacs
-;; https://github.com/MiniApollo/kickstart.emacs
-;; https://github.com/SystemCrafters/crafted-emacs
-;; https://github.com/jamescherti/minimal-emacs.d
-;; https://github.com/LionyxML/emacs-kick
-;; https://protesilaos.com/codelog/2024-11-28-basic-emacs-configuration/
-
 ;;; Commentary:
-;; A personal EMACS configuration.
-
 ;;; Code:
+
+;;;;;;;;;;
+;; CORE ;;
+;;;;;;;;;;
 
 ;; faces.el
 (add-hook
@@ -187,6 +175,14 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;; modus-themes.el
 (add-hook 'after-init-hook #'(lambda () (load-theme 'modus-vivendi t)))
 
+;; font-lock.el
+(font-lock-add-keywords 'emacs-lisp-mode '(("\\<require-package\\>" . font-lock-keyword-face)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;
+;; THIRD-PARTY PACKAGE ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; evil
 (require-package 'evil)
 (add-hook 'after-init-hook
           #'(lambda()
@@ -217,35 +213,44 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (add-hook 'evil-operator-state-entry-hook #'modeline-color-border)
 (add-hook 'window-selection-change-functions #'modeline-color-border)
 
+;; evil-escape
 (require-package 'evil-escape)
 (add-hook 'evil-mode-hook #'evil-escape-mode)
 (with-eval-after-load 'evil-escape
   (setq-default evil-escape-delay 0.2)
   (setq-default evil-escape-key-sequence "jk"))
 
+;; evil-collection
 (require-package 'evil-collection)
 (run-with-idle-timer 2 nil #'evil-collection-init)
 
+;; evil-matchit
 (require-package 'evil-matchit)
 (add-hook 'evil-mode-hook #'global-evil-matchit-mode)
 
+;; evil-nerd-commenter
 (require-package 'evil-nerd-commenter)
 (with-eval-after-load 'evil-maps
   (define-key evil-normal-state-map "gcc" #'evilnc-comment-or-uncomment-lines)
   (define-key evil-visual-state-map "gc" #'evilnc-comment-or-uncomment-lines))
 
+;; rainbow-delimiters
 (require-package 'rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
+;; symbol-overlay
 (require-package 'symbol-overlay)
 (add-hook 'prog-mode-hook #'symbol-overlay-mode)
 
+;; colorful-mode
 (require-package 'colorful-mode)
 (add-hook 'prog-mode-hook #'global-colorful-mode)
 
+;; git-gutter
 (require-package 'git-gutter)
 (add-hook 'prog-mode-hook #'git-gutter-mode)
 
+;; indent-bars
 (require-package 'indent-bars)
 (add-hook 'prog-mode-hook #'indent-bars-mode)
 (with-eval-after-load 'indent-bars
@@ -254,6 +259,7 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (setq indent-bars-no-descend-lists nil)
   (setq indent-bars-prefer-character t))
 
+;; hl-todo
 (require-package 'hl-todo)
 (add-hook 'prog-mode-hook #'hl-todo-mode)
 (with-eval-after-load 'hl-todo
@@ -268,21 +274,15 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
           ("BUG" error bold)
           ("XXX" font-lock-constant-face bold))))
 
+;; xclip
 (require-package 'xclip)
 (add-hook 'after-init-hook #'xclip-mode)
 
+;; diredfl
 (require-package 'diredfl)
 (add-hook 'dired-mode-hook #'diredfl-mode)
 
-(require-package 'csv-mode)
-(require-package 'json-mode)
-(require-package 'toml-mode)
-(require-package 'lua-mode)
-(with-eval-after-load 'lua-mode
-  (setq lua-indent-level 2)
-  (setq lua-indent-nested-block-content-align nil)
-  (setq lua-indent-close-paren-align nil))
-
+;; vertico
 (require-package 'vertico)
 (add-hook 'after-init-hook #'vertico-mode)
 (with-eval-after-load 'vertico
@@ -293,16 +293,18 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (define-key vertico-map [tab] #'vertico-next)
   (define-key vertico-map [backtab] #'vertico-previous)
   (define-key vertico-map (kbd "RET") #'vertico-directory-enter)
-  (define-key vertico-map (kbd "DEL") #'vertico-directory-delete-char)
-  (define-key vertico-map (kbd "M-DEL") #'vertico-directory-delete-word))
+  (define-key vertico-map (kbd "DEL") #'vertico-directory-delete-char))
 
+;; marginalia
 (require-package 'marginalia)
 (add-hook 'after-init-hook #'marginalia-mode)
 
+;; orderless
 (require-package 'orderless)
 (setq completion-styles '(orderless basic))
 (setq completion-category-overrides '((file (styles basic partial-completion))))
 
+;; consult
 (require-package 'consult)
 (global-set-key [remap isearch-forward] #'consult-line)
 (global-set-key [remap switch-to-buffer] #'consult-buffer)
@@ -312,14 +314,19 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (global-set-key (kbd "C-c C-r") #'consult-ripgrep)
 (define-key minibuffer-local-map (kbd "M-s") #'consult-history)
 
+;; embark
 (require-package 'embark)
-(require-package 'embark-consult)
 (define-key minibuffer-mode-map (kbd "C-c C-o") #'embark-export)
 
+;; embark-consult
+(require-package 'embark-consult)
+
+;; yasnippet & yasnippet-snippets
 (require-package 'yasnippet)
 (require-package 'yasnippet-snippets)
 (add-hook 'prog-mode-hook #'yas-global-mode)
 
+;; corfu
 (require-package 'corfu)
 (add-hook 'prog-mode-hook #'global-corfu-mode)
 (add-hook 'global-corfu-mode-hook #'corfu-popupinfo-mode)
@@ -333,11 +340,13 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (define-key corfu-map [tab] #'corfu-next)
   (define-key corfu-map [backtab] #'corfu-previous))
 
+;; cape
 (require-package 'cape)
 (add-hook 'completion-at-point-functions #'cape-dabbrev)
 (add-hook 'completion-at-point-functions #'cape-file)
 (add-hook 'completion-at-point-functions #'cape-elisp-block)
 
+;; nerd-icons-corfu
 (require-package 'nerd-icons-corfu)
 (with-eval-after-load 'corfu
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
