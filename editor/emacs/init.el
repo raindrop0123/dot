@@ -18,24 +18,13 @@
 
 ;;; Code:
 
-;;;;;;;;;;;;;;
-;; BUILT-IN ;;
-;;;;;;;;;;;;;;
-
 ;; faces.el
 (add-hook
  'window-setup-hook
  #'(lambda()
-     (cl-loop for font in '("Jetbrains Mono" "SF Mono" "Monaco" "Menlo" "Consolas")
+     (cl-loop for font in '("Jetbrains Mono" "SF Mono" "Menlo" "Monaco" "Consolas")
               when (find-font (font-spec :name font))
-              return (set-face-attribute 'default nil :family font :height 125))
-     (cl-loop for font in '("Menlo" "SF Pro Display" "Helvetica")
-              when (find-font (font-spec :name font))
-              return (progn
-                       (set-face-attribute 'mode-line nil :family font :height 110)
-                       (when (facep 'mode-line-active)
-                         (set-face-attribute 'mode-line-active nil :family font :height 110))
-                       (set-face-attribute 'mode-line-inactive nil :family font :height 110)))))
+              return (set-face-attribute 'default nil :family font :height 130))))
 
 ;; C source code
 (setq gc-cons-threshold most-positive-fixnum)
@@ -58,11 +47,7 @@
 (setq-default completion-ignore-case t)
 (setq-default resize-mini-windows t)
 (setq-default use-short-answers t)
-(setq-default default-frame-alist
-              '((menu-bar-lines . 0)
-                (tool-bar-lines . 0)
-                (vertical-scroll-bars)
-                (horizontal-scroll-bars)))
+(setq-default default-frame-alist '((menu-bar-lines . 0) (tool-bar-lines . 0) (vertical-scroll-bars) (horizontal-scroll-bars)))
 (add-hook 'minibuffer-setup-hook #'(lambda() (setq gc-cons-threshold most-positive-fixnum)))
 (add-hook 'minibuffer-exit-hook #'(lambda() (setq gc-cons-threshold 800000)))
 (when (featurep 'ns)
@@ -76,25 +61,20 @@
 (setq inhibit-startup-message t)
 
 ;; package.el
-(when (or (featurep 'esup-child)
-          (daemonp)
-          noninteractive)
-  (setq package-enable-at-startup nil))
-(setq-default package-check-signature nil)
-(setq-default package-quickstart t)
-(when (or (featurep 'esup-child)
-          (daemonp)
-          noninteractive)
+(setq package-enable-at-startup nil)
+(setq package-check-signature nil)
+(setq package-quickstart t)
+(when (or (featurep 'esup-child) (daemonp) noninteractive)
   (package-initialize))
-(setq-default package-archives '(;; ("elpa-devel" . "https://elpa.gnu.org/devel/")
-                                 ;; ("org" . "https://orgmode.org/elpa/")
-                                 ;; ("marmalade" . "http://marmalade-repo.org/packages/")
-                                 ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
-                                 ;; ("jcs-elpa" . "https://jcs-emacs.github.io/jcs-elpa/packages/")
-                                 ("gnu" . "https://elpa.gnu.org/packages/")
-                                 ("melpa" . "https://melpa.org/packages/")
-                                 ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
-(defun require-package(package &optional min-version no-refresh)
+(setq package-archives '(;; ("elpa-devel" . "https://elpa.gnu.org/devel/")
+                         ;; ("org" . "https://orgmode.org/elpa/")
+                         ;; ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
+                         ;; ("jcs-elpa" . "https://jcs-emacs.github.io/jcs-elpa/packages/")
+                         ("gnu" . "https://elpa.gnu.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")
+                         ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
+(defun require-package (package &optional min-version no-refresh)
   "Ask elpa to install given PACKAGE with MIN-VERSION.
 If NO-REFRESH is nil, `package-refresh-contents' is called."
   (unless (featurep 'package)
@@ -199,32 +179,35 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (setq inhibit-message-regexps '("^Saving file" "^Wrote"))
   (setq set-message-functions '(inhibit-message)))
 
-;;;;;;;;;;
-;; EVIL ;;
-;;;;;;;;;;
+;; flymake.el
+(add-hook 'prog-mode-hook #'flymake-mode)
+(global-set-key (kbd "M-n") #'flymake-goto-next-error)
+(global-set-key (kbd "M-p") #'flymake-goto-prev-error)
+
+;; modus-themes.el
+(add-hook 'after-init-hook #'(lambda () (load-theme 'modus-vivendi t)))
+
 (require-package 'evil)
 (add-hook 'after-init-hook
           #'(lambda()
               (setq evil-want-integration t)
               (setq evil-want-keybinding nil)
-              (evil-mode)))
+              (evil-mode +1)))
 (defun modeline-color-border (&rest _)
   "A tweak for change modeline border color with evil mode."
   (unless (minibufferp)
     (when (eq (window-buffer (selected-window)) (current-buffer))
-      (let*
-          ((face
-            (cond
-             ((evil-normal-state-p) 'doom-modeline-evil-normal-state)
-             ((evil-emacs-state-p) 'doom-modeline-evil-emacs-state)
-             ((evil-insert-state-p) 'doom-modeline-evil-insert-state)
-             ((evil-motion-state-p) 'doom-modeline-evil-motion-state)
-             ((evil-visual-state-p) 'doom-modeline-evil-visual-state)
-             ((evil-operator-state-p) 'doom-modeline-evil-operator-state)
-             ((evil-replace-state-p) 'doom-modeline-evil-replace-state)
-             (t 'doom-modeline-evil-user-state)))
-           (color (face-foreground face nil t)))
-        (set-face-attribute 'mode-line nil :box `(:line-width (-1 . -1) :color ,color))))))
+      (let* ((color
+              (cond
+               ((evil-normal-state-p) "#006fa0")
+               ((evil-emacs-state-p) "#444488")
+               ((evil-insert-state-p) "#ff0000")
+               ((evil-motion-state-p) "#ffffff")
+               ((evil-visual-state-p) "#e80074")
+               ((evil-operator-state-p) "#ffffff")
+               ((evil-replace-state-p) "#ffff00")
+               (t "#ffffff"))))
+        (set-face-attribute 'mode-line nil :box `(:line-width (2 . 2) :color ,color))))))
 (add-hook 'evil-emacs-state-entry-hook #'modeline-color-border)
 (add-hook 'evil-insert-state-entry-hook #'modeline-color-border)
 (add-hook 'evil-motion-state-entry-hook #'modeline-color-border)
@@ -251,50 +234,6 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (define-key evil-normal-state-map "gcc" #'evilnc-comment-or-uncomment-lines)
   (define-key evil-visual-state-map "gc" #'evilnc-comment-or-uncomment-lines))
 
-(require-package 'evil-goggles)
-(add-hook 'evil-mode-hook #'evil-goggles-mode)
-(with-eval-after-load 'evil-goggles
-  (setq evil-goggles-duration 2.500))
-
-;;;;;;;;;;;;;
-;; GENERAL ;;
-;;;;;;;;;;;;;
-(require-package 'general)
-(run-with-idle-timer
- 4 nil
- #'(lambda()
-     (require 'general)
-     (general-create-definer spc-leader-def
-       :prefix "SPC"
-       :states '(normal visual))
-     (spc-leader-def
-       "SPC" 'counsel-M-x
-       "tT" 'emacs-init-time
-       "H" 'helpful-at-point
-       "1" 'winum-select-window-1
-       "2" 'winum-select-window-2
-       "3" 'winum-select-window-3
-       "4" 'winum-select-window-4
-       "5" 'winum-select-window-5
-       "6" 'winum-select-window-6
-       "7" 'winum-select-window-7
-       "8" 'winum-select-window-8
-       "9" 'winum-select-window-9
-       "0" 'winum-select-window-0-or-10
-       "ww" 'ace-window
-       "gl" 'avy-goto-line
-       "gw" 'avy-goto-word-0
-       "gt" 'avy-goto-char-timer
-       "ff" 'counsel-find-file
-       "fF" 'counsel-fzf
-       "fb" 'counsel-ibuffer
-       "fw" 'counsel-rg
-       "fs" 'swiper-isearch-backward
-       "fc" 'counsel-load-theme)))
-
-;;;;;;;;;;;;
-;; EDITOR ;;
-;;;;;;;;;;;;
 (require-package 'rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
@@ -310,8 +249,9 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (require-package 'indent-bars)
 (add-hook 'prog-mode-hook #'indent-bars-mode)
 (with-eval-after-load 'indent-bars
-  (setq indent-bars-color '(highlight :face-bg t :blend 0.5))
-  (setq indent-bars-no-descend-string t)
+  (setq indent-bars-color '(highlight :face-bg t :blend 0.75))
+  (setq indent-bars-no-descend-string nil)
+  (setq indent-bars-no-descend-lists nil)
   (setq indent-bars-prefer-character t))
 
 (require-package 'hl-todo)
@@ -328,211 +268,12 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
           ("BUG" error bold)
           ("XXX" font-lock-constant-face bold))))
 
-;;;;;;;;;;
-;; TOOL ;;
-;;;;;;;;;;
 (require-package 'xclip)
 (add-hook 'after-init-hook #'xclip-mode)
-
-(require-package 'avy)
-(global-set-key (kbd "M-g l") 'avy-goto-line)
-(global-set-key (kbd "M-g w") 'avy-goto-word-0)
-(global-set-key (kbd "M-g t") 'avy-goto-char-timer)
-
-(require-package 'minimap)
-(with-eval-after-load 'minimap
-  (setq minimap-hide-fringes t)
-  (setq minimap-window-location 'right))
-
-(require-package 'helpful)
-(global-set-key (kbd "C-c C-d") #'helpful-at-point)
-(global-set-key (kbd "C-h f") #'helpful-callable)
-(global-set-key (kbd "C-h v") #'helpful-variable)
-(global-set-key (kbd "C-h k") #'helpful-key)
-(global-set-key (kbd "C-h x") #'helpful-command)
-
-(require-package 'ace-window)
-(global-set-key [remap other-window] 'ace-window)
-(with-eval-after-load 'ace-window
-  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-  (setq aw-background nil)
-  (setq aw-char-position 'top-left))
-
-(require-package 'winum)
-(run-with-idle-timer 2 nil #'winum-mode)
-(with-eval-after-load 'winum
-  (setq winum-format "[%s]")
-  (setq winum-mode-line-position 0))
-
-(require-package 'dired-sidebar)
-(global-set-key [f1] #'dired-sidebar-toggle-sidebar)
-(with-eval-after-load 'dired-sidebar
-  (setq dired-sidebar-theme 'nerd-icons))
-
-(require-package 'gcmh)
-(add-hook 'after-init-hook #'gcmh-mode)
-
-(require-package 'magit)
-(require-package 'writeroom-mode)
-(require-package 'wgrep)
-(require-package 'vundo)
-(require-package 'esup)
-
-;;;;;;;;;;;;;;;;;;;;;;;;
-;; COMPANY & SNIPPETS ;;
-;;;;;;;;;;;;;;;;;;;;;;;;
-(require-package 'company)
-(add-hook 'prog-mode-hook #'company-mode)
-(with-eval-after-load 'company
-  (setq company-idle-delay 0.1)
-  (setq company-global-modes '(not ehsell))
-  (setq company-tooltip-align-annotations t)
-  (setq company-tooltip-annotation-padding 1)
-  (setq company-tooltip-limit 10)
-  (setq company-tooltip-offset-display 'scollbar)
-  (setq company-format-margin-function #'company-text-icons-margin)
-  (setq company-text-icons-add-background t)
-  (setq company-minimum-prefix-length 1)
-  (setq company-backends
-        '((company-bbdb :with company-yasnippet)
-          (company-semantic :with company-yasnippet)
-          (company-cmake :with company-yasnippet)
-          (company-capf :with company-yasnippet)
-          (company-clang :with company-yasnippet)
-          (company-files :with company-yasnippet)
-          (company-oddmuse :with company-yasnippet)
-          (company-dabbrev :with company-yasnippet)
-          ((company-dabbrev-code company-gtags company-etags company-keywords) :with company-yasnippet))))
-
-(require-package 'company-quickhelp)
-(when (display-graphic-p)
-  (add-hook 'company-mode-hook #'company-quickhelp-mode))
-
-(require-package 'yasnippet)
-(require-package 'yasnippet-snippets)
-(add-hook 'prog-mode-hook #'yas-global-mode)
-
-;;;;;;;;
-;; UI ;;
-;;;;;;;;
-(require-package 'doom-themes)
-(add-hook 'after-init-hook
-          #'(lambda()
-              (setq doom-one-brighter-comments t)
-              (load-theme 'doom-one t)))
-
-(require-package 'catppuccin-theme)
-(require-package 'zenburn-theme)
-(require-package 'solarized-theme)
-(require-package 'color-theme-sanityinc-tomorrow)
-(require-package 'color-theme-sanityinc-solarized)
-(require-package 'spacemacs-theme)
-(require-package 'gruvbox-theme)
-(require-package 'dracula-theme)
-(require-package 'material-theme)
-(require-package 'moe-theme)
-(require-package 'tao-theme)
-(require-package 'vscode-dark-plus-theme)
-(require-package 'base16-theme)
-(require-package 'atom-one-dark-theme)
-(require-package 'molokai-theme)
-(require-package 'ef-themes)
-(require-package 'standard-themes)
-(require-package 'sublime-themes)
-
-(require-package 'doom-modeline)
-(add-hook 'after-init-hook #'doom-modeline-mode)
-(with-eval-after-load 'doom-modeline
-  (setq doom-modeline-height 20)
-  (setq doom-modeline-bar-width 5)
-  (setq doom-modeline-enable-word-count t)
-  (setq doom-modeline-minor-modes t))
-
-(require-package 'hide-mode-line)
-(add-hook 'dired-mode-hook #'hide-mode-line-mode)
-(add-hook 'eshell-mode-hook #'hide-mode-line-mode)
-
-(require-package 'minions)
-(add-hook 'doom-modeline-mode-hook #'minions-mode)
-
-(require-package 'solaire-mode)
-(run-with-idle-timer 2 nil #'solaire-global-mode)
 
 (require-package 'diredfl)
 (add-hook 'dired-mode-hook #'diredfl-mode)
 
-(require-package 'nerd-icons-ibuffer)
-(add-hook 'ibuffer-mode-hook #'nerd-icons-ibuffer-mode)
-
-(require-package 'nerd-icons-dired)
-(add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
-
-(require-package 'mode-line-bell)
-(run-with-idle-timer 2 nil #'mode-line-bell-mode)
-
-(require-package 'beacon)
-(add-hook 'after-init-hook #'beacon-mode)
-(with-eval-after-load 'beacon
-  (setq beacon-size 60)
-  (setq beacon-color 0.4)
-  (setq beacon-blink-duration 2.5)
-  (setq beacon-blink-delay 1.0)
-  (setq beacon-blink-when-window-scrolls t)
-  (setq beacon-blink-when-window-changes t)
-  (setq beacon-blink-when-point-moves t))
-
-(require-package 'centaur-tabs)
-(run-with-idle-timer
- 5 nil
- #'(lambda ()
-     (setq centaur-tabs-style "bar")
-     (setq centaur-tabs-height 20)
-     (setq centaur-tabs-set-bar 'over)
-     (setq centaur-tabs-gray-out-icons 'buffer)
-     (setq centaur-tabs-set-icons t)
-     (setq centaur-tabs-icon-type 'nerd-icons)
-     (centaur-tabs-mode)))
-
-;;;;;;;;;
-;; IVY ;;
-;;;;;;;;;
-(require-package 'ivy)
-(add-hook 'after-init-hook #'ivy-mode)
-(with-eval-after-load 'ivy
-  (setq ivy-use-virutal-buffers t)
-  (setq enable-recursive-minibuffers t)
-  (setq ivy-height 12)
-  (setq ivy-initial-inputs-alist nil)
-  (setq ivy-count-format "[%d/%d]")
-  (setq ivy-re-builders-alist `((t . ivy--regex-ignore-order))))
-
-(require-package 'ivy-rich)
-(add-hook 'ivy-mode-hook #'ivy-rich-mode)
-
-(require-package 'nerd-icons-ivy-rich)
-(add-hook 'ivy-mode-hook #'nerd-icons-ivy-rich-mode)
-
-(require-package 'counsel)
-(add-hook 'ivy-mode-hook #'counsel-mode)
-(global-set-key (kbd "M-g f") 'counsel-flycheck)
-
-(require-package 'swiper)
-(global-set-key (kbd "C-s") 'swiper-isearch-backward)
-
-(require-package 'amx)
-
-;;;;;;;;;;;;;;;;;;;;;
-;; SYNTAX CHECKING ;;
-;;;;;;;;;;;;;;;;;;;;;
-
-(require-package 'flycheck)
-(add-hook 'prog-mode-hook #'global-flycheck-mode)
-(global-set-key (kbd "M-n") 'flycheck-next-error)
-(global-set-key (kbd "M-p") 'flycheck-previous-error)
-
-;;;;;;;;;;;;;;;;;
-;; PROGRAMMING ;;
-;;;;;;;;;;;;;;;;;
 (require-package 'csv-mode)
 (require-package 'json-mode)
 (require-package 'toml-mode)
@@ -542,14 +283,64 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (setq lua-indent-nested-block-content-align nil)
   (setq lua-indent-close-paren-align nil))
 
-;;;;;;;;;;;;;;;
-;; LSP & DAP ;;
-;;;;;;;;;;;;;;;
-(require-package 'lsp-mode)
-(require-package 'lsp-ivy)
-(global-set-key (kbd "M-g L") #'lsp-ivy-workspace-symbol)
+(require-package 'vertico)
+(add-hook 'after-init-hook #'vertico-mode)
+(with-eval-after-load 'vertico
+  (setq vertico-scroll-margin 0)
+  (setq vertico-count 15)
+  (setq vertico-resize t)
+  (setq vertico-cycle t)
+  (define-key vertico-map [tab] #'vertico-next)
+  (define-key vertico-map [backtab] #'vertico-previous)
+  (define-key vertico-map (kbd "RET") #'vertico-directory-enter)
+  (define-key vertico-map (kbd "DEL") #'vertico-directory-delete-char)
+  (define-key vertico-map (kbd "M-DEL") #'vertico-directory-delete-word))
 
-(require-package 'dap-mode)
+(require-package 'marginalia)
+(add-hook 'after-init-hook #'marginalia-mode)
+
+(require-package 'orderless)
+(setq completion-styles '(orderless basic))
+(setq completion-category-overrides '((file (styles basic partial-completion))))
+
+(require-package 'consult)
+(global-set-key [remap isearch-forward] #'consult-line)
+(global-set-key [remap switch-to-buffer] #'consult-buffer)
+(global-set-key (kbd "M-g f") #'consult-flymake)
+(global-set-key (kbd "M-g o") #'consult-outline)
+(global-set-key (kbd "M-g r") #'consult-grep)
+(global-set-key (kbd "C-c C-r") #'consult-ripgrep)
+(define-key minibuffer-local-map (kbd "M-s") #'consult-history)
+
+(require-package 'embark)
+(require-package 'embark-consult)
+(define-key minibuffer-mode-map (kbd "C-c C-o") #'embark-export)
+
+(require-package 'yasnippet)
+(require-package 'yasnippet-snippets)
+(add-hook 'prog-mode-hook #'yas-global-mode)
+
+(require-package 'corfu)
+(add-hook 'prog-mode-hook #'global-corfu-mode)
+(add-hook 'global-corfu-mode-hook #'corfu-popupinfo-mode)
+(with-eval-after-load 'corfu
+  (setq corfu-cycle t)
+  (setq corfu-auto t)
+  (setq corfu-auto-prefix 1)
+  (setq corfu-auto-delay 0.1)
+  (setq corfu-preselect 'prompt)
+  (setq corfu-on-exact-match nil)
+  (define-key corfu-map [tab] #'corfu-next)
+  (define-key corfu-map [backtab] #'corfu-previous))
+
+(require-package 'cape)
+(add-hook 'completion-at-point-functions #'cape-dabbrev)
+(add-hook 'completion-at-point-functions #'cape-file)
+(add-hook 'completion-at-point-functions #'cape-elisp-block)
+
+(require-package 'nerd-icons-corfu)
+(with-eval-after-load 'corfu
+  (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 (provide 'init)
 ;;; init.el ends here
