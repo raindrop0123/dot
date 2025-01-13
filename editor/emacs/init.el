@@ -12,13 +12,12 @@
  #'(lambda()
      (cl-loop for font in '("Jetbrains Mono" "SF Mono" "Menlo" "Monaco" "Consolas")
               when (find-font (font-spec :name font))
-              return (set-face-attribute 'default nil :family font :height 130))))
+              return (set-face-attribute 'default nil :family font :height 140))))
 
 ;; C source code
 (setq gc-cons-threshold most-positive-fixnum)
 (setq gc-cons-percentage 0.6)
 (setq frame-inhibit-implied-resize t)
-(setq-default debug-on-error t)
 (setq-default bidi-display-reordering nil)
 (setq-default bidi-inhibit-bpa t)
 (setq-default long-line-threshold 500)
@@ -36,8 +35,6 @@
 (setq-default resize-mini-windows t)
 (setq-default use-short-answers t)
 (setq-default default-frame-alist '((menu-bar-lines . 0) (tool-bar-lines . 0) (vertical-scroll-bars) (horizontal-scroll-bars)))
-(add-hook 'minibuffer-setup-hook #'(lambda() (setq gc-cons-threshold most-positive-fixnum)))
-(add-hook 'minibuffer-exit-hook #'(lambda() (setq gc-cons-threshold 800000)))
 (when (featurep 'ns)
   (setq ns-command-modifier 'meta)
   (setq ns-alternate-modifier 'super))
@@ -172,9 +169,6 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (global-set-key (kbd "M-n") #'flymake-goto-next-error)
 (global-set-key (kbd "M-p") #'flymake-goto-prev-error)
 
-;; modus-themes.el
-(add-hook 'after-init-hook #'(lambda () (load-theme 'modus-vivendi t)))
-
 ;; font-lock.el
 (font-lock-add-keywords 'emacs-lisp-mode '(("\\<require-package\\>" . font-lock-keyword-face)))
 
@@ -203,7 +197,7 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
                ((evil-operator-state-p) "#ffffff")
                ((evil-replace-state-p) "#ffff00")
                (t "#ffffff"))))
-        (set-face-attribute 'mode-line nil :box `(:line-width (2 . 2) :color ,color))))))
+        (set-face-attribute 'mode-line nil :box `(:line-width (3 . 3) :color ,color))))))
 (add-hook 'evil-emacs-state-entry-hook #'modeline-color-border)
 (add-hook 'evil-insert-state-entry-hook #'modeline-color-border)
 (add-hook 'evil-motion-state-entry-hook #'modeline-color-border)
@@ -257,6 +251,7 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (setq indent-bars-color '(highlight :face-bg t :blend 0.75))
   (setq indent-bars-no-descend-string nil)
   (setq indent-bars-no-descend-lists nil)
+  (setq indent-bars-display-on-blank-lines nil)
   (setq indent-bars-prefer-character t))
 
 ;; hl-todo
@@ -282,18 +277,30 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (require-package 'diredfl)
 (add-hook 'dired-mode-hook #'diredfl-mode)
 
+;; nerd-icons-ibuffer
+(require-package 'nerd-icons-ibuffer)
+(add-hook 'ibuffer-mode-hook #'nerd-icons-ibuffer-mode)
+
+;; nerd-icons-dired
+(require-package 'nerd-icons-dired)
+(add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
+
 ;; vertico
 (require-package 'vertico)
 (add-hook 'after-init-hook #'vertico-mode)
 (with-eval-after-load 'vertico
   (setq vertico-scroll-margin 0)
   (setq vertico-count 15)
-  (setq vertico-resize t)
+  (setq vertico-resize nil)
   (setq vertico-cycle t)
   (define-key vertico-map [tab] #'vertico-next)
   (define-key vertico-map [backtab] #'vertico-previous)
   (define-key vertico-map (kbd "RET") #'vertico-directory-enter)
   (define-key vertico-map (kbd "DEL") #'vertico-directory-delete-char))
+
+;; nerd-icons-completion
+(require-package 'nerd-icons-completion)
+(add-hook 'minibuffer-mode-hook #'nerd-icons-completion-mode)
 
 ;; marginalia
 (require-package 'marginalia)
@@ -308,18 +315,29 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (require-package 'consult)
 (global-set-key [remap isearch-forward] #'consult-line)
 (global-set-key [remap switch-to-buffer] #'consult-buffer)
+(global-set-key [remap goto-line] #'consult-goto-line)
+(global-set-key [remap load-theme] #'consult-theme)
+(global-set-key [remap switch-to-buffer-other-frame] #'consult-buffer-other-frame)
+(global-set-key [remap switch-to-buffer-other-window] #'consult-buffer-other-window)
+(global-set-key [remap yank-pop] #'consult-yank-pop)
+(global-set-key [remap load-theme] #'consult-theme)
 (global-set-key (kbd "M-g f") #'consult-flymake)
 (global-set-key (kbd "M-g o") #'consult-outline)
 (global-set-key (kbd "M-g r") #'consult-grep)
 (global-set-key (kbd "C-c C-r") #'consult-ripgrep)
 (define-key minibuffer-local-map (kbd "M-s") #'consult-history)
+(with-eval-after-load 'consult
+  (setq consult-line-numbers-widen t))
 
-;; embark
+;; consult-yasnippet
+(require-package 'consult-yasnippet)
+(global-set-key (kbd "M-y") 'consult-yasnippet)
+
+;; embark & embark-consult
 (require-package 'embark)
-(define-key minibuffer-mode-map (kbd "C-c C-o") #'embark-export)
-
-;; embark-consult
 (require-package 'embark-consult)
+(add-hook 'embark-collect-mode #'consult-preview-at-point-mode)
+(define-key minibuffer-mode-map (kbd "C-c C-o") #'embark-export)
 
 ;; yasnippet & yasnippet-snippets
 (require-package 'yasnippet)
@@ -336,9 +354,23 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (setq corfu-auto-prefix 1)
   (setq corfu-auto-delay 0.1)
   (setq corfu-preselect 'prompt)
+  (setq corfu-count 16)
+  (setq corfu-max-width 120)
   (setq corfu-on-exact-match nil)
+  (setq global-corfu-modes '((not erc-mode circe-mode help-mode gud-mode vterm-mode) t))
+  (setq corfu-popupinfo-delay '(0.5 . 1.0))
   (define-key corfu-map [tab] #'corfu-next)
   (define-key corfu-map [backtab] #'corfu-previous))
+
+;; corfu-terminal
+(require-package 'corfu-terminal)
+(when (not (display-graphic-p))
+  (add-hook 'global-corfu-mode-hook #'corfu-terminal-mode))
+
+;; nerd-icons-corfu
+(require-package 'nerd-icons-corfu)
+(with-eval-after-load 'corfu
+  (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 ;; cape
 (require-package 'cape)
@@ -346,10 +378,8 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (add-hook 'completion-at-point-functions #'cape-file)
 (add-hook 'completion-at-point-functions #'cape-elisp-block)
 
-;; nerd-icons-corfu
-(require-package 'nerd-icons-corfu)
-(with-eval-after-load 'corfu
-  (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
+;; wgrep
+(require-package 'wgrep)
 
 (provide 'init)
 ;;; init.el ends here
