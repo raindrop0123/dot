@@ -9,6 +9,9 @@
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.fontFamily": "Monaco, Menlo, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
     "editor.fontSize": 13,
+    "editor.fontWeight": "600",
+    "editor.fontLigatures": true,
+    "editor.fontVariations": true,
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": true,
     "editor.guides.highlightActiveIndentation": true,
@@ -20,6 +23,17 @@
     "editor.rulers": [
         80
     ],
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [{
+            "scope": ["comment"],
+            "settings": {
+                "fontStyle": "bold"
+            }
+        }],
+        "[Catppuccin Mocha]": {
+            "comments": "#9399b2"
+        }
+    },
     "editor.tabSize": 2,
     "editor.smoothScrolling": true,
     "explorer.sortOrder": "type",
