@@ -24,12 +24,16 @@
         80
     ],
     "editor.tokenColorCustomizations": {
-        "textMateRules": [{
-            "scope": ["comment"],
-            "settings": {
-                "fontStyle": "bold"
+        "textMateRules": [
+            {
+                "scope": [
+                    "comment"
+                ],
+                "settings": {
+                    "fontStyle": "bold"
+                }
             }
-        }],
+        ],
         "[Catppuccin Mocha]": {
             "comments": "#9399b2"
         }
@@ -204,13 +208,7 @@
     ////////////////
     "workbench.colorTheme": "Catppuccin Mocha",
     "catppuccin.accentColor": "blue",
-    "catppuccin.colorOverrides": {
-        "mocha": {
-            "base": "#181825",
-            "mantle": "#11111b",
-            "crust": "#000000",
-        },
-    },
+    "catppuccin.colorOverrides": {},
     "catppuccin.customUIColors": {
         "mocha": {
             "editorLineNumber.activeForeground": "green",
