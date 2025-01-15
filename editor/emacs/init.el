@@ -13,6 +13,7 @@
      (cl-loop for font in '("Jetbrains Mono" "SF Mono" "Menlo" "Monaco" "Consolas")
               when (find-font (font-spec :name font))
               return (set-face-attribute 'default nil :family font :height 140))))
+(add-hook 'tty-setup-hook #'xterm-mouse-mode)
 
 ;; C source code
 (setq gc-cons-threshold most-positive-fixnum)
@@ -34,7 +35,11 @@
 (setq-default completion-ignore-case t)
 (setq-default resize-mini-windows t)
 (setq-default use-short-answers t)
-(setq-default default-frame-alist '((menu-bar-lines . 0) (tool-bar-lines . 0) (vertical-scroll-bars) (horizontal-scroll-bars)))
+(setq-default default-frame-alist
+              '((menu-bar-lines . 0)
+                (tool-bar-lines . 0)
+                (vertical-scroll-bars)
+                (horizontal-scroll-bars)))
 (when (featurep 'ns)
   (setq ns-command-modifier 'meta)
   (setq ns-alternate-modifier 'super))
@@ -183,6 +188,12 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
               (setq evil-want-integration t)
               (setq evil-want-keybinding nil)
               (evil-mode +1)))
+(with-eval-after-load 'evil
+  (setq evil-normal-state-cursor 'box)
+  (setq evil-emacs-state-cursor  'bar)
+  (setq evil-insert-state-cursor 'bar)
+  (setq evil-visual-state-cursor 'hollow)
+  (setq evil-replace-state-cursor 'hollow))
 (defun modeline-color-border (&rest _)
   "A tweak for change modeline border color with evil mode."
   (unless (minibufferp)
@@ -195,7 +206,7 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
                ((evil-motion-state-p) "#ffffff")
                ((evil-visual-state-p) "#e80074")
                ((evil-operator-state-p) "#ffffff")
-               ((evil-replace-state-p) "#ffff00")
+               ((evil-replace-state-p) "#e80074")
                (t "#ffffff"))))
         (set-face-attribute 'mode-line nil :box `(:line-width (3 . 3) :color ,color))))))
 (add-hook 'evil-emacs-state-entry-hook #'modeline-color-border)
@@ -212,6 +223,7 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (add-hook 'evil-mode-hook #'evil-escape-mode)
 (with-eval-after-load 'evil-escape
   (setq-default evil-escape-delay 0.2)
+  (setq evil-escape-excluded-major-modes '(neotree-mode treemacs-mode vterm-mode))
   (setq-default evil-escape-key-sequence "jk"))
 
 ;; evil-collection
@@ -227,6 +239,14 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (with-eval-after-load 'evil-maps
   (define-key evil-normal-state-map "gcc" #'evilnc-comment-or-uncomment-lines)
   (define-key evil-visual-state-map "gc" #'evilnc-comment-or-uncomment-lines))
+
+;; evil-goggles
+(require-package 'evil-goggles)
+(add-hook 'evil-mode-hook #'evil-goggles-mode)
+
+;; evil-visualstar
+(require-package 'evil-visualstar)
+(add-hook 'evil-mode-hook #'global-evil-visualstar-mode)
 
 ;; rainbow-delimiters
 (require-package 'rainbow-delimiters)
@@ -292,8 +312,6 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (setq vertico-count 15)
   (setq vertico-resize nil)
   (setq vertico-cycle t)
-  (define-key vertico-map [tab] #'vertico-next)
-  (define-key vertico-map [backtab] #'vertico-previous)
   (define-key vertico-map (kbd "RET") #'vertico-directory-enter)
   (define-key vertico-map (kbd "DEL") #'vertico-directory-delete-char))
 
@@ -357,9 +375,7 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (setq corfu-max-width 120)
   (setq corfu-on-exact-match nil)
   (setq global-corfu-modes '((not erc-mode circe-mode help-mode gud-mode vterm-mode) t))
-  (setq corfu-popupinfo-delay '(0.5 . 1.0))
-  (define-key corfu-map [tab] #'corfu-next)
-  (define-key corfu-map [backtab] #'corfu-previous))
+  (setq corfu-popupinfo-delay '(0.5 . 1.0)))
 
 ;; corfu-terminal
 (require-package 'corfu-terminal)
@@ -383,6 +399,9 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;; gcmh
 (require-package 'gcmh)
 (add-hook 'after-init-hook #'gcmh-mode)
+
+;; vundo
+(require-package 'vundo)
 
 (provide 'init)
 ;;; init.el ends here
