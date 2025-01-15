@@ -30,7 +30,7 @@
                     "comment"
                 ],
                 "settings": {
-                    "fontStyle": "bold"
+                    "fontStyle": "italic bold"
                 }
             }
         ],
@@ -217,6 +217,13 @@
             "widget.border": "blue",
         },
     },
+    "catppuccin.italicComments": true,
+    "catppuccin.italicKeywords": true,
+    "catppuccin.boldKeywords": true,
+    "catppuccin.bracketMode": "dimmed",
+    "catppuccin.extraBordersEnabled": true,
+    "catppuccin.syncWithIconPack": true,
+    "catppuccin.workbenchMode": "minimal",
     //////////////////////
     // Catppuccin Icons //
     //////////////////////
@@ -224,4 +231,8 @@
     "catppuccin-icons.hidesExplorerArrows": false,
     "catppuccin-icons.specificFolders": true,
     "catppuccin-icons.monochrome": false,
+    "catppuccin-icons.associations.extensions": {},
+    "catppuccin-icons.associations.files": {},
+    "catppuccin-icons.associations.folders": {},
+    "catppuccin-icons.associations.languages": {}
 }
