@@ -83,9 +83,9 @@
         "<C-z>": false
     },
     "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.duration": 2500,
-    "vim.highlightedyank.color": "#f5e0dc",
-    "vim.highlightedyank.textColor": "#11111b",
+    "vim.highlightedyank.duration": 1000,
+    "vim.highlightedyank.color": "#7f849c40",
+    "vim.highlightedyank.textColor": "#f9e2af",
     "vim.hlsearch": true,
     "vim.incsearch": true,
     "vim.insertModeKeyBindings": [
@@ -230,7 +230,7 @@
     "workbench.iconTheme": "catppuccin-mocha",
     "catppuccin-icons.hidesExplorerArrows": false,
     "catppuccin-icons.specificFolders": true,
-    "catppuccin-icons.monochrome": false,
+    "catppuccin-icons.monochrome": true,
     "catppuccin-icons.associations.extensions": {},
     "catppuccin-icons.associations.files": {},
     "catppuccin-icons.associations.folders": {},
