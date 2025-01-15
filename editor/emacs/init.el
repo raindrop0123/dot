@@ -279,14 +279,15 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (add-hook 'prog-mode-hook #'hl-todo-mode)
 (with-eval-after-load 'hl-todo
   (setq hl-todo-highlight-punctuation ":")
-  (setq hl-todo-keyword-faces '(("TODO" warning bold)
-                                ("FIXME" error bold)
-                                ("REVIEW" font-lock-keyword-face bold)
-                                ("HACK" font-lock-constant-face bold)
-                                ("DEPRECATED" font-lock-doc-face bold)
-                                ("NOTE" success bold)
-                                ("BUG" error bold)
-                                ("XXX" font-lock-constant-face bold))))
+  (setq hl-todo-keyword-faces
+        '(("TODO" warning bold)
+          ("FIXME" error bold)
+          ("REVIEW" font-lock-keyword-face bold)
+          ("HACK" font-lock-constant-face bold)
+          ("DEPRECATED" font-lock-doc-face bold)
+          ("NOTE" success bold)
+          ("BUG" error bold)
+          ("XXX" font-lock-constant-face bold))))
 
 ;; xclip
 (require-package 'xclip)
@@ -402,6 +403,9 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 
 ;; vundo
 (require-package 'vundo)
+
+;; quickrun
+(require-package 'quickrun)
 
 (provide 'init)
 ;;; init.el ends here
