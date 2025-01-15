@@ -29,6 +29,7 @@
 (setq-default highlight-nonselected-windows nil)
 (setq-default redisplay-skip-fontification-on-input t)
 (setq-default cursor-in-non-selected-windows nil)
+(setq-default enable-recursive-minibuffers t)
 (setq-default bidi-paragraph-direction 'left-to-right)
 (setq-default tab-width 2)
 (setq-default truncate-lines t)
@@ -406,6 +407,13 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 
 ;; quickrun
 (require-package 'quickrun)
+
+;; olivetti
+(require-package 'olivetti)
+
+;; breadcrumb
+(require-package 'breadcrumb)
+(add-hook 'prog-mode-hook #'breadcrumb-mode)
 
 (provide 'init)
 ;;; init.el ends here
