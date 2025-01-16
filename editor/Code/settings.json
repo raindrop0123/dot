@@ -185,7 +185,7 @@
     ],
     "vim.statusBarColors.commandlineinprogress": [
         "#11111b",
-        "#cba6f7"
+        "#f5e0dc"
     ],
     "vim.statusBarColors.searchinprogressmode": [
         "#11111b",
@@ -193,11 +193,11 @@
     ],
     "vim.statusBarColors.easymotionmode": [
         "#11111b",
-        "#f5e0dc"
+        "#f2cdcd"
     ],
     "vim.statusBarColors.easymotioninputmode": [
         "#11111b",
-        "#f5e0dc"
+        "#f2cdcd"
     ],
     "vim.statusBarColors.surroundinputmode": [
         "#11111b",
