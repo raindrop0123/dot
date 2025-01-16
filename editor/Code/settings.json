@@ -230,7 +230,7 @@
     "workbench.iconTheme": "catppuccin-mocha",
     "catppuccin-icons.hidesExplorerArrows": false,
     "catppuccin-icons.specificFolders": true,
-    "catppuccin-icons.monochrome": true,
+    "catppuccin-icons.monochrome": false,
     "catppuccin-icons.associations.extensions": {},
     "catppuccin-icons.associations.files": {},
     "catppuccin-icons.associations.folders": {},
