@@ -78,6 +78,9 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
       (package-refresh-contents))
     (package-install package)))
 
+;; modus-themes.el
+(add-hook 'after-init-hook #'(lambda () (load-theme 'modus-vivendi t)))
+
 ;; which-key.el
 (add-hook 'after-init-hook #'which-key-mode)
 
@@ -414,6 +417,22 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;; breadcrumb
 (require-package 'breadcrumb)
 (add-hook 'prog-mode-hook #'breadcrumb-mode)
+
+;; sideline & sideline-flymake
+(require-package 'sideline)
+(require-package 'sideline-flymake)
+(add-hook 'flymake-mode-hook #'sideline-mode)
+(with-eval-after-load 'sideline
+  (setq sideline-backends-left-skip-current-line t)
+  (setq sideline-backends-right-skip-current-line t)
+  (setq sideline-order-left 'down)
+  (setq sideline-order-right 'up)
+  (setq sideline-format-left "%s   ")
+  (setq sideline-format-right "   %s")
+  (setq sideline-priority 100)
+  (setq sideline-display-backend-name t)
+  (setq sideline-flymake-display-mode 'point)
+  (setq sideline-backends-right '((sideline-flymake . down))))
 
 (provide 'init)
 ;;; init.el ends here
