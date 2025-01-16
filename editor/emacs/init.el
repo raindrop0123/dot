@@ -248,6 +248,15 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (require-package 'evil-goggles)
 (add-hook 'evil-mode-hook #'evil-goggles-mode)
 
+;; evil-surround
+(require-package 'evil-surround)
+(add-hook 'evil-mode-hook #'evil-surround-mode)
+
+;; evil-snipe
+(require-package 'evil-snipe)
+(add-hook 'evil-mode-hook #'evil-snipe-mode)
+(add-hook 'evil-mode-hook #'evil-snipe-override-mode)
+
 ;; evil-visualstar
 (require-package 'evil-visualstar)
 (add-hook 'evil-mode-hook #'global-evil-visualstar-mode)
@@ -318,6 +327,7 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (setq vertico-resize nil)
   (setq vertico-cycle t)
   (define-key vertico-map (kbd "RET") #'vertico-directory-enter)
+  (define-key vertico-map (kbd "M-RET") #'vertico-directory-delete-word)
   (define-key vertico-map (kbd "DEL") #'vertico-directory-delete-char))
 
 ;; nerd-icons-completion
@@ -359,7 +369,10 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (require-package 'embark)
 (require-package 'embark-consult)
 (add-hook 'embark-collect-mode #'consult-preview-at-point-mode)
+(global-set-key (kbd "C-c C-o") #'embark-export)
+(global-set-key (kbd "C-c C-a") #'embark-act)
 (define-key minibuffer-mode-map (kbd "C-c C-o") #'embark-export)
+(define-key minibuffer-mode-map (kbd "C-c C-a") #'embark-act)
 
 ;; yasnippet & yasnippet-snippets
 (require-package 'yasnippet)
@@ -400,6 +413,8 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 
 ;; wgrep
 (require-package 'wgrep)
+(with-eval-after-load 'wgrep
+  (setq wgrep-auto-save-buffer t))
 
 ;; gcmh
 (require-package 'gcmh)
