@@ -10,7 +10,7 @@
 (add-hook
  'window-setup-hook
  #'(lambda()
-     (cl-loop for font in '("Jetbrains Mono" "SF Mono" "Menlo" "Monaco" "Consolas")
+     (cl-loop for font in '("Jetbrains Mono" "SF Mono" "Monaco" "Menlo" "Consolas")
               when (find-font (font-spec :name font))
               return (set-face-attribute 'default nil :family font :height 140))))
 (add-hook 'tty-setup-hook #'xterm-mouse-mode)
@@ -41,7 +41,7 @@
                 (tool-bar-lines . 0)
                 (vertical-scroll-bars)
                 (horizontal-scroll-bars)))
-(when (featurep 'ns)
+(when (eq system-type 'darwin)
   (setq ns-command-modifier 'meta)
   (setq ns-alternate-modifier 'super))
 
@@ -177,9 +177,9 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 (add-hook 'prog-mode-hook #'flymake-mode)
 (global-set-key (kbd "M-n") #'flymake-goto-next-error)
 (global-set-key (kbd "M-p") #'flymake-goto-prev-error)
-
-;; font-lock.el
-(font-lock-add-keywords 'emacs-lisp-mode '(("\\<require-package\\>" . font-lock-keyword-face)))
+(with-eval-after-load 'flymake
+  (setq flymake-no-changes-timeout nil)
+  (setq flymake-fringe-indicator-position 'right-fringe))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; THIRD-PARTY PACKAGE ;;
@@ -204,15 +204,15 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
     (when (eq (window-buffer (selected-window)) (current-buffer))
       (let* ((color
               (cond
-               ((evil-normal-state-p) "#006fa0")
-               ((evil-emacs-state-p) "#444488")
-               ((evil-insert-state-p) "#ff0000")
-               ((evil-motion-state-p) "#ffffff")
-               ((evil-visual-state-p) "#e80074")
-               ((evil-operator-state-p) "#ffffff")
-               ((evil-replace-state-p) "#e80074")
-               (t "#ffffff"))))
-        (set-face-attribute 'mode-line nil :box `(:line-width (3 . 3) :color ,color))))))
+               ((evil-normal-state-p) "#79a8ff")
+               ((evil-emacs-state-p) "#f78fe7")
+               ((evil-insert-state-p) "#ff6b55")
+               ((evil-motion-state-p) "#000000")
+               ((evil-visual-state-p) "#70b900")
+               ((evil-operator-state-p) "#000000")
+               ((evil-replace-state-p) "#fec43f")
+               (t "#000000"))))
+        (set-face-attribute 'mode-line nil :box `(:line-width (2 . 2) :color ,color))))))
 (add-hook 'evil-emacs-state-entry-hook #'modeline-color-border)
 (add-hook 'evil-insert-state-entry-hook #'modeline-color-border)
 (add-hook 'evil-motion-state-entry-hook #'modeline-color-border)
@@ -251,11 +251,6 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;; evil-surround
 (require-package 'evil-surround)
 (add-hook 'evil-mode-hook #'evil-surround-mode)
-
-;; evil-snipe
-(require-package 'evil-snipe)
-(add-hook 'evil-mode-hook #'evil-snipe-mode)
-(add-hook 'evil-mode-hook #'evil-snipe-override-mode)
 
 ;; evil-visualstar
 (require-package 'evil-visualstar)
@@ -317,6 +312,14 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 ;; nerd-icons-dired
 (require-package 'nerd-icons-dired)
 (add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
+
+;; highlight-defined
+(require-package 'highlight-defined)
+(add-hook 'emacs-lisp-mode-hook #'highlight-defined-mode)
+
+;; highlight-numbers
+(require-package 'highlight-numbers)
+(add-hook 'prog-mode-hook #'highlight-numbers-mode)
 
 ;; vertico
 (require-package 'vertico)
@@ -425,6 +428,8 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
 
 ;; quickrun
 (require-package 'quickrun)
+(with-eval-after-load 'quickrun
+  (setq quickrun-focus-p nil))
 
 ;; olivetti
 (require-package 'olivetti)
@@ -448,6 +453,66 @@ If NO-REFRESH is nil, `package-refresh-contents' is called."
   (setq sideline-display-backend-name t)
   (setq sideline-flymake-display-mode 'point)
   (setq sideline-backends-right '((sideline-flymake . down))))
+
+;; dired-sidebar
+(require-package 'dired-sidebar)
+(with-eval-after-load 'dired-sidebar
+  (setq dired-sidebar-theme 'nerd-icons))
+
+;; dape
+(require-package 'dape)
+
+;; lua-mode
+(require-package 'lua-mode)
+(with-eval-after-load 'lua-mode
+  (setq lua-indent-level 2)
+  (setq lua-indent-nested-block-content-align nil)
+  (setq lua-indent-close-paren-align nil))
+
+;; csv-mode
+(require-package 'csv-mode)
+
+;; toml-mode
+(require-package 'toml-mode)
+
+;; yaml-mode
+(require-package 'yaml-mode)
+
+;; cmake-mode
+(require-package 'cmake-mode)
+
+;; vimrc-mode
+(require-package 'vimrc-mode)
+
+;; mode-line-bell
+(require-package 'mode-line-bell)
+(run-with-idle-timer 2 nil #'mode-line-bell-mode)
+
+;; beacon
+(require-package 'beacon)
+(run-with-idle-timer 2 nil #'beacon-mode)
+(with-eval-after-load 'beacon
+  (setq beacon-size 50)
+  (setq beacon-blink-duration 0.8)
+  (setq beacon-blink-delay 0.8)
+  (setq beacon-blink-when-focused t)
+  (setq beacon-blink-when-window-scrolls t)
+  (setq beacon-blink-when-window-changes t)
+  (setq beacon-blink-when-point-moves-vertically 3)
+  (setq beacon-blink-when-point-moves-horizontally 3))
+
+;; eldoc-box
+(require-package 'eldoc-box)
+(add-hook 'emacs-lisp-mode-hook #'eldoc-box-hover-mode)
+(add-hook 'eglot-managed-mode-hook #'eldoc-box-hover-mode t)
+
+;; helpful-mode
+(require-package 'helpful)
+(global-set-key [remap describe-function] #'helpful-callable)
+(global-set-key [remap describe-variable] #'helpful-variable)
+(global-set-key [remap describe-key] #'helpful-key)
+(global-set-key [remap describe-command] #'helpful-command)
+(global-set-key (kbd "C-c C-p") #'helpful-at-point)
 
 (provide 'init)
 ;;; init.el ends here
