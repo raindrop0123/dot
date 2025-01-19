@@ -22,7 +22,7 @@ set ruler
 set number
 set relativenumber
 set cursorline
-set cursorcolumn
+set nocursorcolumn
 set colorcolumn=80
 set splitbelow
 set splitright
@@ -108,6 +108,7 @@ call plug#begin()
 " UI "
 """"""
 Plug 'sheerun/vim-polyglot', { 'on': [] }
+Plug 'mhinz/vim-startify', { 'on': [] }
 Plug 'morhetz/gruvbox', { 'on': [] }
 Plug 'ryanoasis/vim-devicons', { 'on': [] }
 Plug 'vim-airline/vim-airline', { 'on': [] }
@@ -143,6 +144,8 @@ Plug 'junegunn/limelight.vim', { 'on': ['Limelight'] }
 Plug 'junegunn/goyo.vim', { 'on': ['Goyo'] }
 Plug 'dyng/ctrlsf.vim', { 'on': ['CtrlSF'] }
 Plug 'lambdalisue/vim-suda', { 'on': ['SudaRead', 'SudaWrite'] }
+Plug 'liuchengxu/vista.vim', { 'on': ['Vista', 'Vista!', 'Vista!!'] }
+Plug 'dstein64/vim-startuptime', { 'on': ['StartupTime'] }
 
 """"""""""""""""""""""""
 " COMPLETION & SNIPPET "
@@ -173,10 +176,35 @@ augroup LOAD_VIM_POLYGLOT
     \| autocmd! LOAD_VIM_POLYGLOT
 augroup END
 
+" VIM-STARTIFY
+augroup LOAD_VIM_STARTIFY
+  autocmd!
+  autocmd BufEnter * call plug#load('vim-startify')
+    \| autocmd! LOAD_VIM_STARTIFY
+    \| let g:startify_custom_header=[
+    \'',
+    \' ⣇⣿⠘⣿⣿⣿⡿⡿⣟⣟⢟⢟⢝⠵⡝⣿⡿⢂⣼⣿⣷⣌⠩⡫⡻⣝⠹⢿⣿⣷ ',
+    \' ⡆⣿⣆⠱⣝⡵⣝⢅⠙⣿⢕⢕⢕⢕⢝⣥⢒⠅⣿⣿⣿⡿⣳⣌⠪⡪⣡⢑⢝⣇ ',
+    \' ⡆⣿⣿⣦⠹⣳⣳⣕⢅⠈⢗⢕⢕⢕⢕⢕⢈⢆⠟⠋⠉⠁⠉⠉⠁⠈⠼⢐⢕⢽ ',
+    \' ⡗⢰⣶⣶⣦⣝⢝⢕⢕⠅⡆⢕⢕⢕⢕⢕⣴⠏⣠⡶⠛⡉⡉⡛⢶⣦⡀⠐⣕⢕ ',
+    \' ⡝⡄⢻⢟⣿⣿⣷⣕⣕⣅⣿⣔⣕⣵⣵⣿⣿⢠⣿⢠⣮⡈⣌⠨⠅⠹⣷⡀⢱⢕ ',
+    \' ⡝⡵⠟⠈⢀⣀⣀⡀⠉⢿⣿⣿⣿⣿⣿⣿⣿⣼⣿⢈⡋⠴⢿⡟⣡⡇⣿⡇⡀⢕ ',
+    \' ⡝⠁⣠⣾⠟⡉⡉⡉⠻⣦⣻⣿⣿⣿⣿⣿⣿⣿⣿⣧⠸⣿⣦⣥⣿⡇⡿⣰⢗⢄ ',
+    \' ⠁⢰⣿⡏⣴⣌⠈⣌⠡⠈⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣬⣉⣉⣁⣄⢖⢕⢕⢕ ',
+    \' ⡀⢻⣿⡇⢙⠁⠴⢿⡟⣡⡆⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣵⣵⣿ ',
+    \' ⡻⣄⣻⣿⣌⠘⢿⣷⣥⣿⠇⣿⣿⣿⣿⣿⣿⠛⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ ',
+    \' ⣷⢄⠻⣿⣟⠿⠦⠍⠉⣡⣾⣿⣿⣿⣿⣿⣿⢸⣿⣦⠙⣿⣿⣿⣿⣿⣿⣿⣿⠟ ',
+    \' ⡕⡑⣑⣈⣻⢗⢟⢞⢝⣻⣿⣿⣿⣿⣿⣿⣿⠸⣿⠿⠃⣿⣿⣿⣿⣿⣿⡿⠁⣠ ',
+    \' ⡝⡵⡈⢟⢕⢕⢕⢕⣵⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣿⣿⣿⣿⣿⠿⠋⣀⣈⠙ ',
+    \' ⡝⡵⡕⡀⠑⠳⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⢉⡠⡲⡫⡪⡪⡣ ',
+    \'',
+    \]
+augroup END
+
 " GRUVBOX
 augroup LOAD_GRUVBOX
   autocmd!
-  autocmd BufReadPost * call plug#load('gruvbox')
+  autocmd BufReadPost,BufEnter * call plug#load('gruvbox')
     \| autocmd! LOAD_GRUVBOX
     \| colorscheme gruvbox
 augroup END
@@ -310,9 +338,9 @@ nnoremap <Leader>tu <Cmd>UndotreeToggle<CR>
 nnoremap <Leader>RR <Cmd>QuickRun<CR>
 
 " NERDTREE & NERDTREE-GIT-PLUGIN
-let g:NERDTreeWinSize=20
+let g:NERDTreeWinSize=23
 let g:NERDTreeShowHidden=1
-nnoremap <F1> <Cmd>NERDTreeToggle<CR>
+nnoremap <Leader>tn <Cmd>NERDTreeToggle<CR>
 
 " FZF & FZF.VIM
 let g:fzf_layout={ 'down': '30%' }
@@ -322,7 +350,12 @@ nnoremap <Leader>fb <Cmd>Buffers<CR>
 nnoremap <Leader>fw <Cmd>Rg<CR>
 nnoremap <Leader>fs <Cmd>BLines<CR>
 nnoremap <Leader>fr <Cmd>History<CR>
+nnoremap <Leader>fc <Cmd>Colors<CR>
 nnoremap <Leader><Leader> <Cmd>Commands<CR>
+
+" VISTA
+let g:vista_default_executive='vim_lsp'
+nnoremap <Leader>tv <Cmd>Vista!!<CR>
 
 """""""""""""""""""""""""
 " COMPLETIOIN & SNIPPET "
