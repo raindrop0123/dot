@@ -317,7 +317,7 @@ augroup LOAD_VIM_CSS_COLOR
   autocmd!
   autocmd BufReadPre * call plug#load('vim-css-color')
     \| autocmd! LOAD_VIM_CSS_COLOR
-augroup end
+augroup END
 
 " VIM-WHICH-KEY
 nnoremap <silent><Leader> :<C-u>WhichKey '\'<CR>
@@ -384,7 +384,7 @@ augroup LOAD_ASYNCOMPLETE_AND_SNIPPET
     \| call lsp#enable()
     \| if executable('clangd') | call lsp#register_server({ 'name': 'clangd', 'cmd': { server_info -> ['clangd', '--background-index', '--clang-tidy'] }, 'whitelist': ['c', 'cpp'] }) | endif
     \| if executable('pylsp') | call lsp#register_server({ 'name': 'pylsp', 'cmd': { server_info -> ['pylsp'] }, 'whitelist': ['python'] }) | endif
-augroup end
+augroup END
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
   setlocal signcolumn=yes
@@ -402,4 +402,4 @@ endfunction
 augroup lsp_install
   autocmd!
   autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup end
+augroup END
