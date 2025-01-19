@@ -48,6 +48,8 @@ set noswapfile
 set notermguicolors
 set background=dark
 set timeoutlen=200
+set pumheight=12
+set pumwidth=20
 let g:vim_indent_cont=&sw
 
 """"""""""""""
@@ -153,6 +155,11 @@ Plug 'prabirshrestha/vim-lsp', { 'on': [] }
 Plug 'mattn/vim-lsp-settings', { 'on': ['LspInstallServer', 'LspManageServers'] }
 Plug 'hrsh7th/vim-vsnip', { 'on': [] }
 Plug 'hrsh7th/vim-vsnip-integ', { 'on': [] }
+
+""""""""""
+" FORMAT "
+""""""""""
+Plug 'vim-autoformat/vim-autoformat', { 'on': ['Autoformat'] }
 
 call plug#end()
 
