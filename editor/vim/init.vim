@@ -389,13 +389,13 @@ function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
   setlocal signcolumn=yes
   if exists('+tagfunc')|setlocal tagfunc=lsp#tagfunc|endif
-  nmap <buffer> gd <Plug>(lsp-definition)
-  nmap <buffer> gs <Plug>(lsp-document-symbol-search)
-  nmap <buffer> gr <Plug>(lsp-references)
-  nmap <buffer> gi <Plug>(lsp-implementation)
-  nmap <buffer> K <plug>(lsp-hover)
-  nnoremap <buffer> <expr><C-f> lsp#scroll(+4)
-  nnoremap <buffer> <expr><C-b> lsp#scroll(-4)
+  nmap <Buffer> gd <Plug>(lsp-definition)
+  nmap <Buffer> gs <Plug>(lsp-document-symbol-search)
+  nmap <Buffer> gr <Plug>(lsp-references)
+  nmap <Buffer> gi <Plug>(lsp-implementation)
+  nmap <Buffer> K <plug>(lsp-hover)
+  nnoremap <Buffer> <EXPR><C-f> lsp#scroll(+4)
+  nnoremap <Buffer> <EXPR><C-b> lsp#scroll(-4)
   let g:lsp_format_sync_timeout=1000
   autocmd! bufwritepre *.rs,*.go call execute('LspDocumentFormatSync')
 endfunction
