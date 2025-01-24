@@ -106,12 +106,11 @@ call plug#begin()
 Plug 'vim-airline/vim-airline', { 'on': [] }
 Plug 'LunarWatcher/auto-pairs', { 'on': [] }
 Plug 'tpope/vim-commentary', { 'on': [] }
-Plug 'andymass/vim-matchup', { 'on': [] }
 Plug 'dense-analysis/ale', { 'on': [] }
 Plug 'ap/vim-css-color', { 'on': [] }
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'junegunn/fzf', { 'do': { ->fzf#install() } }
-Plug 'junegunn/fzf.vim', { 'on': ['Files', 'Buffers', 'Colors', 'Lines', 'BLines', 'History', 'Commands'] }
+Plug 'junegunn/fzf.vim', { 'on': ['Files', 'Buffers', 'Colors', 'Lines', 'BLines', 'History', 'Commands', 'Rg'] }
 Plug 'prabirshrestha/asyncomplete.vim', { 'on': [] }
 Plug 'prabirshrestha/asyncomplete-buffer.vim', { 'on': [] }
 Plug 'prabirshrestha/asyncomplete-file.vim', { 'on': [] }
@@ -143,13 +142,6 @@ augroup LOAD_VIM_COMMENTARY
   autocmd!
   autocmd BufReadPost * call plug#load('vim-commentary')
     \| autocmd! LOAD_VIM_COMMENTARY
-augroup END
-
-" VIM-MATCHUP
-augroup LOAD_VIM_MATCHUP
-  autocmd!
-  autocmd BufReadPost * call plug#load('vim-matchup')
-    \| autocmd! LOAD_VIM_MATCHUP
 augroup END
 
 " ALE
