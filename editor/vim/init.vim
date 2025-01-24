@@ -103,10 +103,8 @@ autocmd BufWinEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 """ INSTALL PLUGINS """
 """""""""""""""""""""""
 call plug#begin()
-Plug 'sheerun/vim-polyglot', { 'on': [] }
 Plug 'vim-airline/vim-airline', { 'on': [] }
 Plug 'LunarWatcher/auto-pairs', { 'on': [] }
-Plug 'luochen1990/rainbow', { 'on': [] }
 Plug 'tpope/vim-commentary', { 'on': [] }
 Plug 'andymass/vim-matchup', { 'on': [] }
 Plug 'dense-analysis/ale', { 'on': [] }
@@ -124,13 +122,6 @@ Plug 'hrsh7th/vim-vsnip', { 'on': [] }
 Plug 'hrsh7th/vim-vsnip-integ', { 'on': [] }
 call plug#end()
 
-" VIM-POLYGLOT
-augroup LOAD_VIM_POLYGLOT
-  autocmd!
-  autocmd InsertEnter * call plug#load('vim-polyglot')
-    \| autocmd! LOAD_VIM_POLYGLOT
-augroup END
-
 " VIM-AIRLINE
 augroup LOAD_VIM_AIRLINE
   autocmd!
@@ -146,15 +137,6 @@ augroup LOAD_AUTO_PAIRS
     \| autocmd! LOAD_AUTO_PAIRS
     \| call autopairs#AutoPairsTryInit()
 augroup end
-
-" RAINBOW
-augroup LOAD_RAINBOW
-  autocmd!
-  autocmd InsertEnter * call plug#load('rainbow')
-    \| autocmd! LOAD_RAINBOW
-    \| let g:rainbow_active=1
-    \| call rainbow_main#toggle()
-augroup END
 
 " VIM-COMMENTARY
 augroup LOAD_VIM_COMMENTARY
