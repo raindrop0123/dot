@@ -1,6 +1,6 @@
-"""""""""""""
-" REFERENCE "
-"""""""""""""
+"""""""""""""""""
+""" REFERENCE """
+"""""""""""""""""
 " https://github.com/junegunn/vim-plug/wiki/tips
 " https://github.com/skywind3000/vim-init
 " https://github.com/wklken/k-vim
@@ -8,9 +8,9 @@
 " https://gitee.com/mirrorvim/vim-fast/blob/master/vimrc-no-plug
 " https://github.com/chenxuan520/vim-fast
 
-""""""""""
-" OPTION "
-""""""""""
+""""""""""""""
+""" OPTION """
+""""""""""""""
 filetype on
 filetype plugin on
 filetype indent on
@@ -52,9 +52,9 @@ set pumheight=12
 set pumwidth=20
 let g:vim_indent_cont=&sw
 
-""""""""""""""
-" KEYBINDING "
-""""""""""""""
+""""""""""""""""""
+""" KEYBINDING """
+""""""""""""""""""
 let mapleader='\'
 let maplocalleader=' '
 nnoremap <Leader>CE :edit $MYVIMRC<CR>
@@ -63,9 +63,9 @@ inoremap jk <ESC>
 vnoremap jk <ESC>
 cnoremap jk <C-c>
 
-""""""""""""""""""
-" BUILTIN PLUGIN "
-""""""""""""""""""
+""""""""""""""""""""""
+""" BUILTIN PLUGIN """
+""""""""""""""""""""""
 let g:loaded_getscriptPlugin=1
 let g:loaded_gzip=1
 let g:loaded_logiPat=1
@@ -80,9 +80,9 @@ let g:loaded_tohtml=1
 let g:loaded_vimballPlugin=1
 let g:loaded_zipPlugin=1
 
-"""""""""""
-" AUTOCMD "
-"""""""""""
+"""""""""""""""
+""" AUTOCMD """
+"""""""""""""""
 autocmd BufReadPost * if line("'\"")>1 && line("'\"")<=line('$') | exe "normal! g'\"" | endif
 autocmd BufEnter * setlocal formatoptions-=r formatoptions-=c formatoptions-=o
 autocmd BufWinEnter * if getfsize(expand('%'))>1048576 | syntax clear | endif
@@ -90,18 +90,18 @@ autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType help noremap <buffer>q :bd<CR>
 autocmd FileType c,cpp setlocal commentstring=//\ %s
 
-""""""""""""""""""""
-" INSTALL VIM-PLUG "
-""""""""""""""""""""
+""""""""""""""""""""""""
+""" INSTALL VIM-PLUG """
+""""""""""""""""""""""""
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd BufWinEnter * PlugInstall --sync | source $MYVIMRC
 endif
 autocmd BufWinEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))>0 | PlugInstall --sync | source $MYVIMRC | endif
 
-"""""""""""""""""""
-" INSTALL PLUGINS "
-"""""""""""""""""""
+"""""""""""""""""""""""
+""" INSTALL PLUGINS """
+"""""""""""""""""""""""
 call plug#begin()
 Plug 'sheerun/vim-polyglot', { 'on': [] }
 Plug 'vim-airline/vim-airline', { 'on': [] }
