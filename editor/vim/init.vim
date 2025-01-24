@@ -93,6 +93,7 @@ autocmd BufEnter * setlocal formatoptions-=r formatoptions-=c formatoptions-=o
 autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType help noremap <buffer>q :bd<CR>
 autocmd FileType c,cpp setlocal commentstring=//\ %s
+autocmd FileType * syntax sync minlines=200
 
 """"""""""""""""""""""""
 """ INSTALL VIM-PLUG """
