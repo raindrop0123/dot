@@ -83,9 +83,13 @@ let g:loaded_zipPlugin=1
 """""""""""""""
 """ AUTOCMD """
 """""""""""""""
-autocmd BufReadPost * if line("'\"")>1 && line("'\"")<=line('$') | exe "normal! g'\"" | endif
+autocmd BufReadPost * if line("'\"")>1 && line("'\"")<=line('$')
+  \| exe "normal! g'\""
+  \| endif
+autocmd BufWinEnter * if getfsize(expand('%'))>1048576
+  \| syntax clear
+  \| endif
 autocmd BufEnter * setlocal formatoptions-=r formatoptions-=c formatoptions-=o
-autocmd BufWinEnter * if getfsize(expand('%'))>1048576 | syntax clear | endif
 autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType help noremap <buffer>q :bd<CR>
 autocmd FileType c,cpp setlocal commentstring=//\ %s
@@ -95,9 +99,13 @@ autocmd FileType c,cpp setlocal commentstring=//\ %s
 """"""""""""""""""""""""
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd BufWinEnter * PlugInstall --sync | source $MYVIMRC
+  autocmd BufWinEnter * PlugInstall --sync
+    \| source $MYVIMRC
 endif
-autocmd BufWinEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))>0 | PlugInstall --sync | source $MYVIMRC | endif
+autocmd BufWinEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))>0
+  \| PlugInstall --sync
+  \| source $MYVIMRC
+  \| endif
 
 """""""""""""""""""""""
 """ INSTALL PLUGINS """
@@ -192,11 +200,34 @@ augroup LOAD_ASYNCOMPLETE_AND_SNIPPET
     \| autocmd! LOAD_ASYNCOMPLETE_AND_SNIPPET
     \| let g:lsp_diagnostics_enabled=0
     \| call asyncomplete#enable_for_buffer()
-    \| call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({ 'name': 'buffer', 'allowlist': ['*'], 'blocklist': ['go'], 'completor': function('asyncomplete#sources#buffer#completor'), 'config': { 'max_buffer_size': 100000 } }))
-    \| call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({ 'name': 'file', 'allowlist': ['*'], 'priority': 10, 'completor': function('asyncomplete#sources#file#completor') }))
+    \| call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+    \ 'name': 'buffer',
+    \ 'allowlist': ['*'],
+    \ 'blocklist': ['go'], 
+    \ 'completor': function('asyncomplete#sources#buffer#completor'),
+    \ 'config': { 'max_buffer_size': 100000 }
+    \ }))
+    \| call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+    \ 'name': 'file',
+    \ 'allowlist': ['*'],
+    \ 'priority': 10,
+    \ 'completor': function('asyncomplete#sources#file#completor')
+    \ }))
     \| call lsp#enable()
-    \| if executable('clangd') | call lsp#register_server({ 'name': 'clangd', 'cmd': { server_info -> ['clangd', '--background-index', '--clang-tidy'] }, 'whitelist': ['c', 'cpp'] }) | endif
-    \| if executable('pylsp') | call lsp#register_server({ 'name': 'pylsp', 'cmd': { server_info -> ['pylsp'] }, 'whitelist': ['python'] }) | endif
+    \| if executable('clangd') 
+    \| call lsp#register_server({
+    \ 'name': 'clangd',
+    \ 'cmd': { server_info -> ['clangd', '--background-index', '--clang-tidy'] },
+    \ 'whitelist': ['c', 'cpp']
+    \ }) 
+    \| endif
+    \| if executable('pylsp') 
+    \| call lsp#register_server({
+    \ 'name': 'pylsp',
+    \ 'cmd': { server_info -> ['pylsp'] },
+    \ 'whitelist': ['python']
+    \ }) 
+    \| endif
 augroup END
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
