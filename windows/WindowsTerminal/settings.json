@@ -1,9 +1,11 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": [
+    "actions": 
+    [
         {
-            "command": {
+            "command": 
+            {
                 "action": "copy",
                 "singleLine": false
             },
@@ -16,7 +18,8 @@
             "keys": "ctrl+shift+v"
         },
         {
-            "command": {
+            "command": 
+            {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
@@ -33,14 +36,17 @@
     "copyFormatting": "none",
     "copyOnSelect": true,
     "defaultProfile": "{96cba0a6-05df-49c9-974a-a718d7b9976f}",
-    "newTabMenu": [
+    "newTabMenu": 
+    [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles": {
+    "profiles": 
+    {
         "defaults": {},
-        "list": [
+        "list": 
+        [
             {
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -62,7 +68,8 @@
             {
                 "antialiasingMode": "cleartype",
                 "autoMarkPrompts": false,
-                "bellStyle": [
+                "bellStyle": 
+                [
                     "audible",
                     "window",
                     "taskbar"
@@ -73,7 +80,8 @@
                 "elevate": false,
                 "experimental.retroTerminalEffect": false,
                 "experimental.rightClickContextMenu": true,
-                "font": {
+                "font": 
+                {
                     "cellHeight": "1.618",
                     "face": "'JetBrainsMono Nerd Font'",
                     "size": 8
@@ -88,53 +96,133 @@
                 "showMarksOnScrollbar": true,
                 "startingDirectory": "%USERPROFILE%",
                 "useAcrylic": false
+            },
+            {
+                "font": 
+                {
+                    "cellHeight": "1.618",
+                    "face": "'JetBrainsMono Nerd Font'",
+                    "size": 8
+                },
+                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+                "hidden": false,
+                "name": "Git Bash",
+                "source": "Git"
+            },
+            {
+                "font": 
+                {
+                    "cellHeight": "1.618",
+                    "face": "'JetBrainsMono Nerd Font'",
+                    "size": 8
+                },
+                "guid": "{4ff56d04-d9cf-57ea-bae2-ad396374e7e3}",
+                "hidden": false,
+                "name": "Ubuntu 22.04.5 LTS",
+                "source": "CanonicalGroupLimited.Ubuntu22.04LTS_79rhkp1fndgsc"
+            },
+            {
+                "font": 
+                {
+                    "cellHeight": "1.618",
+                    "face": "'JetBrainsMono Nerd Font'",
+                    "size": 8
+                },
+                "guid": "{17bf3de4-5353-5709-bcf9-835bd952a95e}",
+                "hidden": false,
+                "name": "Ubuntu-22.04",
+                "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "font": 
+                {
+                    "cellHeight": "1.618",
+                    "face": "'JetBrainsMono Nerd Font'",
+                    "size": 8
+                },
+                "guid": "{2b372ca1-1ee2-403d-a839-6d63077ad871}",
+                "hidden": false,
+                "icon": "https://www.nushell.sh/icon.png",
+                "name": "Nu Shell",
+                "commandline": "nu.exe",
+                "startingDirectory": "%USERPROFILE%"
+            },
+            {
+                "font": 
+                {
+                    "cellHeight": "1.618",
+                    "face": "'JetBrainsMono Nerd Font'",
+                    "size": 8
+                },
+                "commandline": "C:\\msys64\\msys2_shell.cmd -msys -defterm -no-start",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6301}",
+                "hidden": false,
+                "name": "MSYS2",
+                "startingDirectory": "%USERPROFILE%"
+            },
+            {
+                "font": 
+                {
+                    "cellHeight": "1.618",
+                    "face": "'JetBrainsMono Nerd Font'",
+                    "size": 8
+                },
+                "name": "Cygwin",
+                "commandline": "C:\\cygwin64\\bin\\bash --login -i",
+                "icon": "C:\\cygwin64\\Cygwin.ico",
+                "startingDirectory": "C:\\cygwin64\\bin"
             }
         ]
     },
-    "schemes": [
+    "schemes": 
+    [
         {
-            "name": "MyTheme",
-            "cursorColor": "#f7ca88",
-            "selectionBackground": "#181818",
             "background": "#181818",
-            "foreground": "#e8e8e8",
             "black": "#181818",
-            "red": "#ab4642",
-            "green": "#a1b56c",
-            "yellow": "#f7ca88",
-            "blue": "#7cafc2",
-            "purple": "#ba8baf",
-            "cyan": "#86c1b9",
-            "white": "#d8d8d8",
+            "blue": "#7CAFC2",
             "brightBlack": "#585858",
-            "brightRed": "#ab4642",
-            "brightGreen": "#a1b56c",
-            "brightYellow": "#f7ca88",
-            "brightBlue": "#7cafc2",
-            "brightPurple": "#ba8baf",
-            "brightCyan": "#86c1b9",
-            "brightWhite": "#d8d8d8"
+            "brightBlue": "#7CAFC2",
+            "brightCyan": "#86C1B9",
+            "brightGreen": "#A1B56C",
+            "brightPurple": "#BA8BAF",
+            "brightRed": "#AB4642",
+            "brightWhite": "#D8D8D8",
+            "brightYellow": "#F7CA88",
+            "cursorColor": "#F7CA88",
+            "cyan": "#86C1B9",
+            "foreground": "#E8E8E8",
+            "green": "#A1B56C",
+            "name": "MyTheme",
+            "purple": "#BA8BAF",
+            "red": "#AB4642",
+            "selectionBackground": "#181818",
+            "white": "#D8D8D8",
+            "yellow": "#F7CA88"
         }
     ],
-    "themes": [
+    "themes": 
+    [
         {
             "name": "MyTheme",
-            "tab": {
-                "background": "#181818",
+            "tab": 
+            {
+                "background": "#181818FF",
+                "iconStyle": "monochrome",
                 "showCloseButton": "always",
-                "unfocusedBackground": null,
-                "iconStyle": "monochrome"
+                "unfocusedBackground": null
             },
-            "tabRow": {
-                "background": "#181818",
-                "unfocusedBackground": "#181818",
+            "tabRow": 
+            {
+                "background": "#181818FF",
+                "unfocusedBackground": "#181818FF"
             },
-            "window": {
+            "window": 
+            {
                 "applicationTheme": "dark",
+                "experimental.rainbowFrame": true,
                 "frame": "terminalBackground",
                 "unfocusedFrame": "terminalBackground",
-                "useMica": true,
-                "experimental.rainbowFrame": true
+                "useMica": true
             }
         }
     ]
