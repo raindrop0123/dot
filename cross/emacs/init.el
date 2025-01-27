@@ -214,7 +214,12 @@
   :hook (prog-mode . evil-mode)
   :init
   (setq evil-want-integration t)
-  (setq evil-want-keybinding nil))
+  (setq evil-want-keybinding nil)
+  :config
+  (setq evil-normal-state-cursor 'box)
+  (setq evil-emacs-state-cursor  'box)
+  (setq evil-insert-state-cursor 'bar)
+  (setq evil-visual-state-cursor 'hollow))
 
 (use-package evil-collection
   :defer 2
@@ -229,6 +234,19 @@
 
 (use-package evil-matchit
   :hook (evil-mode . global-evil-matchit-mode))
+
+(use-package evil-surround
+  :hook (evil-mode . global-evil-surround-mode))
+
+(use-package evil-visualstar
+  :hook (evil-mode . global-evil-visualstar-mode))
+
+(use-package evil-args
+  :after (evil)
+  :bind
+  (:map evil-normal-state-map
+        (("H" . evil-backward-arg)
+         ("L" . evil-forward-arg))))
 
 (use-package evil-nerd-commenter
   :after (evil)
