@@ -269,10 +269,6 @@ require("lazy").setup({
     },
     {
       "LazyVim/LazyVim",
-      import = "lazyvim.plugins.extras.coding.nvim-cmp",
-    },
-    {
-      "LazyVim/LazyVim",
       import = "lazyvim.plugins.extras.ui.treesitter-context",
     },
     {
