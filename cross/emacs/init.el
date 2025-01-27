@@ -23,13 +23,13 @@
     (package-initialize))
   (setq package-check-signature nil)
   (setq package-quickstart t)
-  (setq package-archives '(;; ("elpa-devel" . "https://elpa.gnu.org/devel/")
+  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                           ;; ("elpa-devel" . "https://elpa.gnu.org/devel/")
 													 ;; ("org" . "https://orgmode.org/elpa/")
 													 ;; ("marmalade" . "http://marmalade-repo.org/packages/")
 													 ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
 													 ;; ("jcs-elpa" . "https://jcs-emacs.github.io/jcs-elpa/packages/")
                            ("gnu" . "https://elpa.gnu.org/packages/")
-													 ("melpa" . "https://melpa.org/packages/")
 													 ("nongnu" . "https://elpa.nongnu.org/nongnu/"))))
 
 (use-package emacs
@@ -96,6 +96,9 @@
 
 (use-package tab-line
   :ensure nil
+  :init
+  (setq tab-line-close-button-show nil)
+  (setq tab-line-new-button-show nil)
   :hook (after-init . global-tab-line-mode))
 
 (use-package simple
@@ -132,10 +135,6 @@
   :hook (after-init . repeat-mode)
   :config
   (setq repeat-exit-key (kbd "RET")))
-
-(use-package simple
-  :ensure nil
-  :bind (("C-z" . set-mark-command)))
 
 (use-package autorevert
   :ensure nil
@@ -206,6 +205,50 @@
   :hook (after-init . minibuffer-depth-indicate-mode)
   :config
   (setq read-file-name-completion-ignore-case t))
+
+(use-package treesit
+  :ensure nil
+  :defer 20
+  :config
+  (setq treesit-language-source-alist
+        '((bash . ("https://github.com/tree-sitter/tree-sitter-bash"))
+          (c . ("https://github.com/tree-sitter/tree-sitter-c"))
+          (cpp . ("https://github.com/tree-sitter/tree-sitter-cpp"))
+          (css . ("https://github.com/tree-sitter/tree-sitter-css"))
+          (cmake . ("https://github.com/uyha/tree-sitter-cmake"))
+          (csharp . ("https://github.com/tree-sitter/tree-sitter-c-sharp.git"))
+          (dockerfile . ("https://github.com/camdencheek/tree-sitter-dockerfile"))
+          (elisp . ("https://github.com/Wilfred/tree-sitter-elisp"))
+          (elixir "https://github.com/elixir-lang/tree-sitter-elixir" "main" "src" nil nil)
+          (go . ("https://github.com/tree-sitter/tree-sitter-go"))
+          (gomod . ("https://github.com/camdencheek/tree-sitter-go-mod.git"))
+          (haskell "https://github.com/tree-sitter/tree-sitter-haskell" "master" "src" nil nil)
+          (html . ("https://github.com/tree-sitter/tree-sitter-html"))
+          (java . ("https://github.com/tree-sitter/tree-sitter-java.git"))
+          (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript"))
+          (json . ("https://github.com/tree-sitter/tree-sitter-json"))
+          (lua . ("https://github.com/Azganoth/tree-sitter-lua"))
+          (make . ("https://github.com/alemuller/tree-sitter-make"))
+          (markdown . ("https://github.com/tree-sitter-grammars/tree-sitter-markdown" "split_parser" "tree-sitter-markdown/src"))
+          (markdown-inline . ("https://github.com/tree-sitter-grammars/tree-sitter-markdown" "split_parser" "tree-sitter-markdown-inline/src"))
+          (ocaml . ("https://github.com/tree-sitter/tree-sitter-ocaml" nil "ocaml/src"))
+          (org . ("https://github.com/milisims/tree-sitter-org"))
+          (python . ("https://github.com/tree-sitter/tree-sitter-python"))
+          (php . ("https://github.com/tree-sitter/tree-sitter-php"))
+          (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" nil "typescript/src"))
+          (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" nil "tsx/src"))
+          (ruby . ("https://github.com/tree-sitter/tree-sitter-ruby"))
+          (rust . ("https://github.com/tree-sitter/tree-sitter-rust"))
+          (sql . ("https://github.com/m-novikov/tree-sitter-sql"))
+          (scala "https://github.com/tree-sitter/tree-sitter-scala" "master" "src" nil nil)
+          (toml "https://github.com/tree-sitter/tree-sitter-toml" "master" "src" nil nil)
+          (vue . ("https://github.com/merico-dev/tree-sitter-vue"))
+          (kotlin . ("https://github.com/fwcd/tree-sitter-kotlin"))
+          (yaml . ("https://github.com/ikatyang/tree-sitter-yaml"))
+          (zig . ("https://github.com/GrayJack/tree-sitter-zig"))
+          (clojure . ("https://github.com/sogaiu/tree-sitter-clojure"))
+          (nix . ("https://github.com/nix-community/nix-ts-mode"))
+          (mojo . ("https://github.com/HerringtonDarkholme/tree-sitter-mojo")))))
 
 ;;;;;;;;;;;;;;;;;;;;
 ;; MELPA PACKAGES ;;
