@@ -29,19 +29,19 @@
   (package-enable-at-startup nil)
   :config
   (when (or (featurep 'esup-child)
-           (daemonp)
-           noninteractive)
-   (package-initialize))
+            (daemonp)
+            noninteractive)
+    (package-initialize))
   (setq package-check-signature nil)
   (setq package-quickstart t)
   (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                            ;; ("elpa-devel" . "https://elpa.gnu.org/devel/")
-			   ;; ("org" . "https://orgmode.org/elpa/")
-			   ;; ("marmalade" . "http://marmalade-repo.org/packages/")
-			   ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
-			   ;; ("jcs-elpa" . "https://jcs-emacs.github.io/jcs-elpa/packages/")
+                           ;; ("org" . "https://orgmode.org/elpa/")
+                           ;; ("marmalade" . "http://marmalade-repo.jrg/packages/")
+                           ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
+                           ;; ("jcs-elpa" . "https://jcs-emacs.github.io/jcs-elpa/packages/")
                            ("gnu" . "https://elpa.gnu.org/packages/")
-			   ("nongnu" . "https://elpa.nongnu.org/nongnu/"))))
+                           ("nongnu" . "https://elpa.nongnu.org/nongnu/"))))
 
 (use-package emacs
   :ensure nil
@@ -67,10 +67,10 @@
   (setq-default resize-mini-windows t)
   (setq-default use-short-answers t)
   (setq-default default-frame-alist
-               '((menu-bar-lines . 0)
-             (tool-bar-lines . 0)
-             (vertical-scroll-bars)
-             (horizontal-scroll-bars))))
+                '((menu-bar-lines . 0)
+                  (tool-bar-lines . 0)
+                  (vertical-scroll-bars)
+                  (horizontal-scroll-bars))))
 
 (use-package modus-themes
   :ensure nil
@@ -84,9 +84,9 @@
   :ensure nil
   :hook
   (window-setup . (lambda ()
-                   (cl-loop for font in '("JetbrainsMono Nerd Font" "SF Mono" "Monaco" "Menlo" "Consolas")
-                    when (find-font (font-spec :name font))
-                    return (set-face-attribute 'default nil :family font :height 140))))
+                    (cl-loop for font in '("JetbrainsMono Nerd Font" "SF Mono" "Monaco" "Menlo" "Consolas")
+                             when (find-font (font-spec :name font))
+                             return (set-face-attribute 'default nil :family font :height 140))))
   :custom
   (auto-save-list-file-prefix nil)
   (initial-major-mode 'fundamental-mode)
@@ -103,6 +103,8 @@
 	:ensure nil
 	:defer 5
 	:config
+  (setq which-key-idle-delay 0.3)
+  (setq which-key-show-docstrings t)
 	(which-key-mode))
 
 (use-package tab-line
@@ -265,7 +267,9 @@
 ;; MELPA PACKAGES ;;
 ;;;;;;;;;;;;;;;;;;;;
 (use-package evil
-  :hook (prog-mode . evil-mode)
+  :hook
+  (prog-mode . evil-mode)
+  (org-mode . evil-mode)
   :init
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
@@ -516,6 +520,9 @@
 
 (use-package magit
   :commands (magit))
+
+(use-package olivetti
+  :commands (olivetti-mode))
 
 (provide 'init)
 ;;; init.el ends here
