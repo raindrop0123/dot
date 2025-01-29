@@ -383,7 +383,8 @@
   :config
   (setq wgrep-auto-save-buffer t))
 
-(use-package amx)
+(use-package amx
+  :hook (ivy-mode . amx-mode))
 
 (use-package avy
   :bind
