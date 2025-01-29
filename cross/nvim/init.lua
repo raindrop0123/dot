@@ -56,6 +56,16 @@ vim.api.nvim_set_keymap("n", "<leader>CE", "<cmd>edit $MYVIMRC<cr>", { desc = "C
 vim.api.nvim_set_keymap("i", "jk", "<esc>", { desc = "Back to Normal Mode" })
 vim.api.nvim_set_keymap("v", "jk", "<esc>", { desc = "Stop Visual Mode" })
 vim.api.nvim_set_keymap("c", "jk", "<c-c>", { desc = "Stop Input Commands" })
+vim.api.nvim_set_keymap("i", "<C-a>", "<HOME>", { desc = "Move to Start" })
+vim.api.nvim_set_keymap("v", "<C-a>", "<HOME>", { desc = "Move to Start" })
+vim.api.nvim_set_keymap("c", "<C-a>", "<HOME>", { desc = "Move to Start" })
+vim.api.nvim_set_keymap("i", "<C-e>", "<END>", { desc = "Move to End" })
+vim.api.nvim_set_keymap("v", "<C-e>", "<END>", { desc = "Move to End" })
+vim.api.nvim_set_keymap("c", "<C-e>", "<END>", { desc = "Move to End" })
+vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { desc = "Move to Left Window" })
+vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { desc = "Move to Down Window" })
+vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { desc = "Move to Up Window" })
+vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { desc = "Move to Right Window" })
 
 -------------
 -- AUTOCMD --
@@ -269,6 +279,10 @@ require("lazy").setup({
     },
     {
       "LazyVim/LazyVim",
+      import = "lazyvim.plugins.extras.editor.snacks_picker",
+    },
+    {
+      "LazyVim/LazyVim",
       import = "lazyvim.plugins.extras.ui.treesitter-context",
     },
     {
@@ -278,6 +292,14 @@ require("lazy").setup({
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins.extras.dap.core",
+    },
+    {
+      "LazyVim/LazyVim",
+      import = "lazyvim.plugins.extras.formatting.black",
+    },
+    {
+      "LazyVim/LazyVim",
+      import = "lazyvim.plugins.extras.formatting.prettier",
     },
   },
   local_spec = true,
