@@ -23,7 +23,7 @@ set number
 set relativenumber
 set cursorline
 set nocursorcolumn
-set colorcolumn=80
+set colorcolumn=0
 set splitbelow
 set splitright
 set clipboard^=unnamed,unnamedplus
