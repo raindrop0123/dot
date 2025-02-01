@@ -12,7 +12,7 @@
 ########
 # 1. Boot by USB
 # 2. Connect to the Internet - iwctl
-# 3. curl -fsSL https://raw.githubusercontent.com/raindrop0123/dot/refs/heads/main/linux/ArchInstall.sh > install.sh
+# 3. curl -fsSL https://raw.githubusercontent.com/raindrop0123/dot/refs/heads/main/linux/arch.sh > install.sh
 # 4. chmod +x install.sh
 # 5. write down your os information
 # 6. sh install.sh
