@@ -179,19 +179,27 @@ echo "Bluetooth services are enabled."
 ####################
 # OFFICIAL PACKAGE #
 ####################
-WM="awesome qtile xorg-xinit xorg-server hyprland hyprpaper hypridle hyprlock hyprpicker"
-SYSTOOL1="brightnessctl pulseaudio pulseaudio-alsa pamixer xclip fastfetch udiskie python-psutil blueman"
-SYSTOOL2="polkit-kde-agent alsa-utils flatpak redshift flameshot unzip p7zip rofi dunst picom conky"
+WM="awesome qtile xorg-xinit xorg-server"
+HYPR="hyprland hyprpaper hypridle hyprlock hyprpicker"
+SYSTOOL1="brightnessctl pulseaudio pulseaudio-alsa pamixer xclip fastfetch udiskie"
+SYSTOOL2="python-psutil blueman polkit-kde-agent alsa-utils flatpak"
+SYSTOOL3="redshift flameshot unzip p7zip rofi dunst picom conky"
 INPUT="ibus ibus-chewing fcitx fcitx-chewing"
-RUSTTOOL="lsd ripgrep bottom fzf fd bat"
-TERM="alacritty kitty wezterm xterm rxvt-unicode"
+RUST="lsd ripgrep bottom fzf fd bat rust"
+JS="npm"
+TERM="alacritty kitty wezterm xterm rxvt-unicode ghostty"
 EDITOR="emacs neovim gvim"
 GUITOOL="pcmanfm lxappearance qt5ct firefox"
-arch-chroot /mnt sudo pacman -S --noconfirm --needed $WM $SYSTOOL1 $SYSTOOL2 $INPUT $RUSTTOOL $TERM $EDITOR $GUITOOL
-ADOBE1="adobe-source-code-pro-fonts	adobe-source-han-sans-cn-fonts adobe-source-han-sans-hk-fonts adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts"
-ADOBE2="adobe-source-han-sans-otc-fonts adobe-source-han-sans-tw-fonts adobe-source-han-serif-cn-fonts adobe-source-han-serif-hk-fonts adobe-source-han-serif-jp-fonts"
-ADOBE3="adobe-source-han-serif-kr-fonts adobe-source-han-serif-otc-fonts adobe-source-han-serif-tw-fonts adobe-source-sans-fonts adobe-source-serif-fonts"
+arch-chroot /mnt sudo pacman -S --noconfirm --needed $WM $HYPR $SYSTOOL1 $SYSTOOL2 $SYSTOOL3
+arch-chroot /mnt sudo pacman -S --noconfirm --needed $INPUT $RUST $TERM $EDITOR $GUITOOL $JS
+ADOBE1="adobe-source-code-pro-fonts	adobe-source-han-sans-cn-fonts adobe-source-han-sans-hk-fonts"
+ADOBE2="adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts adobe-source-han-sans-otc-fonts"
+ADOBE3="adobe-source-han-sans-tw-fonts adobe-source-han-serif-cn-fonts"
+ADOBE4="adobe-source-han-serif-hk-fonts adobe-source-han-serif-jp-fonts"
+ADOBE5="adobe-source-han-serif-kr-fonts adobe-source-han-serif-otc-fonts"
+ADOBE6="adobe-source-han-serif-tw-fonts adobe-source-sans-fonts adobe-source-serif-fonts"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $ADOBE1 $ADOBE2 $ADOBE3
+arch-chroot /mnt sudo pacman -S --noconfirm --needed $ADOBE4 $ADOBE5 $ADOBE6
 WQY="wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei"
 MATH="otf-latinmodern-math otf-latinmodern-math otf-latin-modern"
 NOTO="noto-fonts-emoji noto-fonts-extra noto-fonts ttf-noto-nerd noto-fonts-cjk"
