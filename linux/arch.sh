@@ -187,7 +187,7 @@ SYSTOOL3="redshift flameshot unzip p7zip rofi dunst picom conky tmux"
 INPUT="ibus ibus-chewing fcitx fcitx-chewing"
 RUST="lsd ripgrep bottom fzf fd bat rust"
 JS="npm"
-TERM="alacritty kitty wezterm xterm rxvt-unicode ghostty"
+TERM="alacritty kitty wezterm xterm rxvt-unicode ghostty foot"
 EDITOR="emacs neovim gvim helix nano kakonue"
 GUITOOL="pcmanfm lxappearance qt5ct firefox waybar"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $WM $HYPR $SYSTOOL1 $SYSTOOL2 $SYSTOOL3
