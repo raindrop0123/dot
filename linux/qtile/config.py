@@ -100,7 +100,7 @@ screens = [
     Screen(
         wallpaper="/home/cya/wallpaper/wp1.jpg",
         wallpaper_mode="fill",
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 widget.TextBox(fmt="", foreground="#f9e2af"),
                 widget.GroupBox(
