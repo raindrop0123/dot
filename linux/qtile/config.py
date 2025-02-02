@@ -102,7 +102,7 @@ screens = [
         wallpaper_mode="fill",
         top=bar.Bar(
             [
-                widget.TextBox(fmt="", foreground="#f9e2af"),
+                widget.TextBox(fmt="  ", foreground="#f9e2af"),
                 widget.GroupBox(
                     hide_unused=True,
                     active="#89b4fa",
