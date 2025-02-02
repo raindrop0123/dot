@@ -5,8 +5,8 @@
 }
 
 window#waybar {
-  background-color: #222222;
-  color: #eeeeee;
+  background-color: #11111b;
+  color: #cdd6f4;
 }
 
 #workspaces,
@@ -21,53 +21,53 @@ window#waybar {
 
 /*LEFT*/
 #workspaces button {
-  background-color: #222222;
-  color: #444444;
+  background-color: #11111b;
+  color: #a6adc8;
 }
 #workspaces button:hover {
-  color: #535d6c;
-  background-color: #222222;
+  color: #cdd6f4;
+  background-color: #11111b;
 }
 #workspaces button.active {
-  background-color: #222222;
-  color: #ffffff;
+  background-color: #11111b;
+  color: #cdd6f4;
 }
 #workspaces button.urgent {
-  background-color: #222222;
-  color: #ff0000;
+  background-color: #11111b;
+  color: #f38ba8;
 }
 #window {
-  color: #eeeeee;
+  color: #cdd6f4;
 }
 
 /*RIGHT*/
 #cpu {
-  color: #eeeeee;
+  color: #f38ba8;
   margin-left: 4px;
   margin-right: 4px;
 }
 #memory {
-  color: #eeeeee;
+  color: #fab387;
   margin-left: 4px;
   margin-right: 4px;
 }
 #backlignt {
-  color: #eeeeee;
+  color: #f9e2af;
   margin-left: 4px;
   margin-right: 4px;
 }
 #pulseaudio {
-  color: #eeeeee;
+  color: #89b4fa;
   margin-left: 4px;
   margin-right: 4px;
 }
 #battery {
-  color: #eeeeee;
+  color: #a6e3a1;
   margin-left: 4px;
   margin-right: 4px;
 }
 #clock {
-  color: #eeeeee;
+  color: #cba6f7;
   margin-left: 4px;
   margin-right: 4px;
 }
