@@ -23,12 +23,12 @@
    horizontal_padding = 8
    text_icon_padding = 0
    frame_width = 4
-   frame_color = "#ffffff"
+   frame_color = "#a6e3a1"
    gap_size = 0
    separator_color = frame
    sort = yes
    idle_threshold = 120
-   font = VictorMono Nerd Font 12
+   font = JetBrainsMono Nerd Font 10
    line_height = 0
    markup = full
    format = "<b>%s</b>\n%b"
@@ -67,24 +67,24 @@
    per_monitor_dpi = false
 
 [urgency_low]
-   background = "#000000"
-   foreground = "#ffffff"
-   frame_color = "#ffffff"
+   background = "#11111b"
+   foreground = "#cdd6f4"
+   frame_color = "#74c7ec"
    timeout = 10
    #default_icon = /path/to/icon
 
 [urgency_normal]
-   background = "#000000"
-   foreground = "#ffffff"
-   frame_color = "#ffffff"
+   background = "#11111b"
+   foreground = "#cdd6f4"
+   frame_color = "#a6e3a1"
    timeout = 10
    override_pause_level = 30
    #default_icon = /path/to/icon
 
 [urgency_critical]
-   background = "#000000"
-   foreground = "#ffffff"
-   frame_color = "#ffffff"
+   background = "#11111b"
+   foreground = "#cdd6f4"
+   frame_color = "#f38ba8"
    timeout = 0
    override_pause_level = 60
    #default_icon = /path/to/icon
