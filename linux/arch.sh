@@ -187,11 +187,12 @@ SYSTOOL3="redshift flameshot unzip p7zip rofi dunst picom conky tmux"
 INPUT="ibus ibus-chewing fcitx fcitx-chewing"
 RUST="lsd ripgrep bottom fzf fd bat rust"
 JS="npm"
+MATE="mate mate-extra"
 TERM="alacritty kitty wezterm xterm rxvt-unicode ghostty foot"
 EDITOR="emacs neovim gvim helix nano kakonue"
 GUITOOL="pcmanfm lxappearance qt5ct firefox waybar"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $WM $HYPR $SYSTOOL1 $SYSTOOL2 $SYSTOOL3
-arch-chroot /mnt sudo pacman -S --noconfirm --needed $INPUT $RUST $TERM $EDITOR $GUITOOL $JS
+arch-chroot /mnt sudo pacman -S --noconfirm --needed $INPUT $RUST $TERM $EDITOR $GUITOOL $JS $MATE
 ADOBE1="adobe-source-code-pro-fonts	adobe-source-han-sans-cn-fonts adobe-source-han-sans-hk-fonts"
 ADOBE2="adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts adobe-source-han-sans-otc-fonts"
 ADOBE3="adobe-source-han-sans-tw-fonts adobe-source-han-serif-cn-fonts"
