@@ -108,8 +108,6 @@ screens = [
                     active="#89b4fa",
                     block_highlight_text_color="#cdd6f4",
                     this_current_screen_border="#a6e3a1",
-                    fontsize=12,
-                    padding=5
                 ),
                 widget.Prompt(background="#a6e3a1", foreground="#11111b"),
                 widget.WindowName(background="#11111b", foreground="#cdd6f4"),
