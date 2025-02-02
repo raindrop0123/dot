@@ -51,7 +51,7 @@ end
 -- THEME --
 -----------
 beautiful.init({
-  font = "JetBrainsMono Nerd Font 10",
+  font = "JetBrainsMono Nerd Font 11",
   bg_normal = "#11111b",
   bg_focus = "#a6e3a1",
   bg_urgent = "#f38ba8",
@@ -68,8 +68,8 @@ beautiful.init({
   border_marked = "#f38ba8",
   menu_height = dpi(40),
   menu_width = dpi(200),
-  taglist_squares_sel = theme_assets.taglist_squares_sel(dpi(4), "#cdd6f4"),
-  taglist_squares_unsel = theme_assets.taglist_squares_unsel(dpi(4), "#cdd6f4"),
+  taglist_squares_sel = theme_assets.taglist_squares_sel(dpi(0), "#a6e3a1"),
+  taglist_squares_unsel = theme_assets.taglist_squares_unsel(dpi(0), "#cdd6f4"),
   menu_submenu_icon = get_themes_dir .. "default/submenu.png",
   titlebar_close_button_normal = get_themes_dir .. "default/titlebar/close_normal.png",
   titlebar_close_button_focus = get_themes_dir .. "default/titlebar/close_focus.png",
@@ -162,22 +162,22 @@ awful.screen.connect_for_each_screen(function(s)
     -- gears.wallpaper.set("#000000")
   end
 
-  -- Prompt Widget
+  -- Prompt
   s.promptbox = awful.widget.prompt({
     prompt = " Execute: ",
   })
 
-  -- LayoutBox Widget
+  -- LayoutBox
   s.layoutbox = awful.widget.layoutbox(s)
 
-  -- Taglist Widget
+  -- Taglist
   awful.tag({ " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 ", " 0 " }, s, awful.layout.layouts[1])
   s.taglist = awful.widget.taglist({
     screen = s,
     filter = awful.widget.taglist.filter.noempty,
   })
 
-  -- Tasklist Widget
+  -- Tasklist
   s.tasklist = awful.widget.tasklist({
     screen  = s,
     filter  = awful.widget.tasklist.filter.currenttags,
@@ -186,7 +186,8 @@ awful.screen.connect_for_each_screen(function(s)
   -- Wibox
   s.wibox = awful.wibar({
     position = "top",
-    screen = s
+    screen = s,
+    height = 24,
   })
 
   s.wibox:setup({
@@ -205,13 +206,37 @@ awful.screen.connect_for_each_screen(function(s)
     -- Right
     {
       layout = wibox.layout.fixed.horizontal,
-      spacing = xresources.apply_dpi(10),
-      awful.widget.watch([[sh -c "echo  $(top -bn1 | grep Cpu | awk '{print $2}')%"]], 3),
-      awful.widget.watch([[sh -c "echo  $(echo $(free -h | grep Mem) | awk '{print $3}')"]], 3),
-      awful.widget.watch([[sh -c "echo 󰁹 $(cat /sys/class/power_supply/BAT1/capacity)%"]], 120),
-      awful.widget.watch([[sh -c "echo  $(echo $(amixer sget Master | grep -o -E '[0-9]+%' | head -1))"]], 1),
-      awful.widget.watch([[sh -c "echo  $(($(brightnessctl get)*100/$(brightnessctl max)))%"]], 1),
-      awful.widget.watch([[sh -c "echo  $(date +%Y-%m-%d\ %H:%M)"]], 60),
+      spacing = xresources.apply_dpi(16),
+      wibox.widget({
+        awful.widget.watch([[sh -c "echo  $(top -bn1 | grep Cpu | awk '{print $2}')%"]], 3),
+        fg = "#f38ba8",
+        widget = wibox.container.background,
+      }),
+      wibox.widget({
+        awful.widget.watch([[sh -c "echo  $(echo $(free -h | grep Mem) | awk '{print $3}')"]], 3),
+        fg = "#fab387",
+        widget = wibox.container.background,
+      }),
+      wibox.widget({
+        awful.widget.watch([[sh -c "echo 󰁹 $(cat /sys/class/power_supply/BAT1/capacity)%"]], 120),
+        fg = "#a6e3a1",
+        widget = wibox.container.background,
+      }),
+      wibox.widget({
+        awful.widget.watch([[sh -c "echo  $(echo $(amixer sget Master | grep -o -E '[0-9]+%' | head -1))"]], 1),
+        fg = "#cba6f7",
+        widget = wibox.container.background,
+      }),
+      wibox.widget({
+        awful.widget.watch([[sh -c "echo  $(($(brightnessctl get)*100/$(brightnessctl max)))%"]], 1),
+        fg = "#f9e2af",
+        widget = wibox.container.background,
+      }),
+      wibox.widget({
+        awful.widget.watch([[sh -c "echo  $(date +%Y-%m-%d\ %H:%M)"]], 60),
+        fg = "#89b4fa",
+        widget = wibox.container.background,
+      }),
       wibox.widget.systray(),
       s.layoutbox,
     },
@@ -471,7 +496,7 @@ client.connect_signal("manage", function(c)
   end
 end)
 client.connect_signal("request::titlebars", function(c)
-  awful.titlebar(c, { size = 16 }):setup({
+  awful.titlebar(c, { size = 24 }):setup({
     -- Left
     {
       awful.titlebar.widget.iconwidget(c),
