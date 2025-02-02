@@ -171,7 +171,7 @@ awful.screen.connect_for_each_screen(function(s)
   s.layoutbox = awful.widget.layoutbox(s)
 
   -- Taglist
-  awful.tag({ " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 ", " 0 " }, s, awful.layout.layouts[1])
+  awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" }, s, awful.layout.layouts[1])
   s.taglist = awful.widget.taglist({
     screen = s,
     filter = awful.widget.taglist.filter.noempty,
