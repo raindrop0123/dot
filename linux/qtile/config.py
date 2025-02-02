@@ -71,7 +71,7 @@ for i in groups:
 # LAYOUT #
 ##########
 layouts = [
-    layout.MonadTall(border_width=2, margin=8, border_focus="#535d6c", border_normal="#222222"),
+    layout.MonadTall(border_width=4, margin=8, border_focus="#ffffff", border_normal="#000000"),
     layout.Columns(),
     layout.Max(),
     layout.Stack(),
@@ -125,10 +125,10 @@ screens = [
                 widget.CurrentLayoutIcon(scale=0.7),
             ],
             35,
-            border_width=[2, 2, 2, 2],
+            border_width=[4, 4, 4, 4],
             border_color=["#ffffff", "#ffffff", "#ffffff", "#ffffff"]
         ),
-        x11_drag_polling_rate = 60,
+        x11_drag_polling_rate = 56,
     ),
 ]
 
