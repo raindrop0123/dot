@@ -180,7 +180,7 @@ echo "Bluetooth services are enabled."
 # OFFICIAL PACKAGE #
 ####################
 WM="awesome qtile xorg-xinit xorg-server"
-HYPR="hyprland hyprpaper hypridle hyprlock hyprpicker"
+HYPR="hyprland hyprpaper hypridle hyprlock hyprpicker hyprcursor"
 SYSTOOL1="brightnessctl pulseaudio pulseaudio-alsa pamixer xclip fastfetch udiskie"
 SYSTOOL2="python-psutil blueman polkit-kde-agent alsa-utils flatpak fuzzel"
 SYSTOOL3="redshift flameshot unzip p7zip rofi dunst picom conky tmux"
