@@ -4,17 +4,17 @@
     "index": 0,
     "work_area_offset": {
       "left": 0,
-      "top": 32,
+      "top": 40,
       "right": 0,
       "bottom": 40
     }
   },
-  "font_family": "JetBrains Mono",
+  "font_family": "Segoe UI",
   "font_size": 12,
   "theme": {
     "palette": "Catppuccin",
     "name": "Mocha",
-    "accent":"Green"
+    "accent": "Blue"
   },
   "left_widgets": [
     {
@@ -67,15 +67,15 @@
       }
     }
   ],
-  "widget_spacing": 2,
+  "widget_spacing": 0,
   "position": {
     "start": {
       "x": 0,
-      "y": -8
+      "y": 0
     },
     "end": {
       "x": 1920,
-      "y": 36
+      "y": 40
     }
   }
 }
