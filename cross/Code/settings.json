@@ -1,21 +1,14 @@
 {
-    /////////////
-    // BUILTIN //
-    /////////////
+    //* BUILTIN *//
     "accessibility.dimUnfocused.enabled": true,
-    "accessibility.dimUnfocused.opacity": 0.85,
+    "accessibility.dimUnfocused.opacity": 0.90,
     "editor.cursorStyle": "block",
-    "editor.cursorBlinking": "smooth",
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.fontFamily": "Monaco, Menlo, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
     "editor.fontSize": 13,
-    "editor.fontWeight": "600",
-    "editor.fontLigatures": true,
-    "editor.fontVariations": true,
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": true,
     "editor.guides.highlightActiveIndentation": true,
-    "editor.lineHeight": 1.618,
     "editor.lineNumbers": "relative",
     "editor.renderWhitespace": "all",
     "editor.minimap.enabled": false,
@@ -34,60 +27,26 @@
                 }
             }
         ],
-        "[Catppuccin Mocha]": {
-            "comments": "#9399b2"
-        }
     },
     "editor.tabSize": 2,
-    "editor.smoothScrolling": true,
-    "explorer.sortOrder": "type",
-    "search.showLineNumbers": true,
-    "search.smartCase": true,
-    "terminal.integrated.fontFamily": "Monaco, Menlo, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
-    "terminal.integrated.fontSize": 13,
-    "terminal.integrated.minimumContrastRatio": 1,
-    "terminal.integrated.smoothScrolling": true,
-    "terminal.integrated.cursorBlinking": true,
-    "window.zoomLevel": -0.75,
-    "window.titleBarStyle": "custom",
+    "window.zoomLevel": -0.8,
     "workbench.startupEditor": "none",
-    "workbench.activityBar.location": "bottom",
-    "workbench.colorCustomizations": {
-        "statusBar.background": "#11111b",
-        "statusBar.noFolderBackground": "#11111b",
-        "statusBar.debuggingBackground": "#11111b",
-        "statusBar.foreground": "#a6e3a1",
-        "statusBar.debuggingForeground": "#a6e3a1"
+    "workbench.activityBar.location": "top",
+    "[python]": {
+        "editor.tabSize": 4
     },
-    "workbench.panel.showLabels": false,
-    "workbench.settings.editor": "json",
-    "workbench.list.smoothScrolling": true,
-    ///////////////
-    // VscodeVim //
-    ///////////////
+    "[json]": {
+        "editor.tabSize": 4
+    },
+    "[jsonc]": {
+        "editor.tabSize": 4
+    },
+    //* vim *//
     "extensions.experimental.affinity": {
         "vscodevim.vim": 1
     },
     "vim.autoindent": true,
-    "vim.camelCaseMotion.enable": true,
-    "vim.cursorStylePerMode.insert": "line",
-    "vim.cursorStylePerMode.normal": "block",
-    "vim.cursorStylePerMode.replace": "block-outline",
-    "vim.cursorStylePerMode.visual": "block-outline",
-    "vim.cursorStylePerMode.visualblock": "block-outline",
-    "vim.cursorStylePerMode.visualline": "block-outline",
-    "vim.easymotion": true,
-    "vim.handleKeys": {
-        "<C-d>": true,
-        "<C-s>": false,
-        "<C-z>": false
-    },
-    "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.duration": 1000,
-    "vim.highlightedyank.color": "#7f849c40",
-    "vim.highlightedyank.textColor": "#f9e2af",
-    "vim.hlsearch": true,
-    "vim.incsearch": true,
+    "vim.handleKeys": {},
     "vim.insertModeKeyBindings": [
         {
             "before": [
@@ -140,99 +99,10 @@
             ]
         },
     ],
-    "vim.searchHighlightColor": "#f9e2af",
-    "vim.searchHighlightTextColor": "#11111b",
-    "vim.searchMatchColor": "#fab387",
-    "vim.searchMatchTextColor": "#11111b",
-    "vim.substitutionColor": "#cba6f7",
-    "vim.substitutionTextColor": "#11111b",
-    "vim.showMarksInGutter": true,
     "vim.smartRelativeLine": true,
-    "vim.sneak": true,
-    "vim.sneakReplacesF": true,
-    "vim.sneakUseIgnorecaseAndSmartcase": true,
-    "vim.surround": true,
     "vim.showcmd": true,
     "vim.showmodename": true,
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
-    "vim.visualstar": true,
-    "vim.whichwrap": "b,s",
-    "vim.statusBarColorControl": true,
-    "vim.statusBarColors.normal": [
-        "#11111b",
-        "#ffffff"
-    ],
-    "vim.statusBarColors.insert": [
-        "#11111b",
-        "#f38ba8"
-    ],
-    "vim.statusBarColors.visual": [
-        "#11111b",
-        "#a6e3a1"
-    ],
-    "vim.statusBarColors.visualline": [
-        "#11111b",
-        "#a6e3a1"
-    ],
-    "vim.statusBarColors.visualblock": [
-        "#11111b",
-        "#a6e3a1"
-    ],
-    "vim.statusBarColors.replace": [
-        "#11111b",
-        "#f9e2af"
-    ],
-    "vim.statusBarColors.commandlineinprogress": [
-        "#11111b",
-        "#f5e0dc"
-    ],
-    "vim.statusBarColors.searchinprogressmode": [
-        "#11111b",
-        "#f5c2e7"
-    ],
-    "vim.statusBarColors.easymotionmode": [
-        "#11111b",
-        "#f2cdcd"
-    ],
-    "vim.statusBarColors.easymotioninputmode": [
-        "#11111b",
-        "#f2cdcd"
-    ],
-    "vim.statusBarColors.surroundinputmode": [
-        "#11111b",
-        "#b4befe"
-    ],
-    ////////////////
-    // Catppuccin //
-    ////////////////
-    "workbench.colorTheme": "Catppuccin Mocha",
-    "catppuccin.accentColor": "blue",
-    "catppuccin.colorOverrides": {},
-    "catppuccin.customUIColors": {
-        "mocha": {
-            "editorLineNumber.activeForeground": "green",
-            "editorCursor.foreground": "rosewater",
-            "commandCenter.border": "blue",
-            "widget.border": "blue",
-        },
-    },
-    "catppuccin.italicComments": true,
-    "catppuccin.italicKeywords": true,
-    "catppuccin.boldKeywords": true,
-    "catppuccin.bracketMode": "dimmed",
-    "catppuccin.extraBordersEnabled": true,
-    "catppuccin.syncWithIconPack": true,
-    "catppuccin.workbenchMode": "minimal",
-    //////////////////////
-    // Catppuccin Icons //
-    //////////////////////
-    "workbench.iconTheme": "catppuccin-mocha",
-    "catppuccin-icons.hidesExplorerArrows": false,
-    "catppuccin-icons.specificFolders": true,
-    "catppuccin-icons.monochrome": false,
-    "catppuccin-icons.associations.extensions": {},
-    "catppuccin-icons.associations.files": {},
-    "catppuccin-icons.associations.folders": {},
-    "catppuccin-icons.associations.languages": {}
+    "vim.whichwrap": "b,s"
 }
