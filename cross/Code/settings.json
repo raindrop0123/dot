@@ -4,7 +4,7 @@
     "accessibility.dimUnfocused.opacity": 0.90,
     "editor.cursorStyle": "block",
     "editor.cursorSmoothCaretAnimation": "on",
-    "editor.fontFamily": "Monaco, Menlo, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "'PT Mono', Monaco, Menlo, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
     "editor.fontSize": 13,
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": true,
