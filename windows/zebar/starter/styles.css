@@ -1,16 +1,17 @@
 @import 'https://www.nerdfonts.com/assets/css/webfont.css';
 
 i {
-  background: #000000;
-  color: #ffffff;
+  background: #11111b;
+  color: #cdd6f4;
   font-size: 12px;
 }
 
 body {
-  background: #000000;
-  color: #ffffff;
+  background: #11111b;
+  color: #cdd6f4;
   font-family: 'Segoe UI', 'JetBrainsMono Nerd Font', ui-monospace, monospace;
-  font-size: 12px;
+  font-size: 11px;
+  font-weight: 500;
 }
 
 html,
@@ -20,8 +21,8 @@ body,
 }
 
 #root {
-  background: #000000;
-  color: #ffffff;
+  background: #11111b;
+  color: #cdd6f4;
 }
 
 .app {
@@ -49,8 +50,8 @@ body,
 
 /* LEFT */
 .logo {
-  background: #000000;
-  color: #ffffff;
+  background: #11111b;
+  color: #f5c2e7;
   font-size: 14px;
   margin-left: 8px;
   margin-right: 8px;
@@ -62,30 +63,35 @@ body,
 }
 
 .workspace {
-  background: #000000;
+  background: #11111b;
   border: none;
   border-radius: 0px;
-  color: #808080;
+  color: #a6adc8;
   cursor: pointer;
   font-weight: 600;
-  padding: 4px 6px 4px 6px;
+  padding: 4px 8px 4px 8px;
 
   &.displayed {
-    background: #000000;
+    background: #11111b;
   }
-
   &.focused {
-    background: #000000;
-    color: #ffffff;
+    background: #cba6f7;
+    color: #11111b;
+  }
+  &:hover {
+    background: #a6e3a1;
+    color: #11111b;
   }
 }
 
 .title {
-  background: #000000;
-  color: #ffffff;
+  background: #11111b;
+  color: #cdd6f4;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 12px;
+  font-weight: 600;
   max-width: 100%;
   margin-left: 8px;
   margin-right: 8px;
@@ -93,79 +99,89 @@ body,
 
 /* RIGHT */
 .binding-mode {
-  background: #000000;
+  background: #cba6f7;
   border: none;
   border-radius: 0px;
-  color: #ffffff;
+  color: #11111b;
+  font-weight: 800;
   padding: 4px 8px 4px 8px;
   margin-left: 4px;
   margin-right: 4px;
 }
 
 .tiling-direction {
-  background: #000000;
+  background: #f9e2af;
   border: none;
   border-radius: 0px;
-  color: #ffffff;
+  color: #11111b;
   cursor: pointer;
+  font-weight: 800;
   line-height: 1;
   padding: 4px 8px 4px 8px;
   margin-left: 4px;
   margin-right: 4px;
+  &:hover {
+    background: #eba0ac;
+    color: #11111b;
+  }
 }
 
 .cpu i {
-  background: #000000;
-  color: #ffffff;
+  background: #11111b;
+  color: #f38ba8;
   margin-left: 4px;
   margin-right: 4px;
 }
 
 .cpu {
-  background: #000000;
-  color: #ffffff;
+  background: #11111b;
+  color: #f38ba8;
+  font-weight: 600;
   margin-left: 4px;
   margin-right: 4px;
 }
 
 .memory i {
-  background: #000000;
-  color: #ffffff;
+  background: #11111b;
+  color: #fab387;
   margin-left: 4px;
   margin-right: 4px;
 }
 
 .memory {
-  background: #000000;
-  color: #ffffff;
+  background: #11111b;
+  color: #fab387;
+  font-weight: 600;
   margin-left: 4px;
   margin-right: 4px;
 }
 
 .battery i {
-  background: #000000;
-  color: #ffffff;
+  background: #11111b;
+  color: #a6e3a1;
   margin-left: 4px;
   margin-right: 4px;
 }
 
 .battery {
-  background: #000000;
-  color: #ffffff;
+  background: #11111b;
+  color: #a6e3a1;
+  font-weight: 600;
   margin-left: 4px;
   margin-right: 4px;
 }
 
 .date i {
-  background: #000000;
-  color: #ffffff;
+  background: #11111b;
+  color: #89b4fa;
   margin-left: 4px;
   margin-right: 4px;
 }
 
 .date {
-  background: #000000;
-  color: #ffffff;
+  background: #11111b;
+  color: #89b4fa;
+  font-weight: 600;
   margin-left: 4px;
   margin-right: 4px;
 }
