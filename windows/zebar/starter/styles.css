@@ -52,7 +52,7 @@ body,
 .logo {
   background: #000000;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 12px;
   margin-left: 8px;
   margin-right: 8px;
 }
@@ -66,7 +66,7 @@ body,
   background: #000000;
   border: 0;
   border-radius: 4px;
-  color: #888888;
+  color: #808080;
   cursor: pointer;
   font-weight: 600;
   padding: 4px 8px 4px 8px;
@@ -80,15 +80,15 @@ body,
   &.focused {
     border: 0;
     border-radius: 4px;
-    background: #00ff00;
+    background: #ffffff;
     color: #000000;
   }
 
   &:hover {
     border: 0;
     border-radius: 4px;
-    background: #fff000;
-    color: #000000;
+    background: #808080;
+    color: #ffffff;
   }
 }
 
@@ -107,7 +107,7 @@ body,
 
 /* RIGHT */
 .binding-mode {
-  background: #fff000;
+  background: #ffffff;
   border: 0;
   border-radius: 4px;
   color: #000000;
@@ -118,7 +118,7 @@ body,
 }
 
 .tiling-direction {
-  background: #f0f0f0;
+  background: #ffffff;
   border: 0;
   border-radius: 4px;
   color: #000000;
@@ -132,7 +132,7 @@ body,
 
 .cpu i {
   background: #000000;
-  color: #ffc0cb;
+  color: #ffffff;
   font-weight: 600;
   margin-left: 4px;
   margin-right: 4px;
@@ -140,7 +140,7 @@ body,
 
 .cpu {
   background: #000000;
-  color: #ffc0cb;
+  color: #ffffff;
   font-weight: 600;
   margin-left: 4px;
   margin-right: 4px;
@@ -148,7 +148,7 @@ body,
 
 .memory i {
   background: #000000;
-  color: #FFA500;
+  color: #ffffff;
   font-weight: 600;
   margin-left: 4px;
   margin-right: 4px;
@@ -156,7 +156,7 @@ body,
 
 .memory {
   background: #000000;
-  color: #FFA500;
+  color: #ffffff;
   font-weight: 600;
   margin-left: 4px;
   margin-right: 4px;
@@ -164,7 +164,7 @@ body,
 
 .battery i {
   background: #000000;
-  color: #00ff00;
+  color: #ffffff;
   font-weight: 600;
   margin-left: 4px;
   margin-right: 4px;
@@ -172,7 +172,7 @@ body,
 
 .battery {
   background: #000000;
-  color: #00ff00;
+  color: #ffffff;
   font-weight: 600;
   margin-left: 4px;
   margin-right: 4px;
@@ -180,14 +180,14 @@ body,
 
 .date i {
   background: #000000;
-  color: #00ffff;
+  color: #ffffff;
   margin-left: 4px;
   margin-right: 4px;
 }
 
 .date {
   background: #000000;
-  color: #00ffff;
+  color: #ffffff;
   font-weight: 600;
   margin-left: 4px;
   margin-right: 4px;
