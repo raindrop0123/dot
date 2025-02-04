@@ -1,11 +1,9 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": 
-    [
+    "actions": [
         {
-            "command": 
-            {
+            "command": {
                 "action": "copy",
                 "singleLine": false
             },
@@ -18,8 +16,7 @@
             "keys": "ctrl+shift+v"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
@@ -36,17 +33,14 @@
     "copyFormatting": "none",
     "copyOnSelect": true,
     "defaultProfile": "{96cba0a6-05df-49c9-974a-a718d7b9976f}",
-    "newTabMenu": 
-    [
+    "newTabMenu": [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles": 
-    {
+    "profiles": {
         "defaults": {},
-        "list": 
-        [
+        "list": [
             {
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -68,8 +62,7 @@
             {
                 "antialiasingMode": "cleartype",
                 "autoMarkPrompts": false,
-                "bellStyle": 
-                [
+                "bellStyle": [
                     "audible",
                     "window",
                     "taskbar"
@@ -80,8 +73,7 @@
                 "elevate": false,
                 "experimental.retroTerminalEffect": false,
                 "experimental.rightClickContextMenu": true,
-                "font": 
-                {
+                "font": {
                     "cellHeight": "1.618",
                     "face": "'JetBrainsMono Nerd Font'",
                     "size": 8
@@ -98,8 +90,7 @@
                 "useAcrylic": false
             },
             {
-                "font": 
-                {
+                "font": {
                     "cellHeight": "1.618",
                     "face": "'JetBrainsMono Nerd Font'",
                     "size": 8
@@ -110,8 +101,7 @@
                 "source": "Git"
             },
             {
-                "font": 
-                {
+                "font": {
                     "cellHeight": "1.618",
                     "face": "'JetBrainsMono Nerd Font'",
                     "size": 8
@@ -122,8 +112,7 @@
                 "source": "CanonicalGroupLimited.Ubuntu22.04LTS_79rhkp1fndgsc"
             },
             {
-                "font": 
-                {
+                "font": {
                     "cellHeight": "1.618",
                     "face": "'JetBrainsMono Nerd Font'",
                     "size": 8
@@ -134,8 +123,7 @@
                 "source": "Windows.Terminal.Wsl"
             },
             {
-                "font": 
-                {
+                "font": {
                     "cellHeight": "1.618",
                     "face": "'JetBrainsMono Nerd Font'",
                     "size": 8
@@ -148,8 +136,7 @@
                 "startingDirectory": "%USERPROFILE%"
             },
             {
-                "font": 
-                {
+                "font": {
                     "cellHeight": "1.618",
                     "face": "'JetBrainsMono Nerd Font'",
                     "size": 8
@@ -161,8 +148,7 @@
                 "startingDirectory": "%USERPROFILE%"
             },
             {
-                "font": 
-                {
+                "font": {
                     "cellHeight": "1.618",
                     "face": "'JetBrainsMono Nerd Font'",
                     "size": 8
@@ -174,50 +160,45 @@
             }
         ]
     },
-    "schemes": 
-    [
+    "schemes": [
         {
-            "background": "#181818",
-            "black": "#181818",
-            "blue": "#7CAFC2",
-            "brightBlack": "#585858",
-            "brightBlue": "#7CAFC2",
-            "brightCyan": "#86C1B9",
-            "brightGreen": "#A1B56C",
-            "brightPurple": "#BA8BAF",
-            "brightRed": "#AB4642",
-            "brightWhite": "#D8D8D8",
-            "brightYellow": "#F7CA88",
-            "cursorColor": "#F7CA88",
-            "cyan": "#86C1B9",
-            "foreground": "#E8E8E8",
-            "green": "#A1B56C",
             "name": "MyTheme",
-            "purple": "#BA8BAF",
-            "red": "#AB4642",
-            "selectionBackground": "#181818",
-            "white": "#D8D8D8",
-            "yellow": "#F7CA88"
+            "background": "#181818",
+            "black": "#000000",
+            "blue": "#2472C8",
+            "brightBlack": "#666666",
+            "brightBlue": "#3B8EEA",
+            "brightCyan": "#29B8DB",
+            "brightGreen": "#23D18B",
+            "brightPurple": "#D670D6",
+            "brightRed": "#F14C4C",
+            "brightWhite": "#E5E5E5",
+            "brightYellow": "#F5F543",
+            "cursorColor": "#C7C7C7",
+            "cyan": "#11A8CD",
+            "foreground": "#C7C7C7",
+            "green": "#0DBC79",
+            "purple": "#BC3FBC",
+            "red": "#CD3131",
+            "selectionBackground": "#C7C7C7",
+            "white": "#E5E5E5",
+            "yellow": "#E5E510"
         }
     ],
-    "themes": 
-    [
+    "themes": [
         {
             "name": "MyTheme",
-            "tab": 
-            {
+            "tab": {
                 "background": "#181818FF",
                 "iconStyle": "monochrome",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
-            "tabRow": 
-            {
+            "tabRow": {
                 "background": "#181818FF",
                 "unfocusedBackground": "#181818FF"
             },
-            "window": 
-            {
+            "window": {
                 "applicationTheme": "dark",
                 "experimental.rainbowFrame": true,
                 "frame": "terminalBackground",
