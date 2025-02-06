@@ -163,40 +163,40 @@
     "schemes": [
         {
             "name": "MyTheme",
-            "background": "#181818",
+            "background": "#000000",
             "black": "#000000",
-            "blue": "#2472C8",
-            "brightBlack": "#666666",
-            "brightBlue": "#3B8EEA",
-            "brightCyan": "#29B8DB",
-            "brightGreen": "#23D18B",
-            "brightPurple": "#D670D6",
-            "brightRed": "#F14C4C",
-            "brightWhite": "#E5E5E5",
-            "brightYellow": "#F5F543",
-            "cursorColor": "#C7C7C7",
-            "cyan": "#11A8CD",
-            "foreground": "#C7C7C7",
-            "green": "#0DBC79",
-            "purple": "#BC3FBC",
-            "red": "#CD3131",
-            "selectionBackground": "#C7C7C7",
-            "white": "#E5E5E5",
-            "yellow": "#E5E510"
+            "blue": "#2fafff",
+            "brightBlack": "#1e1e1e",
+            "brightBlue": "#00bcff",
+            "brightCyan": "#6ae4b9",
+            "brightGreen": "#00c06f",
+            "brightPurple": "#b6a0ff",
+            "brightRed": "#ff7f86",
+            "brightWhite": "#ffffff",
+            "brightYellow": "#dfaf7a",
+            "cursorColor": "#ff5f59",
+            "cyan": "#00d3d0",
+            "foreground": "#ffffff",
+            "green": "#44bc44",
+            "purple": "#feacd0",
+            "red": "#ff5f59",
+            "selectionBackground": "#2fafff",
+            "white": "#989898",
+            "yellow": "#d0bc00"
         }
     ],
     "themes": [
         {
             "name": "MyTheme",
             "tab": {
-                "background": "#181818FF",
+                "background": "#000000",
                 "iconStyle": "monochrome",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
             "tabRow": {
-                "background": "#181818FF",
-                "unfocusedBackground": "#181818FF"
+                "background": "#000000",
+                "unfocusedBackground": "#000000"
             },
             "window": {
                 "applicationTheme": "dark",
