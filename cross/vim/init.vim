@@ -149,13 +149,6 @@ augroup LOAD_VIM_HIGHLIGHTEDYANK
     \| let g:highlightedyank_highlight_duration=2500
 augroup END
 
-" TERMINUS
-augroup LOAD_TERMINUS
-  autocmd!
-  autocmd InsertEnter * call plug#load('terminus')
-    \| autocmd! LOAD_TERMINUS
-augroup END
-
 " AUTO-PAIRS
 augroup LOAD_AUTO_PAIRS
   autocmd!
