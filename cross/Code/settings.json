@@ -23,7 +23,7 @@
                     "comment"
                 ],
                 "settings": {
-                    "fontStyle": "italic bold"
+                    "fontStyle": "bold"
                 }
             }
         ],
@@ -104,5 +104,6 @@
     "vim.showmodename": true,
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
-    "vim.whichwrap": "b,s"
+    "vim.whichwrap": "b,s",
+    "vim.highlightedyank.enable": true
 }
