@@ -1,37 +1,17 @@
 {
     //* BUILTIN *//
     "accessibility.dimUnfocused.enabled": true,
-    "accessibility.dimUnfocused.opacity": 0.90,
-    "editor.cursorStyle": "block",
-    "editor.cursorSmoothCaretAnimation": "on",
-    "editor.fontFamily": "'PT Mono', Monaco, Menlo, 'JetBrainsMono Nerd Font', Consolas, 'Courier New', monospace",
-    "editor.fontSize": 13,
+    "accessibility.dimUnfocused.opacity": 0.75,
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": true,
     "editor.guides.highlightActiveIndentation": true,
     "editor.lineNumbers": "relative",
     "editor.renderWhitespace": "all",
     "editor.minimap.enabled": false,
-    "editor.semanticHighlighting.enabled": true,
-    "editor.rulers": [
-        80
-    ],
-    "editor.tokenColorCustomizations": {
-        "textMateRules": [
-            {
-                "scope": [
-                    "comment"
-                ],
-                "settings": {
-                    "fontStyle": "bold"
-                }
-            }
-        ],
-    },
-    "editor.tabSize": 2,
-    "window.zoomLevel": -0.8,
+    "window.zoomLevel": -1.0,
     "workbench.startupEditor": "none",
     "workbench.activityBar.location": "top",
+    "editor.tabSize": 2,
     "[python]": {
         "editor.tabSize": 4
     },
