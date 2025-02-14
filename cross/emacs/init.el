@@ -1,5 +1,9 @@
 ;;; init.el --- -*- lexical-binding: t; coding: utf-8; -*-
+
 ;;; Commentary:
+;;
+;; Emacs - A Self-Defined, Fast and Fancy Emacs Configuration.
+;;
 
 ;;; References:
 ;; https://github.com/seagle0128/.emacs.d
@@ -13,6 +17,9 @@
 
 ;;; Code:
 
+;;;;;;;;;;;;;;;;;;;;;;
+;; BUILTIN PACKAGES ;;
+;;;;;;;;;;;;;;;;;;;;;;
 (use-package use-package
   :custom
   (use-package-always-ensure t)
@@ -46,12 +53,21 @@
   (setq gc-cons-threshold most-positive-fixnum)
   (setq gc-cons-percentage 0.6)
   (setq frame-inhibit-implied-resize t)
+  (setq frame-resize-pixelwise t)
+  (setq use-file-dialog nil)
+  (setq use-dialog-box nil)
+  (setq scroll-step 1)
+  (setq scroll-margin 0)
+  (setq scroll-conservatively 10000)
+  (setq auto-window-vscroll nil)
+  (setq scroll-preserve-screen-position t)
+  (setq-default cursor-in-non-selected-windows nil)
+  (setq-default highlight-nonselected-windows nil)
   (setq-default bidi-display-reordering nil)
   (setq-default bidi-inhibit-bpa t)
-  (setq ring-bell-function #'ignore)
   (setq-default long-line-threshold 500)
   (setq-default large-hscroll-threshold 500)
-  (setq-default fast-but-imprecise-scolling t)
+  (setq-default fast-but-imprecise-scrolling t)
   (setq-default inhibit-compacting-font-caches t)
   (setq-default read-process-output-max (* 64 1024))
   (setq-default highlight-nonselected-windows nil)
@@ -88,9 +104,17 @@
   :custom
   (auto-save-list-file-prefix nil)
   (initial-major-mode 'fundamental-mode)
+  (inhibit-startup-screen t)
   (inhibit-startup-message t)
+  (inhibit-default-init t)
   (initial-scratch-message
    (concat ";; Happy hacking, " user-login-name " - Emacs ♥ you!\n\n")))
+
+(use-package pixel-scroll
+  :ensure nil
+  :when (fboundp 'pixel-scroll-precision-mode)
+  :config
+  (pixel-scroll-precision-mode))
 
 (use-package cus-edit
 	:ensure nil
@@ -120,18 +144,37 @@
 	(prog-mode . size-indication-mode)
 	:config
 	(setq-default indent-tabs-mode nil)
-  (setq blink-matching-paren-highlight-offscreen t))
+  (setq blink-matching-paren-highlight-offscreen t)
+  (setq-default idle-update-delay 1.0))
 
 (use-package display-line-numbers
   :ensure nil
-  :hook (prog-mode . display-line-numbers-mode))
+  :hook
+  ((prog-mode
+    yaml-mode
+    conf-mode) . display-line-numbers-mode)
+  :config
+  (setq display-line-numbers-width-start t))
 
 (use-package frame
   :ensure nil
-  :hook (after-init . blink-cursor-mode)
+  :hook
+  (after-init . blink-cursor-mode)
+  (window-setup . window-divider-mode)
   :config
   (setq blink-cursor-blinks 0)
-  (setq blink-cursor-interval 0.3))
+  (setq blink-cursor-interval 0.3)
+  (setq window-divider-default-places t)
+  (setq window-divider-default-right-width 1)
+  (setq window-divider-default-bottom-width 1))
+
+(use-package mwheel
+  :ensure nil
+  :when (display-graphic-p)
+  :config
+  (setq mouse-wheel-scroll-amount '(1 ((shift) . hscroll)))
+  (setq mouse-wheel-scroll-amount-horizontal 1)
+  (setq mouse-wheel-progressive-speed nil))
 
 (use-package files
   :ensure nil
@@ -261,12 +304,278 @@
           (nix . ("https://github.com/nix-community/nix-ts-mode"))
           (mojo . ("https://github.com/HerringtonDarkholme/tree-sitter-mojo")))))
 
-(use-package flymake
+(use-package prog-mode
+  :ensure nil
+  :hook (prog-mode . prettify-symbols-mode)
+  :config
+  (setq prettify-symbols-unprettify-at-point 'right-edge))
+
+;;;;;;;;;;;;;;;;;;;;
+;; MELPA PACKAGES ;;
+;;;;;;;;;;;;;;;;;;;;
+(use-package evil
   :hook
-  (prog-mode . flymake-mode)
+  (prog-mode . evil-mode)
+  (org-mode . evil-mode)
+  :init
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil)
+  :config
+  (setq evil-normal-state-cursor 'box)
+  (setq evil-emacs-state-cursor  'box)
+  (setq evil-insert-state-cursor 'bar)
+  (setq evil-visual-state-cursor 'hollow))
+
+(use-package evil-collection
+  :defer 2
+  :config
+  (evil-collection-init))
+
+(use-package evil-escape
+  :hook (evil-mode . evil-escape-mode)
+  :config
+  (setq evil-escape-key-sequence "jk")
+  (setq evil-escape-delay 0.2))
+
+(use-package evil-matchit
+  :hook (evil-mode . global-evil-matchit-mode))
+
+(use-package evil-surround
+  :hook (evil-mode . global-evil-surround-mode))
+
+(use-package evil-visualstar
+  :hook (evil-mode . global-evil-visualstar-mode))
+
+(use-package evil-args
+  :after (evil)
   :bind
-  (("M-n" . flymake-goto-next-error)
-   ("M-p" . flymake-goto-prev-error)))
+  (:map evil-normal-state-map
+        (("H" . evil-backward-arg)
+         ("L" . evil-forward-arg))))
+
+(use-package evil-nerd-commenter
+  :after (evil)
+  :bind
+  (:map evil-normal-state-map
+        (("gcc" . evilnc-comment-or-uncomment-lines)))
+  (:map evil-visual-state-map
+        (("gc" . evilnc-comment-or-uncomment-lines))))
+
+(use-package evil-goggles
+  :hook (evil-mode . evil-goggles-mode)
+  :config
+  (setq evil-goggles-pulse t)
+  (setq evil-goggles-duration 2.400))
+
+(use-package company
+  :hook (prog-mode . company-mode)
+  :config
+  (setq company-idle-delay 0.1)
+  (setq company-minimum-prefix-length 1)
+  (setq company-global-modes '(not
+                               eshell-mode
+                               message-mode
+                               help-mode
+                               vterm-mode))
+  (setq company-tooltip-limit 10)
+  (setq company-text-icons-add-background t)
+  (setq company-icon-margin 4)
+  (setq company-tooltip-align-annotations t)
+  (setq company-require-match 'never)
+  (setq company-dabbrev-ignore-case nil)
+  (setq company-dabbrev-downcase nil)
+  (setq company-backends
+        '((company-bbdb :with company-yasnippet)
+          (company-semantic :with company-yasnippet)
+          (company-cmake :with company-yasnippet)
+          (company-capf :with company-yasnippet)
+          (company-clang :with company-yasnippet)
+          (company-files :with company-yasnippet)
+          (company-oddmuse :with company-yasnippet)
+          (company-dabbrev :with company-yasnippet)
+          ((company-dabbrev-code company-gtags company-etags company-keywords) :with company-yasnippet))))
+
+(use-package company-quickhelp
+  :when (display-graphic-p)
+  :hook (company-mode . company-quickhelp-mode))
+
+(use-package yasnippet
+  :hook (prog-mode . yas-global-mode))
+
+(use-package yasnippet-snippets
+  :after yasnippet)
+
+(use-package ivy
+  :defer 0.5
+  :config
+  (setq-default ivy-use-virutal-buffers t)
+  (setq enable-recursive-minibuffers t)
+  (setq ivy-height 13)
+  (setq ivy-fixed-height-minibuffer t)
+  (setq ivy-virtual-abbreviate 'full)
+  (setq ivy-use-selectable-prompt t)
+  (setq ivy-initial-inputs-alist nil)
+  (setq ivy-count-format "[%d/%d] ")
+  (setq ivy-re-builders-alist `((t . ivy--regex-ignore-order)))
+  (ivy-mode))
+
+(use-package counsel
+  :hook (ivy-mode . counsel-mode))
+
+(use-package swiper
+  :bind (("C-s" . swiper-isearch-backward)))
+
+(use-package wgrep
+  :commands (wgrep-change-to-wgrep-mode)
+  :config
+  (setq wgrep-auto-save-buffer t))
+
+(use-package amx
+  :hook (ivy-mode . amx-mode))
+
+(use-package avy
+  :bind
+  (("M-g M-l" . avy-goto-line)
+   ("M-g M-w" . avy-goto-word-0)
+   ("M-g M-c" . avy-goto-char-timer)))
+
+(use-package flycheck
+  :hook (prog-mode . global-flycheck-mode)
+  :bind
+  (("M-n" . flycheck-next-error)
+   ("M-p" . flycheck-previous-error)))
+
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
+(use-package colorful-mode
+  :hook (prog-mode . colorful-mode))
+
+(use-package lsp-mode
+  :commands (lsp))
+
+(use-package helpful
+  :bind
+  (([remap describe-key] . helpful-key)
+   ([remap describe-function] . helpful-callable)
+   ([remap describe-variable] . helpful-variable)
+   ([remap describe-command] . helpful-command)
+   ("C-c C-d" . helpful-at-point)))
+
+(use-package hl-todo
+  :hook (prog-mode . hl-todo-mode)
+  :config
+  (setq hl-todo-highlight-punctuation ":")
+  (setq hl-todo-keyword-faces
+        '(("TODO" warning bold)
+          ("FIXME" error bold)
+          ("REVIEW" font-lock-keyword-face bold)
+          ("HACK" font-lock-constant-face bold)
+          ("DEPRECATED" font-lock-doc-face bold)
+          ("NOTE" success bold)
+          ("BUG" error bold)
+          ("XXX" font-lock-constant-face bold))))
+
+(use-package auto-highlight-symbol
+  :hook (prog-mode . auto-highlight-symbol-mode)
+  :config
+  (setq ahs-idle-interval 0.5))
+
+(use-package symbol-overlay
+  :bind
+  (("M-i" . symbol-overlay-put)
+   ("M-g M-n" . symbol-overlay-switch-forward)
+   ("M-g M-p" . symbol-overlay-switch-backward)
+   ("M-g M-r" . symbol-overlay-remove-all)))
+
+(use-package highlight-defined
+  :hook (emacs-lisp-mode . highlight-defined-mode))
+
+(use-package highlight-numbers
+  :hook (prog-mode . highlight-numbers-mode))
+
+(use-package beacon
+  :defer 5
+  :config
+  (setq beacon-size 60)
+  (setq beacon-color 0.4)
+  (setq beacon-blink-duration 2.5)
+  (setq beacon-blink-delay 1.0)
+  (setq beacon-blink-when-window-scrolls t)
+  (setq beacon-blink-when-window-changes t)
+  (setq beacon-blink-when-point-moves-horizontally 3)
+  (setq beacon-blink-when-point-moves-vertically 3)
+  (beacon-mode))
+
+(use-package mode-line-bell
+  :defer 5
+  :config
+  (mode-line-bell-mode))
+
+(use-package diredfl
+  :hook (dired-mode . diredfl-mode))
+
+(use-package indent-bars
+  :hook (prog-mode . indent-bars-mode)
+  :config
+  (setq indent-bars-color '(highlight :face-bg t :blend 0.5))
+  (setq indent-bars-no-descend-string t)
+  (setq indent-bars-no-descend-lists t)
+  (setq indent-bars-display-on-blank-lines nil)
+  (setq indent-bars-prefer-character t))
+
+(use-package vundo
+  :commands (vundo))
+
+(use-package ace-window
+  :bind
+  ([remap other-window] . ace-window)
+  :config
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+
+(use-package winum
+  :defer 5
+  :config
+  (setq winum-format "[%s]")
+  (setq winum-mode-line-position 0)
+  (winum-mode))
+
+(use-package lua-mode
+  :config
+  (setq lua-indent-level 2)
+  (setq lua-indent-nested-block-content-align nil)
+  (setq lua-indent-close-paren-align nil))
+
+(use-package csv-mode)
+(use-package toml-mode)
+(use-package json-mode)
+(use-package yaml-mode)
+(use-package markdown-mode)
+(use-package vimrc-mode)
+
+(use-package xclip
+  :defer 2
+  :config
+  (xclip-mode))
+
+(use-package gcmh
+  :defer 5
+  :config
+  (gcmh-mode))
+
+(use-package git-gutter
+  :hook (prog-mode . git-gutter-mode))
+
+(use-package magit
+  :commands (magit))
+
+(use-package olivetti
+  :commands (olivetti-mode))
 
 (provide 'init)
+;;; Local Variables:
+;;; no-byte-compile: t
+;;; no-native-compile: t
+;;; no-update-autoloads: t
+;;; End:
 ;;; init.el ends here
