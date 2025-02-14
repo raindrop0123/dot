@@ -48,6 +48,7 @@
   (setq frame-inhibit-implied-resize t)
   (setq-default bidi-display-reordering nil)
   (setq-default bidi-inhibit-bpa t)
+  (setq ring-bell-function #'ignore)
   (setq-default long-line-threshold 500)
   (setq-default large-hscroll-threshold 500)
   (setq-default fast-but-imprecise-scolling t)
