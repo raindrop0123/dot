@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+### GENERAL ###
+
 BAR=(
   potision=top
   height=30
