@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
-yabai -m config external_bar off:40:0
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+yabai -m config external_bar all:30:0
 yabai -m config menubar_opacity 1.0
 yabai -m config mouse_follows_focus off
 yabai -m config focus_follows_mouse off
@@ -31,7 +31,19 @@ yabai -m config mouse_modifier fn
 yabai -m config mouse_action1 move
 yabai -m config mouse_action2 resize
 yabai -m config mouse_drop_action swap
-yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Discord$" space=^5
+yabai -m rule --add app="^Spotify$" space=^6
+yabai -m space 1 --display 1
+yabai -m space 2 --display 1
+yabai -m space 3 --display 1
+yabai -m space 4 --display 1
+yabai -m space 5 --display 1
+yabai -m space 6 --display 2
+yabai -m space 7 --display 2
+yabai -m space 8 --display 2
+yabai -m space 9 --display 2
+yabai -m space 10 --display 2
 
 echo "yabai configuration loaded.."
