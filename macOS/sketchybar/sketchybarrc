@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 
-PLUGIN_DIR="$CONFIG_DIR/plugins"
-
 BAR=(
   potision=top
   height=30
