@@ -5,6 +5,13 @@ alt + shift + e : taskkill /f /im komorebi.exe; taskkill /f /im komorebi-bar.exe
 alt + shift + r : komorebic reload-configuration; taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden
 alt + shift + q : komorebic close
 
+# Launch Terminal
+alt + shift + return : wt
+
+# Move focus to next/previous monitor
+alt + shift + p : komorebic cycle-monitor previous
+alt + shift + n : komorebic cycle-monitor next
+
 # Focus windows
 alt + h : komorebic focus left
 alt + j : komorebic focus down
@@ -43,13 +50,13 @@ alt + 9 : komorebic focus-workspace 8
 alt + 0 : komorebic focus-workspace 9
 
 # Move windows across workspaces
-alt + shift + 1 : komorebic move-to-workspace 0
-alt + shift + 2 : komorebic move-to-workspace 1
-alt + shift + 3 : komorebic move-to-workspace 2
-alt + shift + 4 : komorebic move-to-workspace 3
-alt + shift + 5 : komorebic move-to-workspace 4
-alt + shift + 6 : komorebic move-to-workspace 5
-alt + shift + 7 : komorebic move-to-workspace 6
-alt + shift + 8 : komorebic move-to-workspace 7
-alt + shift + 9 : komorebic move-to-workspace 8
-alt + shift + 0 : komorebic move-to-workspace 9
+alt + shift + 1 : komorebic move-to-workspace 0; komorebic focus-workspace 0
+alt + shift + 2 : komorebic move-to-workspace 1; komorebic focus-workspace 1
+alt + shift + 3 : komorebic move-to-workspace 2; komorebic focus-workspace 2
+alt + shift + 4 : komorebic move-to-workspace 3; komorebic focus-workspace 3
+alt + shift + 5 : komorebic move-to-workspace 4; komorebic focus-workspace 4
+alt + shift + 6 : komorebic move-to-workspace 5; komorebic focus-workspace 5
+alt + shift + 7 : komorebic move-to-workspace 6; komorebic focus-workspace 6
+alt + shift + 8 : komorebic move-to-workspace 7; komorebic focus-workspace 7
+alt + shift + 9 : komorebic move-to-workspace 8; komorebic focus-workspace 8
+alt + shift + 0 : komorebic move-to-workspace 9; komorebic focus-workspace 9
