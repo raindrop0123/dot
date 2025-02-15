@@ -129,29 +129,29 @@ BATTERY=(
     fi
     case \"\$PERCENTAGE\" in
       9[0-9]|100)
-      ICON=\"􀛨\"
-      COLOR=0xffa6da95
-      ;;
+        ICON=\"􀛨\"
+        COLOR=0xffa6da95
+        ;;
       [6-8][0-9])
-      ICON=\"􀺸\"
-      COLOR=0xffeed49f
-      ;;
+        ICON=\"􀺸\"
+        COLOR=0xffeed49f
+        ;;
       [3-5][0-9])
-      ICON=\"􀺶\"
-      COLOR=0xfff5a97f
-      ;;
+        ICON=\"􀺶\"
+        COLOR=0xfff5a97f
+        ;;
       [1-2][0-9])
-      ICON=\"􀛩\"
-      COLOR=0xffed8796
-      ;;
+        ICON=\"􀛩\"
+        COLOR=0xffed8796
+        ;;
       *)
-      ICON=\"􀛪\"
-      COLOR=0xffed8796
-      ;;
+        ICON=\"􀛪\"
+        COLOR=0xffed8796
+        ;;
     esac
     if [[ -n \"\$CHARGING\" ]]; then
-        ICON=\"􀢋\"
-        COLOR=0xffa6da95
+      ICON=\"􀢋\"
+      COLOR=0xffa6da95
     fi
     sketchybar --set \"\$NAME\" icon=\"\$ICON\" label=\"\${PERCENTAGE}%\" icon.color=\"\$COLOR\"
   "
@@ -169,16 +169,17 @@ VOLUME=(
       VOL=\"\$INFO\"
       case \"\$VOL\" in
       [6-9][0-9]|100)
-          ICON=\"􀊩\"
-          ;;
+        ICON=\"􀊩\"
+        ;;
       [3-5][0-9])
-          ICON=\"􀊧\"
-          ;;
+        ICON=\"􀊧\"
+        ;;
       [1-9]|[1-2][0-9])
-          ICON=\"􀊥\"
-          ;;
+        ICON=\"􀊥\"
+        ;;
       *)
-          ICON=\"􀊡\"
+        ICON=\"􀊡\"
+        ;;
       esac
       sketchybar --set \"\$NAME\" icon=\"\$ICON\" label=\"\$VOL%\"
     fi
@@ -198,17 +199,17 @@ RAM=(
     RAM_PERCENTAGE=\$(memory_pressure | grep \"System-wide memory free percentage:\" | awk '{print 100-\$5\"\"}')
     case \"\$RAM_PERCENTAGE\" in
       9[0-9]|100)
-      COLOR=0xffed8796
-      ;;
+        COLOR=0xffed8796
+        ;;
       [6-8][0-9])
-      COLOR=0xfff5a97f
-      ;;
+        COLOR=0xfff5a97f
+        ;;
       [3-5][0-9])
-      COLOR=0xffeed49f
-      ;;
+        COLOR=0xffeed49f
+        ;;
       *)
-      COLOR=0xffa6da95
-      ;;
+        COLOR=0xffa6da95
+        ;;
     esac
     sketchybar --set \"\$NAME\" label=\"\$RAM_PERCENTAGE%\" icon.color=\"\$COLOR\"
   "
