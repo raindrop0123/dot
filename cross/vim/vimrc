@@ -222,7 +222,7 @@ augroup END
 " VIM-AIRLINE
 augroup LOAD_VIM_AIRLINE
   autocmd!
-  autocmd BufReadPost * call plug#load('vim-airline')
+  autocmd BufReadPost,BufEnter * call plug#load('vim-airline')
     \| autocmd! LOAD_VIM_AIRLINE
     \| let g:airline_extensions = ['branch', 'tabline', 'ale']
 augroup END
