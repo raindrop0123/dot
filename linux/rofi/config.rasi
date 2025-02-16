@@ -10,7 +10,7 @@ configuration {
   window-format: "{w} · {c} · {t}";
 }
 * {
-  font: "JetBrainsMono Nerd Font 12";
+  font: "RobotoMono Nerd Font 12";
   background: #11111bFF;
   background-alt: #1e1e2eFF;
   foreground: #ffffffFF;
