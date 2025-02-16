@@ -51,7 +51,7 @@ end
 -- THEME --
 -----------
 beautiful.init({
-  font = "JetBrainsMono Nerd Font Bold 11",
+  font = "JetBrainsMono Nerd Font Bold 12",
   bg_normal = "#222222",
   bg_focus = "#535d6c",
   bg_urgent = "#ff0000",
@@ -146,7 +146,7 @@ awful.layout.layouts = {
   awful.layout.suit.corner.sw,
   awful.layout.suit.corner.se,
 }
-menubar.utils.terminal = "alacritty"
+menubar.utils.terminal = "xterm"
 
 -----------
 -- WIBAR --
@@ -187,7 +187,7 @@ awful.screen.connect_for_each_screen(function(s)
   s.wibox = awful.wibar({
     position = "top",
     screen = s,
-    height = 24,
+    height = 30,
   })
 
   s.wibox:setup({
@@ -208,12 +208,12 @@ awful.screen.connect_for_each_screen(function(s)
       layout = wibox.layout.fixed.horizontal,
       spacing = xresources.apply_dpi(16),
       wibox.widget({
-        awful.widget.watch([[sh -c "echo  $(top -bn1 | grep Cpu | awk '{print $2}')%"]], 3),
+        awful.widget.watch([[sh -c "echo  $(top -bn1 | grep Cpu | awk '{print sprintf(\"\%.0f\", $2)}')%"]], 3),
         fg = "#eeeeee",
         widget = wibox.container.background,
       }),
       wibox.widget({
-        awful.widget.watch([[sh -c "echo  $(echo $(free -h | grep Mem) | awk '{print $3}')"]], 3),
+        awful.widget.watch([[sh -c "echo  $(free | grep Mem | awk '{printf \"%.0f\", ($3/$2)*100}')%"]], 3),
         fg = "#eeeeee",
         widget = wibox.container.background,
       }),
@@ -228,7 +228,7 @@ awful.screen.connect_for_each_screen(function(s)
         widget = wibox.container.background,
       }),
       wibox.widget({
-        awful.widget.watch([[sh -c "echo  $(($(brightnessctl get)*100/$(brightnessctl max)))%"]], 1),
+        awful.widget.watch([[sh -c "echo  $(($(brightnessctl get) * 100 / $(brightnessctl max)))%"]], 1),
         fg = "#eeeeee",
         widget = wibox.container.background,
       }),
@@ -251,7 +251,7 @@ local globalkeys = gears.table.join(
     awful.screen.focused().promptbox:run()
   end),
   awful.key({ modkey }, "Return", function()
-    awful.spawn("alacritty")
+    awful.spawn("xterm")
   end),
   awful.key({ modkey, "Shift" }, "Return", function()
     awful.spawn("emacs")
@@ -261,6 +261,12 @@ local globalkeys = gears.table.join(
   end),
   awful.key({ modkey }, "k", function()
     awful.client.focus.byidx(-1)
+  end),
+  awful.key({ modkey }, ",", function()
+    awful.screen.focus_relative(1)
+  end),
+  awful.key({ modkey }, ".", function()
+    awful.screen.focus_relative(-1)
   end),
   awful.key({ modkey, "Shift" }, "j", function()
     awful.client.swap.byidx(1)
