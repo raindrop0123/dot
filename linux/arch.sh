@@ -189,7 +189,7 @@ RUST="lsd ripgrep bottom fzf fd bat rust"
 JS="npm"
 MATE="mate mate-extra"
 TERM="alacritty kitty wezterm xterm rxvt-unicode ghostty foot"
-EDITOR="emacs neovim gvim helix nano kakonue"
+EDITOR="emacs neovim gvim helix nano kakoune"
 GUITOOL="pcmanfm lxappearance qt5ct firefox waybar"
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $WM $HYPR $SYSTOOL1 $SYSTOOL2 $SYSTOOL3
 arch-chroot /mnt sudo pacman -S --noconfirm --needed $INPUT $RUST $TERM $EDITOR $GUITOOL $JS $MATE
