@@ -565,6 +565,7 @@ local application = {
   "xrdb -merge ~/.Xresources",
   "ibus-daemon -drxR",
   "redshift -x && redshift -O 4500",
+  "conky",
 }
 for _, app in ipairs(application) do
   awful.spawn.with_shell(app)
