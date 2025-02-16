@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 #############
 # REFERENCE #
@@ -179,11 +179,11 @@ echo "Bluetooth services are enabled."
 ####################
 # OFFICIAL PACKAGE #
 ####################
-WM="awesome qtile bspwm xorg-xinit xorg-server"
+WM="awesome xorg-xinit xorg-server"
 HYPR="hyprland hyprpaper hypridle hyprlock hyprpicker hyprcursor"
 SYSTOOL1="brightnessctl pulseaudio pulseaudio-alsa pamixer xclip fastfetch udiskie"
-SYSTOOL2="python-psutil blueman polkit-kde-agent alsa-utils flatpak fuzzel"
-SYSTOOL3="redshift flameshot unzip p7zip rofi dunst picom conky tmux sxhkd"
+SYSTOOL2="blueman polkit-kde-agent alsa-utils flatpak"
+SYSTOOL3="redshift flameshot unzip p7zip rofi tmux"
 INPUT="ibus ibus-chewing fcitx fcitx-chewing fcitx-configtool"
 RUST="lsd ripgrep bottom fzf fd bat rust"
 JS="npm"
@@ -241,7 +241,7 @@ arch-chroot /mnt sudo -u $USERNAME bash -c "cd && git clone https://aur.archlinu
 # AUR PACKAGE #
 ###############
 AURAPP="google-chrome visual-studio-code-bin hyprland-qtutils hyprshot"
-AURFONT="ttf-tw ttf-ms-fonts ttf-pt-mono otf-monego-git ttf-monaco apple-fonts otf-apple-pingfang-relaxed otf-apple-pingfang otf-stix"
+AURFONT="ttf-tw ttf-ms-fonts ttf-pt-mono otf-monego-git ttf-monaco apple-fonts otf-apple-pingfang-relaxed otf-apple-pingfang otf-stix nerd-fonts-sf-mono"
 arch-chroot /mnt sudo -u $USERNAME bash -c "yay -S --sudoloop $AURAPP $AURFONT"
 
 ########
