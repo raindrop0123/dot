@@ -179,11 +179,11 @@ echo "Bluetooth services are enabled."
 ####################
 # OFFICIAL PACKAGE #
 ####################
-WM="awesome qtile xorg-xinit xorg-server"
+WM="awesome qtile bspwm xorg-xinit xorg-server"
 HYPR="hyprland hyprpaper hypridle hyprlock hyprpicker hyprcursor"
 SYSTOOL1="brightnessctl pulseaudio pulseaudio-alsa pamixer xclip fastfetch udiskie"
 SYSTOOL2="python-psutil blueman polkit-kde-agent alsa-utils flatpak fuzzel"
-SYSTOOL3="redshift flameshot unzip p7zip rofi dunst picom conky tmux"
+SYSTOOL3="redshift flameshot unzip p7zip rofi dunst picom conky tmux sxhkd"
 INPUT="ibus ibus-chewing fcitx fcitx-chewing fcitx-configtool"
 RUST="lsd ripgrep bottom fzf fd bat rust"
 JS="npm"
