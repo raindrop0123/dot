@@ -51,25 +51,25 @@ end
 -- THEME --
 -----------
 beautiful.init({
-  font = "JetBrainsMono Nerd Font 11",
-  bg_normal = "#11111b",
-  bg_focus = "#a6e3a1",
-  bg_urgent = "#f38ba8",
-  bg_minimize = "#11111b",
-  bg_systray = "#11111b",
-  fg_normal = "#cdd6f4",
-  fg_focus = "#11111b",
-  fg_urgent = "#cdd6f4",
-  fg_minimize = "#cdd6f4",
+  font = "JetBrainsMono Nerd Font Bold 11",
+  bg_normal = "#222222",
+  bg_focus = "#535d6c",
+  bg_urgent = "#ff0000",
+  bg_minimize = "#444444",
+  bg_systray = "#222222",
+  fg_normal = "#aaaaaa",
+  fg_focus = "#ffffff",
+  fg_urgent = "#ffffff",
+  fg_minimize = "#ffffff",
   useless_gap = dpi(4),
-  border_width = dpi(4),
-  border_normal = "#11111b",
-  border_focus = "#a6e3a1",
-  border_marked = "#f38ba8",
+  border_width = dpi(2),
+  border_normal = "#000000",
+  border_focus = "#535d6c",
+  border_marked = "#91231c",
   menu_height = dpi(40),
   menu_width = dpi(200),
-  taglist_squares_sel = theme_assets.taglist_squares_sel(dpi(0), "#a6e3a1"),
-  taglist_squares_unsel = theme_assets.taglist_squares_unsel(dpi(0), "#cdd6f4"),
+  taglist_squares_sel = theme_assets.taglist_squares_sel(dpi(0), "#222222"),
+  taglist_squares_unsel = theme_assets.taglist_squares_unsel(dpi(0), "#222222"),
   menu_submenu_icon = get_themes_dir .. "default/submenu.png",
   titlebar_close_button_normal = get_themes_dir .. "default/titlebar/close_normal.png",
   titlebar_close_button_focus = get_themes_dir .. "default/titlebar/close_focus.png",
@@ -91,10 +91,10 @@ beautiful.init({
   titlebar_maximized_button_focus_inactive = get_themes_dir .. "default/titlebar/maximized_focus_inactive.png",
   titlebar_maximized_button_normal_active = get_themes_dir .. "default/titlebar/maximized_normal_active.png",
   titlebar_maximized_button_focus_active = get_themes_dir .. "default/titlebar/maximized_focus_active.png",
-  tasklist_bg_normal = "#11111b",
-  tasklist_bg_focus = "#11111b",
-  tasklist_fg_normal = "#cdd6f4",
-  tasklist_fg_focus = "#cdd6f4",
+  tasklist_bg_normal = "#222222",
+  tasklist_bg_focus = "#535d6c",
+  tasklist_fg_normal = "#aaaaaa",
+  tasklist_fg_focus = "#ffffff",
   layout_fairh = get_themes_dir .. "default/layouts/fairhw.png",
   layout_fairv = get_themes_dir .. "default/layouts/fairvw.png",
   layout_floating  = get_themes_dir .. "default/layouts/floatingw.png",
@@ -111,14 +111,14 @@ beautiful.init({
   layout_cornerne = get_themes_dir .. "default/layouts/cornernew.png",
   layout_cornersw = get_themes_dir .. "default/layouts/cornersww.png",
   layout_cornerse = get_themes_dir .. "default/layouts/cornersew.png",
-  prompt_bg = "#a6e3a1",
-  prompt_fg = "#11111b",
-  prompt_bg_cursor = "#a6e3a1",
+  prompt_bg = "#535d6c",
+  prompt_fg = "#ffffff",
+  prompt_bg_cursor = "#ff0000",
   notification_font = "JetBrainsMono Nerd Font 10",
-  notification_bg = "#11111b",
-  notification_fg = "#cdd6f4",
-  notification_border_color = "#a6e3a1",
-  awesome_icon = theme_assets.awesome_icon(dpi(15), "#11111b", "#cdd6f4"),
+  notification_bg = "#222222",
+  notification_fg = "#aaaaaa",
+  notification_border_color = "#ffffff",
+  awesome_icon = theme_assets.awesome_icon(dpi(15), "#535d6c", "#eeeeee"),
   -- wallpaper = get_themes_dir .. "default/background.png",
   wallpaper = "~/wallpaper/wp1.jpg",
   icon_theme = nil,
@@ -146,7 +146,7 @@ awful.layout.layouts = {
   awful.layout.suit.corner.sw,
   awful.layout.suit.corner.se,
 }
-menubar.utils.terminal = "wezterm"
+menubar.utils.terminal = "alacritty"
 
 -----------
 -- WIBAR --
@@ -209,32 +209,32 @@ awful.screen.connect_for_each_screen(function(s)
       spacing = xresources.apply_dpi(16),
       wibox.widget({
         awful.widget.watch([[sh -c "echo  $(top -bn1 | grep Cpu | awk '{print $2}')%"]], 3),
-        fg = "#f38ba8",
+        fg = "#eeeeee",
         widget = wibox.container.background,
       }),
       wibox.widget({
         awful.widget.watch([[sh -c "echo  $(echo $(free -h | grep Mem) | awk '{print $3}')"]], 3),
-        fg = "#fab387",
+        fg = "#eeeeee",
         widget = wibox.container.background,
       }),
       wibox.widget({
         awful.widget.watch([[sh -c "echo 󰁹 $(cat /sys/class/power_supply/BAT1/capacity)%"]], 120),
-        fg = "#a6e3a1",
+        fg = "#eeeeee",
         widget = wibox.container.background,
       }),
       wibox.widget({
         awful.widget.watch([[sh -c "echo  $(echo $(amixer sget Master | grep -o -E '[0-9]+%' | head -1))"]], 1),
-        fg = "#cba6f7",
+        fg = "#eeeeee",
         widget = wibox.container.background,
       }),
       wibox.widget({
         awful.widget.watch([[sh -c "echo  $(($(brightnessctl get)*100/$(brightnessctl max)))%"]], 1),
-        fg = "#f9e2af",
+        fg = "#eeeeee",
         widget = wibox.container.background,
       }),
       wibox.widget({
         awful.widget.watch([[sh -c "echo  $(date +%Y-%m-%d\ %H:%M)"]], 60),
-        fg = "#89b4fa",
+        fg = "#eeeeee",
         widget = wibox.container.background,
       }),
       wibox.widget.systray(),
@@ -251,7 +251,7 @@ local globalkeys = gears.table.join(
     awful.screen.focused().promptbox:run()
   end),
   awful.key({ modkey }, "Return", function()
-    awful.spawn("wezterm")
+    awful.spawn("alacritty")
   end),
   awful.key({ modkey, "Shift" }, "Return", function()
     awful.spawn("emacs")
