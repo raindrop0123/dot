@@ -224,7 +224,7 @@ augroup LOAD_VIM_AIRLINE
   autocmd!
   autocmd BufReadPost,BufEnter * call plug#load('vim-airline')
     \| autocmd! LOAD_VIM_AIRLINE
-    \| let g:airline_extensions = ['branch', 'tabline', 'ale']
+    \| let g:airline_extensions = ['branch', 'tabline']
 augroup END
 
 " INDENTLINE
@@ -451,7 +451,7 @@ augroup LOAD_ASYNCOMPLETE_AND_SNIPPET
     \| if executable('clangd')
     \| call lsp#register_server({
     \ 'name': 'clangd',
-    \ 'cmd': { server_info -> ['clangd', '--background-index', '--clang-tidy'] },
+    \ 'cmd': { server_info -> ['clangd', '-j=12', '--enable-config', '--background-index', '--clang-tidy', '--all-scopes-completion', '--completion-style=detailed', '--header-insertion-decorators', '--limit-references=3000', '--limit-results=350'] },
     \ 'whitelist': ['c', 'cpp']
     \ })
     \| endif
