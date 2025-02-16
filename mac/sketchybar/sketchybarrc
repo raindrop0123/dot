@@ -4,7 +4,7 @@
 
 BAR=(
   potision=top
-  height=30
+  height=24
   color=0xff1e1e2e
   shadow=off
   stiky=on
@@ -16,11 +16,11 @@ sketchybar --bar "${BAR[@]}"
 
 DEFAULT=(
   updates=when_shown
-  icon.font="SF Pro:Bold:13.0"
+  icon.font="SF Pro:Bold:12.0"
   icon.color=0xffcad3f5
   icon.padding_left=3
   icon.padding_right=3
-  label.font="SF Pro:Semibold:13.0"
+  label.font="SF Pro:Semibold:12.0"
   label.color=0xffcad3f5
   label.padding_left=3
   label.padding_right=3
