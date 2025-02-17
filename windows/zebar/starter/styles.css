@@ -1,17 +1,16 @@
 @import 'https://www.nerdfonts.com/assets/css/webfont.css';
 
 i {
-  background: #000000;
-  color: #ffffff;
-  font-size: 12px;
+  background: #1e1e2e;
+  color: #cad3f5;
+  font-size: 11px;
 }
 
 body {
-  background: #000000;
-  color: #ffffff;
+  background: #1e1e2e;
+  color: #cad3f5;
   font-family: 'Segoe UI', 'JetBrainsMono Nerd Font', ui-monospace, monospace;
   font-size: 11px;
-  font-weight: 500;
 }
 
 html,
@@ -21,8 +20,8 @@ body,
 }
 
 #root {
-  background: #000000;
-  color: #ffffff;
+  background: #1e1e2e;
+  color: #cad3f5;
 }
 
 .app {
@@ -50,11 +49,13 @@ body,
 
 /* LEFT */
 .logo {
-  background: #000000;
-  color: #ffffff;
-  font-size: 12px;
-  margin-left: 8px;
-  margin-right: 8px;
+  border: 2px solid #494d64;
+  border-radius: 4px;
+  background: #3c3e4f;
+  color: #a6da95;
+  margin-left: 4px;
+  margin-right: 4px;
+  padding: 4px;
 }
 
 .workspaces {
@@ -63,36 +64,37 @@ body,
 }
 
 .workspace {
-  background: #000000;
-  border: 0;
+  border: 2px solid #494d64;
   border-radius: 4px;
-  color: #808080;
+  background: #3c3e4f;
+  color: #cad3f5;
   cursor: pointer;
-  font-weight: 600;
-  padding: 4px 8px 4px 8px;
+  padding: 4px;
+  margin: 2px;
 
   &.displayed {
-    border: 0;
+    border: 2px solid #494d64;
     border-radius: 4px;
-    background: #000000;
+    background: #3c3e4f;
+    color: #cad3f5;
+    padding: 4px;
   }
 
   &.focused {
-    border: 0;
+    border: 2px solid #494d64;
     border-radius: 4px;
-    background: #ffffff;
-    color: #000000;
+    background: #3c3e4f;
+    color: #ed8796;
+    padding: 4px;
   }
 }
 
 .title {
-  background: #000000;
-  color: #ffffff;
+  background: #1e1e2e;
+  color: #cad3f5;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 12px;
-  font-weight: 600;
   max-width: 100%;
   margin-left: 8px;
   margin-right: 8px;
@@ -100,88 +102,135 @@ body,
 
 /* RIGHT */
 .binding-mode {
-  background: #ffffff;
-  border: 0;
+  border: 2px solid #494d64;
   border-radius: 4px;
-  color: #000000;
-  font-weight: 600;
+  background: #1e1e2e;
+  color: #cad3f5;
   padding: 4px 8px 4px 8px;
   margin-left: 4px;
   margin-right: 4px;
 }
 
 .tiling-direction {
-  background: #ffffff;
-  border: 0;
+  border: 2px solid #494d64;
   border-radius: 4px;
-  color: #000000;
+  background: #1e1e2e;
+  color: #cad3f5;
   cursor: pointer;
-  font-weight: 800;
   line-height: 1;
   padding: 4px 8px 4px 8px;
   margin-left: 4px;
   margin-right: 4px;
 }
 
-.cpu i {
-  background: #000000;
-  color: #ffffff;
-  font-weight: 600;
-  margin-left: 4px;
-  margin-right: 4px;
-}
-
 .cpu {
-  background: #000000;
-  color: #ffffff;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
   margin-left: 4px;
   margin-right: 4px;
+  border: 2px solid #494d64;
+  border-radius: 4px;
+  padding: 4px;
 }
 
-.memory i {
-  background: #000000;
-  color: #ffffff;
-  font-weight: 600;
-  margin-left: 4px;
+.cpu .text {
+  background: #1e1e2e;
+  color: #cad3f5;
+}
+
+.cpu i {
   margin-right: 4px;
+  color: #a6da95;
+}
+
+.cpu i.high {
+  color: #ed8796;
+}
+
+.cpu i.medium {
+  color: #f5a97f;
+}
+
+.cpu i.light {
+  color: #eed49f;
 }
 
 .memory {
-  background: #000000;
-  color: #ffffff;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
   margin-left: 4px;
   margin-right: 4px;
+  border: 2px solid #494d64;
+  border-radius: 4px;
+  padding: 4px;
 }
 
-.battery i {
-  background: #000000;
-  color: #ffffff;
-  font-weight: 600;
-  margin-left: 4px;
+.memory .text {
+  background: #1e1e2e;
+  color: #cad3f5;
+}
+
+.memory i {
   margin-right: 4px;
+  color: #a6da95;
+}
+
+.memory i.high {
+  color: #ed8796;
+}
+
+.memory i.medium {
+  color: #f5a97f;
+}
+
+.memory i.light {
+  color: #eed49f;
 }
 
 .battery {
-  background: #000000;
-  color: #ffffff;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
   margin-left: 4px;
   margin-right: 4px;
+  border: 2px solid #494d64;
+  border-radius: 4px;
+  padding: 4px;
 }
 
-.date i {
-  background: #000000;
-  color: #ffffff;
-  margin-left: 4px;
+.battery .text {
+  background: #1e1e2e;
+  color: #cad3f5;
+}
+
+.battery i {
   margin-right: 4px;
+  color: #ed8796;
+}
+
+.battery i.high {
+  color: #a6da95;
+}
+
+.battery i.medium {
+  color: #eed49f;
+}
+
+.battery i.light {
+  color: #f5a97f;
 }
 
 .date {
-  background: #000000;
-  color: #ffffff;
-  font-weight: 600;
+  background: #1e1e2e;
+  color: #cad3f5;
   margin-left: 4px;
+  margin-right: 4px;
+  border: 2px solid #494d64;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.date i {
+  background: #1e1e2e;
+  color: #cad3f5;
   margin-right: 4px;
 }
