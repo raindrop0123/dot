@@ -233,7 +233,6 @@ sketchybar --add -item volume right --set volume "${VOLUME[@]}" --subscribe volu
 
 ## RAM ###
 RAM=(
-  icon=􀐞
   icon.padding_left=8
   label.padding_right=8
   background.color=0x603c3e4f
@@ -243,26 +242,29 @@ RAM=(
     RAM_PERCENTAGE=\$(memory_pressure | grep \"System-wide memory free percentage:\" | awk '{print 100-\$5\"\"}')
     case \"\$RAM_PERCENTAGE\" in
       9[0-9]|100)
+        ICON=􀐟
         COLOR=0xffed8796
         ;;
       [6-8][0-9])
+        ICON=􀐟
         COLOR=0xfff5a97f
         ;;
       [3-5][0-9])
+        ICON=􀐟
         COLOR=0xffeed49f
         ;;
       *)
+        ICON=􀐞
         COLOR=0xffa6da95
         ;;
     esac
-    sketchybar --set \"\$NAME\" label=\"\$RAM_PERCENTAGE%\" icon.color=\"\$COLOR\"
+    sketchybar --set \"\$NAME\" label=\"\$RAM_PERCENTAGE%\" icon=\"\$ICON\" icon.color=\"\$COLOR\"
   "
 )
 sketchybar --add item ram right --set ram "${RAM[@]}"
 
 ## CPU ##
 CPU=(
-  icon=􀫥
   icon.padding_left=8
   label.padding_right=8
   background.color=0x603c3e4f
@@ -272,19 +274,23 @@ CPU=(
     CPU_PERCENTAGE=\$(top -l 2 | grep -E \"^CPU\" | tail -1 | awk '{ printf(\"%d\", \$3 + \$5) }')
     case \"\$CPU_PERCENTAGE\" in
       9[0-9]|100)
+        ICON=􀧓
         COLOR=0xffed8796
         ;;
       [6-8][0-9])
+        ICON=􀧓
         COLOR=0xfff5a97f
         ;;
       [3-5][0-9])
+        ICON=􀧓
         COLOR=0xffeed49f
         ;;
       *)
+        ICON=􀫥
         COLOR=0xffa6da95
         ;;
     esac
-    sketchybar --set \$NAME label=\"\$CPU_PERCENTAGE%\" icon.color=\"\$COLOR\"
+    sketchybar --set \$NAME label=\"\$CPU_PERCENTAGE%\" icon=\"\$ICON\" icon.color=\"\$COLOR\"
   "
 )
 sketchybar --add item cpu right --set cpu "${CPU[@]}"
