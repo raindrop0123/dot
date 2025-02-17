@@ -68,7 +68,7 @@
                 <div className="title">
                   {(() => {
                     if (output.glazewm.focusedContainer?.type === 'window') {
-                      return output.glazewm.focusedContainer.title.length > 80 ? output.glazewm.focusedContainer.title.slice(0, 80) + '...' : output.glazewm.focusedContainer.title
+                      return output.glazewm.focusedContainer.title.length > 80 ? output.glazewm.focusedContainer.title.slice(0, 100) + '...' : output.glazewm.focusedContainer.title
                     } else {
                       return ' '
                     }
@@ -100,24 +100,24 @@
             {
               output.cpu && (
                 <div className="cpu">
-                  <i className="nf nf-oct-cpu"></i>
-                  {Math.round(output.cpu.usage)}%
+                  <i className={`nf nf-oct-cpu ${output.cpu.usage > 90 ? 'high' : output.cpu.usage > 60 ? 'medium' : output.cpu.usage > 30 ? 'light' : ''}`}></i>
+                  <span className="text">{Math.round(output.cpu.usage)}%</span>
                 </div>
               )
             }
             {
               output.memory && (
                 <div className="memory">
-                  <i className="nf nf-oct-stack"></i>
-                  {Math.round(output.memory.usage)}%
+                  <i className={`nf nf-oct-stack ${output.memory.usage > 90 ? 'high' : output.memory.usage > 60 ? 'medium' : output.memory.usage > 30 ? 'light' : ''}`}></i>
+                  <span className="text">{Math.round(output.memory.usage)}%</span>
                 </div>
               )
             }
             {
               output.battery && (
                 <div className="battery">
-                  <i className="nf nf-md-battery"></i>
-                  {Math.round(output.battery.chargePercent)}%
+                  <i className={`nf nf-oct-battery ${output.battery.chargePercent > 90 ? 'high' : output.battery.chargePercent > 60 ? 'medium' : output.battery.chargePercent > 30 ? 'light' : ''}`}></i>
+                  <span className="text">{Math.round(output.battery.chargePercent)}%</span>
                 </div>
               )
             }
