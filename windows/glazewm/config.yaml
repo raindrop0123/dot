@@ -17,10 +17,10 @@ gaps:
   scale_with_dpi: true
   inner_gap: '4px'
   outer_gap:
-    top: '32px'
-    right: '2px'
-    bottom: '2px'
-    left: '2px'
+    top: '40px'
+    right: '4px'
+    bottom: '4px'
+    left: '4px'
 
 window_effects:
   focused_window:
