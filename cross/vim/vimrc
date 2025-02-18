@@ -466,6 +466,22 @@ augroup LOAD_ASYNCOMPLETE_AND_SNIPPET
     \ 'whitelist': ['python']
     \ })
     \| endif
+    \| if executable('typescript-language-server')
+    \| call lsp#register_server({
+    \ 'name': 'javascript support using typescript-language-server',
+    \ 'cmd': { server_info -> [&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+    \ 'root_uri': { server_info -> lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..')) },
+    \ 'whitelist': ['javascript', 'javascript.jsx', 'javascriptreact', 'typescript', 'typescript.tsx', 'typescriptreact']
+    \ })
+    \| endif
+    \| if executable('vim-language-server')
+    \| call lsp#register_server({
+    \ 'name': 'vim-language-server',
+    \ 'cmd': {server_info -> ['vim-language-server', '--stdio']},
+    \ 'whitelist': ['vim'],
+    \ 'initialization_options': { 'vimruntime': $VIMRUNTIME, 'runtimepath': &rtp }
+    \ })
+    \| endif
 augroup END
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
