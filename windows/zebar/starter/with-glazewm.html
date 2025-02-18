@@ -24,6 +24,10 @@
       glazewm: {
         type: 'glazewm'
       },
+      network: {
+        type: 'network',
+        refreshInterval: '2000'
+      },
       cpu: {
         type: 'cpu'
       },
@@ -130,6 +134,24 @@
                 <div className="battery">
                   <i className={`nf nf-oct-battery ${output.battery.chargePercent > 90 ? 'high' : output.battery.chargePercent > 60 ? 'medium' : output.battery.chargePercent > 30 ? 'light' : ''}`}></i>
                   <span className="text">{Math.round(output.battery.chargePercent)}%</span>
+                </div>
+              )
+            }
+            {
+              output.network && (
+                <div className="network_down">
+                  <i className="nf-fa-circle_down"></i>
+                  {Math.round(output.network.traffic.received.siValue)}
+                  {output.network.traffic.received.siUnit}
+                </div>
+              )
+            }
+            {
+              output.network && (
+                <div className="network_up">
+                  <i className="nf-fa-circle_up"></i>
+                  {Math.round(output.network.traffic.transmitted.siValue)}
+                  {output.network.traffic.transmitted.siUnit}
                 </div>
               )
             }
