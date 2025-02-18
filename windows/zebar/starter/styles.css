@@ -134,6 +134,38 @@ body,
   margin-right: 4px;
 }
 
+.network_down {
+  background: #1e1e2e;
+  color: #cad3f5;
+  margin-left: 4px;
+  margin-right: 4px;
+  border: 2px solid #494d64;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.network_down i {
+  background: #1e1e2e;
+  color: #8aadf4;
+  margin-right: 8px;
+}
+
+.network_up {
+  background: #1e1e2e;
+  color: #cad3f5;
+  margin-left: 4px;
+  margin-right: 4px;
+  border: 2px solid #494d64;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.network_up i {
+  background: #1e1e2e;
+  color: #f4dbd6;
+  margin-right: 8px;
+}
+
 .cpu {
   display: inline-flex;
   align-items: center;
