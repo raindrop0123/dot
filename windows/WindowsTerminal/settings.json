@@ -76,7 +76,7 @@
                 "font": {
                     "cellHeight": "1.618",
                     "face": "'JetBrainsMono Nerd Font'",
-                    "size": 8
+                    "size": 9
                 },
                 "guid": "{96cba0a6-05df-49c9-974a-a718d7b9976f}",
                 "hidden": false,
@@ -163,40 +163,40 @@
     "schemes": [
         {
             "name": "MyTheme",
-            "background": "#000000",
-            "black": "#000000",
-            "blue": "#2fafff",
-            "brightBlack": "#1e1e1e",
-            "brightBlue": "#00bcff",
-            "brightCyan": "#6ae4b9",
-            "brightGreen": "#00c06f",
-            "brightPurple": "#b6a0ff",
-            "brightRed": "#ff7f86",
-            "brightWhite": "#ffffff",
-            "brightYellow": "#dfaf7a",
-            "cursorColor": "#ff5f59",
-            "cyan": "#00d3d0",
-            "foreground": "#ffffff",
-            "green": "#44bc44",
-            "purple": "#feacd0",
-            "red": "#ff5f59",
-            "selectionBackground": "#2fafff",
-            "white": "#989898",
-            "yellow": "#d0bc00"
+            "cursorColor": "#F5E0DC",
+            "selectionBackground": "#585B70",
+            "background": "#11111b",
+            "foreground": "#CDD6F4",
+            "black": "#45475A",
+            "red": "#F38BA8",
+            "green": "#A6E3A1",
+            "yellow": "#F9E2AF",
+            "blue": "#89B4FA",
+            "purple": "#F5C2E7",
+            "cyan": "#94E2D5",
+            "white": "#BAC2DE",
+            "brightBlack": "#585B70",
+            "brightRed": "#F38BA8",
+            "brightGreen": "#A6E3A1",
+            "brightYellow": "#F9E2AF",
+            "brightBlue": "#89B4FA",
+            "brightPurple": "#F5C2E7",
+            "brightCyan": "#94E2D5",
+            "brightWhite": "#A6ADC8"
         }
     ],
     "themes": [
         {
             "name": "MyTheme",
             "tab": {
-                "background": "#000000",
+                "background": "#11111b",
                 "iconStyle": "monochrome",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
             "tabRow": {
-                "background": "#000000",
-                "unfocusedBackground": "#000000"
+                "background": "#11111b",
+                "unfocusedBackground": "#11111b"
             },
             "window": {
                 "applicationTheme": "dark",
